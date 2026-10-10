@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.10.0 — generating functions and specified binary64 execution
+
+Cancellation-aware rational OGF compiler with minimal sequence witnesses, exact recurrence/state extraction, arithmetic-progression queries and supported Cauchy/binomial remainders. Portable integer binary64 decoding, rounding, exact dot products and stored-value power decisions. Uniform matrix-loading and execution-error bounds for a guarded round-once runtime compose with finite-model and infinite-source packets. Eight new CLI kinds, eight specs and deterministic receipts. The execution guarantee is finite-horizon and protocol-specific; no hardware speedup or arbitrary BLAS certification is claimed.
+
 ## 0.9.0 — infinite spectral sources
 
 Explicit Ramanujan logarithmic moments, rational power-moment families and an infinite heat rod compile to rational modal dynamics with all-time omitted-mode and coefficient budgets. All-time selected-mode compression and arbitrary finite-horizon composition account for both stages. Outward rational special-function enclosures, two-cusp continued-fraction evaluation, guarded exact execution, four CLI kinds, six specs and a reproducible analytic-source demonstration are added. All 188 tests pass with numerical extras; 170 pass and eighteen skip without them. No generic infinite-source, intersample projection or physical-calibration claim is implied.

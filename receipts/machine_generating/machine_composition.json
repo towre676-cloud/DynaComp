@@ -1,0 +1,288 @@
+{
+  "schema": "dynacomp.machine-composition/1",
+  "source": {
+    "schema": "dynacomp.validated-box/1",
+    "model": {
+      "n": 2,
+      "entries": [
+        [
+          0,
+          0,
+          "1/2"
+        ],
+        [
+          0,
+          1,
+          "1/8"
+        ],
+        [
+          1,
+          1,
+          "1/3"
+        ]
+      ],
+      "B": [
+        [
+          "0"
+        ],
+        [
+          "1"
+        ]
+      ],
+      "C": [
+        [
+          "1",
+          "0"
+        ]
+      ]
+    },
+    "E": [
+      [
+        "1",
+        "0"
+      ]
+    ],
+    "G": [
+      [
+        "1/2"
+      ]
+    ],
+    "H": [
+      [
+        "0"
+      ]
+    ],
+    "D": [
+      [
+        "1"
+      ]
+    ],
+    "initial_center": [
+      "0",
+      "0"
+    ],
+    "initial_radius": [
+      "1",
+      "1"
+    ],
+    "input_radii": [
+      [
+        "1"
+      ],
+      [
+        "1"
+      ],
+      [
+        "1"
+      ]
+    ],
+    "input_centers": [
+      [
+        "0"
+      ],
+      [
+        "0"
+      ],
+      [
+        "0"
+      ]
+    ],
+    "tolerance": "1/2",
+    "require_contraction": true,
+    "reduced_contraction_certified": true,
+    "status": "tolerance_met",
+    "rank": 1,
+    "certificate": {
+      "schema": "dynacomp.dyadic-box-bracket/1",
+      "bits": 64,
+      "output_upper": [
+        [
+          "0"
+        ],
+        [
+          "1/8"
+        ],
+        [
+          "1056844712556276395/4611686018427387904"
+        ],
+        [
+          "5444351549532332945/18446744073709551616"
+        ]
+      ],
+      "output_attained_lower": [
+        [
+          "0"
+        ],
+        [
+          "1/8"
+        ],
+        [
+          "2113689425112552789/9223372036854775808"
+        ],
+        [
+          "5444351549532332941/18446744073709551616"
+        ]
+      ],
+      "worst_upper": "5444351549532332945/18446744073709551616",
+      "worst_attained_lower": "5444351549532332941/18446744073709551616",
+      "witness": {
+        "time": 3,
+        "output": 0,
+        "orientation": 1,
+        "x0": [
+          "0",
+          "1"
+        ],
+        "inputs": [
+          [
+            "1"
+          ],
+          [
+            "1"
+          ],
+          [
+            "0"
+          ]
+        ],
+        "absolute_error_at_least": "5444351549532332941/18446744073709551616"
+      },
+      "claim": "encloses the sharp worst error; lower endpoint reached or exceeded by the supplied corner; finite horizon; evolution rounding excluded"
+    },
+    "precision_history": [
+      {
+        "bits": 64,
+        "lower": "5444351549532332941/18446744073709551616",
+        "upper": "5444351549532332945/18446744073709551616"
+      }
+    ],
+    "claim": "supplied encoder and reduced model accepted over stated boxes; no EV identity or physical-model validation implied"
+  },
+  "execution": {
+    "schema": "dynacomp.binary64-execution/1",
+    "E": [
+      [
+        "1",
+        "0"
+      ]
+    ],
+    "G": [
+      [
+        "1/2"
+      ]
+    ],
+    "H": [
+      [
+        "0"
+      ]
+    ],
+    "D": [
+      [
+        "1"
+      ]
+    ],
+    "initial_center": [
+      "0",
+      "0"
+    ],
+    "initial_radius": [
+      "1",
+      "1"
+    ],
+    "input_centers": [
+      [
+        "0"
+      ],
+      [
+        "0"
+      ],
+      [
+        "0"
+      ]
+    ],
+    "input_radii": [
+      [
+        "1"
+      ],
+      [
+        "1"
+      ],
+      [
+        "1"
+      ]
+    ],
+    "loaded_words": {
+      "E": [
+        [
+          4607182418800017408,
+          0
+        ]
+      ],
+      "G": [
+        [
+          4602678819172646912
+        ]
+      ],
+      "H": [
+        [
+          0
+        ]
+      ],
+      "D": [
+        [
+          4607182418800017408
+        ]
+      ]
+    },
+    "state_error_upper": [
+      [
+        "8796093022209/79228162514264337593543950336"
+      ],
+      [
+        "4398046511105/39614081257132168796771975168"
+      ],
+      [
+        "3298534883329/39614081257132168796771975168"
+      ],
+      [
+        "2199023255553/39614081257132168796771975168"
+      ]
+    ],
+    "output_error_upper": [
+      [
+        "8796093022209/39614081257132168796771975168"
+      ],
+      [
+        "13194139533315/79228162514264337593543950336"
+      ],
+      [
+        "8796093022211/79228162514264337593543950336"
+      ],
+      [
+        "5497558138883/79228162514264337593543950336"
+      ]
+    ],
+    "worst_execution_upper": "8796093022209/39614081257132168796771975168",
+    "tolerance": "1/100",
+    "status": "tolerance_met",
+    "contract": "finite stored binary64 inputs; integer exact dot; one RN-even rounding per row; +0 for exact zero",
+    "scope": "uniform deviation from the supplied rational reduced dynamics; finite horizon; includes coefficient loading"
+  },
+  "tolerance": "1/100",
+  "combined_output_upper": [
+    [
+      "8796093022209/39614081257132168796771975168"
+    ],
+    [
+      "9903520314283055393332527107/79228162514264337593543950336"
+    ],
+    [
+      "18156453909518919500340133891/79228162514264337593543950336"
+    ],
+    [
+      "23383311853168299590916505603/79228162514264337593543950336"
+    ]
+  ],
+  "combined_upper": "23383311853168299590916505603/79228162514264337593543950336",
+  "status": "not_certified",
+  "scope": "source/model error plus actual specified binary64 execution; finite horizon"
+}

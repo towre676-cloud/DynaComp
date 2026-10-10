@@ -34,4 +34,9 @@ from .spectral import (compile_spectral, replay_spectral, search_spectral,
 from .spectral import compress_spectral_modes, replay_spectral_subset, simulate_spectral
 from .ramanujan import ramanujan_value, replay_ramanujan_value
 
-__version__ = "0.9.0"
+from .generating import (RationalGF, from_recurrence, from_state, periodic_gf,
+                         binomial_tail, replay_generating)
+from .machine import (certify_execution, replay_execution, compose_execution,
+                      replay_machine_composition, Binary64Runtime)
+
+__version__ = "0.10.0"

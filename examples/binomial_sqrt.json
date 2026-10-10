@@ -1,0 +1,6 @@
+{
+  "kind": "binomial_tail",
+  "alpha": "1/2",
+  "argument": "1/2",
+  "count": 40
+}

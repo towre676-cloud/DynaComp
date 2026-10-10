@@ -27,10 +27,31 @@ from .validated import validated_box,replay_validated
 from .spectral import compile_spectral, compose_spectral, replay_spectral, replay_spectral_composition
 from .ramanujan import ramanujan_value, replay_ramanujan_value
 from .spectral import compress_spectral_modes, replay_spectral_subset
+from .generating import RationalGF, from_recurrence, from_state, binomial_tail, replay_generating
+from .binary64 import power_certificate, replay_power
+from .machine import (certify_execution, compose_execution, replay_execution,
+                      replay_machine_composition)
 
 
 def compile_spec(spec):
     kind = spec["kind"]
+    if kind == 'rational_gf':
+        return RationalGF(spec['numerator'], spec['denominator']).packet()
+    if kind == 'recurrence_gf':
+        return from_recurrence(spec['coefficients'], spec['initial']).packet()
+    if kind == 'state_gf':
+        return from_state(spec['A'], spec['initial'], spec['C']).packet()
+    if kind == 'binomial_tail':
+        return binomial_tail(spec['alpha'], spec['argument'], spec['count'])
+    if kind == 'rational_gf_tail':
+        return RationalGF(spec['numerator'], spec['denominator']).tail(spec['argument'], spec['radius'], spec['count'])
+    if kind == 'binary64_power':
+        return power_certificate(spec['word'], spec['degree'])
+    if kind == 'binary64_execution':
+        return certify_execution(*(spec[k] for k in ('E','G','H','D')), spec['initial_center'],
+                                 spec['initial_radius'], spec['input_radii'], spec['tolerance'], spec.get('input_centers'))
+    if kind == 'machine_composition':
+        return compose_execution(compile_spec(spec['source']), spec['tolerance'])
     if kind == "spectral_subset":
         return compress_spectral_modes(compile_spec(spec["source"]), spec["keep"], spec["tolerance"])
     if kind == "ramanujan_value":
@@ -111,6 +132,14 @@ def compile_spec(spec):
 
 
 def replay(packet):
+    if packet.get('schema') in ('exact.rational-gf/1','exact.rational-gf-tail/1','exact.binomial-tail/1'):
+        return replay_generating(packet)
+    if packet.get('schema') == 'exact.binary64-power/1':
+        return replay_power(packet)
+    if packet.get('schema') == 'dynacomp.binary64-execution/1':
+        return replay_execution(packet)
+    if packet.get('schema') == 'dynacomp.machine-composition/1':
+        return replay_machine_composition(packet)
     if packet.get("schema") == "dynacomp.spectral-subset/1":
         return replay_spectral_subset(packet)
     if packet.get("schema") == "dynacomp.ramanujan-value/1":

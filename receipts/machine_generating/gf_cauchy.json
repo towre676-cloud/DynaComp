@@ -1,0 +1,40 @@
+{
+  "schema": "exact.rational-gf-tail/1",
+  "source": {
+    "schema": "exact.rational-gf/1",
+    "numerator": [
+      "1",
+      "2"
+    ],
+    "denominator": [
+      "1",
+      "-1/3"
+    ],
+    "dimension": 2,
+    "A": [
+      [
+        "0",
+        "1"
+      ],
+      [
+        "0",
+        "1/3"
+      ]
+    ],
+    "initial": [
+      "1",
+      "7/3"
+    ],
+    "C": [
+      "1",
+      "0"
+    ],
+    "hankel_determinant": "-14/3",
+    "indexing": "a_n = C A^n initial, n >= 0; no input feedthrough"
+  },
+  "argument": "1/4",
+  "radius": "1/2",
+  "count": 20,
+  "majorant": "12/5",
+  "absolute_tail_upper": "3/655360"
+}

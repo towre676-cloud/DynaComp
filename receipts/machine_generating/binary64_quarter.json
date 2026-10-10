@@ -1,0 +1,12 @@
+{
+  "schema": "exact.binary64-power/1",
+  "word": 4598175219545276416,
+  "hex": "3fd0000000000000",
+  "degree": 2,
+  "classification": "normal",
+  "odd_significand": 1,
+  "exponent": -2,
+  "is_power": true,
+  "root": "1/2",
+  "scope": "exact rational value stored in the finite binary64 word"
+}

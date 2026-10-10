@@ -1,0 +1,33 @@
+{
+  "schema": "exact.rational-gf/1",
+  "numerator": [
+    "0",
+    "1"
+  ],
+  "denominator": [
+    "1",
+    "-1",
+    "-1"
+  ],
+  "dimension": 2,
+  "A": [
+    [
+      "0",
+      "1"
+    ],
+    [
+      "1",
+      "1"
+    ]
+  ],
+  "initial": [
+    "0",
+    "1"
+  ],
+  "C": [
+    "1",
+    "0"
+  ],
+  "hankel_determinant": "-1",
+  "indexing": "a_n = C A^n initial, n >= 0; no input feedthrough"
+}

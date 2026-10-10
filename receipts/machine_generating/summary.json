@@ -1,0 +1,19 @@
+{
+  "heat_64_to_3": {
+    "source_model_upper": "705062889476739203167/151115727451828646838272",
+    "execution_upper": "47250228118815/39614081257132168796771975168",
+    "combined_upper": "369656012198018936104361717/79228162514264337593543950336",
+    "combined_upper_approx": 0.004665714822446697,
+    "execution_upper_approx": 1.1927634472226466e-15,
+    "tolerance": "1/100",
+    "status": "tolerance_met",
+    "last_output": 0.4865621243437976,
+    "horizon": 20,
+    "runtime": "integer products and exact accumulation; one final RN-even per row"
+  },
+  "cancellation": {
+    "sequential": 0.0,
+    "exact_dot_round_once": 1.0,
+    "claim": "arithmetic behavior; no runtime speedup benchmark"
+  }
+}

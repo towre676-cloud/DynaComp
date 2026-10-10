@@ -1,0 +1,85 @@
+{
+  "kind": "machine_composition",
+  "source": {
+    "kind": "validated_box",
+    "model": {
+      "n": 2,
+      "entries": [
+        [
+          0,
+          0,
+          "1/2"
+        ],
+        [
+          0,
+          1,
+          "1/8"
+        ],
+        [
+          1,
+          1,
+          "1/3"
+        ]
+      ],
+      "B": [
+        [
+          0
+        ],
+        [
+          1
+        ]
+      ],
+      "C": [
+        [
+          1,
+          0
+        ]
+      ]
+    },
+    "E": [
+      [
+        1,
+        0
+      ]
+    ],
+    "G": [
+      [
+        "1/2"
+      ]
+    ],
+    "H": [
+      [
+        0
+      ]
+    ],
+    "D": [
+      [
+        1
+      ]
+    ],
+    "initial_center": [
+      0,
+      0
+    ],
+    "initial_radius": [
+      1,
+      1
+    ],
+    "input_radii": [
+      [
+        1
+      ],
+      [
+        1
+      ],
+      [
+        1
+      ]
+    ],
+    "tolerance": "1/2",
+    "options": {
+      "require_contraction": true
+    }
+  },
+  "tolerance": "1/100"
+}

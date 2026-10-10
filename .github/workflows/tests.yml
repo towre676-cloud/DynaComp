@@ -20,3 +20,4 @@ jobs:
       - run: python applications/switching_scenarios/run_demo.py
       - run: python examples/thermal_forever.py
       - run: python examples/infinite_spectral.py
+      - run: python examples/machine_generating.py
