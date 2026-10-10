@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.7.1 — external engineering-model benchmark
+
+Pinned SLICOT heat, PDE and building models; rational box acceptance and independent replay of six compressed packets; full and balanced-truncation baselines at ranks four, eight and twelve; retained failures, raw timings, cold-start costs and acquisition hashes. All-time v0.7 work is incorporated into the complete monograph. All 148 tests pass.
+
 ## 0.7.0 — 10 October 2026
 
 - `forever`: all-time output-error brackets for persistent input boxes. Sharp dyadic sums with rounding tracked in the dual norm of a certified metric, a geometric tail, and an attained lower bound that can refute a tolerance. Also steady-state moment directions and all-time enrichment.

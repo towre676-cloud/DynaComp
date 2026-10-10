@@ -1,6 +1,6 @@
 # Start here
 
-This archive contains the complete DynaComp 0.7.0 source, examples, mathematical tests, retained receipts, GitHub Actions configuration and monograph. Unzip it, open a terminal in `dynamics-compiler`, and run `python -m pip install -e .`. On Windows the Python launcher may be `py`; use `py -m pip install -e .` and substitute `py` for the example commands if necessary.
+This archive contains the complete DynaComp 0.7.1 source, examples, mathematical tests, retained receipts, GitHub Actions configuration and monograph. Unzip it, open a terminal in `dynamics-compiler`, and run `python -m pip install -e .`. On Windows the Python launcher may be `py`; use `py -m pip install -e .` and substitute `py` for the example commands if necessary.
 
 Run `python -m unittest discover -s tests -v` to exercise the mathematical regressions, then `python examples/run_examples.py` and `python examples/run_adaptive.py` to regenerate the deterministic receipts. Read `README.md`, `docs/MONOGRAPH.md` and `docs/EXTENSIONS.md`. The heated-plate application runs with `python examples/thermal_plate.py`. The optional performance demonstration needs NumPy and runs with `python examples/benchmark_ring.py`; its timing receipt is machine-dependent.
 
@@ -13,3 +13,5 @@ Version 0.5 adds the thermal scenario workbench. Run `python applications/therma
 Version 0.6 adds changing-parameter acceptance and reusable execution. Run `python applications/switching_scenarios/run_demo.py` for the sharp robust plan, and read its application README for `PreparedSwitching`. The optional benchmark compares approximate and exact plans at the same short horizon and an exact plan at a long horizon. `docs/MONOGRAPH.md` incorporates the complete 0.6 derivation.
 
 Run `python examples/thermal_forever.py` to test whether the heated-plate guarantee survives for all time; read `docs/FOREVER.md`.
+
+Version 0.7.1 adds the external SLICOT benchmark. See `benchmarks/README.md` for pinned automatic acquisition and execution. The complete results, including rejected building models and expensive startup costs, are in `docs/EXTERNAL_BENCHMARK.md`. Source MAT files remain upstream and are not included in this archive.

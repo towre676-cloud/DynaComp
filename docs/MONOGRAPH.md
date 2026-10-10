@@ -312,3 +312,96 @@ These results show why a smaller representation is not automatically the better 
 The suite now has 131 methods. New tests compare the count-lattice result with every mode word and every state/input box corner on twelve random commuting models, check a mode-order forcing counterexample, compare noncommuting enumeration with direct word evaluation, exercise interior convex weights, verify the eighty-step exact shortcut, reject forged packets and incomplete budget results, test projection-induced noncommutation, check reusable/shared-field execution and directed membership, and round-trip the new CLI specification. All earlier retained receipts regenerate unchanged except additive summary entries.
 
 The remaining mathematical fronts include noncommuting long-horizon sharp search, correlated input/state domains, approximate guarantees for nonlinear or spatially uncertain coefficient families, multivariate rank stratification and validated numerical evolution. The remaining product front is measured customer fit. This release makes changing-parameter assurance and reusable scenario execution concrete without claiming a universal speedup or an optimal representation search.
+
+
+---
+
+# DynaComp 0.7: all-time guarantees, exact stability and correlated domains
+
+Versions 0.5 and 0.6 compute sharp worst-case reduction errors over boxes (and, in 0.6, under switching) for a finite horizon. That raises an obvious question it cannot answer: **does the guarantee survive after the horizon?** Version 0.7 answers it exactly for persistent input boxes. It supplies the stability machinery that answer needs, and it extends sharp bounds from boxes to correlated domains. As before, discovery may use floating point, but acceptance never does.
+
+## The headline result
+
+The 0.5 heated-plate workbench certifies a nine-state model of the 144-state plate. Its corner-mean error stays below 0.1 for twenty steps, for every initial field in [18,22] and every heater sequence in [0,2]. `examples/thermal_forever.py` keeps the same boxes and removes the horizon:
+
+| Model | Twenty-step sharp bound | All-time worst error |
+|---|---|---|
+| Nine-state, finite-horizon enrichment (0.5) | 0.0828 | **refuted at t = 21** (error ≥ 0.105); bracketed in **[3.26665003, 3.26665003]**, attained near t = 121 |
+| Seven-state, all-time enrichment (0.7) | — | **certified ≤ 0.0998 for every t ≥ 0** (bracket [0.0739, 0.0998]) |
+
+The finite-horizon model was never wrong about its first twenty steps; it simply says nothing about later ones. Its error under a constant nominal heater converges to an exactly computed 0.389. With an adversarial bang-bang heater word, the error reaches 3.27. An independent binary64 simulation of the 144-state plate under the sign-pattern witness reproduces 3.26665003 to nine digits. The all-time enricher mixes target pullbacks with steady-state *moment* directions C(I − A)⁻ʲ, and with seven states it certifies the tolerance for every future time.
+
+## All-time brackets
+
+`all_time_bound` works on the exact observable quotient (E_o, G_o, H_o, D_o) of the full model, so the full and quotient outputs agree exactly. It stacks w = (E_o x, z) with A_w = diag(G_o, G), B_w = [H_o; H] and C_w = [D_o, −D]; the error is then e_t = C_w w_t. For a constant input centre a, the steady state is w* = (I − A_w)⁻¹B_w a and the steady error is e* = C_w w*. Let d₀ = lift(c) − w* and R_t = C_w A_wᵗ. The exact supremum at time t, over the initial box (radius r) and every input word in the box (radius b), is
+
+S_t = |e* + R_t d₀| + Σ_k |R_t lift_k| r_k + Σ_{s<t} Σ_k |R_s B_w,k| b_k,
+
+attained by a sign-pattern scenario. This is the 0.5 kernel identity, rewritten in the quotient.
+
+**Sharp part (t ≤ T).** The rows R_t are propagated in dyadic arithmetic with 2⁻⁶⁴ resolution. Naive interval arithmetic would grow its radii like |A_w|ᵗ, which can diverge even for a stable A_w. DynaComp instead tracks the rounding error in the *dual* norm of a certified quadratic metric. If A_wᵀPA_w ⪯ γP, then A_w P⁻¹ A_wᵀ ⪯ γP⁻¹, so row errors contract by ρ = √γ, and the accumulated rounding error stays below its per-step size divided by (1 − ρ). Each functional R_t v is therefore enclosed within the computed value ± η_t‖v‖_P, and every term of S_t gets a rigorous upper and lower bound.
+
+**Tail (t > T).** Every remaining term is bounded using |R_t v| ≤ κρᵗ‖v‖_P, where κ² = c P⁻¹ cᵀ. This gives
+
+S_t ≤ |e*| + Σ_{s<T} |R_s B_w| b + κρᵀ (‖d₀‖_P + ν_x + β/(1 − ρ)),
+
+which holds uniformly for all t ≥ T. The non-sharp part decays geometrically, so the bracket closes as T grows. The loop stops when it certifies the tolerance, when it refutes it, or when the non-sharp part falls below a slack (1e−6 by default).
+
+**Refutation.** The lower bound is an attained value: it bounds S_t from below, and S_t is reached by an admissible scenario. If it exceeds the tolerance, the tolerance is false, not merely uncertified. The result is a statement about the model, independent of any proof technique.
+
+**Repair.** `moment_rows` computes C(I − A)⁻ʲ on the exact quotient. Including the first moment in the encoder makes the reduced steady-state gain exact, so e* = 0. This follows from the standard left-Krylov moment-matching argument with any V such that EV = I, and a regression test checks it. `all_time_enrichment` lets the next moment and the next pullback compete each round, keeping whichever has the smaller lower bound. Candidates that fail are refuted early, so they are cheap to reject.
+
+**Scope.** The bracket covers every t ≥ 0, every initial state in the box, and every input sequence that stays in a constant box forever. Both the quotient and the reduced dynamics must admit a certified metric; otherwise the result is `no_metric`, and finite-horizon certificates still apply. Replay checks P ≻ 0 and γP − A_wᵀPA_w ≻ 0 exactly, then recomputes the deterministic bracket. The floating-point Smith proposal is deterministic on a given platform. On another platform it may round differently, which would yield a different but equally valid P.
+
+## Exact stability decisions and quadratic metrics
+
+`stability.py` replaces the diagonal-only search of 0.1 with complete decisions and general metrics.
+
+* **Discrete time.** `schur_stable` computes the characteristic polynomial over Q by Faddeev–LeVerrier and applies the Schur–Cohn recursion. The recursion reduces the polynomial to a primitive integer polynomial at each step, which keeps coefficients bounded. No eigenvalue is ever approximated.
+* **Continuous time.** `hurwitz_stable` applies the Cayley transform (I − A)⁻¹(I + A), which maps the open left half-plane onto the open unit disk, and then the same recursion.
+* **Certificates.** `quadratic_certificate` proposes P by floating-point Smith iteration on A/s. The scale s is chosen just above the estimated spectral radius, so that AᵀPA ⪯ s²(P − I) and γ approaches ρ(A)². The proposal is rationalized and accepted only through exact Sylvester (LDLᵀ pivot) tests of P ≻ 0 and γP − AᵀPA ≻ 0, with the smallest dyadic γ found by bisection. For the nonnormal matrix [[1/2, 8], [0, 1/2]], γ = 0.275 against an optimum of 0.25; the 0.1 diagonal search reported a factor above one.
+* **Continuous certificates.** `continuous_certificate` checks AᵀP + PA ≺ 0 directly.
+* **Switching.** `common_quadratic_certificate` searches for one P that contracts every mode, which proves stability under arbitrary switching. A pair of individually stable shear modes whose product is unstable is correctly left uncertified. Failure never claims instability.
+
+Two independent routes check these claims. The randomized tests solve the Lyapunov equation exactly as an n²-variable rational linear system, and confirm the Lyapunov theorem's verdict (a unique positive definite solution exists exactly when the matrix is stable) agrees with Schur–Cohn and Routh-equivalent decisions on 280 random matrices. Every stable matrix in the certificate corpus received a certificate.
+
+## Correlated domains
+
+`sharp_zonotope_bound` replaces independent boxes with zonotopes over the whole scenario (x₀, u₀, …, u_{T−1}): a centre plus Σ ξ_g w_g with |ξ_g| ≤ 1. A generator may couple any coordinates and any times. Examples include one ambient offset shared by every cell, a heater held at one unknown level, or two heaters sharing a power budget. Because the error is linear in the scenario, its exact supremum is |L(centre)| + Σ_g |L(w_g)|, and the sign pattern that attains it is stored and executed during replay. Boxes are the special case of one generator per coordinate and time; a randomized test checks that the two give identical bounds, and another checks the result against exhaustive vertex enumeration.
+
+Correlation should be reported honestly: in these diffusive examples the gain is modest. On the plate's twenty-step model, replacing independent ±2 cell uncertainty with a shared ±2 offset lowers the initial-state contribution from 0.0103 to 0.0072. The long-run failure above is driven by the mean initial field and by steady-state gain, not by input correlation, which is why moment directions repair it.
+
+## Costs and limits
+
+On the development machine, the thermal refutation took about 14 s, the converged bracket about 17 s (2,456 steps), all-time enrichment about 38 s, and independent replay about 18 s. Most of the time goes to the exact metric of the 17-state quotient, which is cached per model. The bracket needs constant input boxes; time-varying or correlated persistent domains, parameter-uncertain all-time bounds and continuous-time all-time bounds remain open. A common quadratic metric is sufficient for switching stability but not necessary. Nothing here validates the synthetic plate against a physical one.
+
+
+---
+
+# External engineering-model benchmark: DynaComp 0.7.1
+
+The external benchmark uses published SLICOT system matrices recovered from the model-reduction source identified in our earlier work. The source is pinned to commit 98c1747030c0b1bf48d9353b2dcc9c4583867ca1. The selected models are a 200-state thin-rod heat equation, an 84-state PDE and a 48-state building-motion model. These are external engineering models, with controlled generated initial conditions and input sequences. They are not new measurements from operating equipment. Source identities, acquisition commands and conventions are in `benchmarks/README.md` and `benchmarks/slicot_manifest.json`.
+
+Each continuous model is sampled through the augmented zero-order-hold matrix exponential. Every sampled binary64 coefficient is interpreted as an exact dyadic rational for certification; no decimal coefficient truncation is performed. The normalized output matrix has maximum row L1 norm one. The common contract is worst output error at most 0.01 over twenty discrete steps, for all independent initial-state and input coordinates in [-1,1]. The sample intervals differ by model and are retained explicitly. This contract concerns the sampled matrices, not continuous-time interpolation, physical calibration or matrix-exponential rounding.
+
+The retained discovery method starts with the target and adds numerically proposed output-visible directions. Added directions are quantized to a dyadic denominator 2^20. Exact rational projection and sharp support evaluation decide whether each resulting four- or eight-state subspace meets tolerance. Independent replay reconstructs the projection, recomputes its box bound and executes the attaining corner. Numerical QR prepares execution in the same subspace; its roundoff is separate from the exact reduction claim. All six certificates replayed successfully. Three candidates meet tolerance and three do not.
+
+For **heat-cont**, the four-state sharp bound is 0.0905726808 and the eight-state sharp bound is 0.000308047513. Their acceptance statuses are rank_budget_exhausted and tolerance_met. The eight-state repeated execution is 42.79 times faster than the full sampled model on this machine; that speed alone does not establish a useful result when acceptance fails. Its maximum observed error is 0.000308047513, with the retained attaining corner reproducing the rational supremum within numerical roundoff. The twelve-state balanced competitor has a binary64 box diagnostic of 3.11550533e-05 and execution speedup 33.23; that diagnostic is explicitly not an exact certificate.
+
+For **pde**, the four-state sharp bound is 0.00270478545 and the eight-state sharp bound is 6.50011704e-07. Their acceptance statuses are tolerance_met and tolerance_met. The eight-state repeated execution is 12.10 times faster than the full sampled model on this machine; that speed alone does not establish a useful result when acceptance fails. Its maximum observed error is 6.50011704e-07, with the retained attaining corner reproducing the rational supremum within numerical roundoff. The twelve-state balanced competitor has a binary64 box diagnostic of 1.38727911e-08 and execution speedup 9.72; that diagnostic is explicitly not an exact certificate.
+
+For **build**, the four-state sharp bound is 64.5600649 and the eight-state sharp bound is 12371.6251. Their acceptance statuses are rank_budget_exhausted and rank_budget_exhausted. The eight-state repeated execution is 5.24 times faster than the full sampled model on this machine; that speed alone does not establish a useful result when acceptance fails. Its maximum observed error is 12371.6251, with the retained attaining corner reproducing the rational supremum within numerical roundoff. The twelve-state balanced competitor has a binary64 box diagnostic of 43.707319 and execution speedup 4.06; that diagnostic is explicitly not an exact certificate.
+
+The clearest positive case is the heat model: 200 states become eight while the rigorous normalized error stays below 0.000309, well inside the 0.01 contract. The repeated batch contains 256 scenarios and produces every output at every step. Full evolution takes 0.0101779 seconds per batch; the eight-state executor takes 0.000237878 seconds. Construction takes 32.816 seconds and independent replay takes 40.225 seconds. Including both, amortization requires approximately 7348 batches, or 1881140 twenty-step scenarios. A first batch is therefore dramatically slower with certification included. This external result replaces any suggestion that the synthetic plate's eleven-batch amortization should be expected generally.
+
+The PDE model supplies another accepted case: four states achieve an exact normalized bound below 0.002705 and repeated execution is 15.27 times faster. Its construction plus replay costs 7.779 seconds and amortizes after about 3484 batches. Eight states improve its bound further but do not automatically improve economic value. A deployment should select a model according to the requested output tolerance, expected reuse and startup budget, rather than minimizing dimension alone.
+
+The building-motion case is a substantive failure. Its four-state proposal has worst error about 64.56; eight states increase that to about 12,371.6. The attaining corners execute that failure in the full and reduced models. Adding directions is not monotonic, and an orthogonal Galerkin projection of a nonnormal stable system can have poor dynamics. These proposals are rejected, and their apparent runtime savings must not be sold as an accepted acceleration. The result does not prove that every four- or eight-state reduction is impossible. It identifies a weakness of the retained discovery heuristic. Stability-aware Petrov-Galerkin proposals and the new exact stability machinery are relevant next investigations, with no success claimed here.
+
+The balanced-truncation comparison is an essential constraint on interpretation. Four-, eight- and twelve-state square-root balanced models are formed using discrete Lyapunov Gramians. Their numerical left-inverse residuals and Hankel singular values are retained. On the heat model, eight-state balanced truncation executes slightly faster than DynaComp but has observed initial-state-corner error exceeding 0.01; twelve states bring its numerical box diagnostic well below the threshold. Its zero-initial-state persistent-input response is substantially more accurate than DynaComp at matching ranks. This is consistent with balanced truncation optimizing an input-output objective rather than our arbitrary initial-state box objective. On the PDE model, the standard approach is also competitive. The experiment demonstrates accepted DynaComp reductions and a different accuracy contract; it does not establish broad superiority over conventional reduction.
+
+Five warmed alternating timing trials use one BLAS thread for every engine and identical inputs. Random box scenarios are supplemented by a constant unit input from rest, a coherent unit initial field and both DynaComp worst-case corners. Per-batch data/domain checks, reduced matrix assembly, initial encoding and every-time output materialization are included. Common loading and sampling, network acquisition, JSON and gzip serialization are excluded from repeated execution. Sampling is reported separately; serialization and transfer further increase cold-start cost. A final timing sweep added the twelve-state balanced competitor and retained the original independent construction and replay measurements. Small timing differences are machine noise, not a mathematical property.
+
+The exact cost is now visible rather than hypothetical. Rational coefficients in these dense sampled models can exceed Python's default decimal-string conversion cap; the trusted-data benchmark command enables their formatting locally. Six compressed packets total about 1.8 MB, although uncompressed rational text is much larger. Exact box acceptance adds tens of seconds to the heat model while ordinary numerical balanced discovery takes only a few hundredths of a second. Scalable rigorously enclosed dyadic kernels, reuse of prepared pullbacks and stability-aware candidate proposals are therefore more urgent than claiming additional warm-loop speed. They must be validated against these pinned models and adversarial corners.
+
+All 148 tests pass after integrating the incoming v0.7 work. The six external packets independently replay, their attaining witnesses reproduce their sharp bounds numerically, and all observed DynaComp errors remain within the exact reduction bounds plus the explicit numerical comparison allowance. External data acquisition and expensive dense certification are intentionally outside routine CI. The complete release retains hashes, raw timings, rejected models and acquisition instructions, so a later run can report a genuine change rather than replace an inconvenient baseline.

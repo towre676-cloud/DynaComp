@@ -1,0 +1,649 @@
+{
+  "schema": "dynacomp.external-slicot/1",
+  "upstream_commit": "98c1747030c0b1bf48d9353b2dcc9c4583867ca1",
+  "cases": [
+    {
+      "name": "heat-cont",
+      "mat_sha256": "351988885ff2768a42896b4901e6d82ca3f42bd36e4df9c686fa12a9c12c533b",
+      "states": 200,
+      "inputs": 1,
+      "outputs": 1,
+      "sampling": "binary64 zero-order-hold augmented expm; continuous integration/rounding excluded from rational guarantee",
+      "sample_interval": 0.1,
+      "physical_duration": 2.0,
+      "steps": 20,
+      "queries": 256,
+      "sampling_seconds": 0.008012651996978093,
+      "output_scale_original_units": 1.0,
+      "domain": "every initial component and each input independently in [-1,1]; normalized outputs; tolerance 0.01",
+      "full_dense": {
+        "median_batch_seconds": 0.010177853000641335,
+        "raw_batch_seconds": [
+          0.010177853000641335,
+          0.011388396000256762,
+          0.010199213997111656,
+          0.00978662299894495,
+          0.009829296999669168
+        ],
+        "execution_speedup": 1.0,
+        "max_observed_error": 0.0,
+        "max_full_output": 1.0,
+        "persistent_input_error": 0.0,
+        "coherent_initial_error": 0.0,
+        "witness_errors": [
+          0.0,
+          0.0
+        ]
+      },
+      "methods": {
+        "dynacomp_4": {
+          "rank": 4,
+          "status": "rank_budget_exhausted",
+          "sharp_rational_worst_error_approx": 0.09057268075475466,
+          "construction_seconds": 30.40737002199603,
+          "independent_replay_seconds": 34.43505095200089,
+          "packet": "receipts/external_slicot/heat-cont_rank4.json.gz",
+          "basis_quantization": "dyadic denominator 2^20, shared target retained exactly; exact acceptance after quantization",
+          "binary64_box_diagnostic": 0.09057268075481235,
+          "median_batch_seconds": 0.0002117589974659495,
+          "raw_batch_seconds": [
+            0.0002117589974659495,
+            0.00018017199909081683,
+            0.0002416540010017343,
+            0.00018434800585964695,
+            0.0002334119999432005
+          ],
+          "execution_speedup": 48.06337923033432,
+          "max_observed_error": 0.09057268075481237,
+          "max_full_output": 1.0,
+          "persistent_input_error": 0.0012954945886092814,
+          "coherent_initial_error": 0.04656177110727078,
+          "witness_errors": [
+            0.09057268075481237,
+            0.010883934664010473
+          ],
+          "first_batch_speedup_including_build_and_replay": 0.00015696236521658779,
+          "break_even_batches": 6506.3023641295085
+        },
+        "balanced_4": {
+          "rank": 4,
+          "construction_seconds": 0.0372883549935068,
+          "binary64_box_diagnostic": 1.0435586907194694,
+          "diagnostic_is_not_a_rational_certificate": true,
+          "hankel_singular_values": [
+            0.032636830997187755,
+            0.004669506463103654,
+            0.0002154359299946025,
+            0.00011553947234276777,
+            1.721650614533437e-05
+          ],
+          "left_inverse_residual": 7.993605777301127e-15,
+          "median_batch_seconds": 0.00018255499890074134,
+          "raw_batch_seconds": [
+            0.0001793000046745874,
+            0.00017503299750387669,
+            0.00018327600264456123,
+            0.00019304099987493828,
+            0.00018255499890074134
+          ],
+          "execution_speedup": 55.75225582387491,
+          "max_observed_error": 0.5713493375354061,
+          "max_full_output": 1.0,
+          "persistent_input_error": 6.99292748301944e-06,
+          "coherent_initial_error": 0.004741519256379334,
+          "witness_errors": [
+            0.4828316842963374,
+            0.4829879021155913
+          ],
+          "first_batch_speedup_including_build_and_replay": 0.27162011818510945,
+          "break_even_batches": 3.730589621941573
+        },
+        "dynacomp_8": {
+          "rank": 8,
+          "status": "tolerance_met",
+          "sharp_rational_worst_error_approx": 0.00030804751269329986,
+          "construction_seconds": 32.816263980996155,
+          "independent_replay_seconds": 40.22468197400303,
+          "packet": "receipts/external_slicot/heat-cont_rank8.json.gz",
+          "basis_quantization": "dyadic denominator 2^20, shared target retained exactly; exact acceptance after quantization",
+          "binary64_box_diagnostic": 0.00030804751263901396,
+          "median_batch_seconds": 0.00023787799727870151,
+          "raw_batch_seconds": [
+            0.0002330209972569719,
+            0.00024221399507950991,
+            0.00023938999947858974,
+            0.00023137899552239105,
+            0.00023787799727870151
+          ],
+          "execution_speedup": 42.786021057327154,
+          "max_observed_error": 0.00030804751263893704,
+          "max_full_output": 1.0,
+          "persistent_input_error": 2.72067129217712e-07,
+          "coherent_initial_error": 7.896806337504003e-05,
+          "witness_errors": [
+            9.868557947120826e-05,
+            0.00030804751263893704
+          ],
+          "first_batch_speedup_including_build_and_replay": 0.0001393440312237036,
+          "break_even_batches": 7348.2021765939935
+        },
+        "balanced_8": {
+          "rank": 8,
+          "construction_seconds": 0.031287791003705934,
+          "binary64_box_diagnostic": 0.024005294787565058,
+          "diagnostic_is_not_a_rational_certificate": true,
+          "hankel_singular_values": [
+            0.032636830997187755,
+            0.004669506463103654,
+            0.0002154359299946025,
+            0.00011553947234276777,
+            1.721650614533437e-05,
+            2.185954906939233e-06,
+            1.261000050657011e-07,
+            5.092510377970168e-08,
+            1.3257744696205008e-09
+          ],
+          "left_inverse_residual": 4.165393771956304e-14,
+          "median_batch_seconds": 0.0002288350005983375,
+          "raw_batch_seconds": [
+            0.0002288350005983375,
+            0.00022603000252274796,
+            0.00022817299759481102,
+            0.00022889499814482406,
+            0.00022951500432100147
+          ],
+          "execution_speedup": 44.476819428973656,
+          "max_observed_error": 0.01417691890969408,
+          "max_full_output": 1.0,
+          "persistent_input_error": 3.72183427502214e-10,
+          "coherent_initial_error": 0.0001249229968225407,
+          "witness_errors": [
+            0.01417691890969408,
+            0.007610285852550885
+          ],
+          "first_batch_speedup_including_build_and_replay": 0.3229359957265518,
+          "break_even_batches": 3.1448119807975736
+        },
+        "balanced_12": {
+          "rank": 12,
+          "construction_seconds": 0.03131926099740667,
+          "binary64_box_diagnostic": 3.115505330619888e-05,
+          "diagnostic_is_not_a_rational_certificate": true,
+          "hankel_singular_values": [
+            0.032636830997187755,
+            0.004669506463103654,
+            0.0002154359299946025,
+            0.00011553947234276777,
+            1.721650614533437e-05,
+            2.185954906939233e-06,
+            1.261000050657011e-07,
+            5.092510377970168e-08,
+            1.3257744696205008e-09,
+            4.0153353578287855e-11,
+            4.4303440641071957e-13,
+            4.2733880305017045e-14,
+            7.807271510575095e-15
+          ],
+          "left_inverse_residual": 8.197886813832156e-13,
+          "median_batch_seconds": 0.0003062410032725893,
+          "raw_batch_seconds": [
+            0.0003133320060442202,
+            0.0002855200000340119,
+            0.0003062410032725893,
+            0.00028725300217047334,
+            0.00030935600079828873
+          ],
+          "execution_speedup": 33.23478205686875,
+          "max_observed_error": 1.5122003211007207e-05,
+          "max_full_output": 1.0,
+          "persistent_input_error": 1.6987279638502883e-15,
+          "coherent_initial_error": 5.4458527098955045e-06,
+          "witness_errors": [
+            1.5122003211007207e-05,
+            6.961527534730949e-06
+          ],
+          "first_batch_speedup_including_build_and_replay": 0.32182423540415994,
+          "break_even_batches": 3.172659238000313
+        }
+      }
+    },
+    {
+      "name": "pde",
+      "mat_sha256": "c08771fcf4c86cbd22183a80394414460a875f39935a8d532771e42111abf59f",
+      "states": 84,
+      "inputs": 1,
+      "outputs": 1,
+      "sampling": "binary64 zero-order-hold augmented expm; continuous integration/rounding excluded from rational guarantee",
+      "sample_interval": 0.0005,
+      "physical_duration": 0.01,
+      "steps": 20,
+      "queries": 256,
+      "sampling_seconds": 0.0005075549997854978,
+      "output_scale_original_units": 434.22028847127314,
+      "domain": "every initial component and each input independently in [-1,1]; normalized outputs; tolerance 0.01",
+      "full_dense": {
+        "median_batch_seconds": 0.0023893800025689416,
+        "raw_batch_seconds": [
+          0.002733346998866182,
+          0.0023893800025689416,
+          0.0024964800031739287,
+          0.0023271149984793738,
+          0.002258132000861224
+        ],
+        "execution_speedup": 1.0,
+        "max_observed_error": 0.0,
+        "max_full_output": 1.0,
+        "persistent_input_error": 0.0,
+        "coherent_initial_error": 0.0,
+        "witness_errors": [
+          0.0,
+          0.0
+        ]
+      },
+      "methods": {
+        "dynacomp_4": {
+          "rank": 4,
+          "status": "tolerance_met",
+          "sharp_rational_worst_error_approx": 0.0027047854511486886,
+          "construction_seconds": 2.796485021004628,
+          "independent_replay_seconds": 4.982534606999252,
+          "packet": "receipts/external_slicot/pde_rank4.json.gz",
+          "basis_quantization": "dyadic denominator 2^20, shared target retained exactly; exact acceptance after quantization",
+          "binary64_box_diagnostic": 0.002704785451148681,
+          "median_batch_seconds": 0.00015650500427000225,
+          "raw_batch_seconds": [
+            0.00021168899547774345,
+            0.00015304000407923013,
+            0.00019783800235018134,
+            0.00014884499978506938,
+            0.00015650500427000225
+          ],
+          "execution_speedup": 15.267115666453618,
+          "max_observed_error": 0.002704785451148701,
+          "max_full_output": 1.0,
+          "persistent_input_error": 9.7391235305902e-07,
+          "coherent_initial_error": 0.0001254907228672164,
+          "witness_errors": [
+            0.002704785451148701,
+            0.0003712979623233517
+          ],
+          "first_batch_speedup_including_build_and_replay": 0.00030715077814351865,
+          "break_even_batches": 3483.8580905470008
+        },
+        "balanced_4": {
+          "rank": 4,
+          "construction_seconds": 0.009170326004095841,
+          "binary64_box_diagnostic": 0.003059127705747388,
+          "diagnostic_is_not_a_rational_certificate": true,
+          "hankel_singular_values": [
+            0.013077586689360342,
+            0.00021494010122020233,
+            8.651910389486698e-06,
+            3.599393574976544e-06,
+            6.598429591228707e-08
+          ],
+          "left_inverse_residual": 2.2669366384064915e-14,
+          "median_batch_seconds": 0.00017112799832830206,
+          "raw_batch_seconds": [
+            0.00022127299598651007,
+            0.00017112799832830206,
+            0.00016534899623366073,
+            0.00020921499526593834,
+            0.00017073700291803107
+          ],
+          "execution_speedup": 13.962531122376678,
+          "max_observed_error": 0.000958148433665984,
+          "max_full_output": 1.0,
+          "persistent_input_error": 2.1389303009322624e-08,
+          "coherent_initial_error": 0.0002693372282275286,
+          "witness_errors": [
+            0.000958148433665984,
+            0.0004004979407804393
+          ],
+          "first_batch_speedup_including_build_and_replay": 0.25578245120608506,
+          "break_even_batches": 4.134032556519683
+        },
+        "dynacomp_8": {
+          "rank": 8,
+          "status": "tolerance_met",
+          "sharp_rational_worst_error_approx": 6.500117041959155e-07,
+          "construction_seconds": 4.089509227000235,
+          "independent_replay_seconds": 4.451371561000997,
+          "packet": "receipts/external_slicot/pde_rank8.json.gz",
+          "basis_quantization": "dyadic denominator 2^20, shared target retained exactly; exact acceptance after quantization",
+          "binary64_box_diagnostic": 6.500117042211855e-07,
+          "median_batch_seconds": 0.00019743700249819085,
+          "raw_batch_seconds": [
+            0.00019743700249819085,
+            0.00019047699606744573,
+            0.00019479299953673035,
+            0.0002581189983175136,
+            0.00021259100321913138
+          ],
+          "execution_speedup": 12.101986822813702,
+          "max_observed_error": 6.500117042292086e-07,
+          "max_full_output": 1.0,
+          "persistent_input_error": 6.719557896217587e-11,
+          "coherent_initial_error": 3.327661579621832e-08,
+          "witness_errors": [
+            4.741330535823485e-08,
+            6.500117042292086e-07
+          ],
+          "first_batch_speedup_including_build_and_replay": 0.00027975156527358674,
+          "break_even_batches": 3896.4885436006102
+        },
+        "balanced_8": {
+          "rank": 8,
+          "construction_seconds": 0.009474322003370617,
+          "binary64_box_diagnostic": 9.706200492283316e-06,
+          "diagnostic_is_not_a_rational_certificate": true,
+          "hankel_singular_values": [
+            0.013077586689360342,
+            0.00021494010122020233,
+            8.651910389486698e-06,
+            3.599393574976544e-06,
+            6.598429591228707e-08,
+            9.358619336941602e-09,
+            4.3245674394904966e-10,
+            3.811125970829163e-11,
+            4.846197757124322e-13
+          ],
+          "left_inverse_residual": 3.979029923458514e-14,
+          "median_batch_seconds": 0.00019205900025554,
+          "raw_batch_seconds": [
+            0.000192860999959521,
+            0.00019318099657539278,
+            0.00019205900025554,
+            0.00019196899665985256,
+            0.00019109799904981628
+          ],
+          "execution_speedup": 12.440864522827896,
+          "max_observed_error": 5.405535457234101e-06,
+          "max_full_output": 1.0,
+          "persistent_input_error": 4.2701953084645083e-14,
+          "coherent_initial_error": 1.402883184065118e-06,
+          "witness_errors": [
+            1.6162936891661595e-06,
+            5.405535457234101e-06
+          ],
+          "first_batch_speedup_including_build_and_replay": 0.247184546281862,
+          "break_even_batches": 4.3117605454076955
+        },
+        "balanced_12": {
+          "rank": 12,
+          "construction_seconds": 0.008958235004683957,
+          "binary64_box_diagnostic": 1.387279112332468e-08,
+          "diagnostic_is_not_a_rational_certificate": true,
+          "hankel_singular_values": [
+            0.013077586689360342,
+            0.00021494010122020233,
+            8.651910389486698e-06,
+            3.599393574976544e-06,
+            6.598429591228707e-08,
+            9.358619336941602e-09,
+            4.3245674394904966e-10,
+            3.811125970829163e-11,
+            4.846197757124322e-13,
+            1.8010177085342236e-14,
+            9.523929195834137e-16,
+            7.294212551813268e-17,
+            3.772738907519812e-18
+          ],
+          "left_inverse_residual": 1.4743342657830283e-08,
+          "median_batch_seconds": 0.00024590000248281285,
+          "raw_batch_seconds": [
+            0.00024590000248281285,
+            0.00030016200616955757,
+            0.0002437169969198294,
+            0.00026131299819098786,
+            0.00024240499624283984
+          ],
+          "execution_speedup": 9.716876691515882,
+          "max_observed_error": 5.301218991560219e-09,
+          "max_full_output": 1.0,
+          "persistent_input_error": 2.949029909160572e-16,
+          "coherent_initial_error": 6.184167622436121e-10,
+          "witness_errors": [
+            5.301218991560219e-09,
+            8.042534103969157e-10
+          ],
+          "first_batch_speedup_including_build_and_replay": 0.259598539211828,
+          "break_even_batches": 4.1792948869707205
+        }
+      }
+    },
+    {
+      "name": "build",
+      "mat_sha256": "9513bfdf12fb9382a4491755464702bf0e75567d9e4090f9f67f27ebf92ecac7",
+      "states": 48,
+      "inputs": 1,
+      "outputs": 1,
+      "sampling": "binary64 zero-order-hold augmented expm; continuous integration/rounding excluded from rational guarantee",
+      "sample_interval": 0.01,
+      "physical_duration": 0.2,
+      "steps": 20,
+      "queries": 256,
+      "sampling_seconds": 0.00022606000129599124,
+      "output_scale_original_units": 1.0,
+      "domain": "every initial component and each input independently in [-1,1]; normalized outputs; tolerance 0.01",
+      "full_dense": {
+        "median_batch_seconds": 0.0009626800019759685,
+        "raw_batch_seconds": [
+          0.000978263997239992,
+          0.0009236409969162196,
+          0.0009626800019759685,
+          0.0009935570051311515,
+          0.0009330960019724444
+        ],
+        "execution_speedup": 1.0,
+        "max_observed_error": 0.0,
+        "max_full_output": 38.111671850579846,
+        "persistent_input_error": 0.0,
+        "coherent_initial_error": 0.0,
+        "witness_errors": [
+          0.0,
+          0.0
+        ]
+      },
+      "methods": {
+        "dynacomp_4": {
+          "rank": 4,
+          "status": "rank_budget_exhausted",
+          "sharp_rational_worst_error_approx": 64.56006490101787,
+          "construction_seconds": 0.3885944740031846,
+          "independent_replay_seconds": 0.46066972900007386,
+          "packet": "receipts/external_slicot/build_rank4.json.gz",
+          "basis_quantization": "dyadic denominator 2^20, shared target retained exactly; exact acceptance after quantization",
+          "binary64_box_diagnostic": 64.56006490101791,
+          "median_batch_seconds": 0.00014674100384581834,
+          "raw_batch_seconds": [
+            0.0001510580041212961,
+            0.0001422749992343597,
+            0.00014725199434906244,
+            0.00014049200399313122,
+            0.00014674100384581834
+          ],
+          "execution_speedup": 6.560402183069854,
+          "max_observed_error": 64.56006490101787,
+          "max_full_output": 38.111671850579846,
+          "persistent_input_error": 0.00024160253813157017,
+          "coherent_initial_error": 34.37338698382782,
+          "witness_errors": [
+            64.56006490101787,
+            49.71894129688416
+          ],
+          "first_batch_speedup_including_build_and_replay": 0.0011333501278362583,
+          "break_even_batches": 1040.8427651447942
+        },
+        "balanced_4": {
+          "rank": 4,
+          "construction_seconds": 0.0029269899969222024,
+          "binary64_box_diagnostic": 53.713296404400324,
+          "diagnostic_is_not_a_rational_certificate": true,
+          "hankel_singular_values": [
+            0.0025033005111417157,
+            0.002438907555471483,
+            0.001936421253420142,
+            0.0019300283276978102,
+            0.0007079129333023778
+          ],
+          "left_inverse_residual": 1.27675647831893e-15,
+          "median_batch_seconds": 0.00014194400137057528,
+          "raw_batch_seconds": [
+            0.00014194400137057528,
+            0.00016038099420256913,
+            0.00013971000589663163,
+            0.00018133300181943923,
+            0.00013918000331614166
+          ],
+          "execution_speedup": 6.782111203577288,
+          "max_observed_error": 35.798767980056546,
+          "max_full_output": 38.111671850579846,
+          "persistent_input_error": 0.00017130638871606994,
+          "coherent_initial_error": 24.213295929044804,
+          "witness_errors": [
+            35.798767980056546,
+            24.80122602853365
+          ],
+          "first_batch_speedup_including_build_and_replay": 0.31368546945339953,
+          "break_even_batches": 3.56629902278344
+        },
+        "dynacomp_8": {
+          "rank": 8,
+          "status": "rank_budget_exhausted",
+          "sharp_rational_worst_error_approx": 12371.62510449326,
+          "construction_seconds": 0.7849150379988714,
+          "independent_replay_seconds": 1.1932245799980592,
+          "packet": "receipts/external_slicot/build_rank8.json.gz",
+          "basis_quantization": "dyadic denominator 2^20, shared target retained exactly; exact acceptance after quantization",
+          "binary64_box_diagnostic": 12371.625104491517,
+          "median_batch_seconds": 0.00018375700165051967,
+          "raw_batch_seconds": [
+            0.00018712200107984245,
+            0.00018204500520369038,
+            0.00018303500110050663,
+            0.00018476799596101046,
+            0.00018375700165051967
+          ],
+          "execution_speedup": 5.2388752174290065,
+          "max_observed_error": 12371.625104491515,
+          "max_full_output": 38.111671850579846,
+          "persistent_input_error": 0.0005857731514785615,
+          "coherent_initial_error": 8308.90339446557,
+          "witness_errors": [
+            6967.579078221739,
+            12371.625104491515
+          ],
+          "first_batch_speedup_including_build_and_replay": 0.00048661407641541866,
+          "break_even_batches": 2539.5830103494523
+        },
+        "balanced_8": {
+          "rank": 8,
+          "construction_seconds": 0.0026762919951579534,
+          "binary64_box_diagnostic": 49.740587375541814,
+          "diagnostic_is_not_a_rational_certificate": true,
+          "hankel_singular_values": [
+            0.0025033005111417157,
+            0.002438907555471483,
+            0.001936421253420142,
+            0.0019300283276978102,
+            0.0007079129333023778,
+            0.0007065550299329119,
+            0.0006464347182694889,
+            0.0006129868478605574,
+            0.00042205626196468895
+          ],
+          "left_inverse_residual": 1.6701032444686977e-14,
+          "median_batch_seconds": 0.0001829650063882582,
+          "raw_batch_seconds": [
+            0.0002208219957537949,
+            0.0001829650063882582,
+            0.00018241500220028684,
+            0.0001848780011641793,
+            0.00018277599883731455
+          ],
+          "execution_speedup": 5.261552583083169,
+          "max_observed_error": 35.463723408885954,
+          "max_full_output": 38.111671850579846,
+          "persistent_input_error": 9.436457197132013e-05,
+          "coherent_initial_error": 24.422147664625243,
+          "witness_errors": [
+            35.463723408885954,
+            23.832396252113753
+          ],
+          "first_batch_speedup_including_build_and_replay": 0.33668886758181454,
+          "break_even_batches": 3.432397748283266
+        },
+        "balanced_12": {
+          "rank": 12,
+          "construction_seconds": 0.002379755002039019,
+          "binary64_box_diagnostic": 43.707319013676944,
+          "diagnostic_is_not_a_rational_certificate": true,
+          "hankel_singular_values": [
+            0.0025033005111417157,
+            0.002438907555471483,
+            0.001936421253420142,
+            0.0019300283276978102,
+            0.0007079129333023778,
+            0.0007065550299329119,
+            0.0006464347182694889,
+            0.0006129868478605574,
+            0.00042205626196468895,
+            0.0004125561013419424,
+            0.00027513300674984303,
+            0.00026624899579486997,
+            0.0002520120798708993
+          ],
+          "left_inverse_residual": 1.6701032444686977e-14,
+          "median_batch_seconds": 0.00023686700296821073,
+          "raw_batch_seconds": [
+            0.00023255000269273296,
+            0.0002280629996675998,
+            0.0005785120010841638,
+            0.00023686700296821073,
+            0.0002460710020386614
+          ],
+          "execution_speedup": 4.064221651443646,
+          "max_observed_error": 23.01054313660613,
+          "max_full_output": 38.111671850579846,
+          "persistent_input_error": 5.8688516245411645e-05,
+          "coherent_initial_error": 21.28995705539464,
+          "witness_errors": [
+            23.01054313660613,
+            15.974934678031559
+          ],
+          "first_batch_speedup_including_build_and_replay": 0.36790946500249605,
+          "break_even_batches": 3.2787439812903973
+        }
+      }
+    }
+  ],
+  "python": "3.12.14",
+  "numpy": "2.3.5",
+  "scipy": "1.17.0",
+  "platform": "Linux-6.18.44-x86_64-with-glibc2.39",
+  "threadpools": [
+    {
+      "user_api": "blas",
+      "internal_api": "openblas",
+      "num_threads": 1,
+      "prefix": "libscipy_openblas",
+      "filepath": "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/numpy.libs/libscipy_openblas64_-fdde5778.so",
+      "version": "0.3.30",
+      "threading_layer": "pthreads",
+      "architecture": "SkylakeX"
+    },
+    {
+      "user_api": "blas",
+      "internal_api": "openblas",
+      "num_threads": 1,
+      "prefix": "libscipy_openblas",
+      "filepath": "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/scipy.libs/libscipy_openblas-6cdc3b4a.so",
+      "version": "0.3.30",
+      "threading_layer": "pthreads",
+      "architecture": "SkylakeX"
+    }
+  ],
+  "measurement": "single BLAS thread, warmed alternating trials, identical full output histories and checked boxes; includes per-batch matrix setup; build/replay and common sampling reported separately; timing sweep repeated once with twelve-state balanced competitor; original build/replay measurements retained",
+  "scope": "external published engineering models with controlled generated scenarios, not measured field data; no claim of beating balanced truncation"
+}
