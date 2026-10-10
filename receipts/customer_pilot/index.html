@@ -1,0 +1,817 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width"><title>DynaComp external workload evidence</title><style>body{margin:0;background:#101923;color:#e5eef6;font:18px system-ui}header{padding:32px;max-width:1100px;margin:auto}iframe{border:0;width:100%;height:1100px}section{border-top:2px solid #39546c}</style><header><h1>DynaComp: executable external workloads</h1><p>Three pinned sampled sources. One declared error ceiling. Actual native rounding is included. Setup costs and failed cases remain visible.</p></header><section><iframe title="SLICOT heat-cont" srcdoc="&lt;!doctype html&gt;&lt;html lang=&quot;en&quot;&gt;&lt;meta charset=&quot;utf-8&quot;&gt;&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width&quot;&gt;&lt;title&gt;DynaComp workload results&lt;/title&gt;&lt;style&gt;body{font:18px system-ui;background:#101923;color:#e5eef6;max-width:1100px;margin:40px auto;padding:24px}h1{font-size:42px}main{display:flex;flex-wrap:wrap;gap:20px}article{background:#1a2b3c;border:1px solid #39546c;border-radius:16px;padding:24px;flex:1;min-width:260px}.big{font-size:36px;color:#6fe4b4}pre{font-size:13px;overflow:auto}small{color:#afc1d1}&lt;/style&gt;&lt;h1&gt;SLICOT heat-cont&lt;/h1&gt;&lt;p&gt;200 source states · 20 steps · 256 scenarios per batch · target 1/100&lt;/p&gt;&lt;main&gt;&lt;article&gt;&lt;h2&gt;observable&lt;/h2&gt;&lt;p class=&quot;big&quot;&gt;7 states&lt;/p&gt;&lt;p&gt;Uniform combined error ≤ 0.00698883&lt;/p&gt;&lt;p&gt;Warm speedup versus full BLAS: 5.89×&lt;/p&gt;&lt;p&gt;Total setup: 2.452 s&lt;/p&gt;&lt;p&gt;Break-even: 221.4 batches&lt;/p&gt;&lt;p&gt;Projected total speedup at 1000 batches: 2.63×&lt;/p&gt;&lt;p class=&quot;projection&quot; data-method=&quot;observable&quot;&gt;&lt;/p&gt;&lt;/article&gt;&lt;article&gt;&lt;h2&gt;balanced&lt;/h2&gt;&lt;p class=&quot;big&quot;&gt;9 states&lt;/p&gt;&lt;p&gt;Uniform combined error ≤ 0.000599539&lt;/p&gt;&lt;p&gt;Warm speedup versus full BLAS: 4.71×&lt;/p&gt;&lt;p&gt;Total setup: 2.868 s&lt;/p&gt;&lt;p&gt;Break-even: 282.4 batches&lt;/p&gt;&lt;p&gt;Projected total speedup at 1000 batches: 2.18×&lt;/p&gt;&lt;p class=&quot;projection&quot; data-method=&quot;balanced&quot;&gt;&lt;/p&gt;&lt;/article&gt;&lt;/main&gt;&lt;label&gt;Explore total cost at &lt;input id=&quot;batch-count&quot; type=&quot;number&quot; min=&quot;1&quot; value=&quot;1000&quot;&gt; batches&lt;/label&gt;&lt;script id=&quot;evidence&quot; type=&quot;application/json&quot;&gt;{&quot;schema&quot;:&quot;dynacomp.pilot-results/1&quot;,&quot;name&quot;:&quot;SLICOT heat-cont&quot;,&quot;source_sha256&quot;:&quot;481b05e7dea1c05cf7c24e1775818bd87f890d111a0d60d21c5158f61d186048&quot;,&quot;workload_sha256&quot;:&quot;c6318bf6c17b91a8d4feca07ba707e2d46c9d7867f0ad4bea39cc8d47427fc0c&quot;,&quot;states&quot;:200,&quot;steps&quot;:20,&quot;queries&quot;:256,&quot;trials&quot;:7,&quot;seed&quot;:20261010,&quot;tolerance&quot;:&quot;1/100&quot;,&quot;methods&quot;:{&quot;observable&quot;:{&quot;accepted&quot;:true,&quot;search_seconds&quot;:1.4124667779997253,&quot;history&quot;:[{&quot;rank&quot;:1,&quot;model_status&quot;:&quot;refuted&quot;,&quot;model_lower&quot;:&quot;1152897772871962265/1152921504606846976&quot;,&quot;model_upper&quot;:&quot;9223182182975698883/9223372036854775808&quot;,&quot;combined_upper&quot;:null,&quot;status&quot;:&quot;refuted&quot;},{&quot;rank&quot;:2,&quot;model_status&quot;:&quot;refuted&quot;,&quot;model_lower&quot;:&quot;16144369422115315101/18446744073709551616&quot;,&quot;model_upper&quot;:&quot;16144369422115324021/18446744073709551616&quot;,&quot;combined_upper&quot;:null,&quot;status&quot;:&quot;refuted&quot;},{&quot;rank&quot;:3,&quot;model_status&quot;:&quot;refuted&quot;,&quot;model_lower&quot;:&quot;3193678551963716865/4611686018427387904&quot;,&quot;model_upper&quot;:&quot;6387357103927434195/9223372036854775808&quot;,&quot;combined_upper&quot;:null,&quot;status&quot;:&quot;refuted&quot;},{&quot;rank&quot;:4,&quot;model_status&quot;:&quot;refuted&quot;,&quot;model_lower&quot;:&quot;2965918496801182133/18446744073709551616&quot;,&quot;model_upper&quot;:&quot;2965918496801188295/18446744073709551616&quot;,&quot;combined_upper&quot;:null,&quot;status&quot;:&quot;refuted&quot;},{&quot;rank&quot;:5,&quot;model_status&quot;:&quot;refuted&quot;,&quot;model_lower&quot;:&quot;434607397285991995/9223372036854775808&quot;,&quot;model_upper&quot;:&quot;848842572824205/18014398509481984&quot;,&quot;combined_upper&quot;:null,&quot;status&quot;:&quot;refuted&quot;},{&quot;rank&quot;:6,&quot;model_status&quot;:&quot;refuted&quot;,&quot;model_lower&quot;:&quot;411055352928863059/18446744073709551616&quot;,&quot;model_upper&quot;:&quot;411055352928868161/18446744073709551616&quot;,&quot;combined_upper&quot;:null,&quot;status&quot;:&quot;refuted&quot;},{&quot;rank&quot;:7,&quot;model_status&quot;:&quot;tolerance_met&quot;,&quot;model_lower&quot;:&quot;128921237378595839/18446744073709551616&quot;,&quot;model_upper&quot;:&quot;128921237378609977/18446744073709551616&quot;,&quot;combined_upper&quot;:&quot;276856249177588206928033915/39614081257132168796771975168&quot;,&quot;status&quot;:&quot;tolerance_met&quot;}],&quot;failure&quot;:null,&quot;rank&quot;:7,&quot;combined_upper&quot;:&quot;276856249177588206928033915/39614081257132168796771975168&quot;,&quot;model_upper&quot;:&quot;128921237378609977/18446744073709551616&quot;,&quot;execution_upper&quot;:&quot;38137706905145577/39614081257132168796771975168&quot;,&quot;packet&quot;:&quot;observable.json.gz&quot;,&quot;packet_sha256&quot;:&quot;e028ac381c8ce75324cec5c8ccce27d485328512cc744518b27089cc3def8fba&quot;,&quot;native_preparation_and_replay_seconds&quot;:0.8159409079999023,&quot;standalone_replay_adjustment_seconds&quot;:0.0,&quot;cost_policy&quot;:&quot;conservative standalone estimate; balanced charged an extra empty-cache replay to cover the shared source pass&quot;,&quot;total_setup_seconds&quot;:2.45230563000041,&quot;median_batch_seconds&quot;:0.0018270869986736216,&quot;raw_batch_seconds&quot;:[0.0018494609994377242,0.0016532360004930524,0.0016117140003188979,0.0019786859993473627,0.0022637139991275035,0.0015476270000363002,0.0018270869986736216],&quot;max_observed_difference_from_full_blas&quot;:0.006988834282270706,&quot;observed_difference_exceeds_bound&quot;:false,&quot;diagnostic_scope&quot;:&quot;full BLAS reference has uncertified rounding; sampled difference is diagnostic only&quot;,&quot;break_even_batches&quot;:221.43223251478665,&quot;requested_batches&quot;:1000,&quot;full_total_seconds&quot;:11.239020023363992,&quot;reduced_total_seconds&quot;:4.279392628674032,&quot;total_speedup&quot;:2.6263119555931933,&quot;warm_speedup&quot;:5.892494449459342},&quot;balanced&quot;:{&quot;accepted&quot;:true,&quot;search_seconds&quot;:1.3241041879991826,&quot;history&quot;:[{&quot;rank&quot;:1,&quot;model_status&quot;:&quot;refuted&quot;,&quot;model_lower&quot;:&quot;32236863703173053565/18446744073709551616&quot;,&quot;model_upper&quot;:&quot;32236863703173053965/18446744073709551616&quot;,&quot;combined_upper&quot;:null,&quot;status&quot;:&quot;refuted&quot;},{&quot;rank&quot;:2,&quot;model_status&quot;:&quot;refuted&quot;,&quot;model_lower&quot;:&quot;8926736318946462959/4611686018427387904&quot;,&quot;model_upper&quot;:&quot;8926736318946463059/4611686018427387904&quot;,&quot;combined_upper&quot;:null,&quot;status&quot;:&quot;refuted&quot;},{&quot;rank&quot;:3,&quot;model_status&quot;:&quot;refuted&quot;,&quot;model_lower&quot;:&quot;9987860482489466203/9223372036854775808&quot;,&quot;model_upper&quot;:&quot;9987860482489466403/9223372036854775808&quot;,&quot;combined_upper&quot;:null,&quot;status&quot;:&quot;refuted&quot;},{&quot;rank&quot;:4,&quot;model_status&quot;:&quot;refuted&quot;,&quot;model_lower&quot;:&quot;9625130046798734955/9223372036854775808&quot;,&quot;model_upper&quot;:&quot;9625130046798735155/9223372036854775808&quot;,&quot;combined_upper&quot;:null,&quot;status&quot;:&quot;refuted&quot;},{&quot;rank&quot;:5,&quot;model_status&quot;:&quot;refuted&quot;,&quot;model_lower&quot;:&quot;12365472972872512435/18446744073709551616&quot;,&quot;model_upper&quot;:&quot;12365472972872514129/18446744073709551616&quot;,&quot;combined_upper&quot;:null,&quot;status&quot;:&quot;refuted&quot;},{&quot;rank&quot;:6,&quot;model_status&quot;:&quot;refuted&quot;,&quot;model_lower&quot;:&quot;4111994893550376227/18446744073709551616&quot;,&quot;model_upper&quot;:&quot;4111994893550379101/18446744073709551616&quot;,&quot;combined_upper&quot;:null,&quot;status&quot;:&quot;refuted&quot;},{&quot;rank&quot;:7,&quot;model_status&quot;:&quot;refuted&quot;,&quot;model_lower&quot;:&quot;237161457008620403/18446744073709551616&quot;,&quot;model_upper&quot;:&quot;237161457008631901/18446744073709551616&quot;,&quot;combined_upper&quot;:null,&quot;status&quot;:&quot;refuted&quot;},{&quot;rank&quot;:8,&quot;model_status&quot;:&quot;refuted&quot;,&quot;model_lower&quot;:&quot;442819529360158719/18446744073709551616&quot;,&quot;model_upper&quot;:&quot;442819529360176293/18446744073709551616&quot;,&quot;combined_upper&quot;:null,&quot;status&quot;:&quot;refuted&quot;},{&quot;rank&quot;:9,&quot;model_status&quot;:&quot;tolerance_met&quot;,&quot;model_lower&quot;:&quot;11059551502692133/18446744073709551616&quot;,&quot;model_upper&quot;:&quot;11059551502714375/18446744073709551616&quot;,&quot;combined_upper&quot;:&quot;47500412042869142673978677/79228162514264337593543950336&quot;,&quot;status&quot;:&quot;tolerance_met&quot;}],&quot;failure&quot;:null,&quot;rank&quot;:9,&quot;combined_upper&quot;:&quot;47500412042869142673978677/79228162514264337593543950336&quot;,&quot;model_upper&quot;:&quot;11059551502714375/18446744073709551616&quot;,&quot;execution_upper&quot;:&quot;306023977532582109/79228162514264337593543950336&quot;,&quot;packet&quot;:&quot;balanced.json.gz&quot;,&quot;packet_sha256&quot;:&quot;5eace61c2d3f814aa928d728eed14246d6973386683dc4651fef2d69023087c4&quot;,&quot;native_preparation_and_replay_seconds&quot;:0.7686100409991923,&quot;standalone_replay_adjustment_seconds&quot;:0.55102708800041,&quot;cost_policy&quot;:&quot;conservative standalone estimate; balanced charged an extra empty-cache replay to cover the shared source pass&quot;,&quot;total_setup_seconds&quot;:2.8676392609995673,&quot;median_batch_seconds&quot;:0.0022867090010549873,&quot;raw_batch_seconds&quot;:[0.002341901999898255,0.00221210599920596,0.0021996579998813104,0.0025209710001945496,0.0022867090010549873,0.002226578000772861,0.002621842999360524],&quot;max_observed_difference_from_full_blas&quot;:0.0005995394882976068,&quot;observed_difference_exceeds_bound&quot;:false,&quot;diagnostic_scope&quot;:&quot;full BLAS reference has uncertified rounding; sampled difference is diagnostic only&quot;,&quot;break_even_batches&quot;:282.41641843845844,&quot;requested_batches&quot;:1000,&quot;full_total_seconds&quot;:11.239020023363992,&quot;reduced_total_seconds&quot;:5.154348262054555,&quot;total_speedup&quot;:2.1804929453649393,&quot;warm_speedup&quot;:4.708119832211548}},&quot;rejected_methods&quot;:{},&quot;full_blas_setup_seconds&quot;:0.32019856800070556,&quot;full_blas_median_batch_seconds&quot;:0.010766099998363643,&quot;full_blas_raw_batch_seconds&quot;:[0.01082161299927975,0.010571138000159408,0.010421761999168666,0.011180694000358926,0.010766099998363643,0.01042807200064999,0.0112737740000739],&quot;full_total_setup_seconds&quot;:0.4729200250003487,&quot;native_compiler_seconds&quot;:0.07117648700113932,&quot;actual_compiler_wait_seconds&quot;:0.07363673699910578,&quot;native_source_sha256&quot;:&quot;6378a42e27bb0cbe6ca62e0e7ddd04e3ebf7cbf224dcc4c1729451da4a83a5c3&quot;,&quot;compiler_version&quot;:&quot;cc (Ubuntu 13.3.0-6ubuntu2~24.04) 13.3.0&quot;,&quot;python&quot;:&quot;3.12.14&quot;,&quot;numpy&quot;:&quot;2.3.5&quot;,&quot;scipy&quot;:&quot;1.17.0&quot;,&quot;platform&quot;:&quot;Linux-6.18.44-x86_64-with-glibc2.39&quot;,&quot;threadpools&quot;:[{&quot;user_api&quot;:&quot;blas&quot;,&quot;internal_api&quot;:&quot;openblas&quot;,&quot;num_threads&quot;:1,&quot;prefix&quot;:&quot;libscipy_openblas&quot;,&quot;filepath&quot;:&quot;/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/numpy.libs/libscipy_openblas64_-fdde5778.so&quot;,&quot;version&quot;:&quot;0.3.30&quot;,&quot;threading_layer&quot;:&quot;pthreads&quot;,&quot;architecture&quot;:&quot;SkylakeX&quot;},{&quot;user_api&quot;:&quot;blas&quot;,&quot;internal_api&quot;:&quot;openblas&quot;,&quot;num_threads&quot;:1,&quot;prefix&quot;:&quot;libscipy_openblas&quot;,&quot;filepath&quot;:&quot;/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/scipy.libs/libscipy_openblas-6cdc3b4a.so&quot;,&quot;version&quot;:&quot;0.3.30&quot;,&quot;threading_layer&quot;:&quot;pthreads&quot;,&quot;architecture&quot;:&quot;SkylakeX&quot;}],&quot;measurement&quot;:&quot;warmed alternating trials; one BLAS thread; domain checks and initial encoding included; complete output materialization&quot;,&quot;cost_scope&quot;:&quot;in-process sampled-source conversion, proposal search, independent replay, compiler and preparation; interpreter/dependency imports, file I/O, upstream MAT acquisition/sampling excluded&quot;,&quot;guarantee&quot;:&quot;accepted reduced native outputs versus exact rational sampled source for every admitted stored input in boxes; finite horizon&quot;,&quot;baseline&quot;:&quot;SciPy square-root balanced truncation, accepted by same combined box/native error test; full dense NumPy BLAS reference&quot;,&quot;projection&quot;:&quot;requested total costs extrapolate measured batch medians; they are not a sustained run&quot;,&quot;provenance&quot;:{&quot;upstream&quot;:&quot;https://github.com/SLICOT/Benchmark-ModelReduction&quot;,&quot;commit&quot;:&quot;98c1747030c0b1bf48d9353b2dcc9c4583867ca1&quot;,&quot;mat_sha256&quot;:&quot;351988885ff2768a42896b4901e6d82ca3f42bd36e4df9c686fa12a9c12c533b&quot;,&quot;sampled_model_sha256&quot;:&quot;481b05e7dea1c05cf7c24e1775818bd87f890d111a0d60d21c5158f61d186048&quot;,&quot;scope&quot;:&quot;retained sampled normalized-output model; experimental boxes, not measured customer trajectories&quot;}}&lt;/script&gt;&lt;script&gt;const r=JSON.parse(document.getElementById(&quot;evidence&quot;).textContent);const input=document.getElementById(&quot;batch-count&quot;);function update(){const n=Number(input.value);if(!Number.isInteger(n)||n&lt;1)return;document.querySelectorAll(&quot;.projection&quot;).forEach(el=&gt;{const m=r.methods[el.dataset.method];const f=r.full_total_setup_seconds+n*r.full_blas_median_batch_seconds;const c=m.total_setup_seconds+n*m.median_batch_seconds;el.textContent=&quot;Projected cost: full &quot;+f.toFixed(2)+&quot; s; reduced &quot;+c.toFixed(2)+&quot; s (&quot;+(f/c).toFixed(2)+&quot;×).&quot;;});}input.addEventListener(&quot;input&quot;,update);update();&lt;/script&gt;&lt;p&gt;&lt;strong&gt;What is proved:&lt;/strong&gt; accepted reduced native outputs versus exact rational sampled source for every admitted stored input in boxes; finite horizon&lt;/p&gt;&lt;p&gt;&lt;strong&gt;What is measured:&lt;/strong&gt; warmed alternating trials; one BLAS thread; domain checks and initial encoding included; complete output materialization&lt;/p&gt;&lt;p&gt;&lt;strong&gt;Cost scope:&lt;/strong&gt; in-process sampled-source conversion, proposal search, independent replay, compiler and preparation; interpreter/dependency imports, file I/O, upstream MAT acquisition/sampling excluded&lt;/p&gt;&lt;p&gt;&lt;small&gt;Balanced truncation is a transparent SciPy implementation, not a timing of the SLICOT library. Projected totals extrapolate batch medians. Timings depend on the machine. Random traces are diagnostics; bounds cover the entire declared box. No physical measurement validation or universal performance claim.&lt;/small&gt;&lt;/p&gt;&lt;details&gt;&lt;summary&gt;Full measured evidence&lt;/summary&gt;&lt;pre&gt;{
+  &amp;quot;schema&amp;quot;: &amp;quot;dynacomp.pilot-results/1&amp;quot;,
+  &amp;quot;name&amp;quot;: &amp;quot;SLICOT heat-cont&amp;quot;,
+  &amp;quot;source_sha256&amp;quot;: &amp;quot;481b05e7dea1c05cf7c24e1775818bd87f890d111a0d60d21c5158f61d186048&amp;quot;,
+  &amp;quot;workload_sha256&amp;quot;: &amp;quot;c6318bf6c17b91a8d4feca07ba707e2d46c9d7867f0ad4bea39cc8d47427fc0c&amp;quot;,
+  &amp;quot;states&amp;quot;: 200,
+  &amp;quot;steps&amp;quot;: 20,
+  &amp;quot;queries&amp;quot;: 256,
+  &amp;quot;trials&amp;quot;: 7,
+  &amp;quot;seed&amp;quot;: 20261010,
+  &amp;quot;tolerance&amp;quot;: &amp;quot;1/100&amp;quot;,
+  &amp;quot;methods&amp;quot;: {
+    &amp;quot;observable&amp;quot;: {
+      &amp;quot;accepted&amp;quot;: true,
+      &amp;quot;search_seconds&amp;quot;: 1.4124667779997253,
+      &amp;quot;history&amp;quot;: [
+        {
+          &amp;quot;rank&amp;quot;: 1,
+          &amp;quot;model_status&amp;quot;: &amp;quot;refuted&amp;quot;,
+          &amp;quot;model_lower&amp;quot;: &amp;quot;1152897772871962265/1152921504606846976&amp;quot;,
+          &amp;quot;model_upper&amp;quot;: &amp;quot;9223182182975698883/9223372036854775808&amp;quot;,
+          &amp;quot;combined_upper&amp;quot;: null,
+          &amp;quot;status&amp;quot;: &amp;quot;refuted&amp;quot;
+        },
+        {
+          &amp;quot;rank&amp;quot;: 2,
+          &amp;quot;model_status&amp;quot;: &amp;quot;refuted&amp;quot;,
+          &amp;quot;model_lower&amp;quot;: &amp;quot;16144369422115315101/18446744073709551616&amp;quot;,
+          &amp;quot;model_upper&amp;quot;: &amp;quot;16144369422115324021/18446744073709551616&amp;quot;,
+          &amp;quot;combined_upper&amp;quot;: null,
+          &amp;quot;status&amp;quot;: &amp;quot;refuted&amp;quot;
+        },
+        {
+          &amp;quot;rank&amp;quot;: 3,
+          &amp;quot;model_status&amp;quot;: &amp;quot;refuted&amp;quot;,
+          &amp;quot;model_lower&amp;quot;: &amp;quot;3193678551963716865/4611686018427387904&amp;quot;,
+          &amp;quot;model_upper&amp;quot;: &amp;quot;6387357103927434195/9223372036854775808&amp;quot;,
+          &amp;quot;combined_upper&amp;quot;: null,
+          &amp;quot;status&amp;quot;: &amp;quot;refuted&amp;quot;
+        },
+        {
+          &amp;quot;rank&amp;quot;: 4,
+          &amp;quot;model_status&amp;quot;: &amp;quot;refuted&amp;quot;,
+          &amp;quot;model_lower&amp;quot;: &amp;quot;2965918496801182133/18446744073709551616&amp;quot;,
+          &amp;quot;model_upper&amp;quot;: &amp;quot;2965918496801188295/18446744073709551616&amp;quot;,
+          &amp;quot;combined_upper&amp;quot;: null,
+          &amp;quot;status&amp;quot;: &amp;quot;refuted&amp;quot;
+        },
+        {
+          &amp;quot;rank&amp;quot;: 5,
+          &amp;quot;model_status&amp;quot;: &amp;quot;refuted&amp;quot;,
+          &amp;quot;model_lower&amp;quot;: &amp;quot;434607397285991995/9223372036854775808&amp;quot;,
+          &amp;quot;model_upper&amp;quot;: &amp;quot;848842572824205/18014398509481984&amp;quot;,
+          &amp;quot;combined_upper&amp;quot;: null,
+          &amp;quot;status&amp;quot;: &amp;quot;refuted&amp;quot;
+        },
+        {
+          &amp;quot;rank&amp;quot;: 6,
+          &amp;quot;model_status&amp;quot;: &amp;quot;refuted&amp;quot;,
+          &amp;quot;model_lower&amp;quot;: &amp;quot;411055352928863059/18446744073709551616&amp;quot;,
+          &amp;quot;model_upper&amp;quot;: &amp;quot;411055352928868161/18446744073709551616&amp;quot;,
+          &amp;quot;combined_upper&amp;quot;: null,
+          &amp;quot;status&amp;quot;: &amp;quot;refuted&amp;quot;
+        },
+        {
+          &amp;quot;rank&amp;quot;: 7,
+          &amp;quot;model_status&amp;quot;: &amp;quot;tolerance_met&amp;quot;,
+          &amp;quot;model_lower&amp;quot;: &amp;quot;128921237378595839/18446744073709551616&amp;quot;,
+          &amp;quot;model_upper&amp;quot;: &amp;quot;128921237378609977/18446744073709551616&amp;quot;,
+          &amp;quot;combined_upper&amp;quot;: &amp;quot;276856249177588206928033915/39614081257132168796771975168&amp;quot;,
+          &amp;quot;status&amp;quot;: &amp;quot;tolerance_met&amp;quot;
+        }
+      ],
+      &amp;quot;failure&amp;quot;: null,
+      &amp;quot;rank&amp;quot;: 7,
+      &amp;quot;combined_upper&amp;quot;: &amp;quot;276856249177588206928033915/39614081257132168796771975168&amp;quot;,
+      &amp;quot;model_upper&amp;quot;: &amp;quot;128921237378609977/18446744073709551616&amp;quot;,
+      &amp;quot;execution_upper&amp;quot;: &amp;quot;38137706905145577/39614081257132168796771975168&amp;quot;,
+      &amp;quot;packet&amp;quot;: &amp;quot;observable.json.gz&amp;quot;,
+      &amp;quot;packet_sha256&amp;quot;: &amp;quot;e028ac381c8ce75324cec5c8ccce27d485328512cc744518b27089cc3def8fba&amp;quot;,
+      &amp;quot;native_preparation_and_replay_seconds&amp;quot;: 0.8159409079999023,
+      &amp;quot;standalone_replay_adjustment_seconds&amp;quot;: 0.0,
+      &amp;quot;cost_policy&amp;quot;: &amp;quot;conservative standalone estimate; balanced charged an extra empty-cache replay to cover the shared source pass&amp;quot;,
+      &amp;quot;total_setup_seconds&amp;quot;: 2.45230563000041,
+      &amp;quot;median_batch_seconds&amp;quot;: 0.0018270869986736216,
+      &amp;quot;raw_batch_seconds&amp;quot;: [
+        0.0018494609994377242,
+        0.0016532360004930524,
+        0.0016117140003188979,
+        0.0019786859993473627,
+        0.0022637139991275035,
+        0.0015476270000363002,
+        0.0018270869986736216
+      ],
+      &amp;quot;max_observed_difference_from_full_blas&amp;quot;: 0.006988834282270706,
+      &amp;quot;observed_difference_exceeds_bound&amp;quot;: false,
+      &amp;quot;diagnostic_scope&amp;quot;: &amp;quot;full BLAS reference has uncertified rounding; sampled difference is diagnostic only&amp;quot;,
+      &amp;quot;break_even_batches&amp;quot;: 221.43223251478665,
+      &amp;quot;requested_batches&amp;quot;: 1000,
+      &amp;quot;full_total_seconds&amp;quot;: 11.239020023363992,
+      &amp;quot;reduced_total_seconds&amp;quot;: 4.279392628674032,
+      &amp;quot;total_speedup&amp;quot;: 2.6263119555931933,
+      &amp;quot;warm_speedup&amp;quot;: 5.892494449459342
+    },
+    &amp;quot;balanced&amp;quot;: {
+      &amp;quot;accepted&amp;quot;: true,
+      &amp;quot;search_seconds&amp;quot;: 1.3241041879991826,
+      &amp;quot;history&amp;quot;: [
+        {
+          &amp;quot;rank&amp;quot;: 1,
+          &amp;quot;model_status&amp;quot;: &amp;quot;refuted&amp;quot;,
+          &amp;quot;model_lower&amp;quot;: &amp;quot;32236863703173053565/18446744073709551616&amp;quot;,
+          &amp;quot;model_upper&amp;quot;: &amp;quot;32236863703173053965/18446744073709551616&amp;quot;,
+          &amp;quot;combined_upper&amp;quot;: null,
+          &amp;quot;status&amp;quot;: &amp;quot;refuted&amp;quot;
+        },
+        {
+          &amp;quot;rank&amp;quot;: 2,
+          &amp;quot;model_status&amp;quot;: &amp;quot;refuted&amp;quot;,
+          &amp;quot;model_lower&amp;quot;: &amp;quot;8926736318946462959/4611686018427387904&amp;quot;,
+          &amp;quot;model_upper&amp;quot;: &amp;quot;8926736318946463059/4611686018427387904&amp;quot;,
+          &amp;quot;combined_upper&amp;quot;: null,
+          &amp;quot;status&amp;quot;: &amp;quot;refuted&amp;quot;
+        },
+        {
+          &amp;quot;rank&amp;quot;: 3,
+          &amp;quot;model_status&amp;quot;: &amp;quot;refuted&amp;quot;,
+          &amp;quot;model_lower&amp;quot;: &amp;quot;9987860482489466203/9223372036854775808&amp;quot;,
+          &amp;quot;model_upper&amp;quot;: &amp;quot;9987860482489466403/9223372036854775808&amp;quot;,
+          &amp;quot;combined_upper&amp;quot;: null,
+          &amp;quot;status&amp;quot;: &amp;quot;refuted&amp;quot;
+        },
+        {
+          &amp;quot;rank&amp;quot;: 4,
+          &amp;quot;model_status&amp;quot;: &amp;quot;refuted&amp;quot;,
+          &amp;quot;model_lower&amp;quot;: &amp;quot;9625130046798734955/9223372036854775808&amp;quot;,
+          &amp;quot;model_upper&amp;quot;: &amp;quot;9625130046798735155/9223372036854775808&amp;quot;,
+          &amp;quot;combined_upper&amp;quot;: null,
+          &amp;quot;status&amp;quot;: &amp;quot;refuted&amp;quot;
+        },
+        {
+          &amp;quot;rank&amp;quot;: 5,
+          &amp;quot;model_status&amp;quot;: &amp;quot;refuted&amp;quot;,
+          &amp;quot;model_lower&amp;quot;: &amp;quot;12365472972872512435/18446744073709551616&amp;quot;,
+          &amp;quot;model_upper&amp;quot;: &amp;quot;12365472972872514129/18446744073709551616&amp;quot;,
+          &amp;quot;combined_upper&amp;quot;: null,
+          &amp;quot;status&amp;quot;: &amp;quot;refuted&amp;quot;
+        },
+        {
+          &amp;quot;rank&amp;quot;: 6,
+          &amp;quot;model_status&amp;quot;: &amp;quot;refuted&amp;quot;,
+          &amp;quot;model_lower&amp;quot;: &amp;quot;4111994893550376227/18446744073709551616&amp;quot;,
+          &amp;quot;model_upper&amp;quot;: &amp;quot;4111994893550379101/18446744073709551616&amp;quot;,
+          &amp;quot;combined_upper&amp;quot;: null,
+          &amp;quot;status&amp;quot;: &amp;quot;refuted&amp;quot;
+        },
+        {
+          &amp;quot;rank&amp;quot;: 7,
+          &amp;quot;model_status&amp;quot;: &amp;quot;refuted&amp;quot;,
+          &amp;quot;model_lower&amp;quot;: &amp;quot;237161457008620403/18446744073709551616&amp;quot;,
+          &amp;quot;model_upper&amp;quot;: &amp;quot;237161457008631901/18446744073709551616&amp;quot;,
+          &amp;quot;combined_upper&amp;quot;: null,
+          &amp;quot;status&amp;quot;: &amp;quot;refuted&amp;quot;
+        },
+        {
+          &amp;quot;rank&amp;quot;: 8,
+          &amp;quot;model_status&amp;quot;: &amp;quot;refuted&amp;quot;,
+          &amp;quot;model_lower&amp;quot;: &amp;quot;442819529360158719/18446744073709551616&amp;quot;,
+          &amp;quot;model_upper&amp;quot;: &amp;quot;442819529360176293/18446744073709551616&amp;quot;,
+          &amp;quot;combined_upper&amp;quot;: null,
+          &amp;quot;status&amp;quot;: &amp;quot;refuted&amp;quot;
+        },
+        {
+          &amp;quot;rank&amp;quot;: 9,
+          &amp;quot;model_status&amp;quot;: &amp;quot;tolerance_met&amp;quot;,
+          &amp;quot;model_lower&amp;quot;: &amp;quot;11059551502692133/18446744073709551616&amp;quot;,
+          &amp;quot;model_upper&amp;quot;: &amp;quot;11059551502714375/18446744073709551616&amp;quot;,
+          &amp;quot;combined_upper&amp;quot;: &amp;quot;47500412042869142673978677/79228162514264337593543950336&amp;quot;,
+          &amp;quot;status&amp;quot;: &amp;quot;tolerance_met&amp;quot;
+        }
+      ],
+      &amp;quot;failure&amp;quot;: null,
+      &amp;quot;rank&amp;quot;: 9,
+      &amp;quot;combined_upper&amp;quot;: &amp;quot;47500412042869142673978677/79228162514264337593543950336&amp;quot;,
+      &amp;quot;model_upper&amp;quot;: &amp;quot;11059551502714375/18446744073709551616&amp;quot;,
+      &amp;quot;execution_upper&amp;quot;: &amp;quot;306023977532582109/79228162514264337593543950336&amp;quot;,
+      &amp;quot;packet&amp;quot;: &amp;quot;balanced.json.gz&amp;quot;,
+      &amp;quot;packet_sha256&amp;quot;: &amp;quot;5eace61c2d3f814aa928d728eed14246d6973386683dc4651fef2d69023087c4&amp;quot;,
+      &amp;quot;native_preparation_and_replay_seconds&amp;quot;: 0.7686100409991923,
+      &amp;quot;standalone_replay_adjustment_seconds&amp;quot;: 0.55102708800041,
+      &amp;quot;cost_policy&amp;quot;: &amp;quot;conservative standalone estimate; balanced charged an extra empty-cache replay to cover the shared source pass&amp;quot;,
+      &amp;quot;total_setup_seconds&amp;quot;: 2.8676392609995673,
+      &amp;quot;median_batch_seconds&amp;quot;: 0.0022867090010549873,
+      &amp;quot;raw_batch_seconds&amp;quot;: [
+        0.002341901999898255,
+        0.00221210599920596,
+        0.0021996579998813104,
+        0.0025209710001945496,
+        0.0022867090010549873,
+        0.002226578000772861,
+        0.002621842999360524
+      ],
+      &amp;quot;max_observed_difference_from_full_blas&amp;quot;: 0.0005995394882976068,
+      &amp;quot;observed_difference_exceeds_bound&amp;quot;: false,
+      &amp;quot;diagnostic_scope&amp;quot;: &amp;quot;full BLAS reference has uncertified rounding; sampled difference is diagnostic only&amp;quot;,
+      &amp;quot;break_even_batches&amp;quot;: 282.41641843845844,
+      &amp;quot;requested_batches&amp;quot;: 1000,
+      &amp;quot;full_total_seconds&amp;quot;: 11.239020023363992,
+      &amp;quot;reduced_total_seconds&amp;quot;: 5.154348262054555,
+      &amp;quot;total_speedup&amp;quot;: 2.1804929453649393,
+      &amp;quot;warm_speedup&amp;quot;: 4.708119832211548
+    }
+  },
+  &amp;quot;rejected_methods&amp;quot;: {},
+  &amp;quot;full_blas_setup_seconds&amp;quot;: 0.32019856800070556,
+  &amp;quot;full_blas_median_batch_seconds&amp;quot;: 0.010766099998363643,
+  &amp;quot;full_blas_raw_batch_seconds&amp;quot;: [
+    0.01082161299927975,
+    0.010571138000159408,
+    0.010421761999168666,
+    0.011180694000358926,
+    0.010766099998363643,
+    0.01042807200064999,
+    0.0112737740000739
+  ],
+  &amp;quot;full_total_setup_seconds&amp;quot;: 0.4729200250003487,
+  &amp;quot;native_compiler_seconds&amp;quot;: 0.07117648700113932,
+  &amp;quot;actual_compiler_wait_seconds&amp;quot;: 0.07363673699910578,
+  &amp;quot;native_source_sha256&amp;quot;: &amp;quot;6378a42e27bb0cbe6ca62e0e7ddd04e3ebf7cbf224dcc4c1729451da4a83a5c3&amp;quot;,
+  &amp;quot;compiler_version&amp;quot;: &amp;quot;cc (Ubuntu 13.3.0-6ubuntu2~24.04) 13.3.0&amp;quot;,
+  &amp;quot;python&amp;quot;: &amp;quot;3.12.14&amp;quot;,
+  &amp;quot;numpy&amp;quot;: &amp;quot;2.3.5&amp;quot;,
+  &amp;quot;scipy&amp;quot;: &amp;quot;1.17.0&amp;quot;,
+  &amp;quot;platform&amp;quot;: &amp;quot;Linux-6.18.44-x86_64-with-glibc2.39&amp;quot;,
+  &amp;quot;threadpools&amp;quot;: [
+    {
+      &amp;quot;user_api&amp;quot;: &amp;quot;blas&amp;quot;,
+      &amp;quot;internal_api&amp;quot;: &amp;quot;openblas&amp;quot;,
+      &amp;quot;num_threads&amp;quot;: 1,
+      &amp;quot;prefix&amp;quot;: &amp;quot;libscipy_openblas&amp;quot;,
+      &amp;quot;filepath&amp;quot;: &amp;quot;/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/numpy.libs/libscipy_openblas64_-fdde5778.so&amp;quot;,
+      &amp;quot;version&amp;quot;: &amp;quot;0.3.30&amp;quot;,
+      &amp;quot;threading_layer&amp;quot;: &amp;quot;pthreads&amp;quot;,
+      &amp;quot;architecture&amp;quot;: &amp;quot;SkylakeX&amp;quot;
+    },
+    {
+      &amp;quot;user_api&amp;quot;: &amp;quot;blas&amp;quot;,
+      &amp;quot;internal_api&amp;quot;: &amp;quot;openblas&amp;quot;,
+      &amp;quot;num_threads&amp;quot;: 1,
+      &amp;quot;prefix&amp;quot;: &amp;quot;libscipy_openblas&amp;quot;,
+      &amp;quot;filepath&amp;quot;: &amp;quot;/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/scipy.libs/libscipy_openblas-6cdc3b4a.so&amp;quot;,
+      &amp;quot;version&amp;quot;: &amp;quot;0.3.30&amp;quot;,
+      &amp;quot;threading_layer&amp;quot;: &amp;quot;pthreads&amp;quot;,
+      &amp;quot;architecture&amp;quot;: &amp;quot;SkylakeX&amp;quot;
+    }
+  ],
+  &amp;quot;measurement&amp;quot;: &amp;quot;warmed alternating trials; one BLAS thread; domain checks and initial encoding included; complete output materialization&amp;quot;,
+  &amp;quot;cost_scope&amp;quot;: &amp;quot;in-process sampled-source conversion, proposal search, independent replay, compiler and preparation; interpreter/dependency imports, file I/O, upstream MAT acquisition/sampling excluded&amp;quot;,
+  &amp;quot;guarantee&amp;quot;: &amp;quot;accepted reduced native outputs versus exact rational sampled source for every admitted stored input in boxes; finite horizon&amp;quot;,
+  &amp;quot;baseline&amp;quot;: &amp;quot;SciPy square-root balanced truncation, accepted by same combined box/native error test; full dense NumPy BLAS reference&amp;quot;,
+  &amp;quot;projection&amp;quot;: &amp;quot;requested total costs extrapolate measured batch medians; they are not a sustained run&amp;quot;,
+  &amp;quot;provenance&amp;quot;: {
+    &amp;quot;upstream&amp;quot;: &amp;quot;https://github.com/SLICOT/Benchmark-ModelReduction&amp;quot;,
+    &amp;quot;commit&amp;quot;: &amp;quot;98c1747030c0b1bf48d9353b2dcc9c4583867ca1&amp;quot;,
+    &amp;quot;mat_sha256&amp;quot;: &amp;quot;351988885ff2768a42896b4901e6d82ca3f42bd36e4df9c686fa12a9c12c533b&amp;quot;,
+    &amp;quot;sampled_model_sha256&amp;quot;: &amp;quot;481b05e7dea1c05cf7c24e1775818bd87f890d111a0d60d21c5158f61d186048&amp;quot;,
+    &amp;quot;scope&amp;quot;: &amp;quot;retained sampled normalized-output model; experimental boxes, not measured customer trajectories&amp;quot;
+  }
+}&lt;/pre&gt;&lt;/details&gt;&lt;/html&gt;"></iframe></section><section><iframe title="SLICOT pde" srcdoc="&lt;!doctype html&gt;&lt;html lang=&quot;en&quot;&gt;&lt;meta charset=&quot;utf-8&quot;&gt;&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width&quot;&gt;&lt;title&gt;DynaComp workload results&lt;/title&gt;&lt;style&gt;body{font:18px system-ui;background:#101923;color:#e5eef6;max-width:1100px;margin:40px auto;padding:24px}h1{font-size:42px}main{display:flex;flex-wrap:wrap;gap:20px}article{background:#1a2b3c;border:1px solid #39546c;border-radius:16px;padding:24px;flex:1;min-width:260px}.big{font-size:36px;color:#6fe4b4}pre{font-size:13px;overflow:auto}small{color:#afc1d1}&lt;/style&gt;&lt;h1&gt;SLICOT pde&lt;/h1&gt;&lt;p&gt;84 source states · 20 steps · 256 scenarios per batch · target 1/100&lt;/p&gt;&lt;main&gt;&lt;article&gt;&lt;h2&gt;observable&lt;/h2&gt;&lt;p class=&quot;big&quot;&gt;4 states&lt;/p&gt;&lt;p&gt;Uniform combined error ≤ 0.00216365&lt;/p&gt;&lt;p&gt;Warm speedup versus full BLAS: 5.99×&lt;/p&gt;&lt;p&gt;Total setup: 0.514 s&lt;/p&gt;&lt;p&gt;Break-even: 212.0 batches&lt;/p&gt;&lt;p&gt;Projected total speedup at 1000 batches: 2.78×&lt;/p&gt;&lt;p class=&quot;projection&quot; data-method=&quot;observable&quot;&gt;&lt;/p&gt;&lt;/article&gt;&lt;article&gt;&lt;h2&gt;balanced&lt;/h2&gt;&lt;p class=&quot;big&quot;&gt;4 states&lt;/p&gt;&lt;p&gt;Uniform combined error ≤ 0.00305913&lt;/p&gt;&lt;p&gt;Warm speedup versus full BLAS: 6.06×&lt;/p&gt;&lt;p&gt;Total setup: 0.568 s&lt;/p&gt;&lt;p&gt;Break-even: 236.7 batches&lt;/p&gt;&lt;p&gt;Projected total speedup at 1000 batches: 2.64×&lt;/p&gt;&lt;p class=&quot;projection&quot; data-method=&quot;balanced&quot;&gt;&lt;/p&gt;&lt;/article&gt;&lt;/main&gt;&lt;label&gt;Explore total cost at &lt;input id=&quot;batch-count&quot; type=&quot;number&quot; min=&quot;1&quot; value=&quot;1000&quot;&gt; batches&lt;/label&gt;&lt;script id=&quot;evidence&quot; type=&quot;application/json&quot;&gt;{&quot;schema&quot;:&quot;dynacomp.pilot-results/1&quot;,&quot;name&quot;:&quot;SLICOT pde&quot;,&quot;source_sha256&quot;:&quot;09f536ba79a4b27ffd7742709aada48c06d6cb48cf5fb716032e9ad3d6e24bf4&quot;,&quot;workload_sha256&quot;:&quot;fcaadd3cbdcaf91643f4614806dbe05e25f15b915ee7b1d0a9bdc37de48ddead&quot;,&quot;states&quot;:84,&quot;steps&quot;:20,&quot;queries&quot;:256,&quot;trials&quot;:7,&quot;seed&quot;:20261010,&quot;tolerance&quot;:&quot;1/100&quot;,&quot;methods&quot;:{&quot;observable&quot;:{&quot;accepted&quot;:true,&quot;search_seconds&quot;:0.2783750489998056,&quot;history&quot;:[{&quot;rank&quot;:1,&quot;model_status&quot;:&quot;refuted&quot;,&quot;model_lower&quot;:&quot;4270858203649621413/18446744073709551616&quot;,&quot;model_upper&quot;:&quot;4270858203649622719/18446744073709551616&quot;,&quot;combined_upper&quot;:null,&quot;status&quot;:&quot;refuted&quot;},{&quot;rank&quot;:2,&quot;model_status&quot;:&quot;refuted&quot;,&quot;model_lower&quot;:&quot;128431021995119855/4611686018427387904&quot;,&quot;model_upper&quot;:&quot;2006734718673755/72057594037927936&quot;,&quot;combined_upper&quot;:null,&quot;status&quot;:&quot;refuted&quot;},{&quot;rank&quot;:3,&quot;model_status&quot;:&quot;refuted&quot;,&quot;model_lower&quot;:&quot;33470664926266085/2305843009213693952&quot;,&quot;model_upper&quot;:&quot;133882659705064739/9223372036854775808&quot;,&quot;combined_upper&quot;:null,&quot;status&quot;:&quot;refuted&quot;},{&quot;rank&quot;:4,&quot;model_status&quot;:&quot;tolerance_met&quot;,&quot;model_lower&quot;:&quot;19956172867594909/9223372036854775808&quot;,&quot;model_upper&quot;:&quot;9978086433798047/4611686018427387904&quot;,&quot;combined_upper&quot;:&quot;171422219640430108359381457/79228162514264337593543950336&quot;,&quot;status&quot;:&quot;tolerance_met&quot;}],&quot;failure&quot;:null,&quot;rank&quot;:4,&quot;combined_upper&quot;:&quot;171422219640430108359381457/79228162514264337593543950336&quot;,&quot;model_upper&quot;:&quot;9978086433798047/4611686018427387904&quot;,&quot;execution_upper&quot;:&quot;779988142101715/39614081257132168796771975168&quot;,&quot;packet&quot;:&quot;observable.json.gz&quot;,&quot;packet_sha256&quot;:&quot;97176dbc751bcf050e335968f2ba932e0f2491e78fff19d79a67bd5951633823&quot;,&quot;native_preparation_and_replay_seconds&quot;:0.1378834930001176,&quot;standalone_replay_adjustment_seconds&quot;:0.0,&quot;cost_policy&quot;:&quot;conservative standalone estimate; balanced charged an extra empty-cache replay to cover the shared source pass&quot;,&quot;total_setup_seconds&quot;:0.5141634930005239,&quot;median_batch_seconds&quot;:0.00042403699990245514,&quot;raw_batch_seconds&quot;:[0.00042403699990245514,0.00043512400043255184,0.00045450399920810014,0.00041233999945688993,0.0006467820003308589,0.0004148839998379117,0.00042282600043108687],&quot;max_observed_difference_from_full_blas&quot;:0.00216365259775433,&quot;observed_difference_exceeds_bound&quot;:false,&quot;diagnostic_scope&quot;:&quot;full BLAS reference has uncertified rounding; sampled difference is diagnostic only&quot;,&quot;break_even_batches&quot;:211.97971531539463,&quot;requested_batches&quot;:1000,&quot;full_total_seconds&quot;:2.605558428900622,&quot;reduced_total_seconds&quot;:0.938200492902979,&quot;total_speedup&quot;:2.7771872308854855,&quot;warm_speedup&quot;:5.98985230176841},&quot;balanced&quot;:{&quot;accepted&quot;:true,&quot;search_seconds&quot;:0.23431351599901973,&quot;history&quot;:[{&quot;rank&quot;:1,&quot;model_status&quot;:&quot;refuted&quot;,&quot;model_lower&quot;:&quot;1837263818986156245/9223372036854775808&quot;,&quot;model_upper&quot;:&quot;1837263818986156329/9223372036854775808&quot;,&quot;combined_upper&quot;:null,&quot;status&quot;:&quot;refuted&quot;},{&quot;rank&quot;:2,&quot;model_status&quot;:&quot;refuted&quot;,&quot;model_lower&quot;:&quot;303246630449769531/9223372036854775808&quot;,&quot;model_upper&quot;:&quot;303246630449769615/9223372036854775808&quot;,&quot;combined_upper&quot;:null,&quot;status&quot;:&quot;refuted&quot;},{&quot;rank&quot;:3,&quot;model_status&quot;:&quot;refuted&quot;,&quot;model_lower&quot;:&quot;457173311615319691/18446744073709551616&quot;,&quot;model_upper&quot;:&quot;457173311615319859/18446744073709551616&quot;,&quot;combined_upper&quot;:null,&quot;status&quot;:&quot;refuted&quot;},{&quot;rank&quot;:4,&quot;model_status&quot;:&quot;tolerance_met&quot;,&quot;model_lower&quot;:&quot;56430945876715331/18446744073709551616&quot;,&quot;model_upper&quot;:&quot;56430945876716313/18446744073709551616&quot;,&quot;combined_upper&quot;:&quot;121184533512372373852726869/39614081257132168796771975168&quot;,&quot;status&quot;:&quot;tolerance_met&quot;}],&quot;failure&quot;:null,&quot;rank&quot;:4,&quot;combined_upper&quot;:&quot;121184533512372373852726869/39614081257132168796771975168&quot;,&quot;model_upper&quot;:&quot;56430945876716313/18446744073709551616&quot;,&quot;execution_upper&quot;:&quot;998574997721319/39614081257132168796771975168&quot;,&quot;packet&quot;:&quot;balanced.json.gz&quot;,&quot;packet_sha256&quot;:&quot;f49c382f601b4c5e4859c903bc95feb3db7c0bd7e1fdce8e2b95f88b459c10a4&quot;,&quot;native_preparation_and_replay_seconds&quot;:0.11717567200139456,&quot;standalone_replay_adjustment_seconds&quot;:0.11823292199915159,&quot;cost_policy&quot;:&quot;conservative standalone estimate; balanced charged an extra empty-cache replay to cover the shared source pass&quot;,&quot;total_setup_seconds&quot;:0.5676270610001666,&quot;median_batch_seconds&quot;:0.00041925999903469346,&quot;raw_batch_seconds&quot;:[0.00041925999903469346,0.000494543000968406,0.00040464899939252064,0.00039896999987831805,0.0004388599991216324,0.0003999210002803011,0.0004323899993323721],&quot;max_observed_difference_from_full_blas&quot;:0.003059127705747358,&quot;observed_difference_exceeds_bound&quot;:false,&quot;diagnostic_scope&quot;:&quot;full BLAS reference has uncertified rounding; sampled difference is diagnostic only&quot;,&quot;break_even_batches&quot;:236.71303674718266,&quot;requested_batches&quot;:1000,&quot;full_total_seconds&quot;:2.605558428900622,&quot;reduced_total_seconds&quot;:0.98688706003486,&quot;total_speedup&quot;:2.6401789367960555,&quot;warm_speedup&quot;:6.05809999940041}},&quot;rejected_methods&quot;:{},&quot;full_blas_setup_seconds&quot;:0.03891096500046842,&quot;full_blas_median_batch_seconds&quot;:0.002539918999900692,&quot;full_blas_raw_batch_seconds&quot;:[0.0025904550002451288,0.0023632940010429593,0.003250529000069946,0.0025089030004892265,0.002313238999704481,0.00274752200130024,0.002539918999900692],&quot;full_total_setup_seconds&quot;:0.0656394289999298,&quot;native_compiler_seconds&quot;:0.07117648700113932,&quot;actual_compiler_wait_seconds&quot;:1.6220001270994544e-06,&quot;native_source_sha256&quot;:&quot;6378a42e27bb0cbe6ca62e0e7ddd04e3ebf7cbf224dcc4c1729451da4a83a5c3&quot;,&quot;compiler_version&quot;:&quot;cc (Ubuntu 13.3.0-6ubuntu2~24.04) 13.3.0&quot;,&quot;python&quot;:&quot;3.12.14&quot;,&quot;numpy&quot;:&quot;2.3.5&quot;,&quot;scipy&quot;:&quot;1.17.0&quot;,&quot;platform&quot;:&quot;Linux-6.18.44-x86_64-with-glibc2.39&quot;,&quot;threadpools&quot;:[{&quot;user_api&quot;:&quot;blas&quot;,&quot;internal_api&quot;:&quot;openblas&quot;,&quot;num_threads&quot;:1,&quot;prefix&quot;:&quot;libscipy_openblas&quot;,&quot;filepath&quot;:&quot;/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/numpy.libs/libscipy_openblas64_-fdde5778.so&quot;,&quot;version&quot;:&quot;0.3.30&quot;,&quot;threading_layer&quot;:&quot;pthreads&quot;,&quot;architecture&quot;:&quot;SkylakeX&quot;},{&quot;user_api&quot;:&quot;blas&quot;,&quot;internal_api&quot;:&quot;openblas&quot;,&quot;num_threads&quot;:1,&quot;prefix&quot;:&quot;libscipy_openblas&quot;,&quot;filepath&quot;:&quot;/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/scipy.libs/libscipy_openblas-6cdc3b4a.so&quot;,&quot;version&quot;:&quot;0.3.30&quot;,&quot;threading_layer&quot;:&quot;pthreads&quot;,&quot;architecture&quot;:&quot;SkylakeX&quot;}],&quot;measurement&quot;:&quot;warmed alternating trials; one BLAS thread; domain checks and initial encoding included; complete output materialization&quot;,&quot;cost_scope&quot;:&quot;in-process sampled-source conversion, proposal search, independent replay, compiler and preparation; interpreter/dependency imports, file I/O, upstream MAT acquisition/sampling excluded&quot;,&quot;guarantee&quot;:&quot;accepted reduced native outputs versus exact rational sampled source for every admitted stored input in boxes; finite horizon&quot;,&quot;baseline&quot;:&quot;SciPy square-root balanced truncation, accepted by same combined box/native error test; full dense NumPy BLAS reference&quot;,&quot;projection&quot;:&quot;requested total costs extrapolate measured batch medians; they are not a sustained run&quot;,&quot;provenance&quot;:{&quot;upstream&quot;:&quot;https://github.com/SLICOT/Benchmark-ModelReduction&quot;,&quot;commit&quot;:&quot;98c1747030c0b1bf48d9353b2dcc9c4583867ca1&quot;,&quot;mat_sha256&quot;:&quot;c08771fcf4c86cbd22183a80394414460a875f39935a8d532771e42111abf59f&quot;,&quot;sampled_model_sha256&quot;:&quot;09f536ba79a4b27ffd7742709aada48c06d6cb48cf5fb716032e9ad3d6e24bf4&quot;,&quot;scope&quot;:&quot;retained sampled normalized-output model; experimental boxes, not measured customer trajectories&quot;}}&lt;/script&gt;&lt;script&gt;const r=JSON.parse(document.getElementById(&quot;evidence&quot;).textContent);const input=document.getElementById(&quot;batch-count&quot;);function update(){const n=Number(input.value);if(!Number.isInteger(n)||n&lt;1)return;document.querySelectorAll(&quot;.projection&quot;).forEach(el=&gt;{const m=r.methods[el.dataset.method];const f=r.full_total_setup_seconds+n*r.full_blas_median_batch_seconds;const c=m.total_setup_seconds+n*m.median_batch_seconds;el.textContent=&quot;Projected cost: full &quot;+f.toFixed(2)+&quot; s; reduced &quot;+c.toFixed(2)+&quot; s (&quot;+(f/c).toFixed(2)+&quot;×).&quot;;});}input.addEventListener(&quot;input&quot;,update);update();&lt;/script&gt;&lt;p&gt;&lt;strong&gt;What is proved:&lt;/strong&gt; accepted reduced native outputs versus exact rational sampled source for every admitted stored input in boxes; finite horizon&lt;/p&gt;&lt;p&gt;&lt;strong&gt;What is measured:&lt;/strong&gt; warmed alternating trials; one BLAS thread; domain checks and initial encoding included; complete output materialization&lt;/p&gt;&lt;p&gt;&lt;strong&gt;Cost scope:&lt;/strong&gt; in-process sampled-source conversion, proposal search, independent replay, compiler and preparation; interpreter/dependency imports, file I/O, upstream MAT acquisition/sampling excluded&lt;/p&gt;&lt;p&gt;&lt;small&gt;Balanced truncation is a transparent SciPy implementation, not a timing of the SLICOT library. Projected totals extrapolate batch medians. Timings depend on the machine. Random traces are diagnostics; bounds cover the entire declared box. No physical measurement validation or universal performance claim.&lt;/small&gt;&lt;/p&gt;&lt;details&gt;&lt;summary&gt;Full measured evidence&lt;/summary&gt;&lt;pre&gt;{
+  &amp;quot;schema&amp;quot;: &amp;quot;dynacomp.pilot-results/1&amp;quot;,
+  &amp;quot;name&amp;quot;: &amp;quot;SLICOT pde&amp;quot;,
+  &amp;quot;source_sha256&amp;quot;: &amp;quot;09f536ba79a4b27ffd7742709aada48c06d6cb48cf5fb716032e9ad3d6e24bf4&amp;quot;,
+  &amp;quot;workload_sha256&amp;quot;: &amp;quot;fcaadd3cbdcaf91643f4614806dbe05e25f15b915ee7b1d0a9bdc37de48ddead&amp;quot;,
+  &amp;quot;states&amp;quot;: 84,
+  &amp;quot;steps&amp;quot;: 20,
+  &amp;quot;queries&amp;quot;: 256,
+  &amp;quot;trials&amp;quot;: 7,
+  &amp;quot;seed&amp;quot;: 20261010,
+  &amp;quot;tolerance&amp;quot;: &amp;quot;1/100&amp;quot;,
+  &amp;quot;methods&amp;quot;: {
+    &amp;quot;observable&amp;quot;: {
+      &amp;quot;accepted&amp;quot;: true,
+      &amp;quot;search_seconds&amp;quot;: 0.2783750489998056,
+      &amp;quot;history&amp;quot;: [
+        {
+          &amp;quot;rank&amp;quot;: 1,
+          &amp;quot;model_status&amp;quot;: &amp;quot;refuted&amp;quot;,
+          &amp;quot;model_lower&amp;quot;: &amp;quot;4270858203649621413/18446744073709551616&amp;quot;,
+          &amp;quot;model_upper&amp;quot;: &amp;quot;4270858203649622719/18446744073709551616&amp;quot;,
+          &amp;quot;combined_upper&amp;quot;: null,
+          &amp;quot;status&amp;quot;: &amp;quot;refuted&amp;quot;
+        },
+        {
+          &amp;quot;rank&amp;quot;: 2,
+          &amp;quot;model_status&amp;quot;: &amp;quot;refuted&amp;quot;,
+          &amp;quot;model_lower&amp;quot;: &amp;quot;128431021995119855/4611686018427387904&amp;quot;,
+          &amp;quot;model_upper&amp;quot;: &amp;quot;2006734718673755/72057594037927936&amp;quot;,
+          &amp;quot;combined_upper&amp;quot;: null,
+          &amp;quot;status&amp;quot;: &amp;quot;refuted&amp;quot;
+        },
+        {
+          &amp;quot;rank&amp;quot;: 3,
+          &amp;quot;model_status&amp;quot;: &amp;quot;refuted&amp;quot;,
+          &amp;quot;model_lower&amp;quot;: &amp;quot;33470664926266085/2305843009213693952&amp;quot;,
+          &amp;quot;model_upper&amp;quot;: &amp;quot;133882659705064739/9223372036854775808&amp;quot;,
+          &amp;quot;combined_upper&amp;quot;: null,
+          &amp;quot;status&amp;quot;: &amp;quot;refuted&amp;quot;
+        },
+        {
+          &amp;quot;rank&amp;quot;: 4,
+          &amp;quot;model_status&amp;quot;: &amp;quot;tolerance_met&amp;quot;,
+          &amp;quot;model_lower&amp;quot;: &amp;quot;19956172867594909/9223372036854775808&amp;quot;,
+          &amp;quot;model_upper&amp;quot;: &amp;quot;9978086433798047/4611686018427387904&amp;quot;,
+          &amp;quot;combined_upper&amp;quot;: &amp;quot;171422219640430108359381457/79228162514264337593543950336&amp;quot;,
+          &amp;quot;status&amp;quot;: &amp;quot;tolerance_met&amp;quot;
+        }
+      ],
+      &amp;quot;failure&amp;quot;: null,
+      &amp;quot;rank&amp;quot;: 4,
+      &amp;quot;combined_upper&amp;quot;: &amp;quot;171422219640430108359381457/79228162514264337593543950336&amp;quot;,
+      &amp;quot;model_upper&amp;quot;: &amp;quot;9978086433798047/4611686018427387904&amp;quot;,
+      &amp;quot;execution_upper&amp;quot;: &amp;quot;779988142101715/39614081257132168796771975168&amp;quot;,
+      &amp;quot;packet&amp;quot;: &amp;quot;observable.json.gz&amp;quot;,
+      &amp;quot;packet_sha256&amp;quot;: &amp;quot;97176dbc751bcf050e335968f2ba932e0f2491e78fff19d79a67bd5951633823&amp;quot;,
+      &amp;quot;native_preparation_and_replay_seconds&amp;quot;: 0.1378834930001176,
+      &amp;quot;standalone_replay_adjustment_seconds&amp;quot;: 0.0,
+      &amp;quot;cost_policy&amp;quot;: &amp;quot;conservative standalone estimate; balanced charged an extra empty-cache replay to cover the shared source pass&amp;quot;,
+      &amp;quot;total_setup_seconds&amp;quot;: 0.5141634930005239,
+      &amp;quot;median_batch_seconds&amp;quot;: 0.00042403699990245514,
+      &amp;quot;raw_batch_seconds&amp;quot;: [
+        0.00042403699990245514,
+        0.00043512400043255184,
+        0.00045450399920810014,
+        0.00041233999945688993,
+        0.0006467820003308589,
+        0.0004148839998379117,
+        0.00042282600043108687
+      ],
+      &amp;quot;max_observed_difference_from_full_blas&amp;quot;: 0.00216365259775433,
+      &amp;quot;observed_difference_exceeds_bound&amp;quot;: false,
+      &amp;quot;diagnostic_scope&amp;quot;: &amp;quot;full BLAS reference has uncertified rounding; sampled difference is diagnostic only&amp;quot;,
+      &amp;quot;break_even_batches&amp;quot;: 211.97971531539463,
+      &amp;quot;requested_batches&amp;quot;: 1000,
+      &amp;quot;full_total_seconds&amp;quot;: 2.605558428900622,
+      &amp;quot;reduced_total_seconds&amp;quot;: 0.938200492902979,
+      &amp;quot;total_speedup&amp;quot;: 2.7771872308854855,
+      &amp;quot;warm_speedup&amp;quot;: 5.98985230176841
+    },
+    &amp;quot;balanced&amp;quot;: {
+      &amp;quot;accepted&amp;quot;: true,
+      &amp;quot;search_seconds&amp;quot;: 0.23431351599901973,
+      &amp;quot;history&amp;quot;: [
+        {
+          &amp;quot;rank&amp;quot;: 1,
+          &amp;quot;model_status&amp;quot;: &amp;quot;refuted&amp;quot;,
+          &amp;quot;model_lower&amp;quot;: &amp;quot;1837263818986156245/9223372036854775808&amp;quot;,
+          &amp;quot;model_upper&amp;quot;: &amp;quot;1837263818986156329/9223372036854775808&amp;quot;,
+          &amp;quot;combined_upper&amp;quot;: null,
+          &amp;quot;status&amp;quot;: &amp;quot;refuted&amp;quot;
+        },
+        {
+          &amp;quot;rank&amp;quot;: 2,
+          &amp;quot;model_status&amp;quot;: &amp;quot;refuted&amp;quot;,
+          &amp;quot;model_lower&amp;quot;: &amp;quot;303246630449769531/9223372036854775808&amp;quot;,
+          &amp;quot;model_upper&amp;quot;: &amp;quot;303246630449769615/9223372036854775808&amp;quot;,
+          &amp;quot;combined_upper&amp;quot;: null,
+          &amp;quot;status&amp;quot;: &amp;quot;refuted&amp;quot;
+        },
+        {
+          &amp;quot;rank&amp;quot;: 3,
+          &amp;quot;model_status&amp;quot;: &amp;quot;refuted&amp;quot;,
+          &amp;quot;model_lower&amp;quot;: &amp;quot;457173311615319691/18446744073709551616&amp;quot;,
+          &amp;quot;model_upper&amp;quot;: &amp;quot;457173311615319859/18446744073709551616&amp;quot;,
+          &amp;quot;combined_upper&amp;quot;: null,
+          &amp;quot;status&amp;quot;: &amp;quot;refuted&amp;quot;
+        },
+        {
+          &amp;quot;rank&amp;quot;: 4,
+          &amp;quot;model_status&amp;quot;: &amp;quot;tolerance_met&amp;quot;,
+          &amp;quot;model_lower&amp;quot;: &amp;quot;56430945876715331/18446744073709551616&amp;quot;,
+          &amp;quot;model_upper&amp;quot;: &amp;quot;56430945876716313/18446744073709551616&amp;quot;,
+          &amp;quot;combined_upper&amp;quot;: &amp;quot;121184533512372373852726869/39614081257132168796771975168&amp;quot;,
+          &amp;quot;status&amp;quot;: &amp;quot;tolerance_met&amp;quot;
+        }
+      ],
+      &amp;quot;failure&amp;quot;: null,
+      &amp;quot;rank&amp;quot;: 4,
+      &amp;quot;combined_upper&amp;quot;: &amp;quot;121184533512372373852726869/39614081257132168796771975168&amp;quot;,
+      &amp;quot;model_upper&amp;quot;: &amp;quot;56430945876716313/18446744073709551616&amp;quot;,
+      &amp;quot;execution_upper&amp;quot;: &amp;quot;998574997721319/39614081257132168796771975168&amp;quot;,
+      &amp;quot;packet&amp;quot;: &amp;quot;balanced.json.gz&amp;quot;,
+      &amp;quot;packet_sha256&amp;quot;: &amp;quot;f49c382f601b4c5e4859c903bc95feb3db7c0bd7e1fdce8e2b95f88b459c10a4&amp;quot;,
+      &amp;quot;native_preparation_and_replay_seconds&amp;quot;: 0.11717567200139456,
+      &amp;quot;standalone_replay_adjustment_seconds&amp;quot;: 0.11823292199915159,
+      &amp;quot;cost_policy&amp;quot;: &amp;quot;conservative standalone estimate; balanced charged an extra empty-cache replay to cover the shared source pass&amp;quot;,
+      &amp;quot;total_setup_seconds&amp;quot;: 0.5676270610001666,
+      &amp;quot;median_batch_seconds&amp;quot;: 0.00041925999903469346,
+      &amp;quot;raw_batch_seconds&amp;quot;: [
+        0.00041925999903469346,
+        0.000494543000968406,
+        0.00040464899939252064,
+        0.00039896999987831805,
+        0.0004388599991216324,
+        0.0003999210002803011,
+        0.0004323899993323721
+      ],
+      &amp;quot;max_observed_difference_from_full_blas&amp;quot;: 0.003059127705747358,
+      &amp;quot;observed_difference_exceeds_bound&amp;quot;: false,
+      &amp;quot;diagnostic_scope&amp;quot;: &amp;quot;full BLAS reference has uncertified rounding; sampled difference is diagnostic only&amp;quot;,
+      &amp;quot;break_even_batches&amp;quot;: 236.71303674718266,
+      &amp;quot;requested_batches&amp;quot;: 1000,
+      &amp;quot;full_total_seconds&amp;quot;: 2.605558428900622,
+      &amp;quot;reduced_total_seconds&amp;quot;: 0.98688706003486,
+      &amp;quot;total_speedup&amp;quot;: 2.6401789367960555,
+      &amp;quot;warm_speedup&amp;quot;: 6.05809999940041
+    }
+  },
+  &amp;quot;rejected_methods&amp;quot;: {},
+  &amp;quot;full_blas_setup_seconds&amp;quot;: 0.03891096500046842,
+  &amp;quot;full_blas_median_batch_seconds&amp;quot;: 0.002539918999900692,
+  &amp;quot;full_blas_raw_batch_seconds&amp;quot;: [
+    0.0025904550002451288,
+    0.0023632940010429593,
+    0.003250529000069946,
+    0.0025089030004892265,
+    0.002313238999704481,
+    0.00274752200130024,
+    0.002539918999900692
+  ],
+  &amp;quot;full_total_setup_seconds&amp;quot;: 0.0656394289999298,
+  &amp;quot;native_compiler_seconds&amp;quot;: 0.07117648700113932,
+  &amp;quot;actual_compiler_wait_seconds&amp;quot;: 1.6220001270994544e-06,
+  &amp;quot;native_source_sha256&amp;quot;: &amp;quot;6378a42e27bb0cbe6ca62e0e7ddd04e3ebf7cbf224dcc4c1729451da4a83a5c3&amp;quot;,
+  &amp;quot;compiler_version&amp;quot;: &amp;quot;cc (Ubuntu 13.3.0-6ubuntu2~24.04) 13.3.0&amp;quot;,
+  &amp;quot;python&amp;quot;: &amp;quot;3.12.14&amp;quot;,
+  &amp;quot;numpy&amp;quot;: &amp;quot;2.3.5&amp;quot;,
+  &amp;quot;scipy&amp;quot;: &amp;quot;1.17.0&amp;quot;,
+  &amp;quot;platform&amp;quot;: &amp;quot;Linux-6.18.44-x86_64-with-glibc2.39&amp;quot;,
+  &amp;quot;threadpools&amp;quot;: [
+    {
+      &amp;quot;user_api&amp;quot;: &amp;quot;blas&amp;quot;,
+      &amp;quot;internal_api&amp;quot;: &amp;quot;openblas&amp;quot;,
+      &amp;quot;num_threads&amp;quot;: 1,
+      &amp;quot;prefix&amp;quot;: &amp;quot;libscipy_openblas&amp;quot;,
+      &amp;quot;filepath&amp;quot;: &amp;quot;/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/numpy.libs/libscipy_openblas64_-fdde5778.so&amp;quot;,
+      &amp;quot;version&amp;quot;: &amp;quot;0.3.30&amp;quot;,
+      &amp;quot;threading_layer&amp;quot;: &amp;quot;pthreads&amp;quot;,
+      &amp;quot;architecture&amp;quot;: &amp;quot;SkylakeX&amp;quot;
+    },
+    {
+      &amp;quot;user_api&amp;quot;: &amp;quot;blas&amp;quot;,
+      &amp;quot;internal_api&amp;quot;: &amp;quot;openblas&amp;quot;,
+      &amp;quot;num_threads&amp;quot;: 1,
+      &amp;quot;prefix&amp;quot;: &amp;quot;libscipy_openblas&amp;quot;,
+      &amp;quot;filepath&amp;quot;: &amp;quot;/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/scipy.libs/libscipy_openblas-6cdc3b4a.so&amp;quot;,
+      &amp;quot;version&amp;quot;: &amp;quot;0.3.30&amp;quot;,
+      &amp;quot;threading_layer&amp;quot;: &amp;quot;pthreads&amp;quot;,
+      &amp;quot;architecture&amp;quot;: &amp;quot;SkylakeX&amp;quot;
+    }
+  ],
+  &amp;quot;measurement&amp;quot;: &amp;quot;warmed alternating trials; one BLAS thread; domain checks and initial encoding included; complete output materialization&amp;quot;,
+  &amp;quot;cost_scope&amp;quot;: &amp;quot;in-process sampled-source conversion, proposal search, independent replay, compiler and preparation; interpreter/dependency imports, file I/O, upstream MAT acquisition/sampling excluded&amp;quot;,
+  &amp;quot;guarantee&amp;quot;: &amp;quot;accepted reduced native outputs versus exact rational sampled source for every admitted stored input in boxes; finite horizon&amp;quot;,
+  &amp;quot;baseline&amp;quot;: &amp;quot;SciPy square-root balanced truncation, accepted by same combined box/native error test; full dense NumPy BLAS reference&amp;quot;,
+  &amp;quot;projection&amp;quot;: &amp;quot;requested total costs extrapolate measured batch medians; they are not a sustained run&amp;quot;,
+  &amp;quot;provenance&amp;quot;: {
+    &amp;quot;upstream&amp;quot;: &amp;quot;https://github.com/SLICOT/Benchmark-ModelReduction&amp;quot;,
+    &amp;quot;commit&amp;quot;: &amp;quot;98c1747030c0b1bf48d9353b2dcc9c4583867ca1&amp;quot;,
+    &amp;quot;mat_sha256&amp;quot;: &amp;quot;c08771fcf4c86cbd22183a80394414460a875f39935a8d532771e42111abf59f&amp;quot;,
+    &amp;quot;sampled_model_sha256&amp;quot;: &amp;quot;09f536ba79a4b27ffd7742709aada48c06d6cb48cf5fb716032e9ad3d6e24bf4&amp;quot;,
+    &amp;quot;scope&amp;quot;: &amp;quot;retained sampled normalized-output model; experimental boxes, not measured customer trajectories&amp;quot;
+  }
+}&lt;/pre&gt;&lt;/details&gt;&lt;/html&gt;"></iframe></section><section><iframe title="SLICOT build" srcdoc="&lt;!doctype html&gt;&lt;html lang=&quot;en&quot;&gt;&lt;meta charset=&quot;utf-8&quot;&gt;&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width&quot;&gt;&lt;title&gt;DynaComp workload results&lt;/title&gt;&lt;style&gt;body{font:18px system-ui;background:#101923;color:#e5eef6;max-width:1100px;margin:40px auto;padding:24px}h1{font-size:42px}main{display:flex;flex-wrap:wrap;gap:20px}article{background:#1a2b3c;border:1px solid #39546c;border-radius:16px;padding:24px;flex:1;min-width:260px}.big{font-size:36px;color:#6fe4b4}pre{font-size:13px;overflow:auto}small{color:#afc1d1}&lt;/style&gt;&lt;h1&gt;SLICOT build&lt;/h1&gt;&lt;p&gt;48 source states · 20 steps · 256 scenarios per batch · target 1/100&lt;/p&gt;&lt;main&gt;&lt;article&gt;&lt;h2&gt;observable&lt;/h2&gt;&lt;p class=&quot;big&quot;&gt;13 states&lt;/p&gt;&lt;p&gt;Uniform combined error ≤ 0.000901406&lt;/p&gt;&lt;p&gt;Warm speedup versus full BLAS: 0.45×&lt;/p&gt;&lt;p&gt;Total setup: 0.631 s&lt;/p&gt;&lt;p&gt;Break-even: no measured break-even&lt;/p&gt;&lt;p&gt;Projected total speedup at 1000 batches: 0.36×&lt;/p&gt;&lt;p class=&quot;projection&quot; data-method=&quot;observable&quot;&gt;&lt;/p&gt;&lt;/article&gt;&lt;article&gt;&lt;h2&gt;balanced&lt;/h2&gt;&lt;p class=&quot;big&quot;&gt;Target unmet&lt;/p&gt;&lt;p&gt;No candidate passed within the supplied rank range.&lt;/p&gt;&lt;p&gt;Candidate results are retained in plan.json.&lt;/p&gt;&lt;/article&gt;&lt;/main&gt;&lt;label&gt;Explore total cost at &lt;input id=&quot;batch-count&quot; type=&quot;number&quot; min=&quot;1&quot; value=&quot;1000&quot;&gt; batches&lt;/label&gt;&lt;script id=&quot;evidence&quot; type=&quot;application/json&quot;&gt;{&quot;schema&quot;:&quot;dynacomp.pilot-results/1&quot;,&quot;name&quot;:&quot;SLICOT build&quot;,&quot;source_sha256&quot;:&quot;9b8a16481220d8188ac7ea86fb340d8a2bf571c8d95813c013154f3525112006&quot;,&quot;workload_sha256&quot;:&quot;880c2c8dbefd01417905beec7c27f09a963d6365eef0037f1de8ae707fdf21bb&quot;,&quot;states&quot;:48,&quot;steps&quot;:20,&quot;queries&quot;:256,&quot;trials&quot;:7,&quot;seed&quot;:20261010,&quot;tolerance&quot;:&quot;1/100&quot;,&quot;methods&quot;:{&quot;observable&quot;:{&quot;accepted&quot;:true,&quot;search_seconds&quot;:0.43234143600056996,&quot;history&quot;:[{&quot;rank&quot;:1,&quot;model_status&quot;:&quot;refuted&quot;,&quot;model_lower&quot;:&quot;490608421232589949837/9223372036854775808&quot;,&quot;model_upper&quot;:&quot;61326052654130038153/1152921504606846976&quot;,&quot;combined_upper&quot;:null,&quot;status&quot;:&quot;refuted&quot;},{&quot;rank&quot;:2,&quot;model_status&quot;:&quot;refuted&quot;,&quot;model_lower&quot;:&quot;975560333611784955299/18446744073709551616&quot;,&quot;model_upper&quot;:&quot;975560333612685672543/18446744073709551616&quot;,&quot;combined_upper&quot;:null,&quot;status&quot;:&quot;refuted&quot;},{&quot;rank&quot;:3,&quot;model_status&quot;:&quot;refuted&quot;,&quot;model_lower&quot;:&quot;718408029218690773787/9223372036854775808&quot;,&quot;model_upper&quot;:&quot;179602007304728116935/2305843009213693952&quot;,&quot;combined_upper&quot;:null,&quot;status&quot;:&quot;refuted&quot;},{&quot;rank&quot;:4,&quot;model_status&quot;:&quot;refuted&quot;,&quot;model_lower&quot;:&quot;1249297583737258639509/18446744073709551616&quot;,&quot;model_upper&quot;:&quot;1249297583737702193587/18446744073709551616&quot;,&quot;combined_upper&quot;:null,&quot;status&quot;:&quot;refuted&quot;},{&quot;rank&quot;:5,&quot;model_status&quot;:&quot;refuted&quot;,&quot;model_lower&quot;:&quot;559614090841391891221/9223372036854775808&quot;,&quot;model_upper&quot;:&quot;559614090843253275069/9223372036854775808&quot;,&quot;combined_upper&quot;:null,&quot;status&quot;:&quot;refuted&quot;},{&quot;rank&quot;:6,&quot;model_status&quot;:&quot;refuted&quot;,&quot;model_lower&quot;:&quot;229680576306529738483/4611686018427387904&quot;,&quot;model_upper&quot;:&quot;14355036019216309559/288230376151711744&quot;,&quot;combined_upper&quot;:null,&quot;status&quot;:&quot;refuted&quot;},{&quot;rank&quot;:7,&quot;model_status&quot;:&quot;refuted&quot;,&quot;model_lower&quot;:&quot;688717862329596526955/18446744073709551616&quot;,&quot;model_upper&quot;:&quot;688717862329609760031/18446744073709551616&quot;,&quot;combined_upper&quot;:null,&quot;status&quot;:&quot;refuted&quot;},{&quot;rank&quot;:8,&quot;model_status&quot;:&quot;refuted&quot;,&quot;model_lower&quot;:&quot;214404826046927193281/9223372036854775808&quot;,&quot;model_upper&quot;:&quot;214404826062640924605/9223372036854775808&quot;,&quot;combined_upper&quot;:null,&quot;status&quot;:&quot;refuted&quot;},{&quot;rank&quot;:9,&quot;model_status&quot;:&quot;refuted&quot;,&quot;model_lower&quot;:&quot;35014452595868682703/9223372036854775808&quot;,&quot;model_upper&quot;:&quot;35014452595924892233/9223372036854775808&quot;,&quot;combined_upper&quot;:null,&quot;status&quot;:&quot;refuted&quot;},{&quot;rank&quot;:10,&quot;model_status&quot;:&quot;refuted&quot;,&quot;model_lower&quot;:&quot;783616471963063793/1152921504606846976&quot;,&quot;model_upper&quot;:&quot;6268931783833945993/9223372036854775808&quot;,&quot;combined_upper&quot;:null,&quot;status&quot;:&quot;refuted&quot;},{&quot;rank&quot;:11,&quot;model_status&quot;:&quot;refuted&quot;,&quot;model_lower&quot;:&quot;2103821834609243385/9223372036854775808&quot;,&quot;model_upper&quot;:&quot;2103821834613251955/9223372036854775808&quot;,&quot;combined_upper&quot;:null,&quot;status&quot;:&quot;refuted&quot;},{&quot;rank&quot;:12,&quot;model_status&quot;:&quot;refuted&quot;,&quot;model_lower&quot;:&quot;296349144190389511/18446744073709551616&quot;,&quot;model_upper&quot;:&quot;296349144191258981/18446744073709551616&quot;,&quot;combined_upper&quot;:null,&quot;status&quot;:&quot;refuted&quot;},{&quot;rank&quot;:13,&quot;model_status&quot;:&quot;tolerance_met&quot;,&quot;model_lower&quot;:&quot;16627132300127045/18446744073709551616&quot;,&quot;model_upper&quot;:&quot;16627141272331973/18446744073709551616&quot;,&quot;combined_upper&quot;:&quot;8927094088634318083549475/9903520314283042199192993792&quot;,&quot;status&quot;:&quot;tolerance_met&quot;}],&quot;failure&quot;:null,&quot;rank&quot;:13,&quot;combined_upper&quot;:&quot;8927094088634318083549475/9903520314283042199192993792&quot;,&quot;model_upper&quot;:&quot;16627141272331973/18446744073709551616&quot;,&quot;execution_upper&quot;:&quot;14858955161700908361413/79228162514264337593543950336&quot;,&quot;packet&quot;:&quot;observable.json.gz&quot;,&quot;packet_sha256&quot;:&quot;a1475ac3243ef44f2a974f60ef74b12e47837d03e708d0f56be2831e2147ce19&quot;,&quot;native_preparation_and_replay_seconds&quot;:0.1191436059998523,&quot;standalone_replay_adjustment_seconds&quot;:0.0,&quot;cost_policy&quot;:&quot;conservative standalone estimate; balanced charged an extra empty-cache replay to cover the shared source pass&quot;,&quot;total_setup_seconds&quot;:0.6313948020015232,&quot;median_batch_seconds&quot;:0.002154619998691487,&quot;raw_batch_seconds&quot;:[0.0023767949987814063,0.00284250400000019,0.0020904039993183687,0.0018917849993158597,0.002154619998691487,0.0018871669999498408,0.0023590879991388647],&quot;max_observed_difference_from_full_blas&quot;:0.000901358891292503,&quot;observed_difference_exceeds_bound&quot;:false,&quot;diagnostic_scope&quot;:&quot;full BLAS reference has uncertified rounding; sampled difference is diagnostic only&quot;,&quot;break_even_batches&quot;:null,&quot;requested_batches&quot;:1000,&quot;full_total_seconds&quot;:0.9914282490517508,&quot;reduced_total_seconds&quot;:2.7860148006930103,&quot;total_speedup&quot;:0.3558589311173569,&quot;warm_speedup&quot;:0.4495767238029045}},&quot;rejected_methods&quot;:{&quot;balanced&quot;:{&quot;accepted&quot;:false,&quot;search_seconds&quot;:0.2732008170005429,&quot;history&quot;:[{&quot;rank&quot;:1,&quot;model_status&quot;:&quot;refuted&quot;,&quot;model_lower&quot;:&quot;967580816105272704643/18446744073709551616&quot;,&quot;model_upper&quot;:&quot;967580816106173460983/18446744073709551616&quot;,&quot;combined_upper&quot;:null,&quot;status&quot;:&quot;refuted&quot;},{&quot;rank&quot;:2,&quot;model_status&quot;:&quot;refuted&quot;,&quot;model_lower&quot;:&quot;482870237413065969683/9223372036854775808&quot;,&quot;model_upper&quot;:&quot;60358779676639967781/1152921504606846976&quot;,&quot;combined_upper&quot;:null,&quot;status&quot;:&quot;refuted&quot;},{&quot;rank&quot;:3,&quot;model_status&quot;:&quot;refuted&quot;,&quot;model_lower&quot;:&quot;1027898920053783656131/18446744073709551616&quot;,&quot;model_upper&quot;:&quot;1027898920054227108305/18446744073709551616&quot;,&quot;combined_upper&quot;:null,&quot;status&quot;:&quot;refuted&quot;},{&quot;rank&quot;:4,&quot;model_status&quot;:&quot;refuted&quot;,&quot;model_lower&quot;:&quot;990835432119582560605/18446744073709551616&quot;,&quot;model_upper&quot;:&quot;990835432134970147751/18446744073709551616&quot;,&quot;combined_upper&quot;:null,&quot;status&quot;:&quot;refuted&quot;},{&quot;rank&quot;:5,&quot;model_status&quot;:&quot;refuted&quot;,&quot;model_lower&quot;:&quot;251688000094767748543/4611686018427387904&quot;,&quot;model_upper&quot;:&quot;125844000049307357409/2305843009213693952&quot;,&quot;combined_upper&quot;:null,&quot;status&quot;:&quot;refuted&quot;},{&quot;rank&quot;:6,&quot;model_status&quot;:&quot;refuted&quot;,&quot;model_lower&quot;:&quot;919629896399829262633/18446744073709551616&quot;,&quot;model_upper&quot;:&quot;919629896431129327961/18446744073709551616&quot;,&quot;combined_upper&quot;:null,&quot;status&quot;:&quot;refuted&quot;},{&quot;rank&quot;:7,&quot;model_status&quot;:&quot;refuted&quot;,&quot;model_lower&quot;:&quot;914918407811893355905/18446744073709551616&quot;,&quot;model_upper&quot;:&quot;914918407843193730305/18446744073709551616&quot;,&quot;combined_upper&quot;:null,&quot;status&quot;:&quot;refuted&quot;},{&quot;rank&quot;:8,&quot;model_status&quot;:&quot;refuted&quot;,&quot;model_lower&quot;:&quot;458775942688478906943/9223372036854775808&quot;,&quot;model_upper&quot;:&quot;458775942704129624557/9223372036854775808&quot;,&quot;combined_upper&quot;:null,&quot;status&quot;:&quot;refuted&quot;},{&quot;rank&quot;:9,&quot;model_status&quot;:&quot;refuted&quot;,&quot;model_lower&quot;:&quot;459531611445175263555/9223372036854775808&quot;,&quot;model_upper&quot;:&quot;229765805730413076967/4611686018427387904&quot;,&quot;combined_upper&quot;:null,&quot;status&quot;:&quot;refuted&quot;},{&quot;rank&quot;:10,&quot;model_status&quot;:&quot;refuted&quot;,&quot;model_lower&quot;:&quot;460187592740491571559/9223372036854775808&quot;,&quot;model_upper&quot;:&quot;230093796378071679501/4611686018427387904&quot;,&quot;combined_upper&quot;:null,&quot;status&quot;:&quot;refuted&quot;},{&quot;rank&quot;:11,&quot;model_status&quot;:&quot;refuted&quot;,&quot;model_lower&quot;:&quot;457330103659598467181/9223372036854775808&quot;,&quot;model_upper&quot;:&quot;457330103675250461913/9223372036854775808&quot;,&quot;combined_upper&quot;:null,&quot;status&quot;:&quot;refuted&quot;},{&quot;rank&quot;:12,&quot;model_status&quot;:&quot;refuted&quot;,&quot;model_lower&quot;:&quot;100782215999159703303/2305843009213693952&quot;,&quot;model_upper&quot;:&quot;403128863996639123653/9223372036854775808&quot;,&quot;combined_upper&quot;:null,&quot;status&quot;:&quot;refuted&quot;},{&quot;rank&quot;:13,&quot;model_status&quot;:&quot;refuted&quot;,&quot;model_lower&quot;:&quot;769040030356936329575/18446744073709551616&quot;,&quot;model_upper&quot;:&quot;769040030356936972633/18446744073709551616&quot;,&quot;combined_upper&quot;:null,&quot;status&quot;:&quot;refuted&quot;},{&quot;rank&quot;:14,&quot;model_status&quot;:&quot;refuted&quot;,&quot;model_lower&quot;:&quot;388991442968818355255/9223372036854775808&quot;,&quot;model_upper&quot;:&quot;388991442968818697079/9223372036854775808&quot;,&quot;combined_upper&quot;:null,&quot;status&quot;:&quot;refuted&quot;},{&quot;rank&quot;:15,&quot;model_status&quot;:&quot;refuted&quot;,&quot;model_lower&quot;:&quot;747200625729695179793/18446744073709551616&quot;,&quot;model_upper&quot;:&quot;747200625729695896549/18446744073709551616&quot;,&quot;combined_upper&quot;:null,&quot;status&quot;:&quot;refuted&quot;},{&quot;rank&quot;:16,&quot;model_status&quot;:&quot;refuted&quot;,&quot;model_lower&quot;:&quot;374303495639749970931/9223372036854775808&quot;,&quot;model_upper&quot;:&quot;374303495639750407531/9223372036854775808&quot;,&quot;combined_upper&quot;:null,&quot;status&quot;:&quot;refuted&quot;}],&quot;failure&quot;:null}},&quot;full_blas_setup_seconds&quot;:0.01402797599985206,&quot;full_blas_median_batch_seconds&quot;:0.0009686670000519371,&quot;full_blas_raw_batch_seconds&quot;:[0.0009880459983833134,0.0010386419999122154,0.0009686670000519371,0.0009631680004531518,0.0009280960002797656,0.0009442089994990965,0.0009818969992920756],&quot;full_total_setup_seconds&quot;:0.022761248999813688,&quot;native_compiler_seconds&quot;:0.07117648700113932,&quot;actual_compiler_wait_seconds&quot;:9.81999619398266e-07,&quot;native_source_sha256&quot;:&quot;6378a42e27bb0cbe6ca62e0e7ddd04e3ebf7cbf224dcc4c1729451da4a83a5c3&quot;,&quot;compiler_version&quot;:&quot;cc (Ubuntu 13.3.0-6ubuntu2~24.04) 13.3.0&quot;,&quot;python&quot;:&quot;3.12.14&quot;,&quot;numpy&quot;:&quot;2.3.5&quot;,&quot;scipy&quot;:&quot;1.17.0&quot;,&quot;platform&quot;:&quot;Linux-6.18.44-x86_64-with-glibc2.39&quot;,&quot;threadpools&quot;:[{&quot;user_api&quot;:&quot;blas&quot;,&quot;internal_api&quot;:&quot;openblas&quot;,&quot;num_threads&quot;:1,&quot;prefix&quot;:&quot;libscipy_openblas&quot;,&quot;filepath&quot;:&quot;/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/numpy.libs/libscipy_openblas64_-fdde5778.so&quot;,&quot;version&quot;:&quot;0.3.30&quot;,&quot;threading_layer&quot;:&quot;pthreads&quot;,&quot;architecture&quot;:&quot;SkylakeX&quot;},{&quot;user_api&quot;:&quot;blas&quot;,&quot;internal_api&quot;:&quot;openblas&quot;,&quot;num_threads&quot;:1,&quot;prefix&quot;:&quot;libscipy_openblas&quot;,&quot;filepath&quot;:&quot;/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/scipy.libs/libscipy_openblas-6cdc3b4a.so&quot;,&quot;version&quot;:&quot;0.3.30&quot;,&quot;threading_layer&quot;:&quot;pthreads&quot;,&quot;architecture&quot;:&quot;SkylakeX&quot;}],&quot;measurement&quot;:&quot;warmed alternating trials; one BLAS thread; domain checks and initial encoding included; complete output materialization&quot;,&quot;cost_scope&quot;:&quot;in-process sampled-source conversion, proposal search, independent replay, compiler and preparation; interpreter/dependency imports, file I/O, upstream MAT acquisition/sampling excluded&quot;,&quot;guarantee&quot;:&quot;accepted reduced native outputs versus exact rational sampled source for every admitted stored input in boxes; finite horizon&quot;,&quot;baseline&quot;:&quot;SciPy square-root balanced truncation, accepted by same combined box/native error test; full dense NumPy BLAS reference&quot;,&quot;projection&quot;:&quot;requested total costs extrapolate measured batch medians; they are not a sustained run&quot;,&quot;provenance&quot;:{&quot;upstream&quot;:&quot;https://github.com/SLICOT/Benchmark-ModelReduction&quot;,&quot;commit&quot;:&quot;98c1747030c0b1bf48d9353b2dcc9c4583867ca1&quot;,&quot;mat_sha256&quot;:&quot;9513bfdf12fb9382a4491755464702bf0e75567d9e4090f9f67f27ebf92ecac7&quot;,&quot;sampled_model_sha256&quot;:&quot;9b8a16481220d8188ac7ea86fb340d8a2bf571c8d95813c013154f3525112006&quot;,&quot;scope&quot;:&quot;retained sampled normalized-output model; experimental boxes, not measured customer trajectories&quot;}}&lt;/script&gt;&lt;script&gt;const r=JSON.parse(document.getElementById(&quot;evidence&quot;).textContent);const input=document.getElementById(&quot;batch-count&quot;);function update(){const n=Number(input.value);if(!Number.isInteger(n)||n&lt;1)return;document.querySelectorAll(&quot;.projection&quot;).forEach(el=&gt;{const m=r.methods[el.dataset.method];const f=r.full_total_setup_seconds+n*r.full_blas_median_batch_seconds;const c=m.total_setup_seconds+n*m.median_batch_seconds;el.textContent=&quot;Projected cost: full &quot;+f.toFixed(2)+&quot; s; reduced &quot;+c.toFixed(2)+&quot; s (&quot;+(f/c).toFixed(2)+&quot;×).&quot;;});}input.addEventListener(&quot;input&quot;,update);update();&lt;/script&gt;&lt;p&gt;&lt;strong&gt;What is proved:&lt;/strong&gt; accepted reduced native outputs versus exact rational sampled source for every admitted stored input in boxes; finite horizon&lt;/p&gt;&lt;p&gt;&lt;strong&gt;What is measured:&lt;/strong&gt; warmed alternating trials; one BLAS thread; domain checks and initial encoding included; complete output materialization&lt;/p&gt;&lt;p&gt;&lt;strong&gt;Cost scope:&lt;/strong&gt; in-process sampled-source conversion, proposal search, independent replay, compiler and preparation; interpreter/dependency imports, file I/O, upstream MAT acquisition/sampling excluded&lt;/p&gt;&lt;p&gt;&lt;small&gt;Balanced truncation is a transparent SciPy implementation, not a timing of the SLICOT library. Projected totals extrapolate batch medians. Timings depend on the machine. Random traces are diagnostics; bounds cover the entire declared box. No physical measurement validation or universal performance claim.&lt;/small&gt;&lt;/p&gt;&lt;details&gt;&lt;summary&gt;Full measured evidence&lt;/summary&gt;&lt;pre&gt;{
+  &amp;quot;schema&amp;quot;: &amp;quot;dynacomp.pilot-results/1&amp;quot;,
+  &amp;quot;name&amp;quot;: &amp;quot;SLICOT build&amp;quot;,
+  &amp;quot;source_sha256&amp;quot;: &amp;quot;9b8a16481220d8188ac7ea86fb340d8a2bf571c8d95813c013154f3525112006&amp;quot;,
+  &amp;quot;workload_sha256&amp;quot;: &amp;quot;880c2c8dbefd01417905beec7c27f09a963d6365eef0037f1de8ae707fdf21bb&amp;quot;,
+  &amp;quot;states&amp;quot;: 48,
+  &amp;quot;steps&amp;quot;: 20,
+  &amp;quot;queries&amp;quot;: 256,
+  &amp;quot;trials&amp;quot;: 7,
+  &amp;quot;seed&amp;quot;: 20261010,
+  &amp;quot;tolerance&amp;quot;: &amp;quot;1/100&amp;quot;,
+  &amp;quot;methods&amp;quot;: {
+    &amp;quot;observable&amp;quot;: {
+      &amp;quot;accepted&amp;quot;: true,
+      &amp;quot;search_seconds&amp;quot;: 0.43234143600056996,
+      &amp;quot;history&amp;quot;: [
+        {
+          &amp;quot;rank&amp;quot;: 1,
+          &amp;quot;model_status&amp;quot;: &amp;quot;refuted&amp;quot;,
+          &amp;quot;model_lower&amp;quot;: &amp;quot;490608421232589949837/9223372036854775808&amp;quot;,
+          &amp;quot;model_upper&amp;quot;: &amp;quot;61326052654130038153/1152921504606846976&amp;quot;,
+          &amp;quot;combined_upper&amp;quot;: null,
+          &amp;quot;status&amp;quot;: &amp;quot;refuted&amp;quot;
+        },
+        {
+          &amp;quot;rank&amp;quot;: 2,
+          &amp;quot;model_status&amp;quot;: &amp;quot;refuted&amp;quot;,
+          &amp;quot;model_lower&amp;quot;: &amp;quot;975560333611784955299/18446744073709551616&amp;quot;,
+          &amp;quot;model_upper&amp;quot;: &amp;quot;975560333612685672543/18446744073709551616&amp;quot;,
+          &amp;quot;combined_upper&amp;quot;: null,
+          &amp;quot;status&amp;quot;: &amp;quot;refuted&amp;quot;
+        },
+        {
+          &amp;quot;rank&amp;quot;: 3,
+          &amp;quot;model_status&amp;quot;: &amp;quot;refuted&amp;quot;,
+          &amp;quot;model_lower&amp;quot;: &amp;quot;718408029218690773787/9223372036854775808&amp;quot;,
+          &amp;quot;model_upper&amp;quot;: &amp;quot;179602007304728116935/2305843009213693952&amp;quot;,
+          &amp;quot;combined_upper&amp;quot;: null,
+          &amp;quot;status&amp;quot;: &amp;quot;refuted&amp;quot;
+        },
+        {
+          &amp;quot;rank&amp;quot;: 4,
+          &amp;quot;model_status&amp;quot;: &amp;quot;refuted&amp;quot;,
+          &amp;quot;model_lower&amp;quot;: &amp;quot;1249297583737258639509/18446744073709551616&amp;quot;,
+          &amp;quot;model_upper&amp;quot;: &amp;quot;1249297583737702193587/18446744073709551616&amp;quot;,
+          &amp;quot;combined_upper&amp;quot;: null,
+          &amp;quot;status&amp;quot;: &amp;quot;refuted&amp;quot;
+        },
+        {
+          &amp;quot;rank&amp;quot;: 5,
+          &amp;quot;model_status&amp;quot;: &amp;quot;refuted&amp;quot;,
+          &amp;quot;model_lower&amp;quot;: &amp;quot;559614090841391891221/9223372036854775808&amp;quot;,
+          &amp;quot;model_upper&amp;quot;: &amp;quot;559614090843253275069/9223372036854775808&amp;quot;,
+          &amp;quot;combined_upper&amp;quot;: null,
+          &amp;quot;status&amp;quot;: &amp;quot;refuted&amp;quot;
+        },
+        {
+          &amp;quot;rank&amp;quot;: 6,
+          &amp;quot;model_status&amp;quot;: &amp;quot;refuted&amp;quot;,
+          &amp;quot;model_lower&amp;quot;: &amp;quot;229680576306529738483/4611686018427387904&amp;quot;,
+          &amp;quot;model_upper&amp;quot;: &amp;quot;14355036019216309559/288230376151711744&amp;quot;,
+          &amp;quot;combined_upper&amp;quot;: null,
+          &amp;quot;status&amp;quot;: &amp;quot;refuted&amp;quot;
+        },
+        {
+          &amp;quot;rank&amp;quot;: 7,
+          &amp;quot;model_status&amp;quot;: &amp;quot;refuted&amp;quot;,
+          &amp;quot;model_lower&amp;quot;: &amp;quot;688717862329596526955/18446744073709551616&amp;quot;,
+          &amp;quot;model_upper&amp;quot;: &amp;quot;688717862329609760031/18446744073709551616&amp;quot;,
+          &amp;quot;combined_upper&amp;quot;: null,
+          &amp;quot;status&amp;quot;: &amp;quot;refuted&amp;quot;
+        },
+        {
+          &amp;quot;rank&amp;quot;: 8,
+          &amp;quot;model_status&amp;quot;: &amp;quot;refuted&amp;quot;,
+          &amp;quot;model_lower&amp;quot;: &amp;quot;214404826046927193281/9223372036854775808&amp;quot;,
+          &amp;quot;model_upper&amp;quot;: &amp;quot;214404826062640924605/9223372036854775808&amp;quot;,
+          &amp;quot;combined_upper&amp;quot;: null,
+          &amp;quot;status&amp;quot;: &amp;quot;refuted&amp;quot;
+        },
+        {
+          &amp;quot;rank&amp;quot;: 9,
+          &amp;quot;model_status&amp;quot;: &amp;quot;refuted&amp;quot;,
+          &amp;quot;model_lower&amp;quot;: &amp;quot;35014452595868682703/9223372036854775808&amp;quot;,
+          &amp;quot;model_upper&amp;quot;: &amp;quot;35014452595924892233/9223372036854775808&amp;quot;,
+          &amp;quot;combined_upper&amp;quot;: null,
+          &amp;quot;status&amp;quot;: &amp;quot;refuted&amp;quot;
+        },
+        {
+          &amp;quot;rank&amp;quot;: 10,
+          &amp;quot;model_status&amp;quot;: &amp;quot;refuted&amp;quot;,
+          &amp;quot;model_lower&amp;quot;: &amp;quot;783616471963063793/1152921504606846976&amp;quot;,
+          &amp;quot;model_upper&amp;quot;: &amp;quot;6268931783833945993/9223372036854775808&amp;quot;,
+          &amp;quot;combined_upper&amp;quot;: null,
+          &amp;quot;status&amp;quot;: &amp;quot;refuted&amp;quot;
+        },
+        {
+          &amp;quot;rank&amp;quot;: 11,
+          &amp;quot;model_status&amp;quot;: &amp;quot;refuted&amp;quot;,
+          &amp;quot;model_lower&amp;quot;: &amp;quot;2103821834609243385/9223372036854775808&amp;quot;,
+          &amp;quot;model_upper&amp;quot;: &amp;quot;2103821834613251955/9223372036854775808&amp;quot;,
+          &amp;quot;combined_upper&amp;quot;: null,
+          &amp;quot;status&amp;quot;: &amp;quot;refuted&amp;quot;
+        },
+        {
+          &amp;quot;rank&amp;quot;: 12,
+          &amp;quot;model_status&amp;quot;: &amp;quot;refuted&amp;quot;,
+          &amp;quot;model_lower&amp;quot;: &amp;quot;296349144190389511/18446744073709551616&amp;quot;,
+          &amp;quot;model_upper&amp;quot;: &amp;quot;296349144191258981/18446744073709551616&amp;quot;,
+          &amp;quot;combined_upper&amp;quot;: null,
+          &amp;quot;status&amp;quot;: &amp;quot;refuted&amp;quot;
+        },
+        {
+          &amp;quot;rank&amp;quot;: 13,
+          &amp;quot;model_status&amp;quot;: &amp;quot;tolerance_met&amp;quot;,
+          &amp;quot;model_lower&amp;quot;: &amp;quot;16627132300127045/18446744073709551616&amp;quot;,
+          &amp;quot;model_upper&amp;quot;: &amp;quot;16627141272331973/18446744073709551616&amp;quot;,
+          &amp;quot;combined_upper&amp;quot;: &amp;quot;8927094088634318083549475/9903520314283042199192993792&amp;quot;,
+          &amp;quot;status&amp;quot;: &amp;quot;tolerance_met&amp;quot;
+        }
+      ],
+      &amp;quot;failure&amp;quot;: null,
+      &amp;quot;rank&amp;quot;: 13,
+      &amp;quot;combined_upper&amp;quot;: &amp;quot;8927094088634318083549475/9903520314283042199192993792&amp;quot;,
+      &amp;quot;model_upper&amp;quot;: &amp;quot;16627141272331973/18446744073709551616&amp;quot;,
+      &amp;quot;execution_upper&amp;quot;: &amp;quot;14858955161700908361413/79228162514264337593543950336&amp;quot;,
+      &amp;quot;packet&amp;quot;: &amp;quot;observable.json.gz&amp;quot;,
+      &amp;quot;packet_sha256&amp;quot;: &amp;quot;a1475ac3243ef44f2a974f60ef74b12e47837d03e708d0f56be2831e2147ce19&amp;quot;,
+      &amp;quot;native_preparation_and_replay_seconds&amp;quot;: 0.1191436059998523,
+      &amp;quot;standalone_replay_adjustment_seconds&amp;quot;: 0.0,
+      &amp;quot;cost_policy&amp;quot;: &amp;quot;conservative standalone estimate; balanced charged an extra empty-cache replay to cover the shared source pass&amp;quot;,
+      &amp;quot;total_setup_seconds&amp;quot;: 0.6313948020015232,
+      &amp;quot;median_batch_seconds&amp;quot;: 0.002154619998691487,
+      &amp;quot;raw_batch_seconds&amp;quot;: [
+        0.0023767949987814063,
+        0.00284250400000019,
+        0.0020904039993183687,
+        0.0018917849993158597,
+        0.002154619998691487,
+        0.0018871669999498408,
+        0.0023590879991388647
+      ],
+      &amp;quot;max_observed_difference_from_full_blas&amp;quot;: 0.000901358891292503,
+      &amp;quot;observed_difference_exceeds_bound&amp;quot;: false,
+      &amp;quot;diagnostic_scope&amp;quot;: &amp;quot;full BLAS reference has uncertified rounding; sampled difference is diagnostic only&amp;quot;,
+      &amp;quot;break_even_batches&amp;quot;: null,
+      &amp;quot;requested_batches&amp;quot;: 1000,
+      &amp;quot;full_total_seconds&amp;quot;: 0.9914282490517508,
+      &amp;quot;reduced_total_seconds&amp;quot;: 2.7860148006930103,
+      &amp;quot;total_speedup&amp;quot;: 0.3558589311173569,
+      &amp;quot;warm_speedup&amp;quot;: 0.4495767238029045
+    }
+  },
+  &amp;quot;rejected_methods&amp;quot;: {
+    &amp;quot;balanced&amp;quot;: {
+      &amp;quot;accepted&amp;quot;: false,
+      &amp;quot;search_seconds&amp;quot;: 0.2732008170005429,
+      &amp;quot;history&amp;quot;: [
+        {
+          &amp;quot;rank&amp;quot;: 1,
+          &amp;quot;model_status&amp;quot;: &amp;quot;refuted&amp;quot;,
+          &amp;quot;model_lower&amp;quot;: &amp;quot;967580816105272704643/18446744073709551616&amp;quot;,
+          &amp;quot;model_upper&amp;quot;: &amp;quot;967580816106173460983/18446744073709551616&amp;quot;,
+          &amp;quot;combined_upper&amp;quot;: null,
+          &amp;quot;status&amp;quot;: &amp;quot;refuted&amp;quot;
+        },
+        {
+          &amp;quot;rank&amp;quot;: 2,
+          &amp;quot;model_status&amp;quot;: &amp;quot;refuted&amp;quot;,
+          &amp;quot;model_lower&amp;quot;: &amp;quot;482870237413065969683/9223372036854775808&amp;quot;,
+          &amp;quot;model_upper&amp;quot;: &amp;quot;60358779676639967781/1152921504606846976&amp;quot;,
+          &amp;quot;combined_upper&amp;quot;: null,
+          &amp;quot;status&amp;quot;: &amp;quot;refuted&amp;quot;
+        },
+        {
+          &amp;quot;rank&amp;quot;: 3,
+          &amp;quot;model_status&amp;quot;: &amp;quot;refuted&amp;quot;,
+          &amp;quot;model_lower&amp;quot;: &amp;quot;1027898920053783656131/18446744073709551616&amp;quot;,
+          &amp;quot;model_upper&amp;quot;: &amp;quot;1027898920054227108305/18446744073709551616&amp;quot;,
+          &amp;quot;combined_upper&amp;quot;: null,
+          &amp;quot;status&amp;quot;: &amp;quot;refuted&amp;quot;
+        },
+        {
+          &amp;quot;rank&amp;quot;: 4,
+          &amp;quot;model_status&amp;quot;: &amp;quot;refuted&amp;quot;,
+          &amp;quot;model_lower&amp;quot;: &amp;quot;990835432119582560605/18446744073709551616&amp;quot;,
+          &amp;quot;model_upper&amp;quot;: &amp;quot;990835432134970147751/18446744073709551616&amp;quot;,
+          &amp;quot;combined_upper&amp;quot;: null,
+          &amp;quot;status&amp;quot;: &amp;quot;refuted&amp;quot;
+        },
+        {
+          &amp;quot;rank&amp;quot;: 5,
+          &amp;quot;model_status&amp;quot;: &amp;quot;refuted&amp;quot;,
+          &amp;quot;model_lower&amp;quot;: &amp;quot;251688000094767748543/4611686018427387904&amp;quot;,
+          &amp;quot;model_upper&amp;quot;: &amp;quot;125844000049307357409/2305843009213693952&amp;quot;,
+          &amp;quot;combined_upper&amp;quot;: null,
+          &amp;quot;status&amp;quot;: &amp;quot;refuted&amp;quot;
+        },
+        {
+          &amp;quot;rank&amp;quot;: 6,
+          &amp;quot;model_status&amp;quot;: &amp;quot;refuted&amp;quot;,
+          &amp;quot;model_lower&amp;quot;: &amp;quot;919629896399829262633/18446744073709551616&amp;quot;,
+          &amp;quot;model_upper&amp;quot;: &amp;quot;919629896431129327961/18446744073709551616&amp;quot;,
+          &amp;quot;combined_upper&amp;quot;: null,
+          &amp;quot;status&amp;quot;: &amp;quot;refuted&amp;quot;
+        },
+        {
+          &amp;quot;rank&amp;quot;: 7,
+          &amp;quot;model_status&amp;quot;: &amp;quot;refuted&amp;quot;,
+          &amp;quot;model_lower&amp;quot;: &amp;quot;914918407811893355905/18446744073709551616&amp;quot;,
+          &amp;quot;model_upper&amp;quot;: &amp;quot;914918407843193730305/18446744073709551616&amp;quot;,
+          &amp;quot;combined_upper&amp;quot;: null,
+          &amp;quot;status&amp;quot;: &amp;quot;refuted&amp;quot;
+        },
+        {
+          &amp;quot;rank&amp;quot;: 8,
+          &amp;quot;model_status&amp;quot;: &amp;quot;refuted&amp;quot;,
+          &amp;quot;model_lower&amp;quot;: &amp;quot;458775942688478906943/9223372036854775808&amp;quot;,
+          &amp;quot;model_upper&amp;quot;: &amp;quot;458775942704129624557/9223372036854775808&amp;quot;,
+          &amp;quot;combined_upper&amp;quot;: null,
+          &amp;quot;status&amp;quot;: &amp;quot;refuted&amp;quot;
+        },
+        {
+          &amp;quot;rank&amp;quot;: 9,
+          &amp;quot;model_status&amp;quot;: &amp;quot;refuted&amp;quot;,
+          &amp;quot;model_lower&amp;quot;: &amp;quot;459531611445175263555/9223372036854775808&amp;quot;,
+          &amp;quot;model_upper&amp;quot;: &amp;quot;229765805730413076967/4611686018427387904&amp;quot;,
+          &amp;quot;combined_upper&amp;quot;: null,
+          &amp;quot;status&amp;quot;: &amp;quot;refuted&amp;quot;
+        },
+        {
+          &amp;quot;rank&amp;quot;: 10,
+          &amp;quot;model_status&amp;quot;: &amp;quot;refuted&amp;quot;,
+          &amp;quot;model_lower&amp;quot;: &amp;quot;460187592740491571559/9223372036854775808&amp;quot;,
+          &amp;quot;model_upper&amp;quot;: &amp;quot;230093796378071679501/4611686018427387904&amp;quot;,
+          &amp;quot;combined_upper&amp;quot;: null,
+          &amp;quot;status&amp;quot;: &amp;quot;refuted&amp;quot;
+        },
+        {
+          &amp;quot;rank&amp;quot;: 11,
+          &amp;quot;model_status&amp;quot;: &amp;quot;refuted&amp;quot;,
+          &amp;quot;model_lower&amp;quot;: &amp;quot;457330103659598467181/9223372036854775808&amp;quot;,
+          &amp;quot;model_upper&amp;quot;: &amp;quot;457330103675250461913/9223372036854775808&amp;quot;,
+          &amp;quot;combined_upper&amp;quot;: null,
+          &amp;quot;status&amp;quot;: &amp;quot;refuted&amp;quot;
+        },
+        {
+          &amp;quot;rank&amp;quot;: 12,
+          &amp;quot;model_status&amp;quot;: &amp;quot;refuted&amp;quot;,
+          &amp;quot;model_lower&amp;quot;: &amp;quot;100782215999159703303/2305843009213693952&amp;quot;,
+          &amp;quot;model_upper&amp;quot;: &amp;quot;403128863996639123653/9223372036854775808&amp;quot;,
+          &amp;quot;combined_upper&amp;quot;: null,
+          &amp;quot;status&amp;quot;: &amp;quot;refuted&amp;quot;
+        },
+        {
+          &amp;quot;rank&amp;quot;: 13,
+          &amp;quot;model_status&amp;quot;: &amp;quot;refuted&amp;quot;,
+          &amp;quot;model_lower&amp;quot;: &amp;quot;769040030356936329575/18446744073709551616&amp;quot;,
+          &amp;quot;model_upper&amp;quot;: &amp;quot;769040030356936972633/18446744073709551616&amp;quot;,
+          &amp;quot;combined_upper&amp;quot;: null,
+          &amp;quot;status&amp;quot;: &amp;quot;refuted&amp;quot;
+        },
+        {
+          &amp;quot;rank&amp;quot;: 14,
+          &amp;quot;model_status&amp;quot;: &amp;quot;refuted&amp;quot;,
+          &amp;quot;model_lower&amp;quot;: &amp;quot;388991442968818355255/9223372036854775808&amp;quot;,
+          &amp;quot;model_upper&amp;quot;: &amp;quot;388991442968818697079/9223372036854775808&amp;quot;,
+          &amp;quot;combined_upper&amp;quot;: null,
+          &amp;quot;status&amp;quot;: &amp;quot;refuted&amp;quot;
+        },
+        {
+          &amp;quot;rank&amp;quot;: 15,
+          &amp;quot;model_status&amp;quot;: &amp;quot;refuted&amp;quot;,
+          &amp;quot;model_lower&amp;quot;: &amp;quot;747200625729695179793/18446744073709551616&amp;quot;,
+          &amp;quot;model_upper&amp;quot;: &amp;quot;747200625729695896549/18446744073709551616&amp;quot;,
+          &amp;quot;combined_upper&amp;quot;: null,
+          &amp;quot;status&amp;quot;: &amp;quot;refuted&amp;quot;
+        },
+        {
+          &amp;quot;rank&amp;quot;: 16,
+          &amp;quot;model_status&amp;quot;: &amp;quot;refuted&amp;quot;,
+          &amp;quot;model_lower&amp;quot;: &amp;quot;374303495639749970931/9223372036854775808&amp;quot;,
+          &amp;quot;model_upper&amp;quot;: &amp;quot;374303495639750407531/9223372036854775808&amp;quot;,
+          &amp;quot;combined_upper&amp;quot;: null,
+          &amp;quot;status&amp;quot;: &amp;quot;refuted&amp;quot;
+        }
+      ],
+      &amp;quot;failure&amp;quot;: null
+    }
+  },
+  &amp;quot;full_blas_setup_seconds&amp;quot;: 0.01402797599985206,
+  &amp;quot;full_blas_median_batch_seconds&amp;quot;: 0.0009686670000519371,
+  &amp;quot;full_blas_raw_batch_seconds&amp;quot;: [
+    0.0009880459983833134,
+    0.0010386419999122154,
+    0.0009686670000519371,
+    0.0009631680004531518,
+    0.0009280960002797656,
+    0.0009442089994990965,
+    0.0009818969992920756
+  ],
+  &amp;quot;full_total_setup_seconds&amp;quot;: 0.022761248999813688,
+  &amp;quot;native_compiler_seconds&amp;quot;: 0.07117648700113932,
+  &amp;quot;actual_compiler_wait_seconds&amp;quot;: 9.81999619398266e-07,
+  &amp;quot;native_source_sha256&amp;quot;: &amp;quot;6378a42e27bb0cbe6ca62e0e7ddd04e3ebf7cbf224dcc4c1729451da4a83a5c3&amp;quot;,
+  &amp;quot;compiler_version&amp;quot;: &amp;quot;cc (Ubuntu 13.3.0-6ubuntu2~24.04) 13.3.0&amp;quot;,
+  &amp;quot;python&amp;quot;: &amp;quot;3.12.14&amp;quot;,
+  &amp;quot;numpy&amp;quot;: &amp;quot;2.3.5&amp;quot;,
+  &amp;quot;scipy&amp;quot;: &amp;quot;1.17.0&amp;quot;,
+  &amp;quot;platform&amp;quot;: &amp;quot;Linux-6.18.44-x86_64-with-glibc2.39&amp;quot;,
+  &amp;quot;threadpools&amp;quot;: [
+    {
+      &amp;quot;user_api&amp;quot;: &amp;quot;blas&amp;quot;,
+      &amp;quot;internal_api&amp;quot;: &amp;quot;openblas&amp;quot;,
+      &amp;quot;num_threads&amp;quot;: 1,
+      &amp;quot;prefix&amp;quot;: &amp;quot;libscipy_openblas&amp;quot;,
+      &amp;quot;filepath&amp;quot;: &amp;quot;/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/numpy.libs/libscipy_openblas64_-fdde5778.so&amp;quot;,
+      &amp;quot;version&amp;quot;: &amp;quot;0.3.30&amp;quot;,
+      &amp;quot;threading_layer&amp;quot;: &amp;quot;pthreads&amp;quot;,
+      &amp;quot;architecture&amp;quot;: &amp;quot;SkylakeX&amp;quot;
+    },
+    {
+      &amp;quot;user_api&amp;quot;: &amp;quot;blas&amp;quot;,
+      &amp;quot;internal_api&amp;quot;: &amp;quot;openblas&amp;quot;,
+      &amp;quot;num_threads&amp;quot;: 1,
+      &amp;quot;prefix&amp;quot;: &amp;quot;libscipy_openblas&amp;quot;,
+      &amp;quot;filepath&amp;quot;: &amp;quot;/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/scipy.libs/libscipy_openblas-6cdc3b4a.so&amp;quot;,
+      &amp;quot;version&amp;quot;: &amp;quot;0.3.30&amp;quot;,
+      &amp;quot;threading_layer&amp;quot;: &amp;quot;pthreads&amp;quot;,
+      &amp;quot;architecture&amp;quot;: &amp;quot;SkylakeX&amp;quot;
+    }
+  ],
+  &amp;quot;measurement&amp;quot;: &amp;quot;warmed alternating trials; one BLAS thread; domain checks and initial encoding included; complete output materialization&amp;quot;,
+  &amp;quot;cost_scope&amp;quot;: &amp;quot;in-process sampled-source conversion, proposal search, independent replay, compiler and preparation; interpreter/dependency imports, file I/O, upstream MAT acquisition/sampling excluded&amp;quot;,
+  &amp;quot;guarantee&amp;quot;: &amp;quot;accepted reduced native outputs versus exact rational sampled source for every admitted stored input in boxes; finite horizon&amp;quot;,
+  &amp;quot;baseline&amp;quot;: &amp;quot;SciPy square-root balanced truncation, accepted by same combined box/native error test; full dense NumPy BLAS reference&amp;quot;,
+  &amp;quot;projection&amp;quot;: &amp;quot;requested total costs extrapolate measured batch medians; they are not a sustained run&amp;quot;,
+  &amp;quot;provenance&amp;quot;: {
+    &amp;quot;upstream&amp;quot;: &amp;quot;https://github.com/SLICOT/Benchmark-ModelReduction&amp;quot;,
+    &amp;quot;commit&amp;quot;: &amp;quot;98c1747030c0b1bf48d9353b2dcc9c4583867ca1&amp;quot;,
+    &amp;quot;mat_sha256&amp;quot;: &amp;quot;9513bfdf12fb9382a4491755464702bf0e75567d9e4090f9f67f27ebf92ecac7&amp;quot;,
+    &amp;quot;sampled_model_sha256&amp;quot;: &amp;quot;9b8a16481220d8188ac7ea86fb340d8a2bf571c8d95813c013154f3525112006&amp;quot;,
+    &amp;quot;scope&amp;quot;: &amp;quot;retained sampled normalized-output model; experimental boxes, not measured customer trajectories&amp;quot;
+  }
+}&lt;/pre&gt;&lt;/details&gt;&lt;/html&gt;"></iframe></section></html>

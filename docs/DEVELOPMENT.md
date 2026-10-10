@@ -35,3 +35,8 @@ Next work: descriptor/mass-matrix models; larger external engineering workloads;
 ## 0.10 machine and generating-function progress
 
 Accepted finite-horizon floating execution is now available through an explicit integer superaccumulator and round-once binary64 protocol. Its loading and execution budgets compose with validated finite and spectral source models. Cancellation-aware sequence realizations, supported rational Cauchy bounds and positive-real binomial bounds connect formal series to models and error accounting. The NumPy backend remains outside this rounding guarantee. Next: compiled accumulation and conventional-dot certificates, all-time machine invariants, wider algebraic source families and descriptor models.
+
+
+## 0.11 supplied-workload progress
+
+A compiled sequential product/addition engine now has an explicit finite-horizon loading, underflow and rounding certificate. The supplied-workload CLI compiles, saves, replays, executes real arrays and compares accepted observable and square-root balanced candidates at one error ceiling. Pinned heat and convection sources give useful warmed speedups; the building executor is slower and has no measured amortization. Customer operating domains and trajectories, descriptor models, optimized kernels with matching execution analysis, continuous intersample bounds and all-time rounded invariants remain open. See `docs/NATIVE_PILOT.md` for measured cost exclusions and conservative standalone accounting.

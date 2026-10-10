@@ -36,8 +36,8 @@ def _round_budget(magnitude):
     return _up(U*magnitude+ETA) if magnitude else Q(0)
 
 
-def certify_execution(E, G, H, D, initial_center, initial_radius, input_radii,
-                      tolerance, input_centers=None):
+def _certify_execution(E, G, H, D, initial_center, initial_radius, input_radii,
+                       tolerance, input_centers, budget, contract, schema):
     e, g, h, d = map(matrix, (E, G, H, D))
     r, n, m = len(g), len(e[0]), len(h[0])
     if len(e) != r or len(g[0]) != r or len(h) != r or len(d[0]) != r:
@@ -67,11 +67,11 @@ def certify_execution(E, G, H, D, initial_center, initial_radius, input_radii,
     if any(v > LIMIT for v in xbound):
         raise ValueError('Initial domain exceeds finite binary64 range')
     z = tuple(_up(v) for v in _abs_mv(e, xbound))
-    error = tuple(_up(a+_round_budget(b)) for a, b in zip(_abs_mv(de, xbound), _abs_mv(eh, xbound)))
+    error = tuple(_up(a+budget(b, n)) for a, b in zip(_abs_mv(de, xbound), _abs_mv(eh, xbound)))
     outputs, states = [], []
     for t in range(len(radii)+1):
         actual_bound = tuple(a+b for a, b in zip(z, error))
-        output_error = tuple(_up(a+b+_round_budget(c)) for a, b, c in zip(
+        output_error = tuple(_up(a+b+budget(c, r)) for a, b, c in zip(
             _abs_mv(dh, error), _abs_mv(dd, z), _abs_mv(dh, actual_bound)))
         states.append(list(map(str, error)))
         outputs.append(list(map(str, output_error)))
@@ -80,13 +80,13 @@ def certify_execution(E, G, H, D, initial_center, initial_radius, input_radii,
         ubound = tuple(abs(c)+b for c, b in zip(means[t], radii[t]))
         if any(v > LIMIT for v in ubound):
             raise ValueError('Input domain exceeds finite binary64 range')
-        next_error = tuple(_up(a+b+c+_round_budget(v+w)) for a, b, c, v, w in zip(
+        next_error = tuple(_up(a+b+c+budget(v+w, r+m)) for a, b, c, v, w in zip(
             _abs_mv(gh, error), _abs_mv(dg, z), _abs_mv(dh_input, ubound),
             _abs_mv(gh, actual_bound), _abs_mv(hh, ubound)))
         z = tuple(_up(v+w) for v, w in zip(_abs_mv(g, z), _abs_mv(h, ubound)))
         error = next_error
     worst = max(q(v) for row in outputs for v in row)
-    return {'schema': 'dynacomp.binary64-execution/1',
+    return {'schema': schema,
             **{k: encoded(a) for k, a in zip(('E', 'G', 'H', 'D'), (e, g, h, d))},
             'initial_center': list(map(str, center)), 'initial_radius': list(map(str, radius)),
             'input_centers': [list(map(str, row)) for row in means],
@@ -94,8 +94,17 @@ def certify_execution(E, G, H, D, initial_center, initial_radius, input_radii,
             'state_error_upper': states, 'output_error_upper': outputs,
             'worst_execution_upper': str(worst), 'tolerance': str(tol),
             'status': 'tolerance_met' if worst <= tol else 'not_certified',
-            'contract': 'finite stored binary64 inputs; integer exact dot; one RN-even rounding per row; +0 for exact zero',
+            'contract': contract,
             'scope': 'uniform deviation from the supplied rational reduced dynamics; finite horizon; includes coefficient loading'}
+
+
+def certify_execution(E, G, H, D, initial_center, initial_radius, input_radii,
+                      tolerance, input_centers=None):
+    return _certify_execution(E, G, H, D, initial_center, initial_radius,
+                             input_radii, tolerance, input_centers,
+                             lambda magnitude, count: _round_budget(magnitude),
+                             'finite stored binary64 inputs; integer exact dot; one RN-even rounding per row; +0 for exact zero',
+                             'dynacomp.binary64-execution/1')
 
 
 def replay_execution(packet):

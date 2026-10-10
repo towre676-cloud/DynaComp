@@ -1,5 +1,11 @@
 # DynaComp
 
+## 0.11.0: run an external workload with certified native arithmetic
+
+Compile your sampled model, compare observable reduction and square-root balanced truncation under one error ceiling, and run your own saved-plan scenario batches. The new C executor carries a conventional product/addition rounding bound, including loading, underflow and finite-horizon propagation. `dynacomp-pilot evaluate applications/customer_pilot/two_state.json --output pilot` produces a reusable plan and an interactive cost report. Install `.[numerical]` and a GCC-compatible C compiler for execution; mathematical replay remains stdlib-only.
+
+On three pinned external sources, the retained heat case reduces 200→7 states and runs 5.89× faster than full BLAS after setup; balanced truncation needs nine states under the same 0.01 error ceiling. Both methods reach four states on convection. The building reduction is accurate but slower than full BLAS. Setup-inclusive projected heat speedup at 1,000 batches is 2.63×, with break-even around 222 batches of 256 scenarios. These are sampled-model experimental boxes, not customer measurements or universal speed claims. See [the workflow](applications/customer_pilot/README.md), [the mathematics and measured limits](docs/NATIVE_PILOT.md), and `python benchmarks/customer_pilot.py`.
+
 ## 0.10.0: generating functions and certified machine execution
 
 Rational generating functions compile to minimal exact coefficient-sequence models with cancellation, transient handling and nonzero Hankel witnesses. Supported rational and binomial-series tails carry explicit bounds. A portable IEEE-754 kernel decodes stored values exactly, accumulates integer dot products and rounds once to nearest-even. Its guarded runtime accounts for matrix loading and execution errors, then composes them with replayed finite source/model guarantees. The 64-mode infinite heat source reduced to three states stays below 0.01 over 20 samples with this actual runtime; the execution-only budget is approximately 1.2e-15. This protocol does not certify the separate NumPy/BLAS backend or all-time rounded execution.

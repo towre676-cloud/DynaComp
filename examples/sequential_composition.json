@@ -1,0 +1,65 @@
+{
+  "kind": "sequential_composition",
+  "source": {
+    "kind": "validated_box",
+    "model": {
+      "n": 1,
+      "entries": [
+        [
+          0,
+          0,
+          "1/2"
+        ]
+      ],
+      "B": [
+        [
+          1
+        ]
+      ],
+      "C": [
+        [
+          1
+        ]
+      ]
+    },
+    "E": [
+      [
+        1
+      ]
+    ],
+    "G": [
+      [
+        "1/2"
+      ]
+    ],
+    "H": [
+      [
+        1
+      ]
+    ],
+    "D": [
+      [
+        1
+      ]
+    ],
+    "initial_center": [
+      0
+    ],
+    "initial_radius": [
+      1
+    ],
+    "input_radii": [
+      [
+        1
+      ],
+      [
+        1
+      ],
+      [
+        1
+      ]
+    ],
+    "tolerance": "1/100"
+  },
+  "tolerance": "1/100"
+}

@@ -21,3 +21,4 @@ jobs:
       - run: python examples/thermal_forever.py
       - run: python examples/infinite_spectral.py
       - run: python examples/machine_generating.py
+      - run: dynacomp-pilot evaluate applications/customer_pilot/two_state.json --output /tmp/pilot --queries 8 --trials 3

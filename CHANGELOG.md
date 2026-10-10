@@ -1,5 +1,10 @@
 # Changelog
 
+
+## 0.11.0 — supplied workloads and certified native execution
+
+Added a locally compiled sequential binary64 C runtime and exact loading/underflow/rounding bounds composed with replayed finite model guarantees. Added saved-plan compilation, automatic MAT ingestion, real `.npy` scenario execution, matched-error-ceiling comparison with square-root balanced truncation, and interactive setup/amortization reports. Retained all three pinned external cases, including the slower building executor and failed balanced candidates. Existing round-once packets retain their format and results. Native execution was tested on Linux/GCC; no all-time native or BLAS guarantee is claimed.
+
 ## 0.10.0 — generating functions and specified binary64 execution
 
 Cancellation-aware rational OGF compiler with minimal sequence witnesses, exact recurrence/state extraction, arithmetic-progression queries and supported Cauchy/binomial remainders. Portable integer binary64 decoding, rounding, exact dot products and stored-value power decisions. Uniform matrix-loading and execution-error bounds for a guarded round-once runtime compose with finite-model and infinite-source packets. Eight new CLI kinds, eight specs and deterministic receipts. The execution guarantee is finite-horizon and protocol-specific; no hardware speedup or arbitrary BLAS certification is claimed.

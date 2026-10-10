@@ -33,8 +33,16 @@ from .machine import (certify_execution, compose_execution, replay_execution,
                       replay_machine_composition)
 
 
+from .native import (certify_sequential, replay_sequential, compose_sequential,
+                     replay_sequential_composition)
+
+
 def compile_spec(spec):
     kind = spec["kind"]
+    if kind == 'sequential_execution':
+        return certify_sequential(*(spec[k] for k in ('E','G','H','D')),spec['initial_center'],spec['initial_radius'],spec['input_radii'],spec['tolerance'],spec.get('input_centers'))
+    if kind == 'sequential_composition':
+        return compose_sequential(compile_spec(spec['source']),spec['tolerance'])
     if kind == 'rational_gf':
         return RationalGF(spec['numerator'], spec['denominator']).packet()
     if kind == 'recurrence_gf':
@@ -132,6 +140,10 @@ def compile_spec(spec):
 
 
 def replay(packet):
+    if packet.get('schema') == 'dynacomp.sequential-binary64/1':
+        return replay_sequential(packet)
+    if packet.get('schema') == 'dynacomp.sequential-composition/1':
+        return replay_sequential_composition(packet)
     if packet.get('schema') in ('exact.rational-gf/1','exact.rational-gf-tail/1','exact.binomial-tail/1'):
         return replay_generating(packet)
     if packet.get('schema') == 'exact.binary64-power/1':

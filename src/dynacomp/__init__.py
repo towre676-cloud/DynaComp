@@ -39,4 +39,7 @@ from .generating import (RationalGF, from_recurrence, from_state, periodic_gf,
 from .machine import (certify_execution, replay_execution, compose_execution,
                       replay_machine_composition, Binary64Runtime)
 
-__version__ = "0.10.0"
+from .native import (certify_sequential, replay_sequential, compose_sequential,
+                     replay_sequential_composition, PreparedSequential)
+
+__version__ = "0.11.0"
