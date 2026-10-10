@@ -54,3 +54,62 @@ def usable_horizon(bounds, tolerance):
         if q(b) > tol:
             return t-1
     return len(bounds)-1
+
+
+def absolute_apply(a, radii):
+    """Componentwise envelope |a x| <= |a| radii, if |x| <= radii."""
+    radii = tuple(q(v) for v in radii)
+    if len(a[0]) != len(radii) or any(v < 0 for v in radii):
+        raise ValueError("Nonnegative radius vector with matching dimension required")
+    return tuple(sum(abs(v)*r for v, r in zip(row, radii)) for row in a)
+
+
+def box_horizon_bound(model, V, E, G, H, initial_center, initial_radius, input_radii):
+    """Uniform output bound for a full initial-state box and arbitrary bounded inputs.
+
+    Reduced initial state is E x0. Every input sequence satisfying the given
+    componentwise bounds is covered, not only retained simulation traces.
+    """
+    v, e, g, h = (matrix(a) for a in (V, E, G, H))
+    n, r = len(model.A), len(g)
+    if len(v) != n or len(v[0]) != r or len(e) != r or len(e[0]) != n or len(g[0]) != r:
+        raise ValueError("Expected V[n,r], E[r,n], G[r,r]")
+    if len(h) != r or len(h[0]) != len(model.B[0]):
+        raise ValueError("Expected H[r,m]")
+    if mul(e, v) != identity(r):
+        raise ValueError("Candidate must satisfy EV=I")
+    center = tuple(q(x) for x in initial_center)
+    radius = tuple(q(x) for x in initial_radius)
+    if len(center) != n or len(radius) != n or any(x < 0 for x in radius):
+        raise ValueError("Initial box must have n coordinates and nonnegative radii")
+    us = [tuple(q(x) for x in u) for u in input_radii]
+    if any(len(u) != len(model.B[0]) or any(x < 0 for x in u) for u in us):
+        raise ValueError("Invalid input-radius vectors")
+    residual = sub(mul(model.A, v), mul(v, g))
+    forcing = sub(model.B, mul(v, h))
+    initial_map = sub(identity(n), mul(v, e))
+    initial_center_error = mv(initial_map, center)
+    initial_radius_error = absolute_apply(initial_map, radius)
+    zcenter = mv(e, center)
+    zradius = absolute_apply(e, radius)
+    zs = [tuple(abs(c)+a for c, a in zip(zcenter, zradius))]
+    for u in us:
+        zs.append(addv(absolute_apply(g, zs[-1]), absolute_apply(h, u)))
+    # Store C A^k directly: output space can be much smaller than state space.
+    ca = [model.C]
+    for _ in us:
+        ca.append(mul(ca[-1], model.A))
+    envelopes = []
+    for t in range(len(us)+1):
+        values = addv(tuple(abs(x) for x in mv(ca[t], initial_center_error)),
+                      absolute_apply(ca[t], initial_radius_error))
+        for j in range(t):
+            values = addv(values, absolute_apply(mul(ca[t-1-j], residual), zs[j]))
+            values = addv(values, absolute_apply(mul(ca[t-1-j], forcing), us[j]))
+        envelopes.append(values)
+    return {"schema": "dynacomp.box-bound/1", "arithmetic": "rational",
+            "coverage": "all initial states in the box and all inputs within componentwise radii",
+            "bound": [str(vector_norm(v)) for v in envelopes],
+            "output_bounds": [[str(x) for x in v] for v in envelopes],
+            "reduced_state_radii": [[str(x) for x in v] for v in zs],
+            "transition_residual": encoded(residual), "input_residual": encoded(forcing)}

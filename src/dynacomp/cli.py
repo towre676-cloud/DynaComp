@@ -6,12 +6,23 @@ from .linear import LinearModel, compile_linear, replay_linear
 from .finite import FiniteModel, compile_finite, replay_finite
 from .polynomial import compile_polynomial, unpack, replay_polynomial
 from .sparse import SparseOperator, compile_sparse, replay_sparse
+from .families import compile_family, replay_family
+from .memory import compile_output_memory, replay_memory
+from .adaptive import adaptive_coordinates, replay_adaptive
 
 
 def compile_spec(spec):
     kind = spec["kind"]
     if kind == "linear":
         return compile_linear(LinearModel.from_rows(spec["A"], spec["B"], spec["C"])).packet()
+    if kind == "memory":
+        return compile_output_memory(LinearModel.from_rows(spec["A"], spec["B"], spec["C"]))
+    if kind == "family":
+        return compile_family([LinearModel.from_rows(item["A"], item["B"], spec["C"]) for item in spec["coefficients"]])
+    if kind == "adaptive":
+        model = LinearModel.from_rows(spec["A"], spec["B"], spec["C"])
+        return adaptive_coordinates(model, spec["initial_center"], spec["initial_radius"],
+                                    spec["input_radii"], spec["tolerance"], **spec.get("options", {}))
     if kind == "finite":
         return compile_finite(FiniteModel(tuple(spec["observations"]), tuple(tuple(r) for r in spec["transitions"])))
     if kind == "polynomial":
@@ -29,7 +40,9 @@ def compile_spec(spec):
 
 def replay(packet):
     readers = {"dynacomp.linear/1": replay_linear, "dynacomp.finite/1": replay_finite,
-               "dynacomp.polynomial/1": replay_polynomial, "dynacomp.sparse/1": replay_sparse}
+               "dynacomp.polynomial/1": replay_polynomial, "dynacomp.sparse/1": replay_sparse,
+               "dynacomp.family/1": replay_family, "dynacomp.memory/1": replay_memory,
+               "dynacomp.adaptive/1": replay_adaptive}
     if packet.get("schema") not in readers:
         raise ValueError("Unknown or unsuccessful packet")
     return readers[packet["schema"]](packet)

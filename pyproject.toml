@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "dynacomp"
-version = "0.1.0"
+version = "0.2.0"
 description = "Exact observable dynamics, counterexample-guided reduction, and rational finite-horizon error bounds"
 requires-python = ">=3.10"
 
