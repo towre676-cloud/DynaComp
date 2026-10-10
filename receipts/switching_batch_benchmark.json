@@ -1,0 +1,165 @@
+{
+  "schema": "dynacomp.switching-benchmark/1",
+  "cases": [
+    {
+      "case": "sharp robust approximate short horizon",
+      "states": 144,
+      "rank": 9,
+      "steps": 20,
+      "queries": 256,
+      "construction_seconds": 8.699238724999304,
+      "setup_seconds": {
+        "full": 0.015803258997038938,
+        "reduced": 1.4006502060001367
+      },
+      "median_batch_seconds": {
+        "full": 0.00471672599815065,
+        "reduced": 0.00048347799747716635
+      },
+      "raw_timings_seconds": {
+        "full": [
+          0.0046691349998582155,
+          0.00471672599815065,
+          0.004894054000033066,
+          0.0046624239985249005,
+          0.004733582005428616
+        ],
+        "reduced": [
+          0.00048347799747716635,
+          0.0004449800035217777,
+          0.0004637890015146695,
+          0.0005711500052711926,
+          0.0005071539999335073
+        ]
+      },
+      "execution_speedup_with_domain_checks": 9.755823476482838,
+      "first_batch_speedup_including_construction": 0.0020316067729256584,
+      "break_even_batches_estimate": 2382.11549864267,
+      "sharp_rational_worst_error": "270959423435907829708938903848562231772485357872281990696561014576258299900185018619091337023264464779933258969932368572916276627590847074441308017420589004465455661593/3270840571541354306385691698341168655089751188573339430328242612284965149386034554892623701944125049277102428511732964807990735878294674410926243840000000000000000000000",
+      "max_observed_binary64_difference": 0.02854289036117308,
+      "bound_engine": "commuting_count_lattice",
+      "symbolic_states": 231,
+      "cache_stats": {
+        "full": {
+          "packet_replays": 0,
+          "batches": 6,
+          "initial_fields_encoded": 0
+        },
+        "reduced": {
+          "packet_replays": 1,
+          "batches": 6,
+          "initial_fields_encoded": 6
+        }
+      }
+    },
+    {
+      "case": "common exact short horizon",
+      "states": 144,
+      "rank": 17,
+      "steps": 20,
+      "queries": 256,
+      "construction_seconds": 0.5581423699986772,
+      "setup_seconds": {
+        "full": 0.018003263001446612,
+        "reduced": 0.3623078720047488
+      },
+      "median_batch_seconds": {
+        "full": 0.0051155969995306805,
+        "reduced": 0.0007230189949041232
+      },
+      "raw_timings_seconds": {
+        "full": [
+          0.004663865998736583,
+          0.0051155969995306805,
+          0.005336729998816736,
+          0.005327275997842662,
+          0.004784176999237388
+        ],
+        "reduced": [
+          0.000713866000296548,
+          0.000689990003593266,
+          0.000889410002855584,
+          0.001050252998538781,
+          0.0007230189949041232
+        ]
+      },
+      "execution_speedup_with_domain_checks": 7.075328636710354,
+      "first_batch_speedup_including_construction": 0.025097189616557058,
+      "break_even_batches_estimate": 205.44813957804774,
+      "sharp_rational_worst_error": "0",
+      "max_observed_binary64_difference": 3.197442310920451e-14,
+      "bound_engine": "exact_common_closure",
+      "symbolic_states": 1,
+      "cache_stats": {
+        "full": {
+          "packet_replays": 0,
+          "batches": 6,
+          "initial_fields_encoded": 0
+        },
+        "reduced": {
+          "packet_replays": 1,
+          "batches": 6,
+          "initial_fields_encoded": 6
+        }
+      }
+    },
+    {
+      "case": "common exact long horizon",
+      "states": 144,
+      "rank": 17,
+      "steps": 400,
+      "queries": 256,
+      "construction_seconds": 0.5282764189978479,
+      "setup_seconds": {
+        "full": 0.0343434120004531,
+        "reduced": 0.356060111997067
+      },
+      "median_batch_seconds": {
+        "full": 0.09535219599638367,
+        "reduced": 0.013663805999385659
+      },
+      "raw_timings_seconds": {
+        "full": [
+          0.09283093699923484,
+          0.09535219599638367,
+          0.09617286200227682,
+          0.09374601599847665,
+          0.09553612300078385
+        ],
+        "reduced": [
+          0.014494937997369561,
+          0.014832936998573132,
+          0.013584906999312807,
+          0.013574491000326816,
+          0.013663805999385659
+        ]
+      },
+      "execution_speedup_with_domain_checks": 6.978450660136042,
+      "first_batch_speedup_including_construction": 0.14442712619790465,
+      "break_even_batches_estimate": 10.405311195699884,
+      "sharp_rational_worst_error": "0",
+      "max_observed_binary64_difference": 6.039613253960852e-14,
+      "bound_engine": "exact_common_closure",
+      "symbolic_states": 1,
+      "cache_stats": {
+        "full": {
+          "packet_replays": 0,
+          "batches": 6,
+          "initial_fields_encoded": 0
+        },
+        "reduced": {
+          "packet_replays": 1,
+          "batches": 6,
+          "initial_fields_encoded": 6
+        }
+      }
+    }
+  ],
+  "python": "3.12.14",
+  "numpy": "2.3.5",
+  "scipy": "1.17.0",
+  "platform": "Linux-6.18.44-x86_64-with-glibc2.39",
+  "measurement": "five warmed alternating trials; production prepared executor, exact rational endpoint domain checks, shared initial field encoded once per batch, every-time outputs",
+  "scope": "synthetic stencil and time-varying per-scenario conductance; binary64 QR/rounding excluded from rational certificates; JSON/installation/data generation excluded",
+  "baseline": "full sparse source/domain validation and execution; no reduction-certificate replay charged to full baseline"
+}

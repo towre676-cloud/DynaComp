@@ -17,4 +17,5 @@ jobs:
       - run: python examples/run_adaptive.py
       - run: python applications/network_scenarios/run_demo.py
       - run: python applications/thermal_scenarios/run_demo.py
+      - run: python applications/switching_scenarios/run_demo.py
       - run: python examples/thermal_forever.py

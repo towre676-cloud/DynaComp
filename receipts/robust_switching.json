@@ -1,0 +1,267 @@
+{
+  "schema": "dynacomp.switching-enrichment/1",
+  "modes": {
+    "low": {
+      "n": 2,
+      "entries": [
+        [
+          0,
+          0,
+          "1"
+        ],
+        [
+          0,
+          1,
+          "1/2"
+        ],
+        [
+          1,
+          1,
+          "1"
+        ]
+      ],
+      "B": [
+        [
+          "0"
+        ],
+        [
+          "1"
+        ]
+      ],
+      "C": [
+        [
+          "1",
+          "0"
+        ]
+      ]
+    },
+    "high": {
+      "n": 2,
+      "entries": [
+        [
+          0,
+          0,
+          "1"
+        ],
+        [
+          0,
+          1,
+          "1"
+        ],
+        [
+          1,
+          1,
+          "1"
+        ]
+      ],
+      "B": [
+        [
+          "0"
+        ],
+        [
+          "1"
+        ]
+      ],
+      "C": [
+        [
+          "1",
+          "0"
+        ]
+      ]
+    }
+  },
+  "C": [
+    [
+      "1",
+      "0"
+    ]
+  ],
+  "V": [
+    [
+      "1",
+      "0"
+    ],
+    [
+      "0",
+      "1"
+    ]
+  ],
+  "E": [
+    [
+      "1",
+      "0"
+    ],
+    [
+      "0",
+      "1"
+    ]
+  ],
+  "G": {
+    "low": [
+      [
+        "1",
+        "1/2"
+      ],
+      [
+        "0",
+        "1"
+      ]
+    ],
+    "high": [
+      [
+        "1",
+        "1"
+      ],
+      [
+        "0",
+        "1"
+      ]
+    ]
+  },
+  "H": {
+    "low": [
+      [
+        "0"
+      ],
+      [
+        "1"
+      ]
+    ],
+    "high": [
+      [
+        "0"
+      ],
+      [
+        "1"
+      ]
+    ]
+  },
+  "D": [
+    [
+      "1",
+      "0"
+    ]
+  ],
+  "initial_center": [
+    "0",
+    "0"
+  ],
+  "initial_radius": [
+    "1",
+    "1"
+  ],
+  "input_radii": [
+    [
+      "1"
+    ],
+    [
+      "1"
+    ],
+    [
+      "1"
+    ],
+    [
+      "1"
+    ]
+  ],
+  "input_centers": [
+    [
+      "0"
+    ],
+    [
+      "0"
+    ],
+    [
+      "0"
+    ],
+    [
+      "0"
+    ]
+  ],
+  "tolerance": "0",
+  "rank": 2,
+  "max_rank": 2,
+  "max_symbolic_states": 100,
+  "status": "tolerance_met",
+  "certificate": {
+    "schema": "dynacomp.switching-box-bound/1",
+    "engine": "exact_common_closure",
+    "symbolic_states": 1,
+    "endpoint_words_at_horizon": "16",
+    "output_bounds": [
+      [
+        "0"
+      ],
+      [
+        "0"
+      ],
+      [
+        "0"
+      ],
+      [
+        "0"
+      ],
+      [
+        "0"
+      ]
+    ],
+    "bound": [
+      "0",
+      "0",
+      "0",
+      "0",
+      "0"
+    ],
+    "worst_bound": "0",
+    "attaining_witness": {
+      "time": 0,
+      "output": 0,
+      "modes": [
+        "low",
+        "low",
+        "low",
+        "low"
+      ],
+      "x0": [
+        "0",
+        "0"
+      ],
+      "inputs": [
+        [
+          "0"
+        ],
+        [
+          "0"
+        ],
+        [
+          "0"
+        ],
+        [
+          "0"
+        ]
+      ],
+      "signed_error": "0"
+    },
+    "coverage": "all independent initial/input box choices and all independently chosen convex mode weights at each time",
+    "claim": "sharp componentwise/horizon output-error suprema for this switching family; rounding excluded"
+  },
+  "history": [
+    {
+      "rank": 1,
+      "worst_bound": "10",
+      "engine": "commuting_count_lattice",
+      "symbolic_states": 15,
+      "added_direction": {
+        "mode": "low",
+        "row": 0
+      }
+    },
+    {
+      "rank": 2,
+      "worst_bound": "0",
+      "engine": "exact_common_closure",
+      "symbolic_states": 1
+    }
+  ],
+  "claim": "general-direction projection accepted uniformly under time-varying convex mode uncertainty; rank search is heuristic"
+}

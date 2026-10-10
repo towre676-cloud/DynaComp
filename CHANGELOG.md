@@ -1,12 +1,16 @@
 # Changelog
 
-## 0.6.0 — 10 October 2026
+## 0.7.0 — 10 October 2026
 
 - `forever`: all-time output-error brackets for persistent input boxes. Sharp dyadic sums with rounding tracked in the dual norm of a certified metric, a geometric tail, and an attained lower bound that can refute a tolerance. Also steady-state moment directions and all-time enrichment.
 - `stability`: exact Schur–Cohn and Cayley/Hurwitz decisions; rational quadratic Lyapunov certificates for discrete and continuous time with near-spectral contraction factors; common quadratic certificates for switching.
 - `zonotope`: sharp error suprema over correlated scenario domains whose generators couple coordinates and times, with attaining scenarios.
 - `examples/thermal_forever.py`: the nine-state twenty-step plate model is refuted at t = 21 with all-time worst error ≈ 3.26665; a seven-state model is certified below 0.1 for all time.
-- New CLI kinds `stability`, `common_quadratic`, `all_time` and `zonotope`, and five new example specifications. The suite grows from 117 to 134 methods; every earlier receipt regenerates unchanged.
+- New CLI kinds `stability`, `common_quadratic`, `all_time` and `zonotope`, and five new example specifications. The suite grows from 131 to 148 methods; every earlier receipt regenerates unchanged.
+
+## 0.6.0 — 10 October 2026
+
+Sharp box acceptance under arbitrary time-varying convex mode uncertainty. Commuting full/projected families compress words through a count-lattice signed-support dynamic program; noncommuting families use complete budgeted enumeration. Exact common closure bypasses word search. `PreparedSwitching` replays once, supports shared initial fields, and checks rational box membership through directed binary64 endpoints. New `switching_enrichment` CLI kind and switching scenario application, with three production benchmarks including construction/preparation amortization. The suite grows from 117 to 131 methods.
 
 ## 0.5.0 — 10 October 2026
 

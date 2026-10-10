@@ -1,6 +1,6 @@
-# DynaComp 0.6: all-time guarantees, exact stability and correlated domains
+# DynaComp 0.7: all-time guarantees, exact stability and correlated domains
 
-Version 0.5 computes sharp worst-case reduction errors over boxes for a finite horizon. That raises an obvious question it cannot answer: **does the guarantee survive after the horizon?** Version 0.6 answers it exactly for persistent input boxes. It supplies the stability machinery that answer needs, and it extends sharp bounds from boxes to correlated domains. As before, discovery may use floating point, but acceptance never does.
+Versions 0.5 and 0.6 compute sharp worst-case reduction errors over boxes (and, in 0.6, under switching) for a finite horizon. That raises an obvious question it cannot answer: **does the guarantee survive after the horizon?** Version 0.7 answers it exactly for persistent input boxes. It supplies the stability machinery that answer needs, and it extends sharp bounds from boxes to correlated domains. As before, discovery may use floating point, but acceptance never does.
 
 ## The headline result
 
@@ -9,7 +9,7 @@ The 0.5 heated-plate workbench certifies a nine-state model of the 144-state pla
 | Model | Twenty-step sharp bound | All-time worst error |
 |---|---|---|
 | Nine-state, finite-horizon enrichment (0.5) | 0.0828 | **refuted at t = 21** (error ≥ 0.105); bracketed in **[3.26665003, 3.26665003]**, attained near t = 121 |
-| Seven-state, all-time enrichment (0.6) | — | **certified ≤ 0.0998 for every t ≥ 0** (bracket [0.0739, 0.0998]) |
+| Seven-state, all-time enrichment (0.7) | — | **certified ≤ 0.0998 for every t ≥ 0** (bracket [0.0739, 0.0998]) |
 
 The finite-horizon model was never wrong about its first twenty steps; it simply says nothing about later ones. Its error under a constant nominal heater converges to an exactly computed 0.389. With an adversarial bang-bang heater word, the error reaches 3.27. An independent binary64 simulation of the 144-state plate under the sign-pattern witness reproduces 3.26665003 to nine digits. The all-time enricher mixes target pullbacks with steady-state *moment* directions C(I − A)⁻ʲ, and with seven states it certifies the tolerance for every future time.
 

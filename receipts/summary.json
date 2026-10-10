@@ -140,5 +140,10 @@
     "accepted": true,
     "schema": "dynacomp.sparse-family/1",
     "rank": 3
+  },
+  "robust_switching": {
+    "accepted": true,
+    "schema": "dynacomp.switching-enrichment/1",
+    "rank": 2
   }
 }
