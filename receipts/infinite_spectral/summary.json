@@ -1,0 +1,59 @@
+{
+  "schema": "dynacomp.infinite-spectral-demo/1",
+  "scope": "analytic infinite sources, not external measured workloads; exact model arithmetic, runtime roundoff excluded",
+  "ramanujan_32": {
+    "rank": 32,
+    "status": "tolerance_met",
+    "upper": "77255741247086310745/604462909807314587353088",
+    "upper_approx": 0.00012780890273600613
+  },
+  "ramanujan_one_forever": {
+    "rank": 1,
+    "status": "tolerance_met",
+    "upper": "17029734526085090045847/1208925819614629174706176",
+    "upper_approx": 0.01408666623690251,
+    "constant_output_approx": 0.6180339887498949
+  },
+  "heat_64": {
+    "rank": 64,
+    "status": "tolerance_met",
+    "upper": "478485496251547172959/151115727451828646838272",
+    "upper_approx": 0.003166351407096754
+  },
+  "heat_eleven_forever": {
+    "rank": 11,
+    "status": "tolerance_met",
+    "upper": "11135465423136873586285/604462909807314587353088",
+    "upper_approx": 0.01842208221954684
+  },
+  "heat_one_from_rest_forever": {
+    "rank": 1,
+    "status": "tolerance_met",
+    "upper": "7191636479552708862729/604462909807314587353088",
+    "upper_approx": 0.011897564536830219,
+    "constant_input_limiting_error_approx": 0.011897564285411047
+  },
+  "heat_projected_1_twenty_samples": {
+    "rank": 1,
+    "status": "not_certified",
+    "upper": "29168940335940570366047/151115727451828646838272",
+    "upper_approx": 0.1930238554768483
+  },
+  "heat_projected_2_twenty_samples": {
+    "rank": 2,
+    "status": "not_certified",
+    "upper": "5764888839904953081951/151115727451828646838272",
+    "upper_approx": 0.03814883425514154
+  },
+  "heat_projected_3_twenty_samples": {
+    "rank": 3,
+    "status": "tolerance_met",
+    "upper": "705062889476739203167/151115727451828646838272",
+    "upper_approx": 0.004665714822446214
+  },
+  "reciprocal_cusp": {
+    "branch": "reciprocal",
+    "product_terms": 1,
+    "interval_width_approx": 3.308722450212111e-24
+  }
+}

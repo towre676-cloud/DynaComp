@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.9.0 — infinite spectral sources
+
+Explicit Ramanujan logarithmic moments, rational power-moment families and an infinite heat rod compile to rational modal dynamics with all-time omitted-mode and coefficient budgets. All-time selected-mode compression and arbitrary finite-horizon composition account for both stages. Outward rational special-function enclosures, two-cusp continued-fraction evaluation, guarded exact execution, four CLI kinds, six specs and a reproducible analytic-source demonstration are added. All 188 tests pass with numerical extras; 170 pass and eighteen skip without them. No generic infinite-source, intersample projection or physical-calibration claim is implied.
+
 ## 0.8.0 — stable discovery and fast rigorous acceptance
 
 Lyapunov-coordinate proposal context with one metric preparation and exact reduced Euclidean contraction; outward-dyadic finite-horizon box brackets for arbitrary encoders/reduced dynamics, attained lower witnesses, adaptive precision and cached source pullbacks; independently replayed prepared execution. Pinned external comparison includes matched-tolerance balanced search, restored building acceptance, full startup costs and rejected candidates. All 159 tests pass; the complete monograph incorporates the new derivations.

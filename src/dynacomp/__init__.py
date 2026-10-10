@@ -28,4 +28,10 @@ from .zonotope import sharp_zonotope_bound, replay_zonotope, box_generators
 from .validated import validated_box,replay_validated,BoxKernelCache,euclidean_contraction
 from .stable_proposals import stable_observable_proposal,StableProposalContext
 
-__version__ = "0.8.0"
+from .spectral import (compile_spectral, replay_spectral, search_spectral,
+                       compose_spectral, replay_spectral_composition,
+                       spectral_error_at, ramanujan_coefficients)
+from .spectral import compress_spectral_modes, replay_spectral_subset, simulate_spectral
+from .ramanujan import ramanujan_value, replay_ramanujan_value
+
+__version__ = "0.9.0"

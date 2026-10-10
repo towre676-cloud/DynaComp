@@ -1,0 +1,1 @@
+{"kind":"spectral_composition","source":{"kind":"spectral","family":{"kind":"power_moments","power":2},"modes":4,"tolerance":"1/100"},"E":[[1,0,0,0]],"G":[[1]],"H":[[0]],"D":[[1]],"horizon":20,"tolerance":"1/10"}

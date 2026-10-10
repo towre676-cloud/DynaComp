@@ -24,10 +24,23 @@ from .uniform import SparseLinearModel, uniform_enrichment, replay_uniform
 from .sparse_family import compile_sparse_family, replay_sparse_family
 from .robust import switching_enrichment, replay_switching
 from .validated import validated_box,replay_validated
+from .spectral import compile_spectral, compose_spectral, replay_spectral, replay_spectral_composition
+from .ramanujan import ramanujan_value, replay_ramanujan_value
+from .spectral import compress_spectral_modes, replay_spectral_subset
 
 
 def compile_spec(spec):
     kind = spec["kind"]
+    if kind == "spectral_subset":
+        return compress_spectral_modes(compile_spec(spec["source"]), spec["keep"], spec["tolerance"])
+    if kind == "ramanujan_value":
+        return ramanujan_value(spec["t"], spec.get("bits", 80))
+    if kind == "spectral":
+        return compile_spectral(spec["family"], spec["modes"], spec["tolerance"], spec.get("bits", 80))
+    if kind == "spectral_composition":
+        source = compile_spec(spec["source"])
+        return compose_spectral(source, *(spec[k] for k in ("E", "G", "H", "D")),
+                                spec["horizon"], spec["tolerance"], **spec.get("options", {}))
     if kind == "validated_box":
         return validated_box(SparseLinearModel.from_spec(spec['model']),spec['E'],spec['G'],spec['H'],spec['D'],spec['initial_center'],spec['initial_radius'],spec['input_radii'],spec['tolerance'],input_centers=spec.get('input_centers'),**spec.get('options',{}))
     if kind == "switching_enrichment":
@@ -98,6 +111,14 @@ def compile_spec(spec):
 
 
 def replay(packet):
+    if packet.get("schema") == "dynacomp.spectral-subset/1":
+        return replay_spectral_subset(packet)
+    if packet.get("schema") == "dynacomp.ramanujan-value/1":
+        return replay_ramanujan_value(packet)
+    if packet.get("schema") == "dynacomp.spectral/1":
+        return replay_spectral(packet)
+    if packet.get("schema") == "dynacomp.spectral-composition/1":
+        return replay_spectral_composition(packet)
     readers = {"dynacomp.validated-box/1":replay_validated,"dynacomp.switching-enrichment/1": replay_switching, "dynacomp.uniform-enrichment/1": replay_uniform,
                "dynacomp.sparse-family/1": replay_sparse_family, "dynacomp.linear/1": replay_linear, "dynacomp.finite/1": replay_finite,
                "dynacomp.polynomial/1": replay_polynomial, "dynacomp.sparse/1": replay_sparse,

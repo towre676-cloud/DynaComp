@@ -19,3 +19,4 @@ jobs:
       - run: python applications/thermal_scenarios/run_demo.py
       - run: python applications/switching_scenarios/run_demo.py
       - run: python examples/thermal_forever.py
+      - run: python examples/infinite_spectral.py

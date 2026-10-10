@@ -27,6 +27,12 @@
 
 The key question is whether a smaller state retains enough information to predict the requested output under future updates. When the initial representation fails, the linear compiler produces two states with the same representation and different next encoded states, then adds missing directions. Finite machines carry distinguishing experiments for every pair of retained classes. Polynomial compilation searches for features whose compositions with the update close exactly.
 
+## Infinite sources to finite dynamics (0.9)
+
+`python examples/infinite_spectral.py` starts from an analytic infinite heat equation and normalized Ramanujan moments, rather than treating a finite matrix as the whole source. Omitted modes, retained coefficient enclosures and any second reduction get separate error budgets. On the dimensionless rod, eleven selected modes certify mean-temperature error below **0.01843 forever**, allowing an uncertain uniform initial field and every held heater input in [-1,1]. From rest, one state certifies **0.01190 forever**. A general three-state projection for the uncertain initial field certifies **0.00467 over twenty samples**, including the infinite-source tail. These are different domains and horizons; they are analytic demonstrations, not the external SLICOT benchmark.
+
+The Ramanujan normalized sequence starting at order two has a one-state all-future approximation below **0.01409**. Two-cusp evaluation encloses the continued fraction near its difficult endpoint without a long direct expansion. Read [the derivations and limitations](docs/SPECTRAL.md). CLI kinds `spectral`, `spectral_subset`, `spectral_composition` and `ramanujan_value` work with the standard library; general-direction proposal discovery optionally uses numerical extras.
+
 ## Install and run
 
 The exact core uses Python 3.10 or newer and the standard library. From the repository directory, install with `python -m pip install -e .`. NumPy is optional for snapshot proposals and the performance demonstration; install those extras with `python -m pip install -e '.[numerical]'`.

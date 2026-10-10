@@ -1,0 +1,1 @@
+{"kind":"spectral_subset","source":{"kind":"spectral","family":{"kind":"heat_rod","initial_amplitude":0},"modes":32,"tolerance":"1/50"},"keep":[0],"tolerance":"1/50"}

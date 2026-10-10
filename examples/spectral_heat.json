@@ -1,0 +1,1 @@
+{"kind":"spectral","family":{"kind":"heat_rod","dt":"1/10","initial_amplitude":1,"input_bound":1},"modes":32,"bits":80,"tolerance":"1/50"}
