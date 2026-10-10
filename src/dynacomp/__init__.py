@@ -7,4 +7,6 @@ from .adaptive import adaptive_coordinates, optimal_coordinates, replay_adaptive
 from .families import compile_family, replay_family, closure_conditions
 from .memory import compile_output_memory, replay_memory
 
-__version__ = "0.2.0"
+from .network import Network, compile_network, replay_network, run_scenarios
+
+__version__ = "0.3.0"

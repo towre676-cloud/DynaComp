@@ -1,6 +1,6 @@
 # DynaComp
 
-**Compile the dynamics needed by a target, and account for what a reduction loses.** DynaComp constructs exact observable quotients of rational linear systems, sparse interaction networks, autonomous polynomial systems with finite observable closure, and finite deterministic partial machines. Version 0.2 adds adaptive coordinate enrichment with uniform box guarantees, least-cost coordinate search, common reductions for coefficient families and exact output recurrences with input memory. This is a research implementation with executable demonstrations, not a general nonlinear reduction solver.
+**Compile the dynamics needed by a target, and account for what a reduction loses.** DynaComp constructs exact observable quotients of rational linear systems, sparse interaction networks, autonomous polynomial systems with finite observable closure, and finite deterministic partial machines. Version 0.3 adds a runnable inventory-network scenario application; version 0.2 introduced adaptive coordinate enrichment with uniform box guarantees, least-cost coordinate search, common reductions for coefficient families and exact output recurrences with input memory. This is a research implementation with executable demonstrations, not a general nonlinear reduction solver.
 
 The key question is whether a smaller state retains enough information to predict the requested output under future updates. When the initial representation fails, the linear compiler produces two states with the same representation and different next encoded states, then adds missing directions. Finite machines carry distinguishing experiments for every pair of retained classes. Polynomial compilation searches for features whose compositions with the update close exactly.
 
@@ -9,6 +9,14 @@ The key question is whether a smaller state retains enough information to predic
 The exact core uses Python 3.10 or newer and the standard library. From the repository directory, install with `python -m pip install -e .`. NumPy is optional for snapshot proposals and the performance demonstration; install those extras with `python -m pip install -e '.[numerical]'`.
 
 Run `python -m unittest discover -s tests -v`, `python examples/run_examples.py`, and `python examples/run_adaptive.py`. Compile a supplied model with `python -m dynacomp.cli compile examples/adaptive_driver.json --output receipts/my_reduction.json`, then check its identities with `python -m dynacomp.cli replay receipts/my_reduction.json`. The CLI accepts `linear`, `sparse`, `polynomial`, `finite`, `adaptive`, `family`, and `memory` model kinds. Use rational strings such as `"1/2"`; the exact core rejects binary floating-point inputs.
+
+## Inventory-network scenario application
+
+Compile a sparse fixed-routing stock model once, then evaluate batches of replenishment plans. The application reports regional stock at every time, cumulative dispatch, stock-floor violations and a conservation residual. Inputs use named supply channels and explicit node distributions. Local differences trigger aggregate refinement, and a group budget stops expensive unsuccessful compilation. Exact rational execution is available; the optional NumPy/SciPy backend handles scenarios in vectorized batches and is the same executor used in the performance benchmark.
+
+Run `python applications/network_scenarios/run_demo.py` for the included 32-node example. For supplied JSON, use `dynacomp-network compile MODEL.json --output PLAN.json`, then `dynacomp-network run PLAN.json SCENARIOS.json --backend numpy --output REPORT.json --csv REPORT.csv`. The standard backend needs no optional dependencies; add `--exact` to obtain rational results. Read [application instructions](applications/network_scenarios/README.md) and [the proposed paid pilot](applications/network_scenarios/PILOT.md) for formats, event timing and acceptance criteria.
+
+The retained synthetic benchmark compares the production vectorized executor against SciPy sparse evolution and a correctly hand-built aggregate. At 8,192 nodes, 128 scenarios and 96 steps, execution takes about 0.296 s full versus 0.00143 s compiled. Compilation and identity replay take about 0.714 s, so the first batch is **slower** overall; estimated amortization is about 195 queries in similarly sized batches. Hand aggregation takes about 0.000885 s and is faster than the automatic executor. A heterogeneous 32-node case retains all 32 states and offers no speed benefit. These are fixed-fraction synthetic networks, not measured industrial logistics workloads. JSON parsing and scenario ingestion are excluded from the kernel benchmark.
 
 ## What works now
 
@@ -26,7 +34,7 @@ Sparse aggregate refinement discovers which groups have closed sum dynamics. A 1
 
 ## Demonstrated results
 
-The suite has **58 test methods**, including the exhaustive 324 two-state partial-machine corpus, 60 random rational forced-system reductions, 30 random approximate-bound comparisons, 24 random forced output-memory models, box-corner checks, packet-mutation rejection and trillion-step exact affine composition. A 64-site ring aggregate compiles to one state with multiplier 99/100. A stable nonnormal example exposes a first-step hidden-state output error of 8 and therefore rejects a tolerance-1 usable horizon beyond the initial time.
+The suite has **72 test methods**, including the exhaustive 324 two-state partial-machine corpus, 60 random rational forced-system reductions, 30 random approximate-bound comparisons, 24 random forced output-memory models, box-corner checks, packet-mutation rejection and trillion-step exact affine composition. A 64-site ring aggregate compiles to one state with multiplier 99/100. A stable nonnormal example exposes a first-step hidden-state output error of 8 and therefore rejects a tolerance-1 usable horizon beyond the initial time.
 
 The new eight-state attenuated-transport demonstration uses ranks **2, 3, 4 and 8** for target tolerances **1/10, 1/100, 1/1000 and zero**, respectively, over eight steps. These are uniform bounds over the declared initial box and forcing radii. The driver example reduces its worst envelope from 13/4 to zero by adding one coordinate. The parameter example requires two states across the family, while a one-state encoding closes only at parameter zero.
 

@@ -1,0 +1,194 @@
+{
+  "schema": "dynacomp.network-benchmark/1",
+  "cases": [
+    {
+      "case": "heterogeneous internal routing; common regional exit fractions",
+      "states": 128,
+      "compiled_states": 4,
+      "nonzeros": 384,
+      "queries": 128,
+      "steps": 96,
+      "compile_and_replay_seconds": 0.009057059003680479,
+      "full_numerical_setup_seconds": 0.0046868530043866485,
+      "compiled_numerical_setup_seconds": 0.0001931709994096309,
+      "median_batch_seconds": {
+        "full_sparse": 0.0036567699935403652,
+        "compiled": 0.0005301990022417158,
+        "hand_aggregate": 0.000376177005819045
+      },
+      "raw_timings_seconds": {
+        "full_sparse": [
+          0.0037464459965121932,
+          0.003753267003048677,
+          0.003593745997932274,
+          0.0036567699935403652,
+          0.0035947569995187223
+        ],
+        "compiled": [
+          0.0007850429974496365,
+          0.0011135379972984083,
+          0.0005301990022417158,
+          0.000529286997334566,
+          0.0005301190030877478
+        ],
+        "hand_aggregate": [
+          0.0006586320014321245,
+          0.0005050420004408807,
+          0.000376177005819045,
+          0.0003599519986892119,
+          0.00035346299409866333
+        ]
+      },
+      "execution_speedup_over_sparse": 6.8969763769439485,
+      "first_batch_speedup_including_setup_and_compilation": 0.8530937644328758,
+      "break_even_batches": 1.4595469002314325,
+      "break_even_queries_estimate": 186.82200322962336,
+      "max_absolute_output_difference_all_times": 1.5916157281026244e-12,
+      "max_difference_scaled_to_largest_output": 1.982421971400172e-15,
+      "python": "3.12.14",
+      "numpy": "2.3.5",
+      "scipy": "1.17.0"
+    },
+    {
+      "case": "heterogeneous internal routing; common regional exit fractions",
+      "states": 2048,
+      "compiled_states": 4,
+      "nonzeros": 6144,
+      "queries": 128,
+      "steps": 96,
+      "compile_and_replay_seconds": 0.1506146629981231,
+      "full_numerical_setup_seconds": 0.0672673040025984,
+      "compiled_numerical_setup_seconds": 0.0003185899986419827,
+      "median_batch_seconds": {
+        "full_sparse": 0.10368647299765144,
+        "compiled": 0.0009035219991346821,
+        "hand_aggregate": 0.00046987800305942073
+      },
+      "raw_timings_seconds": {
+        "full_sparse": [
+          0.10451026399823604,
+          0.10368647299765144,
+          0.1014162520004902,
+          0.1051866140041966,
+          0.10278255100274691
+        ],
+        "compiled": [
+          0.0007792140022502281,
+          0.0009622600045986474,
+          0.0008924250068957917,
+          0.000980667995463591,
+          0.0009035219991346821
+        ],
+        "hand_aggregate": [
+          0.000423778998083435,
+          0.00046987800305942073,
+          0.0005625069970847107,
+          0.0005562980004469864,
+          0.00046553200081689283
+        ]
+      },
+      "execution_speedup_over_sparse": 114.75810560999474,
+      "first_batch_speedup_including_setup_and_compilation": 1.1259049529000225,
+      "break_even_batches": 0.8140060990793507,
+      "break_even_queries_estimate": 104.1927806821569,
+      "max_absolute_output_difference_all_times": 3.637978807091713e-11,
+      "max_difference_scaled_to_largest_output": 2.791287046343027e-15,
+      "python": "3.12.14",
+      "numpy": "2.3.5",
+      "scipy": "1.17.0"
+    },
+    {
+      "case": "heterogeneous internal routing; common regional exit fractions",
+      "states": 8192,
+      "compiled_states": 4,
+      "nonzeros": 24576,
+      "queries": 128,
+      "steps": 96,
+      "compile_and_replay_seconds": 0.7141123019973747,
+      "full_numerical_setup_seconds": 0.26604229000076884,
+      "compiled_numerical_setup_seconds": 0.000753865999286063,
+      "median_batch_seconds": {
+        "full_sparse": 0.2955870179939666,
+        "compiled": 0.0014307259989436716,
+        "hand_aggregate": 0.0008845429983921349
+      },
+      "raw_timings_seconds": {
+        "full_sparse": [
+          0.3334767929991358,
+          0.30477129399514524,
+          0.2955870179939666,
+          0.29129539600398857,
+          0.2894918880047044
+        ],
+        "compiled": [
+          0.0014307259989436716,
+          0.0010961220032186247,
+          0.001826882995374035,
+          0.0015886239998508245,
+          0.0010156810021726415
+        ],
+        "hand_aggregate": [
+          0.0008845429983921349,
+          0.0006716719944961369,
+          0.0010249240003759041,
+          0.0008310519988299347,
+          0.0008885299976100214
+        ]
+      },
+      "execution_speedup_over_sparse": 206.5993196546392,
+      "first_batch_speedup_including_setup_and_compilation": 0.7840733538042981,
+      "break_even_batches": 1.525800705984851,
+      "break_even_queries_estimate": 195.30249036606094,
+      "max_absolute_output_difference_all_times": 2.546585164964199e-10,
+      "max_difference_scaled_to_largest_output": 4.963739169282318e-15,
+      "python": "3.12.14",
+      "numpy": "2.3.5",
+      "scipy": "1.17.0"
+    },
+    {
+      "case": "unique per-cell dispatch rates",
+      "states": 32,
+      "compiled_states": 32,
+      "nonzeros": 96,
+      "queries": 128,
+      "steps": 96,
+      "compile_and_replay_seconds": 0.005625397992844228,
+      "full_numerical_setup_seconds": 0.0012710350056295283,
+      "compiled_numerical_setup_seconds": 0.0024306129998876713,
+      "median_batch_seconds": {
+        "full_sparse": 0.0016133109966176562,
+        "compiled": 0.001680412002315279
+      },
+      "raw_timings_seconds": {
+        "full_sparse": [
+          0.001619330003450159,
+          0.0015978080045897514,
+          0.0015973179979482666,
+          0.0016133109966176562,
+          0.0017008330032695085
+        ],
+        "compiled": [
+          0.0016166860004886985,
+          0.001680412002315279,
+          0.0016065110030467622,
+          0.0018906990007963032,
+          0.0018422659995849244
+        ]
+      },
+      "execution_speedup_over_sparse": 0.9600687179065783,
+      "first_batch_speedup_including_setup_and_compilation": 0.29624288136561266,
+      "break_even_batches": null,
+      "break_even_queries_estimate": null,
+      "max_absolute_output_difference_all_times": 0.0,
+      "max_difference_scaled_to_largest_output": 0.0,
+      "python": "3.12.14",
+      "numpy": "2.3.5",
+      "scipy": "1.17.0"
+    }
+  ],
+  "platform": "Linux-6.18.44-x86_64-with-glibc2.39",
+  "cpu_count": 9,
+  "scope": "synthetic linear routing; output equality is exact algebraically but timings use binary64; automatic grouping provides no new mathematical advantage over a correctly hand-built aggregate",
+  "excluded_costs": "synthetic generation, JSON I/O, scenario parsing and dependency installation; no compiled plan caching benefit assumed",
+  "measurement": "five warmed rotated trials by default; initial encoding and every-time stock/dispatch outputs included; no demand caps or congestion"
+}
