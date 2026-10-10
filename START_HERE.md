@@ -1,6 +1,6 @@
 # Start here
 
-This archive contains the complete DynaComp 0.7.1 source, examples, mathematical tests, retained receipts, GitHub Actions configuration and monograph. Unzip it, open a terminal in `dynamics-compiler`, and run `python -m pip install -e .`. On Windows the Python launcher may be `py`; use `py -m pip install -e .` and substitute `py` for the example commands if necessary.
+This archive contains the complete DynaComp 0.8.0 source, examples, mathematical tests, retained receipts, GitHub Actions configuration and monograph. Unzip it, open a terminal in `dynamics-compiler`, and run `python -m pip install -e .`. On Windows the Python launcher may be `py`; use `py -m pip install -e .` and substitute `py` for the example commands if necessary.
 
 Run `python -m unittest discover -s tests -v` to exercise the mathematical regressions, then `python examples/run_examples.py` and `python examples/run_adaptive.py` to regenerate the deterministic receipts. Read `README.md`, `docs/MONOGRAPH.md` and `docs/EXTENSIONS.md`. The heated-plate application runs with `python examples/thermal_plate.py`. The optional performance demonstration needs NumPy and runs with `python examples/benchmark_ring.py`; its timing receipt is machine-dependent.
 
@@ -15,3 +15,5 @@ Version 0.6 adds changing-parameter acceptance and reusable execution. Run `pyth
 Run `python examples/thermal_forever.py` to test whether the heated-plate guarantee survives for all time; read `docs/FOREVER.md`.
 
 Version 0.7.1 adds the external SLICOT benchmark. See `benchmarks/README.md` for pinned automatic acquisition and execution. The complete results, including rejected building models and expensive startup costs, are in `docs/EXTERNAL_BENCHMARK.md`. Source MAT files remain upstream and are not included in this archive.
+
+Version 0.8 adds stable discovery and fast rigorous finite-horizon brackets. Read `docs/VALIDATED.md`. The small `examples/validated_box.json` uses no numerical dependencies; `benchmarks/external_validated.py` reuses the bundled pinned sampled source packets and compares cached full, orthogonal, stability-aware and balanced execution. Install numerical extras and `threadpoolctl` before that benchmark.

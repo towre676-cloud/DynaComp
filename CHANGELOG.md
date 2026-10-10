@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.8.0 — stable discovery and fast rigorous acceptance
+
+Lyapunov-coordinate proposal context with one metric preparation and exact reduced Euclidean contraction; outward-dyadic finite-horizon box brackets for arbitrary encoders/reduced dynamics, attained lower witnesses, adaptive precision and cached source pullbacks; independently replayed prepared execution. Pinned external comparison includes matched-tolerance balanced search, restored building acceptance, full startup costs and rejected candidates. All 159 tests pass; the complete monograph incorporates the new derivations.
+
 ## 0.7.1 — external engineering-model benchmark
 
 Pinned SLICOT heat, PDE and building models; rational box acceptance and independent replay of six compressed packets; full and balanced-truncation baselines at ranks four, eight and twelve; retained failures, raw timings, cold-start costs and acquisition hashes. All-time v0.7 work is incorporated into the complete monograph. All 148 tests pass.

@@ -145,5 +145,10 @@
     "accepted": true,
     "schema": "dynacomp.switching-enrichment/1",
     "rank": 2
+  },
+  "validated_box": {
+    "accepted": true,
+    "schema": "dynacomp.validated-box/1",
+    "rank": 1
   }
 }

@@ -25,4 +25,7 @@ from .stability import (schur_stable, hurwitz_stable, quadratic_certificate, rep
 from .forever import all_time_bound, all_time_enrichment, replay_all_time, moment_rows
 from .zonotope import sharp_zonotope_bound, replay_zonotope, box_generators
 
-__version__ = "0.7.1"
+from .validated import validated_box,replay_validated,BoxKernelCache,euclidean_contraction
+from .stable_proposals import stable_observable_proposal,StableProposalContext
+
+__version__ = "0.8.0"
