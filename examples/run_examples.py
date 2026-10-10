@@ -88,7 +88,7 @@ def main():
     (out / "thermal_plate.json").write_text(json.dumps(plate, indent=2)+"\n")
     summary["thermal_plate"] = {k: plate[k] for k in ("full_dimension", "observable_order",
                                                       "aggregate_classes", "minimal_order", "exact_agreement_steps")}
-    for name in ("uniform_directions", "sparse_thermal_family"):
+    for name in ("uniform_directions", "sparse_thermal_family", "robust_switching"):
         packet = compile_spec(json.loads((ROOT / "examples" / f"{name}.json").read_text()))
         assert replay(packet)
         (out / f"{name}.json").write_text(json.dumps(packet, indent=2)+"\n")

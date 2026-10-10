@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.6.0 — 10 October 2026
+
+Sharp box acceptance under arbitrary time-varying convex mode uncertainty. Commuting full/projected families compress words through a count-lattice signed-support dynamic program; noncommuting families use complete budgeted enumeration. Exact common closure bypasses word search. `PreparedSwitching` replays once, supports shared initial fields, and checks rational box membership through directed binary64 endpoints. New `switching_enrichment` CLI kind and switching scenario application, with three production benchmarks including construction/preparation amortization. The suite grows from 117 to 131 methods.
+
 ## 0.5.0 — 10 October 2026
 
 Sharp box-uniform general-direction enrichment with exact output-error kernels and attaining counterexamples; sparse coefficient-family closure; sharp full-model output ranges; thermal scenario workbench and optional batched QR execution with explicit rounding limits. Scenario-bound propagation now caches target pullbacks instead of full matrix powers, preserving earlier receipts. New CLI kinds `uniform_enrichment` and `sparse_family`, and command `dynacomp-thermal`. The suite grows from 95 to 117 methods.

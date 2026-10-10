@@ -18,4 +18,6 @@ from .network import Network, compile_network, replay_network, run_scenarios
 from .uniform import SparseLinearModel, sharp_box_bound, uniform_enrichment, replay_uniform, output_box_range
 from .sparse_family import compile_sparse_family, replay_sparse_family
 
-__version__ = "0.5.0"
+from .robust import switching_enrichment, replay_switching
+
+__version__ = "0.6.0"

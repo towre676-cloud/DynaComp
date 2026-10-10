@@ -1,0 +1,37 @@
+{
+  "full_states": 144,
+  "compiled_states": 9,
+  "horizon": 20,
+  "conductance_interval": [
+    "1/16",
+    "1/8"
+  ],
+  "sharp_worst_error": "270959423435907829708938903848562231772485357872281990696561014576258299900185018619091337023264464779933258969932368572916276627590847074441308017420589004465455661593/3270840571541354306385691698341168655089751188573339430328242612284965149386034554892623701944125049277102428511732964807990735878294674410926243840000000000000000000000",
+  "approximately": 0.08284091428773632,
+  "symbolic_states": 231,
+  "endpoint_words": "1048576",
+  "attaining_mode_word": [
+    "high",
+    "high",
+    "high",
+    "high",
+    "high",
+    "high",
+    "high",
+    "high",
+    "high",
+    "high",
+    "high",
+    "high",
+    "high",
+    "high",
+    "high",
+    "high",
+    "high",
+    "high",
+    "high",
+    "high"
+  ],
+  "status": "tolerance_met",
+  "scope": "all independent temperature/heater boxes and arbitrary time-varying conductance in the declared interval; rational model reduction only"
+}

@@ -17,10 +17,13 @@ from .memory import compile_output_memory, replay_memory
 from .adaptive import adaptive_coordinates, replay_adaptive
 from .uniform import SparseLinearModel, uniform_enrichment, replay_uniform
 from .sparse_family import compile_sparse_family, replay_sparse_family
+from .robust import switching_enrichment, replay_switching
 
 
 def compile_spec(spec):
     kind = spec["kind"]
+    if kind == "switching_enrichment":
+        return switching_enrichment(spec["modes"], spec["C"], spec["initial_center"], spec["initial_radius"], spec["input_radii"], spec["tolerance"], input_centers=spec.get("input_centers"), **spec.get("options", {}))
     if kind == "uniform_enrichment":
         return uniform_enrichment(SparseLinearModel.from_spec(spec["model"]), spec["initial_center"], spec["initial_radius"], spec["input_radii"], spec["tolerance"], input_centers=spec.get("input_centers"), **spec.get("options", {}))
     if kind == "sparse_family":
@@ -73,7 +76,7 @@ def compile_spec(spec):
 
 
 def replay(packet):
-    readers = {"dynacomp.uniform-enrichment/1": replay_uniform,
+    readers = {"dynacomp.switching-enrichment/1": replay_switching, "dynacomp.uniform-enrichment/1": replay_uniform,
                "dynacomp.sparse-family/1": replay_sparse_family, "dynacomp.linear/1": replay_linear, "dynacomp.finite/1": replay_finite,
                "dynacomp.polynomial/1": replay_polynomial, "dynacomp.sparse/1": replay_sparse,
                "dynacomp.controlled_polynomial/1": replay_controlled_polynomial,
