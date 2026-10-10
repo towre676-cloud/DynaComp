@@ -1,5 +1,7 @@
 # Development scope
 
+Version 0.6 answers whether finite-horizon guarantees survive: rigorous all-time brackets for persistent input boxes, which can certify or refute a tolerance; steady-state moment enrichment; exact stability decisions with rational quadratic certificates in discrete and continuous time; common quadratic certificates for switching; and sharp correlated (zonotopic) domains. See [FOREVER.md](FOREVER.md). The open fronts below are updated accordingly: correlated domains are implemented for finite horizons, general quadratic Lyapunov metrics are implemented, and all-time bounds exist for constant input boxes. Time-varying and correlated persistent domains, parameter-uncertain all-time bounds and continuous-time error brackets remain open.
+
 Version 0.5 joins general-direction enrichment with sharp box-uniform output-error acceptance, attaining witnesses, sparse coefficient-family closure and a thermal scenario workbench. See [UNIFORM.md](UNIFORM.md).
 
 Version 0.4 adds Hankel-certified minimal realization, word-labelled switched closure, weighted automaton and HMM minimization and equivalence with shortest counterexamples, exact one-parameter rank-change loci, scenario-certified direction enrichment, controlled polynomial lifts and a heated-plate application; see [EXTENSIONS.md](EXTENSIONS.md).

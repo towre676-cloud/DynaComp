@@ -1,0 +1,15 @@
+{
+  "kind": "stability",
+  "time": "continuous",
+  "description": "Lightly damped oscillator x'' + x'/5 + x = 0: Hurwitz by exact Routh-equivalent test, certified by P with A^T P + P A < 0.",
+  "A": [
+    [
+      0,
+      1
+    ],
+    [
+      -1,
+      "-1/5"
+    ]
+  ]
+}

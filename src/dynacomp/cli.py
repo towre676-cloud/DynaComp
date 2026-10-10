@@ -12,6 +12,11 @@ from .switched import (compile_switched, replay_switched, WeightedAutomaton, min
                        replay_automaton, check_equivalence, replay_equivalence)
 from .parametric import parametric_analysis, replay_parametric
 from .enrich import greedy_enrichment, replay_enrichment
+from .stability import (quadratic_certificate, replay_quadratic, continuous_certificate, replay_continuous,
+                        common_quadratic_certificate, replay_common_quadratic)
+from .forever import all_time_enrichment, replay_all_time
+from .zonotope import sharp_zonotope_bound, replay_zonotope
+from .uniform import _project
 from .families import compile_family, replay_family
 from .memory import compile_output_memory, replay_memory
 from .adaptive import adaptive_coordinates, replay_adaptive
@@ -69,6 +74,20 @@ def compile_spec(spec):
         model = LinearModel.from_rows(spec["A"], spec["B"], spec["C"])
         scenarios = [(s["x0"], s["inputs"]) for s in spec["scenarios"]]
         return greedy_enrichment(model, scenarios, spec["tolerance"], spec.get("max_dimension"))
+    if kind == "stability":
+        if spec.get("time", "discrete") == "continuous":
+            return continuous_certificate(spec["A"])
+        return quadratic_certificate(spec["A"])
+    if kind == "common_quadratic":
+        return common_quadratic_certificate(spec["modes"])
+    if kind == "all_time":
+        return all_time_enrichment(SparseLinearModel.from_spec(spec["model"]), spec["initial_center"],
+                                   spec["initial_radius"], spec["input_center"], spec["input_radius"],
+                                   spec["tolerance"], spec.get("max_rank"))
+    if kind == "zonotope":
+        model = SparseLinearModel.from_spec(spec["model"])
+        v, e, g, h, _ = _project(model, spec["encoder"])
+        return sharp_zonotope_bound(model, v, e, g, h, spec["x0_center"], spec["input_centers"], spec["generators"])
     raise ValueError("Unknown model kind")
 
 
@@ -81,7 +100,10 @@ def replay(packet):
                "dynacomp.automaton/1": replay_automaton, "dynacomp.equivalence/1": replay_equivalence,
                "dynacomp.parametric/1": replay_parametric, "dynacomp.enrichment/1": replay_enrichment,
                "dynacomp.family/1": replay_family, "dynacomp.memory/1": replay_memory,
-               "dynacomp.adaptive/1": replay_adaptive}
+               "dynacomp.adaptive/1": replay_adaptive,
+               "dynacomp.quadratic-metric/1": replay_quadratic, "dynacomp.continuous-metric/1": replay_continuous,
+               "dynacomp.common-quadratic/1": replay_common_quadratic, "dynacomp.all-time-bound/1": replay_all_time,
+               "dynacomp.zonotope-bound/1": replay_zonotope}
     if packet.get("schema") not in readers:
         raise ValueError("Unknown or unsuccessful packet")
     return readers[packet["schema"]](packet)

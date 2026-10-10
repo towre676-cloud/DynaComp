@@ -1,6 +1,6 @@
 # Start here
 
-This archive contains the complete DynaComp 0.5.0 source, examples, mathematical tests, retained receipts, GitHub Actions configuration and monograph. Unzip it, open a terminal in `dynamics-compiler`, and run `python -m pip install -e .`. On Windows the Python launcher may be `py`; use `py -m pip install -e .` and substitute `py` for the example commands if necessary.
+This archive contains the complete DynaComp 0.6.0 source, examples, mathematical tests, retained receipts, GitHub Actions configuration and monograph. Unzip it, open a terminal in `dynamics-compiler`, and run `python -m pip install -e .`. On Windows the Python launcher may be `py`; use `py -m pip install -e .` and substitute `py` for the example commands if necessary.
 
 Run `python -m unittest discover -s tests -v` to exercise the mathematical regressions, then `python examples/run_examples.py` and `python examples/run_adaptive.py` to regenerate the deterministic receipts. Read `README.md`, `docs/MONOGRAPH.md` and `docs/EXTENSIONS.md`. The heated-plate application runs with `python examples/thermal_plate.py`. The optional performance demonstration needs NumPy and runs with `python examples/benchmark_ring.py`; its timing receipt is machine-dependent.
 
@@ -9,3 +9,5 @@ The repository is hosted at `https://github.com/towre676-cloud/DynaComp`, on `cl
 The first application is `applications/network_scenarios`. Run `python applications/network_scenarios/run_demo.py` for a complete inventory/dispatch scenario report. Its README provides compile/run commands, JSON formats and optional vectorized execution. Run `python -m pip install -e ".[numerical]"` before the performance benchmark, then `python applications/network_scenarios/benchmark.py`. The benchmark retains a full-size counterexample and a hand-built aggregate baseline. Its results cover synthetic fixed-fraction routing, and the first batch may be slower after compilation.
 
 Version 0.5 adds the thermal scenario workbench. Run `python applications/thermal_scenarios/run_demo.py`, read `applications/thermal_scenarios/README.md`, and use `dynacomp-thermal --output-dir thermal_results` to generate a complete plan/family/report. `docs/MONOGRAPH.md` now incorporates the 0.4 extension chapter and the 0.5 derivations, so the standalone monograph covers the merged work. The optional thermal batch benchmark records construction amortization and excludes floating-point rounding from the rational guarantee.
+
+Run `python examples/thermal_forever.py` to test whether the heated-plate guarantee survives for all time; read `docs/FOREVER.md`.

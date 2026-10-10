@@ -1,0 +1,26 @@
+{
+  "kind": "common_quadratic",
+  "description": "Two shear modes whose every switching sequence is stable: one rational P contracts both.",
+  "modes": {
+    "a": [
+      [
+        "1/2",
+        "1/4"
+      ],
+      [
+        0,
+        "1/2"
+      ]
+    ],
+    "b": [
+      [
+        "1/2",
+        0
+      ],
+      [
+        "1/4",
+        "1/2"
+      ]
+    ]
+  }
+}

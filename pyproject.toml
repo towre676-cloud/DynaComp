@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "dynacomp"
-version = "0.5.0"
+version = "0.6.0"
 description = "Exact observable dynamics, minimal realizations, weighted-automaton equivalence, parametric closure loci, adaptive and certified finite-horizon reduction"
 requires-python = ">=3.10"
 

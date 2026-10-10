@@ -1,0 +1,84 @@
+{
+  "schema": "dynacomp.thermal-all-time/1",
+  "domain": "initial field in [18,22]^144, heater in [0,2] at every step forever, corner-mean target",
+  "finite_horizon_model": {
+    "rank": 9,
+    "certified_steps": 20,
+    "twenty_step_sharp_bound": "0.0828409143"
+  },
+  "all_time_verdict_for_finite_model": {
+    "status": "refuted",
+    "violation_time": 21,
+    "error_at_least": "0.105031756",
+    "steady_state_error_at_nominal_heater": "0.389446783"
+  },
+  "all_time_bracket_for_finite_model": {
+    "status": "converged",
+    "lower": "3.26665003",
+    "upper": "3.26665003",
+    "attained_near_time": 121,
+    "steps_examined": 2456,
+    "independent_binary64_witness_error": "3.26665003"
+  },
+  "all_time_model": {
+    "status": "certified",
+    "rank": 7,
+    "lower": "0.073946107",
+    "upper": "0.0997736955",
+    "history": [
+      {
+        "rank": 1,
+        "status": "refuted",
+        "lower": "5.5",
+        "upper": "25838.0851"
+      },
+      {
+        "rank": 2,
+        "added": "pullback",
+        "status": "refuted",
+        "lower": "1.375",
+        "upper": "93665.3461"
+      },
+      {
+        "rank": 3,
+        "added": "pullback",
+        "status": "refuted",
+        "lower": "0.377604167",
+        "upper": "116353.872"
+      },
+      {
+        "rank": 4,
+        "added": "pullback",
+        "status": "refuted",
+        "lower": "0.100128174",
+        "upper": "121138.329"
+      },
+      {
+        "rank": 5,
+        "added": "pullback",
+        "status": "refuted",
+        "lower": "0.104038806",
+        "upper": "122802.528"
+      },
+      {
+        "rank": 6,
+        "added": "moment",
+        "status": "refuted",
+        "lower": "0.103816249",
+        "upper": "181766.606"
+      },
+      {
+        "rank": 7,
+        "added": "moment",
+        "status": "certified",
+        "lower": "0.073946107",
+        "upper": "0.0997736955"
+      }
+    ]
+  },
+  "correlated_initial_uncertainty_20_steps": {
+    "independent_cells_pm2": "0.0102728619",
+    "shared_offset_pm2": "0.00721313582"
+  },
+  "claim": "rigorous rational/dyadic brackets; certification covers every t >= 0 for the declared boxes; the model is synthetic and nothing is claimed about a physical plate"
+}

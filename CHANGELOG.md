@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.6.0 — 10 October 2026
+
+- `forever`: all-time output-error brackets for persistent input boxes. Sharp dyadic sums with rounding tracked in the dual norm of a certified metric, a geometric tail, and an attained lower bound that can refute a tolerance. Also steady-state moment directions and all-time enrichment.
+- `stability`: exact Schur–Cohn and Cayley/Hurwitz decisions; rational quadratic Lyapunov certificates for discrete and continuous time with near-spectral contraction factors; common quadratic certificates for switching.
+- `zonotope`: sharp error suprema over correlated scenario domains whose generators couple coordinates and times, with attaining scenarios.
+- `examples/thermal_forever.py`: the nine-state twenty-step plate model is refuted at t = 21 with all-time worst error ≈ 3.26665; a seven-state model is certified below 0.1 for all time.
+- New CLI kinds `stability`, `common_quadratic`, `all_time` and `zonotope`, and five new example specifications. The suite grows from 117 to 134 methods; every earlier receipt regenerates unchanged.
+
 ## 0.5.0 — 10 October 2026
 
 Sharp box-uniform general-direction enrichment with exact output-error kernels and attaining counterexamples; sparse coefficient-family closure; sharp full-model output ranges; thermal scenario workbench and optional batched QR execution with explicit rounding limits. Scenario-bound propagation now caches target pullbacks instead of full matrix powers, preserving earlier receipts. New CLI kinds `uniform_enrichment` and `sparse_family`, and command `dynacomp-thermal`. The suite grows from 95 to 117 methods.

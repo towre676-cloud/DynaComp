@@ -18,4 +18,10 @@ from .network import Network, compile_network, replay_network, run_scenarios
 from .uniform import SparseLinearModel, sharp_box_bound, uniform_enrichment, replay_uniform, output_box_range
 from .sparse_family import compile_sparse_family, replay_sparse_family
 
-__version__ = "0.5.0"
+from .stability import (schur_stable, hurwitz_stable, quadratic_certificate, replay_quadratic,
+                        continuous_certificate, replay_continuous, common_quadratic_certificate,
+                        replay_common_quadratic)
+from .forever import all_time_bound, all_time_enrichment, replay_all_time, moment_rows
+from .zonotope import sharp_zonotope_bound, replay_zonotope, box_generators
+
+__version__ = "0.6.0"

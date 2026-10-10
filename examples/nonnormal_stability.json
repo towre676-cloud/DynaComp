@@ -1,0 +1,14 @@
+{
+  "kind": "stability",
+  "description": "Stable eigenvalues 1/2 with an off-diagonal 8: decided by Schur-Cohn and certified by a rational quadratic metric whose contraction factor is close to the spectral radius squared (1/4).",
+  "A": [
+    [
+      "1/2",
+      8
+    ],
+    [
+      0,
+      "1/2"
+    ]
+  ]
+}
