@@ -1,0 +1,41 @@
+{
+  "schema": "dynacomp.memory/1",
+  "order": 2,
+  "A": [
+    [
+      "1",
+      "1"
+    ],
+    [
+      "0",
+      "1"
+    ]
+  ],
+  "B": [
+    [
+      "0"
+    ],
+    [
+      "1"
+    ]
+  ],
+  "C": [
+    [
+      "1",
+      "0"
+    ]
+  ],
+  "output_coefficients": [
+    "-1",
+    "2"
+  ],
+  "input_kernels": [
+    [
+      "1"
+    ],
+    [
+      "0"
+    ]
+  ],
+  "meaning": "y[t+q]=sum_i a[i]y[t+i]+sum_j K[j]u[t+j]"
+}

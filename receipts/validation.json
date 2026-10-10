@@ -1,9 +1,12 @@
 {
-  "test_methods": 38,
+  "version": "0.2.0",
+  "test_methods": 58,
   "exhaustive_two_state_models": 324,
   "random_exact_linear_models": 60,
   "random_error_bound_cases": 30,
-  "optional_numpy_proposal": "passed",
-  "packet_cli": "passed",
-  "python": "3.12.14"
+  "random_forced_memory_models": 24,
+  "random_adaptive_rank_completion_models": 12,
+  "uniform_box_corner_comparisons": "passed",
+  "adaptive_family_memory_cli": "passed",
+  "imported_parent": "221207a4386355f6a4ab8c0e6e702eee6f1bb2a6"
 }

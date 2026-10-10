@@ -101,3 +101,20 @@ class SwitchedTests(unittest.TestCase):
         r["G"]["a"][0][0] = str(Q(r["G"]["a"][0][0]) + 1)
         with self.assertRaises(ValueError):
             replay_equivalence(r)
+
+
+class FamilyAgreementTests(unittest.TestCase):
+    def test_switched_closure_matches_family_closure(self):
+        from dynacomp import LinearModel, compile_family
+        from dynacomp.rational import row_basis
+        rng = random.Random(64)
+        for n in range(1, 6):
+            for _ in range(6):
+                mats = [[[Q(rng.choice([0, 0, 1, -1, 2]), rng.choice([1, 3])) for _ in range(n)] for _ in range(n)]
+                        for _ in range(rng.randrange(1, 4))]
+                C = [[rng.choice([0, 1]) for _ in range(n)]]
+                if not any(C[0]):
+                    C[0][0] = 1
+                family = compile_family([LinearModel.from_rows(a, [[0]]*n, C) for a in mats])
+                switched = compile_switched({str(i): a for i, a in enumerate(mats)}, C)
+                self.assertEqual(row_basis(matrix(family["E"])), row_basis(matrix(switched["E"])))

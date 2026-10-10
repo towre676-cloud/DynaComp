@@ -12,12 +12,23 @@ from .switched import (compile_switched, replay_switched, WeightedAutomaton, min
                        replay_automaton, check_equivalence, replay_equivalence)
 from .parametric import parametric_analysis, replay_parametric
 from .enrich import greedy_enrichment, replay_enrichment
+from .families import compile_family, replay_family
+from .memory import compile_output_memory, replay_memory
+from .adaptive import adaptive_coordinates, replay_adaptive
 
 
 def compile_spec(spec):
     kind = spec["kind"]
     if kind == "linear":
         return compile_linear(LinearModel.from_rows(spec["A"], spec["B"], spec["C"])).packet()
+    if kind == "memory":
+        return compile_output_memory(LinearModel.from_rows(spec["A"], spec["B"], spec["C"]))
+    if kind == "family":
+        return compile_family([LinearModel.from_rows(item["A"], item["B"], spec["C"]) for item in spec["coefficients"]])
+    if kind == "adaptive":
+        model = LinearModel.from_rows(spec["A"], spec["B"], spec["C"])
+        return adaptive_coordinates(model, spec["initial_center"], spec["initial_radius"],
+                                    spec["input_radii"], spec["tolerance"], **spec.get("options", {}))
     if kind == "finite":
         return compile_finite(FiniteModel(tuple(spec["observations"]), tuple(tuple(r) for r in spec["transitions"])))
     if kind == "polynomial":
@@ -61,7 +72,9 @@ def replay(packet):
                "dynacomp.controlled_polynomial/1": replay_controlled_polynomial,
                "dynacomp.realization/1": replay_realization, "dynacomp.switched/1": replay_switched,
                "dynacomp.automaton/1": replay_automaton, "dynacomp.equivalence/1": replay_equivalence,
-               "dynacomp.parametric/1": replay_parametric, "dynacomp.enrichment/1": replay_enrichment}
+               "dynacomp.parametric/1": replay_parametric, "dynacomp.enrichment/1": replay_enrichment,
+               "dynacomp.family/1": replay_family, "dynacomp.memory/1": replay_memory,
+               "dynacomp.adaptive/1": replay_adaptive}
     if packet.get("schema") not in readers:
         raise ValueError("Unknown or unsuccessful packet")
     return readers[packet["schema"]](packet)
