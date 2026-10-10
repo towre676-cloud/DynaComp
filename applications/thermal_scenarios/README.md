@@ -1,0 +1,19 @@
+# Thermal scenario workbench
+
+Compile a synthetic heated plate around its corner-temperature output, with a stated population of initial temperatures and future heater inputs. The default demonstration is a 12-by-12 grid, twenty steps, initial excess temperatures between 18 and 22 independently at every node, and heater input between zero and two independently at every step. A nine-state approximation meets a sharp 0.1 output-error tolerance. A separate seventeen-state quotient is exact under arbitrary time-varying conductance in [1/16,1/8]. Those guarantees have different domains.
+
+Install from the repository root with `python -m pip install -e .`. Run `python applications/thermal_scenarios/run_demo.py` to regenerate the three retained receipts, or use the following command to create a plan, an exact robust family and a scenario report in a supplied directory.
+
+```bash
+dynacomp-thermal --grid 12 --steps 20 --tolerance 1/10 --threshold 21 --output-dir thermal_results
+```
+
+`approximate_plan.json` contains the complete sparse source model, input/state boxes, rational projection, sharp error certificate, attaining worst-case witness and rank history. `robust_family.json` contains endpoint operators and a common exact quotient. `report.json` contains sharp full-model temperature intervals, threshold classifications, nominal/outage/upper-corner traces and scope. An insufficient `--max-rank` produces an explicitly unsuccessful approximation status, while retaining its actual bound and counterexample.
+
+Temperatures mean excess above a fixed ambient, and the reported output is the mean of the four corners. Grid and time units are model-defined. Heater amounts arrive after each transition. The stencil assumes fixed boundary topology and uniform conductance at each time. It does not model spatially varying bond uncertainty, radiation, temperature-dependent conductance or continuum discretization error. A threshold classification describes the supplied discrete model, not a safety conclusion about hardware.
+
+For a supplied sparse linear model and arbitrary independent boxes, use `dynacomp compile examples/uniform_directions.json --output plan.json` and `dynacomp replay plan.json`. The `uniform_enrichment` kind accepts `model`, `initial_center`, `initial_radius`, `input_radii`, optional `input_centers`, `tolerance`, and `options` including `max_rank`, `seed_rows` and `strategy`. The sparse model has `n`, `entries` as `[destination,source,rational_value]`, `B` and `C`. Unlike the inventory schema, signed entries are allowed for generic linear systems. The `sparse_family` kind takes a named `modes` dictionary, shared `C` and `max_rank`; see `examples/sparse_thermal_family.json`.
+
+Install the numerical extras with `python -m pip install -e ".[numerical]"` and run `python applications/thermal_scenarios/benchmark.py` for the retained full/reduced batch comparison. The public Python helper `dynacomp.thermal_numeric.run_thermal_batch(plan, initial, inputs)` accepts initial arrays shaped `[nodes, scenarios]` and input arrays `[steps, channels, scenarios]`. It replays the exact packet and rejects out-of-box scenarios or a horizon mismatch. Returned arrays are shaped `[steps+1, outputs, scenarios]`. Numerical QR and evolution are not interval-certified; the rational model-reduction bound excludes their rounding errors.
+
+The optional benchmark includes encoding and every-time outputs but excludes generation, JSON I/O, ingestion and domain checks around the prepared executor. Its short-horizon 144-state full model is already fast, and construction requires many repeated batches to pay back. Use the complete customer workflow, including installation/model fidelity and actual query distribution, before drawing an economic conclusion. Derivations and limits are in `docs/UNIFORM.md` and the complete monograph.

@@ -27,17 +27,19 @@ def finite_horizon_bound(model, V, G, H, x0, inputs):
     zs = [z]
     for u in us:
         zs.append(addv(mv(g, zs[-1]), mv(h, u)))
-    powers = [identity(n)]
+    targets = [model.C]
     for _ in us:
-        powers.append(mul(powers[-1], model.A))
+        targets.append(mul(targets[-1], model.A))
+    transition_norms = [norm_inf(mul(ca, residual)) for ca in targets]
+    input_norms = [norm_inf(mul(ca, forcing)) for ca in targets]
     # e_t=A^t e0 + sum A^(t-1-j)(R z_j + S u_j).
     envelopes = []
     for t in range(len(us)+1):
-        bound = vector_norm(mv(mul(model.C, powers[t]), e0))
+        bound = vector_norm(mv(targets[t], e0))
         for j in range(t):
-            ca = mul(model.C, powers[t-1-j])
-            bound += norm_inf(mul(ca, residual))*vector_norm(zs[j])
-            bound += norm_inf(mul(ca, forcing))*vector_norm(us[j])
+            lag = t-1-j
+            bound += transition_norms[lag]*vector_norm(zs[j])
+            bound += input_norms[lag]*vector_norm(us[j])
         envelopes.append(bound)
     return {"schema": "dynacomp.bound/1", "arithmetic": "rational",
             "bound": [str(x) for x in envelopes],

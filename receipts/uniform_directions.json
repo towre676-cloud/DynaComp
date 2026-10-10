@@ -1,0 +1,249 @@
+{
+  "schema": "dynacomp.uniform-enrichment/1",
+  "model": {
+    "n": 3,
+    "entries": [
+      [
+        0,
+        0,
+        "1/2"
+      ],
+      [
+        0,
+        1,
+        "1"
+      ],
+      [
+        1,
+        1,
+        "1/3"
+      ],
+      [
+        1,
+        2,
+        "1"
+      ],
+      [
+        2,
+        2,
+        "1/4"
+      ]
+    ],
+    "B": [
+      [
+        "0"
+      ],
+      [
+        "0"
+      ],
+      [
+        "1"
+      ]
+    ],
+    "C": [
+      [
+        "1",
+        "1",
+        "0"
+      ]
+    ]
+  },
+  "status": "tolerance_met",
+  "tolerance": "1/100",
+  "max_rank": 3,
+  "rank": 3,
+  "strategy": "worst_kernel",
+  "initial_center": [
+    "1",
+    "0",
+    "-1"
+  ],
+  "initial_radius": [
+    "1",
+    "2",
+    "1"
+  ],
+  "input_radii": [
+    [
+      "1"
+    ],
+    [
+      "1"
+    ],
+    [
+      "1"
+    ],
+    [
+      "1"
+    ]
+  ],
+  "input_centers": [
+    [
+      "2"
+    ],
+    [
+      "2"
+    ],
+    [
+      "2"
+    ],
+    [
+      "2"
+    ]
+  ],
+  "V": [
+    [
+      "1",
+      "-1",
+      "933/260"
+    ],
+    [
+      "0",
+      "1",
+      "-933/260"
+    ],
+    [
+      "0",
+      "0",
+      "1"
+    ]
+  ],
+  "E": [
+    [
+      "1",
+      "1",
+      "0"
+    ],
+    [
+      "0",
+      "1",
+      "933/260"
+    ],
+    [
+      "0",
+      "0",
+      "1"
+    ]
+  ],
+  "G": [
+    [
+      "1/2",
+      "5/6",
+      "-207/104"
+    ],
+    [
+      "0",
+      "1/3",
+      "729/1040"
+    ],
+    [
+      "0",
+      "0",
+      "1/4"
+    ]
+  ],
+  "H": [
+    [
+      "0"
+    ],
+    [
+      "933/260"
+    ],
+    [
+      "1"
+    ]
+  ],
+  "D": [
+    [
+      "1",
+      "0",
+      "0"
+    ]
+  ],
+  "certificate": {
+    "schema": "dynacomp.sharp-box-bound/1",
+    "arithmetic": "rational",
+    "coverage": "all initial states and independently chosen inputs in the declared componentwise boxes",
+    "bound": [
+      "0",
+      "0",
+      "0",
+      "0",
+      "0"
+    ],
+    "output_bounds": [
+      [
+        "0"
+      ],
+      [
+        "0"
+      ],
+      [
+        "0"
+      ],
+      [
+        "0"
+      ],
+      [
+        "0"
+      ]
+    ],
+    "worst_bound": "0",
+    "attaining_witness": {
+      "time": 0,
+      "output": 0,
+      "x0": [
+        "1",
+        "0",
+        "-1"
+      ],
+      "inputs": [
+        [
+          "2"
+        ],
+        [
+          "2"
+        ],
+        [
+          "2"
+        ],
+        [
+          "2"
+        ]
+      ],
+      "signed_error": "0"
+    },
+    "claim": "sharp componentwise and worst-horizon output-error suprema for the fixed full and reduced models; excludes floating-point rounding"
+  },
+  "history": [
+    {
+      "rank": 1,
+      "worst_bound": "14465/1152",
+      "worst_time": 4,
+      "worst_output": 0,
+      "added_direction": {
+        "kind": "worst_output_kernel",
+        "time": 4,
+        "output": 0
+      }
+    },
+    {
+      "rank": 2,
+      "worst_bound": "130652739904402227080220725/85593140557396178081464448",
+      "worst_time": 4,
+      "worst_output": 0,
+      "added_direction": {
+        "kind": "target_pullback",
+        "time": 1,
+        "output": 0
+      }
+    },
+    {
+      "rank": 3,
+      "worst_bound": "0",
+      "worst_time": 0,
+      "worst_output": 0
+    }
+  ],
+  "claim": "general-direction projection with sharp fixed-model box-uniform output-error acceptance; enrichment is heuristic"
+}

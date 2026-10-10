@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.5.0 — 10 October 2026
+
+Sharp box-uniform general-direction enrichment with exact output-error kernels and attaining counterexamples; sparse coefficient-family closure; sharp full-model output ranges; thermal scenario workbench and optional batched QR execution with explicit rounding limits. Scenario-bound propagation now caches target pullbacks instead of full matrix powers, preserving earlier receipts. New CLI kinds `uniform_enrichment` and `sparse_family`, and command `dynacomp-thermal`. The suite grows from 95 to 117 methods.
+
 ## 0.4.0 — 10 October 2026
 
 - `realization`: minimal input-output realization for zero initial state, with a Hankel-block minimality certificate checked against the original Markov parameters.

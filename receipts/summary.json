@@ -130,5 +130,15 @@
     "aggregate_classes": 21,
     "minimal_order": 17,
     "exact_agreement_steps": 40
+  },
+  "uniform_directions": {
+    "accepted": true,
+    "schema": "dynacomp.uniform-enrichment/1",
+    "rank": 3
+  },
+  "sparse_thermal_family": {
+    "accepted": true,
+    "schema": "dynacomp.sparse-family/1",
+    "rank": 3
   }
 }

@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "dynacomp"
-version = "0.4.0"
+version = "0.5.0"
 description = "Exact observable dynamics, minimal realizations, weighted-automaton equivalence, parametric closure loci, adaptive and certified finite-horizon reduction"
 requires-python = ">=3.10"
 
@@ -14,6 +14,7 @@ numerical = ["numpy>=1.24", "scipy>=1.10"]
 [project.scripts]
 dynacomp = "dynacomp.cli:main"
 dynacomp-network = "dynacomp.network_cli:main"
+dynacomp-thermal = "dynacomp.thermal:main"
 
 [tool.setuptools.packages.find]
 where = ["src"]
