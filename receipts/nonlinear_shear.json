@@ -1,0 +1,83 @@
+{
+  "schema": "dynacomp.polynomial/1",
+  "status": "exact",
+  "variables": 2,
+  "update": [
+    [
+      {
+        "exponent": [
+          0,
+          2
+        ],
+        "coefficient": "1"
+      },
+      {
+        "exponent": [
+          1,
+          0
+        ],
+        "coefficient": "1"
+      }
+    ],
+    [
+      {
+        "exponent": [
+          0,
+          1
+        ],
+        "coefficient": "1"
+      }
+    ]
+  ],
+  "targets": [
+    [
+      {
+        "exponent": [
+          1,
+          0
+        ],
+        "coefficient": "1"
+      }
+    ]
+  ],
+  "features": [
+    [
+      {
+        "exponent": [
+          0,
+          2
+        ],
+        "coefficient": "1"
+      }
+    ],
+    [
+      {
+        "exponent": [
+          1,
+          0
+        ],
+        "coefficient": "1"
+      }
+    ]
+  ],
+  "G": [
+    [
+      "1",
+      "0"
+    ],
+    [
+      "1",
+      "1"
+    ]
+  ],
+  "D": [
+    [
+      "0",
+      "1"
+    ]
+  ],
+  "dimensions": [
+    1,
+    2
+  ]
+}

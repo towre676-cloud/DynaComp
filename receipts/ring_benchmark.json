@@ -1,0 +1,31 @@
+{
+  "benchmark": "periodic stencil aggregate",
+  "n": 2048,
+  "rank": 1,
+  "steps": 200,
+  "queries": 256,
+  "compile_and_replay_seconds": 0.12087992599845165,
+  "full_batch_seconds": 0.478220003999013,
+  "reduced_batch_seconds_including_encoding": 0.00042153500544372946,
+  "execution_speedup": 1134.4728144122075,
+  "first_batch_speedup_including_compilation": 3.942409267301865,
+  "break_even_queries_estimate": 64.76634619777343,
+  "max_absolute_output_error_all_times": 5.684341886080802e-14,
+  "raw_timings": {
+    "full": [
+      0.5265673469984904,
+      0.478220003999013,
+      0.46021525600372115
+    ],
+    "reduced": [
+      0.0005530130001716316,
+      0.0004135429990128614,
+      0.00042153500544372946
+    ]
+  },
+  "python": "3.12.14",
+  "numpy": "2.3.5",
+  "platform": "Linux-6.18.44-x86_64-with-glibc2.39",
+  "cpu_count": 9,
+  "scope": "Exactly closed aggregate; not full-state reconstruction or generic simulation speedup"
+}

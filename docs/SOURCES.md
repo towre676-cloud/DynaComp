@@ -1,0 +1,9 @@
+# Mathematical sources and lineage
+
+The observable row-space construction is classical linear systems theory. Its use here is as an exact rational compiler with explicit refinement witnesses and target-specific output semantics. The finite backend is partition refinement for deterministic partial machines, augmented with independently replayed class-pair distinguishing experiments. Polynomial feature closure is a finite invariant observable-subspace construction under the Koopman pullback; polynomial lifting is not a claim that arbitrary nonlinear systems admit finite closure.
+
+Established implementation baselines include [pyMOR](https://pymor.org/) and its [balanced-truncation tutorial](https://docs-ng.pymor.org/2024-1-2/tutorial_bt.html), [Operator Inference](https://operator-inference.github.io/opinf/source/index.html), and [LearnLib](https://learnlib.de/). The [SINDy paper](https://doi.org/10.1073/pnas.1517384113) establishes sparse identification of governing equations from data. These methods are relevant comparisons, rather than capabilities claimed to have been surpassed in this release.
+
+The user's older program lineage includes November 2025 IMP and Arithmetic Shadow of Computation, August 2025 Harsh-Lattice symmetry discovery, December 2025 finite compositional abstraction, and March 2026 generator–metric–margin work. Their original artifacts were not imported into this repository. This implementation was written afresh from the mathematical redesign discussed in October 2026.
+
+The original assertion that near-unit singular vectors generally determine an iterative fixed-point projection is not assumed. A singular-value analysis characterizes one-step geometry; invariant eigenspaces, Jordan structure, forcing and finite-horizon propagation determine different aspects of evolution. The nonnormal and periodic regression examples enforce that distinction.

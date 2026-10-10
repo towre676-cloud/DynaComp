@@ -1,0 +1,88 @@
+{
+  "schema": "dynacomp.bound/1",
+  "arithmetic": "rational",
+  "bound": [
+    "0",
+    "8",
+    "8",
+    "6",
+    "4",
+    "5/2",
+    "3/2",
+    "7/8",
+    "1/2",
+    "9/32",
+    "5/32",
+    "11/128",
+    "3/64"
+  ],
+  "reduced_states": [
+    [
+      "0"
+    ],
+    [
+      "0"
+    ],
+    [
+      "0"
+    ],
+    [
+      "0"
+    ],
+    [
+      "0"
+    ],
+    [
+      "0"
+    ],
+    [
+      "0"
+    ],
+    [
+      "0"
+    ],
+    [
+      "0"
+    ],
+    [
+      "0"
+    ],
+    [
+      "0"
+    ],
+    [
+      "0"
+    ],
+    [
+      "0"
+    ]
+  ],
+  "transition_residual": [
+    [
+      "0"
+    ],
+    [
+      "0"
+    ]
+  ],
+  "input_residual": [
+    [
+      "0"
+    ],
+    [
+      "0"
+    ]
+  ],
+  "description": "Stable eigenvalues do not suppress transient hidden-state output",
+  "prefix_horizon_at_tolerance_1": 0,
+  "metric": {
+    "arithmetic": "rational",
+    "weights": [
+      "146028887519/4294967296",
+      "8589934591/4294967296"
+    ],
+    "factor": "283467840975/292057775038",
+    "margin": "8589934063/292057775038",
+    "contractive": true
+  }
+}

@@ -1,0 +1,18 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "dynacomp"
+version = "0.1.0"
+description = "Exact observable dynamics, counterexample-guided reduction, and rational finite-horizon error bounds"
+requires-python = ">=3.10"
+
+[project.optional-dependencies]
+numerical = ["numpy>=1.24", "scipy>=1.10"]
+
+[project.scripts]
+dynacomp = "dynacomp.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]

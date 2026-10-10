@@ -1,0 +1,199 @@
+{
+  "schema": "dynacomp.finite/1",
+  "observations": [
+    0,
+    0,
+    0,
+    1,
+    0,
+    0
+  ],
+  "transitions": [
+    [
+      1,
+      2
+    ],
+    [
+      3,
+      1
+    ],
+    [
+      2,
+      3
+    ],
+    [
+      3,
+      3
+    ],
+    [
+      5,
+      2
+    ],
+    [
+      3,
+      5
+    ]
+  ],
+  "classes": [
+    0,
+    1,
+    2,
+    3,
+    0,
+    1
+  ],
+  "quotient_observations": [
+    0,
+    0,
+    0,
+    1
+  ],
+  "quotient_transitions": [
+    [
+      1,
+      2
+    ],
+    [
+      3,
+      1
+    ],
+    [
+      2,
+      3
+    ],
+    [
+      3,
+      3
+    ]
+  ],
+  "distinguishing_witnesses": [
+    {
+      "classes": [
+        1,
+        0
+      ],
+      "word": [
+        0
+      ]
+    },
+    {
+      "classes": [
+        2,
+        0
+      ],
+      "word": [
+        1
+      ]
+    },
+    {
+      "classes": [
+        2,
+        1
+      ],
+      "word": [
+        0
+      ]
+    },
+    {
+      "classes": [
+        3,
+        0
+      ],
+      "word": []
+    },
+    {
+      "classes": [
+        3,
+        1
+      ],
+      "word": []
+    },
+    {
+      "classes": [
+        3,
+        2
+      ],
+      "word": []
+    }
+  ],
+  "rounds": [
+    {
+      "before": 2,
+      "after": 4,
+      "witnesses": [
+        {
+          "states": [
+            0,
+            1
+          ],
+          "word": [
+            0
+          ]
+        },
+        {
+          "states": [
+            0,
+            2
+          ],
+          "word": [
+            1
+          ]
+        },
+        {
+          "states": [
+            1,
+            2
+          ],
+          "word": [
+            0
+          ]
+        },
+        {
+          "states": [
+            1,
+            4
+          ],
+          "word": [
+            0
+          ]
+        },
+        {
+          "states": [
+            2,
+            4
+          ],
+          "word": [
+            1
+          ]
+        },
+        {
+          "states": [
+            0,
+            5
+          ],
+          "word": [
+            0
+          ]
+        },
+        {
+          "states": [
+            2,
+            5
+          ],
+          "word": [
+            0
+          ]
+        },
+        {
+          "states": [
+            4,
+            5
+          ],
+          "word": [
+            0
+          ]
+        }
+      ]
+    }
+  ]
+}

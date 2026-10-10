@@ -1,0 +1,33 @@
+{
+  "hidden_driver": {
+    "accepted": true,
+    "schema": "dynacomp.linear/1"
+  },
+  "nonlinear_shear": {
+    "accepted": true,
+    "schema": "dynacomp.polynomial/1"
+  },
+  "partial_machine": {
+    "accepted": true,
+    "schema": "dynacomp.finite/1"
+  },
+  "ring": {
+    "full_dimension": 64,
+    "reduced_dimension": 1,
+    "factor": "99/100"
+  },
+  "nonnormal": {
+    "first_step_error_bound": "8",
+    "prefix_horizon": 0,
+    "contractive_weighted_metric": true
+  },
+  "defect_partition": {
+    "full_dimension": 16,
+    "aggregate_dimension": 9
+  },
+  "fast_forward": {
+    "steps": 1000000000000,
+    "exact_output": "500000000002500000000002",
+    "method": "binary affine composition"
+  }
+}
