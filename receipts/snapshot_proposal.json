@@ -1,0 +1,37 @@
+{
+  "V": [
+    [
+      "1"
+    ],
+    [
+      "0"
+    ]
+  ],
+  "E": [
+    [
+      "1",
+      "0"
+    ]
+  ],
+  "G": [
+    [
+      "1/2"
+    ]
+  ],
+  "H": [
+    [
+      "0"
+    ]
+  ],
+  "D": [
+    [
+      "1"
+    ]
+  ],
+  "status": "candidate_requires_error_bound",
+  "proposal_method": "POD with rationalized basis",
+  "snapshot_singular_values": [
+    2.29128784747792,
+    0.0
+  ]
+}
