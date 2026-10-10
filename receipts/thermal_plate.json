@@ -1,0 +1,30 @@
+{
+  "grid": "12x12",
+  "full_dimension": 144,
+  "observable_order": 17,
+  "observable_ranks_by_depth": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17
+  ],
+  "aggregate_classes": 21,
+  "minimal_order": 17,
+  "exact_agreement_steps": 40,
+  "final_corner_sum": "3112568909624965052901193037509174201739035079823514705091836753691463188062831596515480981/2199023255552000000000000000000000000000000000000000000000000000000000000000000000000000000",
+  "final_corner_sum_approximately": "1.4154324661",
+  "claim": "exact for every initial field and input sequence of this model; the reduction preserves the corner sum only, not the field"
+}

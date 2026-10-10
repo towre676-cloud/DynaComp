@@ -1,0 +1,39 @@
+{
+  "kind": "realization",
+  "description": "Observable from the sensor but never excited by the actuator: observability keeps 3 states, the input-output map needs 2.",
+  "A": [
+    [
+      "1/2",
+      1,
+      0
+    ],
+    [
+      0,
+      "1/3",
+      0
+    ],
+    [
+      0,
+      0,
+      "1/4"
+    ]
+  ],
+  "B": [
+    [
+      0
+    ],
+    [
+      1
+    ],
+    [
+      0
+    ]
+  ],
+  "C": [
+    [
+      1,
+      0,
+      1
+    ]
+  ]
+}

@@ -1,7 +1,13 @@
 """DynaComp: compile only the dynamics needed by your target."""
 from .linear import LinearModel, compile_linear, replay_linear, closure_witness, distinguishing_horizon
 from .finite import FiniteModel, compile_finite, replay_finite
-from .polynomial import compile_polynomial, replay_polynomial
+from .polynomial import (compile_polynomial, replay_polynomial,
+                         compile_controlled_polynomial, replay_controlled_polynomial)
 from .bounds import finite_horizon_bound, usable_horizon
+from .realization import minimal_realization, replay_realization
+from .switched import (compile_switched, replay_switched, WeightedAutomaton, minimize_automaton,
+                       replay_automaton, check_equivalence, replay_equivalence)
+from .parametric import parametric_analysis, replay_parametric, classify
+from .enrich import greedy_enrichment, replay_enrichment
 
-__version__ = "0.1.0"
+__version__ = "0.2.0"

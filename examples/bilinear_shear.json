@@ -1,0 +1,59 @@
+{
+  "kind": "controlled_polynomial",
+  "description": "x' = x + u y^2, y' = y/2 + v. The target x closes under arbitrary inputs with the four features x, y^2, y and 1 (v enters y^2 quadratically); the lift is polynomial in (u, v) and linear in the features.",
+  "variables": 2,
+  "inputs": 2,
+  "update": [
+    [
+      {
+        "exponent": [
+          1,
+          0,
+          0,
+          0
+        ],
+        "coefficient": "1"
+      },
+      {
+        "exponent": [
+          0,
+          2,
+          1,
+          0
+        ],
+        "coefficient": "1"
+      }
+    ],
+    [
+      {
+        "exponent": [
+          0,
+          1,
+          0,
+          0
+        ],
+        "coefficient": "1/2"
+      },
+      {
+        "exponent": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "coefficient": "1"
+      }
+    ]
+  ],
+  "targets": [
+    [
+      {
+        "exponent": [
+          1,
+          0
+        ],
+        "coefficient": "1"
+      }
+    ]
+  ]
+}

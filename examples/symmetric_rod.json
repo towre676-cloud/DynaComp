@@ -1,0 +1,42 @@
+{
+  "kind": "parametric",
+  "description": "Three-cell rod; end-cell self-coupling t. Heater and sensor in the middle cell. At t=1/2 the rod is mirror-symmetric and the antisymmetric mode hides: closure there is accidental.",
+  "A": [
+    [
+      "1/2",
+      "1/4",
+      0
+    ],
+    [
+      "1/4",
+      "1/2",
+      "1/4"
+    ],
+    [
+      0,
+      "1/4",
+      [
+        0,
+        1
+      ]
+    ]
+  ],
+  "B": [
+    [
+      0
+    ],
+    [
+      1
+    ],
+    [
+      0
+    ]
+  ],
+  "C": [
+    [
+      0,
+      1,
+      0
+    ]
+  ]
+}

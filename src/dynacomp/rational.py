@@ -131,3 +131,10 @@ def inverse(a):
     if pivots[:n] != tuple(range(n)):
         raise ValueError("Singular matrix")
     return tuple(row[n:] for row in reduced)
+
+
+def pivot_coordinates(row, basis, pivots):
+    """Coordinates in a reduced row echelon basis are its pivot entries; None if outside the span."""
+    c = tuple(q(row[p]) for p in pivots)
+    rebuilt = [sum(ci*b[j] for ci, b in zip(c, basis) if ci) for j in range(len(row))]
+    return c if all(q(x) == y for x, y in zip(row, rebuilt)) else None

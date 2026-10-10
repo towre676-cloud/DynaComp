@@ -33,8 +33,8 @@ def multiply(p, r):
     return clean(out)
 
 
-def compose(p, update, max_degree=32, max_terms=10000):
-    n = len(update)
+def compose(p, update, max_degree=32, max_terms=10000, variables=None):
+    n = len(update) if variables is None else variables
     one = {(0,)*n: q(1)}
     result = {}
     for exponent, coefficient in p.items():
@@ -135,6 +135,116 @@ def replay_polynomial(packet):
             rhs = add(rhs, scale(b, c))
         if compose(feature, update, max_degree=max(32, degree*degree)) != rhs:
             raise ValueError("Polynomial transition identity fails")
+    for target, row in zip(targets, d):
+        rhs = {}
+        for b, c in zip(basis, row):
+            rhs = add(rhs, scale(b, c))
+        if target != rhs:
+            raise ValueError("Polynomial target identity fails")
+    return True
+
+
+def split_inputs(p, n):
+    """Group a polynomial in (x, u) by input monomial: {u-exponent: poly in x}."""
+    parts = {}
+    for k, v in p.items():
+        state, control = k[:n], k[n:]
+        part = parts.setdefault(control, {})
+        key = state + (0,)*len(control)
+        part[key] = part.get(key, q(0)) + v
+    return {m: clean(part) for m, part in parts.items() if clean(part)}
+
+
+def compile_controlled_polynomial(update, targets, inputs, max_degree=12, max_features=64, max_rounds=32):
+    """Exact lifted dynamics z_next = sum_m u^m G_m z for polynomial x_next = F(x, u).
+
+    Update polynomials use n+k variables (state, then inputs); targets use the
+    state variables only. Each pulled-back feature is split by input monomial
+    and every coefficient polynomial must lie in the feature span. Inputs are
+    arbitrary at every step, so no relation among them is assumed.
+    """
+    k = inputs
+    n = len(update)
+    if not n or type(k) is not int or k < 0:
+        raise ValueError("Invalid dimensions")
+    update = [validate(p, n+k) for p in update]
+    pad = lambda p: {e + (0,)*(n+k-len(e)): v for e, v in p.items()}
+    targets = [validate(pad(p), n+k) for p in targets]
+    if any(any(e[n:]) for p in targets for e in p):
+        raise ValueError("Targets must not depend on inputs")
+    basis = as_basis(targets)
+    if not basis:
+        raise ValueError("Need a nonzero target")
+    dimensions = [len(basis)]
+    for _ in range(max_rounds+1):
+        if len(basis) > max_features or any(sum(e) > max_degree for p in basis for e in p):
+            return {"status": "resource_limit", "dimensions": dimensions, "reason": "feature/degree limit"}
+        try:
+            pulled = [split_inputs(compose(p, update, max_degree=max_degree, variables=n+k), n) for p in basis]
+        except OverflowError as exc:
+            return {"status": "resource_limit", "dimensions": dimensions, "reason": str(exc)}
+        enlarged = as_basis(basis + [part for parts in pulled for part in parts.values()])
+        if len(enlarged) == len(basis):
+            monomials = sorted(set().union(*(parts.keys() for parts in pulled)))
+            zero = [q(0)]*len(basis)
+            blocks = [{"input_exponent": list(m),
+                       "G": encoded([coeffs(parts[m], basis) if m in parts else zero for parts in pulled])}
+                      for m in monomials]
+            return {"schema": "dynacomp.controlled_polynomial/1", "status": "exact",
+                    "variables": n, "inputs": k, "update": [pack(p) for p in update],
+                    "targets": [pack(p) for p in targets], "features": [pack(p) for p in basis],
+                    "blocks": blocks, "D": encoded([coeffs(p, basis) for p in targets]),
+                    "dimensions": dimensions}
+        basis = enlarged
+        dimensions.append(len(basis))
+    return {"status": "resource_limit", "dimensions": dimensions, "reason": "round limit"}
+
+
+def controlled_step(packet, z, u):
+    """One reduced step: z_next = sum_m u^m G_m z."""
+    out = [q(0)]*len(z)
+    for block in packet["blocks"]:
+        weight = q(1)
+        for value, e in zip(u, block["input_exponent"]):
+            weight *= q(value)**e
+        if weight:
+            for i, row in enumerate(block["G"]):
+                out[i] += weight*sum(q(g)*x for g, x in zip(row, z))
+    return tuple(out)
+
+
+def replay_controlled_polynomial(packet):
+    if packet.get("schema") != "dynacomp.controlled_polynomial/1" or packet.get("status") != "exact":
+        raise ValueError("Need an exact controlled polynomial packet")
+    n, k = packet["variables"], packet["inputs"]
+    update = [unpack(p, n+k) for p in packet["update"]]
+    targets = [unpack(p, n+k) for p in packet["targets"]]
+    basis = [unpack(p, n+k) for p in packet["features"]]
+    if len(update) != n or not basis or len(as_basis(basis)) != len(basis):
+        raise ValueError("Invalid update or dependent features")
+    if any(any(e[n:]) for p in targets+basis for e in p):
+        raise ValueError("Features and targets must not depend on inputs")
+    expected = [{} for _ in basis]
+    seen = set()
+    for block in packet["blocks"]:
+        m = tuple(block["input_exponent"])
+        if len(m) != k or m in seen or any(type(e) is not int or e < 0 for e in m):
+            raise ValueError("Invalid or repeated input exponent")
+        seen.add(m)
+        g = matrix(block["G"])
+        if len(g) != len(basis) or len(g[0]) != len(basis):
+            raise ValueError("Block dimensions do not match")
+        monomial = {(0,)*n + m: q(1)}
+        for i, row in enumerate(g):
+            for b, c in zip(basis, row):
+                expected[i] = add(expected[i], scale(multiply(monomial, b), c))
+    degree = max([sum(e) for p in update+basis for e in p] or [0])
+    for feature, rhs in zip(basis, expected):
+        if compose(feature, update, max_degree=max(32, degree*degree), variables=n+k) != rhs:
+            raise ValueError("Controlled transition identity fails")
+    d = matrix(packet["D"])
+    if len(d) != len(targets) or len(d[0]) != len(basis):
+        raise ValueError("Decoder dimensions do not match")
     for target, row in zip(targets, d):
         rhs = {}
         for b, c in zip(basis, row):
