@@ -1,0 +1,271 @@
+{
+  "id": "supplies",
+  "request": {
+    "example": "supplies",
+    "output": "whole",
+    "start": 20,
+    "steps": 16,
+    "strength": 2,
+    "tolerance": 0
+  },
+  "result": {
+    "accepted": true,
+    "certificate": {
+      "A": [
+        [
+          "7/8",
+          "1/16",
+          "0",
+          "0",
+          "0",
+          "1/16"
+        ],
+        [
+          "1/16",
+          "7/8",
+          "1/16",
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "1/16",
+          "7/8",
+          "1/16",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "1/16",
+          "7/8",
+          "1/16",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "0",
+          "1/16",
+          "7/8",
+          "1/16"
+        ],
+        [
+          "1/16",
+          "0",
+          "0",
+          "0",
+          "1/16",
+          "7/8"
+        ]
+      ],
+      "B": [
+        [
+          "1/4"
+        ],
+        [
+          "1/4"
+        ],
+        [
+          "1/4"
+        ],
+        [
+          "1/4"
+        ],
+        [
+          "1/4"
+        ],
+        [
+          "1/4"
+        ]
+      ],
+      "C": [
+        [
+          "1/6",
+          "1/6",
+          "1/6",
+          "1/6",
+          "1/6",
+          "1/6"
+        ]
+      ],
+      "D": [
+        [
+          "1/6"
+        ]
+      ],
+      "E": [
+        [
+          "1",
+          "1",
+          "1",
+          "1",
+          "1",
+          "1"
+        ]
+      ],
+      "G": [
+        [
+          "1"
+        ]
+      ],
+      "H": [
+        [
+          "3/2"
+        ]
+      ],
+      "arithmetic": "rational",
+      "rounds": [],
+      "schema": "dynacomp.linear/1"
+    },
+    "descriptor": null,
+    "error_bound": [
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0"
+    ],
+    "feedthrough": null,
+    "full": [
+      [
+        "161/8"
+      ],
+      [
+        "165/8"
+      ],
+      [
+        "169/8"
+      ],
+      [
+        "173/8"
+      ],
+      [
+        "177/8"
+      ],
+      [
+        "181/8"
+      ],
+      [
+        "185/8"
+      ],
+      [
+        "189/8"
+      ],
+      [
+        "193/8"
+      ],
+      [
+        "195/8"
+      ],
+      [
+        "197/8"
+      ],
+      [
+        "199/8"
+      ],
+      [
+        "201/8"
+      ],
+      [
+        "203/8"
+      ],
+      [
+        "205/8"
+      ],
+      [
+        "207/8"
+      ],
+      [
+        "209/8"
+      ]
+    ],
+    "max_actual_difference": "0",
+    "max_error_bound": "0",
+    "measurement_and_continuous_sampling_errors": "not covered by the displayed model-reduction bound",
+    "method": "exact output-preserving reduction",
+    "original_values": 6,
+    "output_input_semantics": "right-continuous-terminal-hold",
+    "reduced": [
+      [
+        "161/8"
+      ],
+      [
+        "165/8"
+      ],
+      [
+        "169/8"
+      ],
+      [
+        "173/8"
+      ],
+      [
+        "177/8"
+      ],
+      [
+        "181/8"
+      ],
+      [
+        "185/8"
+      ],
+      [
+        "189/8"
+      ],
+      [
+        "193/8"
+      ],
+      [
+        "195/8"
+      ],
+      [
+        "197/8"
+      ],
+      [
+        "199/8"
+      ],
+      [
+        "201/8"
+      ],
+      [
+        "203/8"
+      ],
+      [
+        "205/8"
+      ],
+      [
+        "207/8"
+      ],
+      [
+        "209/8"
+      ]
+    ],
+    "request": {
+      "example": "supplies",
+      "output": "whole",
+      "start": 20,
+      "steps": 16,
+      "strength": 2,
+      "tolerance": 0
+    },
+    "retained_values": 1,
+    "schema": "dynacomp.explorer-run/1",
+    "scope": "Exact rational computation for the supplied sampled model and displayed finite horizon. Illustrative scenarios are not customer measurements.",
+    "title": "Supplies across six connected places",
+    "tolerance": "0",
+    "unit": "illustrative stock units"
+  }
+}

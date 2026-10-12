@@ -1,0 +1,1 @@
+{"name": "DynaComp Explorer", "short_name": "DynaComp", "start_url": "/", "scope": "/", "display": "standalone", "background_color": "#f4f5ef", "theme_color": "#163b44", "icons": [{"src": "/icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any"}]}

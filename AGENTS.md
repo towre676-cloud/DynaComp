@@ -1,0 +1,3 @@
+
+# Active Explorer and collection
+Changes to main must regenerate data/explorer_live.json and receipts/explorer with python scripts/export_explorer.py and run the Explorer regression tests. The home-screen web app consumes portable Python and browser UI from this verified envelope. Preserve exact output fractions, finite-horizon certificate scope, saved work, and explicit rejection of unsupported continuous-time models. Update consumers for contract changes. Preserve concurrent work through guarded main updates. Maintain the complete source ZIP route and docs/EXPLORER_AND_LIVE_APPS.md. Native/large numerical capabilities are distinct from the portable browser workspace.
