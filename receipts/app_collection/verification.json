@@ -34,5 +34,9 @@
   "browser_visual_qa": "unavailable",
   "physical_phone_qa": "not performed",
   "native_packages": "preserved; not rebuilt by this release",
-  "benchmark_200_instances": "not reconstructed by this app integration"
+  "benchmark_200_instances": "not reconstructed by this app integration",
+  "additional_actual_webassembly_checks": {
+    "descriptor_transform": "passed",
+    "direct_feedthrough": "passed"
+  }
 }
