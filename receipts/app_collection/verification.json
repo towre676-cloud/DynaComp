@@ -1,0 +1,38 @@
+{
+  "schema": "our-apps.integration-checks/1",
+  "date": "2026-10-12",
+  "dynacomp_python_tests": {
+    "count": 235,
+    "status": "passed",
+    "command": "PYTHONPATH=src python -m unittest discover -s tests -q"
+  },
+  "perfectpower_focused_pytest": {
+    "count": 9,
+    "status": "passed"
+  },
+  "browser_counter_checks": {
+    "count": 92,
+    "status": "passed"
+  },
+  "actual_pyodide_runs": {
+    "count": 4,
+    "status": "passed",
+    "runtime": "0.29.5",
+    "exact_differences": [
+      "0",
+      "0",
+      "0",
+      "0"
+    ]
+  },
+  "worker_fallback_routes": {
+    "count": 10,
+    "status": "passed"
+  },
+  "dynacomp_github_actions": "success",
+  "perfectpower_github_actions": "startup_failure; zero jobs",
+  "browser_visual_qa": "unavailable",
+  "physical_phone_qa": "not performed",
+  "native_packages": "preserved; not rebuilt by this release",
+  "benchmark_200_instances": "not reconstructed by this app integration"
+}

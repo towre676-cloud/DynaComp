@@ -21,3 +21,15 @@ The server retains a verified bundled fallback when the public feed cannot be ac
 DynaComp's full Python regression suite and browser-portable source execution are checked separately. Four actual WebAssembly runs compare warmth/supplies and whole-system/single-place outputs with zero exact difference. Explorer regression cases cover rejected continuous-time input, descriptor transformation and direct feedthrough. The simple PerfectPower demonstration verifies factor counts against enumeration. Existing download payloads remain intact.
 
 Browser visual QA and a physical-phone installation test are unavailable in this managed environment. Successful Site publication verifies deployment, not a physical-device test. Native mobile upgrades were not rebuilt in this release. Historical PerfectPower benchmark claims remain historical; this integration does not reconstruct the missing complete 200-instance receipt archive or publish restricted materials.
+
+## Mathematical identities and deterministic replay
+
+A sampled model follows `E x[t+1] = A x[t] + B u[t]` and `y[t] = C x[t] + F u[t]`. An invertible descriptor is transformed with `E^-1 A` and `E^-1 B`, keeping the original coordinates and output. Exact reduction must preserve the displayed output sequence as rational numbers. An approximate result reports both the actual maximum difference for this run and the replayed finite-horizon bound for its declared box; these quantities have distinct meanings. A direct feedthrough term is added to both outputs with the same input convention, including the final held input.
+
+Finite counting evaluates `Z = sum_x product_j f_j(x[scope_j])` over the supplied discrete domains. Eliminating a variable sums its factors over that variable and preserves Z. Nonnegative integer table entries and BigInt arithmetic preserve the exact count. The simple example verifies Z against all 64 subsets; it is not a native solver performance comparison.
+
+DynaComp replay: `PYTHONPATH=src python -m unittest discover -s tests -q`, then `python scripts/export_explorer.py`. For the actual WebAssembly check, install the pinned optional runtime with `npm install --no-save pyodide@0.29.5` and run `node scripts/check_pyodide.mjs` from the repository root. PerfectPower replay: `PYTHONPATH=python python -m pytest -q python/tests/test_research_counting.py python/tests/test_explorer_live.py`, then `node scripts/check_browser_counter.cjs`. Exported JSON receipts retain exact fractions and source digests.
+
+## Publication service limitation
+
+On 2026-10-12 DynaComp's feed workflow and mathematical regressions completed successfully on GitHub. PerfectPower's Actions runs reported startup_failure with zero jobs, so their future automatic data regeneration is not operationally verified. Compatible shared navigation, browser counting source and PerfectPower/collection UI read the public upstream source directly, independently of that job. Existing research data remains the last published, digest-checked envelope until regenerated. Native engines, unsupported API changes and sports/game model adoption still require their explicit release paths.
