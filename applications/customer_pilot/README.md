@@ -1,3 +1,5 @@
+> Version 0.12.0 extends this historical v0.11 workflow with descriptor elimination, direct feedthrough and replayed sampling bounds. See [engineering ingestion](../../docs/ENGINEERING_INGESTION.md). The v0.11 measurements below remain preserved.
+
 # Run a model through DynaComp
 
 Install with `python -m pip install -e '.[numerical]'`. Native execution additionally needs a GCC-compatible C compiler; the retained release was tested on Linux with GCC. No compiler is needed to compile or replay the mathematical JSON certificates. The native binary is built locally from packaged C source with separate multiplication/addition, contraction disabled, and no fast-math.

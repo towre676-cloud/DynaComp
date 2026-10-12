@@ -99,6 +99,8 @@ def _library():
     pointer = ctypes.POINTER(ctypes.c_double)
     lib.run.argtypes = [ctypes.c_size_t]*6+[pointer]*7
     lib.run.restype = ctypes.c_int
+    lib.feedthrough.argtypes = [ctypes.c_size_t]*4+[pointer]*3
+    lib.feedthrough.restype = ctypes.c_int
     lib.compiler_command = command[:-1]+['<temporary runtime>']
     lib.source_sha256 = hashlib.sha256(source.read_bytes()).hexdigest()
     lib.build_seconds = build_seconds

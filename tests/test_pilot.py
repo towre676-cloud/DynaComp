@@ -72,7 +72,7 @@ class PilotTests(unittest.TestCase):
             self.assertEqual(model.C,((1,),))
             self.assertAlmostEqual(float(model.operator.entries[0][2]),np.exp(-0.1))
             self.assertIn('sampling/physical',spec['provenance']['scope'])
-            for extra in ({'E':np.asarray([[2.0]])},{'D':np.asarray([[1.0]])}):
+            for extra in ({'E':np.asarray([[0.0]])},{'D':np.asarray([[1.0,2.0]])}):
                 savemat(path,{**data,**extra})
                 with self.assertRaises(ValueError):import_mat(path,'1/10')
 

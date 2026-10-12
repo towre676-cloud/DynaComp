@@ -1,0 +1,476 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width"><title>DynaComp workload results</title><style>body{font:18px system-ui;background:#101923;color:#e5eef6;max-width:1100px;margin:40px auto;padding:24px}h1{font-size:42px}main{display:flex;flex-wrap:wrap;gap:20px}article{background:#1a2b3c;border:1px solid #39546c;border-radius:16px;padding:24px;flex:1;min-width:260px}.big{font-size:36px;color:#6fe4b4}pre{font-size:13px;overflow:auto}small{color:#afc1d1}</style><h1>SLICOT pde</h1><p>84 source states · 20 steps · 256 scenarios per batch · target 1/100</p><main><article><h2>observable</h2><p class="big">4 states</p><p>Uniform combined error ≤ 0.00216365</p><p>Warm speedup versus full BLAS: 5.31×</p><p>Total setup: 0.561 s</p><p>Break-even: 251.8 batches</p><p>Projected total speedup at 1000 batches: 2.42×</p><p class="projection" data-method="observable"></p></article><article><h2>balanced</h2><p class="big">4 states</p><p>Uniform combined error ≤ 0.00305913</p><p>Warm speedup versus full BLAS: 5.48×</p><p>Total setup: 0.623 s</p><p>Break-even: 282.6 batches</p><p>Projected total speedup at 1000 batches: 2.31×</p><p class="projection" data-method="balanced"></p></article></main><label>Explore total cost at <input id="batch-count" type="number" min="1" value="1000"> batches</label><script id="evidence" type="application/json">{"schema":"dynacomp.pilot-results/1","name":"SLICOT pde","source_sha256":"09f536ba79a4b27ffd7742709aada48c06d6cb48cf5fb716032e9ad3d6e24bf4","workload_sha256":"fcaadd3cbdcaf91643f4614806dbe05e25f15b915ee7b1d0a9bdc37de48ddead","states":84,"steps":20,"queries":256,"trials":7,"seed":20261010,"tolerance":"1/100","methods":{"observable":{"accepted":true,"search_seconds":0.3005677729997842,"history":[{"rank":1,"model_status":"refuted","model_lower":"4270858203649621413/18446744073709551616","model_upper":"4270858203649622719/18446744073709551616","combined_upper":null,"status":"refuted"},{"rank":2,"model_status":"refuted","model_lower":"128431021995119855/4611686018427387904","model_upper":"2006734718673755/72057594037927936","combined_upper":null,"status":"refuted"},{"rank":3,"model_status":"refuted","model_lower":"33470664926266085/2305843009213693952","model_upper":"133882659705064739/9223372036854775808","combined_upper":null,"status":"refuted"},{"rank":4,"model_status":"tolerance_met","model_lower":"19956172867594909/9223372036854775808","model_upper":"9978086433798047/4611686018427387904","combined_upper":"171422219640430108359381457/79228162514264337593543950336","status":"tolerance_met","engineering_upper":"171422219640430108359381457/79228162514264337593543950336"}],"failure":null,"rank":4,"combined_upper":"171422219640430108359381457/79228162514264337593543950336","model_upper":"9978086433798047/4611686018427387904","execution_upper":"779988142101715/39614081257132168796771975168","engineering":{"schema":"dynacomp.engineering-output/1","feedthrough_words":[[0]],"additional_output_upper":[["0"],["0"],["0"],["0"],["0"],["0"],["0"],["0"],["0"],["0"],["0"],["0"],["0"],["0"],["0"],["0"],["0"],["0"],["0"],["0"],["0"]],"import_output_upper":[["0"],["0"],["0"],["0"],["0"],["0"],["0"],["0"],["0"],["0"],["0"],["0"],["0"],["0"],["0"],["0"],["0"],["0"],["0"],["0"],["0"]],"engineering_import_bounded":true,"continuous_sampling_bounded":null,"reference":"exact stored discrete coefficients","semantics":"right-continuous-terminal-hold"},"engineering_upper":"171422219640430108359381457/79228162514264337593543950336","packet":"observable.json.gz","packet_sha256":"97176dbc751bcf050e335968f2ba932e0f2491e78fff19d79a67bd5951633823","state_output_combined_upper":"171422219640430108359381457/79228162514264337593543950336","native_preparation_and_replay_seconds":0.13962179899863258,"standalone_replay_adjustment_seconds":0.0,"cost_policy":"conservative standalone estimate; balanced charged an extra empty-cache replay to cover the shared source pass","total_setup_seconds":0.560835774997031,"median_batch_seconds":0.00044193800022185314,"raw_batch_seconds":[0.0004322929999034386,0.0004659650003304705,0.00044193800022185314,0.000540126000487362,0.00043835200085595716,0.00047048200030985754,0.00042405999920447357],"max_observed_difference_from_full_blas":0.00216365259775433,"observed_difference_exceeds_bound":false,"diagnostic_scope":"full BLAS reference has uncertified rounding; sampled difference is diagnostic only","break_even_batches":251.7942472198178,"requested_batches":1000,"full_total_seconds":2.4286219962777977,"reduced_total_seconds":1.0027737752188841,"total_speedup":2.421904178485004,"warm_speedup":5.312120702680342},"balanced":{"accepted":true,"search_seconds":0.29008005399919057,"history":[{"rank":1,"model_status":"refuted","model_lower":"1837263818986156245/9223372036854775808","model_upper":"1837263818986156329/9223372036854775808","combined_upper":null,"status":"refuted"},{"rank":2,"model_status":"refuted","model_lower":"303246630449769531/9223372036854775808","model_upper":"303246630449769615/9223372036854775808","combined_upper":null,"status":"refuted"},{"rank":3,"model_status":"refuted","model_lower":"457173311615319691/18446744073709551616","model_upper":"457173311615319859/18446744073709551616","combined_upper":null,"status":"refuted"},{"rank":4,"model_status":"tolerance_met","model_lower":"56430945876715331/18446744073709551616","model_upper":"56430945876716313/18446744073709551616","combined_upper":"121184533512372373852726869/39614081257132168796771975168","status":"tolerance_met","engineering_upper":"121184533512372373852726869/39614081257132168796771975168"}],"failure":null,"rank":4,"combined_upper":"121184533512372373852726869/39614081257132168796771975168","model_upper":"56430945876716313/18446744073709551616","execution_upper":"998574997721319/39614081257132168796771975168","engineering":{"schema":"dynacomp.engineering-output/1","feedthrough_words":[[0]],"additional_output_upper":[["0"],["0"],["0"],["0"],["0"],["0"],["0"],["0"],["0"],["0"],["0"],["0"],["0"],["0"],["0"],["0"],["0"],["0"],["0"],["0"],["0"]],"import_output_upper":[["0"],["0"],["0"],["0"],["0"],["0"],["0"],["0"],["0"],["0"],["0"],["0"],["0"],["0"],["0"],["0"],["0"],["0"],["0"],["0"],["0"]],"engineering_import_bounded":true,"continuous_sampling_bounded":null,"reference":"exact stored discrete coefficients","semantics":"right-continuous-terminal-hold"},"engineering_upper":"121184533512372373852726869/39614081257132168796771975168","packet":"balanced.json.gz","packet_sha256":"f49c382f601b4c5e4859c903bc95feb3db7c0bd7e1fdce8e2b95f88b459c10a4","state_output_combined_upper":"121184533512372373852726869/39614081257132168796771975168","native_preparation_and_replay_seconds":0.11875059600060922,"standalone_replay_adjustment_seconds":0.09374722900065535,"cost_policy":"conservative standalone estimate; balanced charged an extra empty-cache replay to cover the shared source pass","total_setup_seconds":0.6232240819990693,"median_batch_seconds":0.0004287169995222939,"raw_batch_seconds":[0.0004614369991031708,0.0004038299994135741,0.0004440810007508844,0.0004044310007884633,0.0004287169995222939,0.0004033489985886263,0.0005430500004877103],"max_observed_difference_from_full_blas":0.003059127705747358,"observed_difference_exceeds_bound":false,"diagnostic_scope":"full BLAS reference has uncertified rounding; sampled difference is diagnostic only","break_even_batches":282.57177419219454,"requested_batches":1000,"full_total_seconds":2.4286219962777977,"reduced_total_seconds":1.0519410815213632,"total_speedup":2.3087053438063454,"warm_speedup":5.475938679584773}},"rejected_methods":{},"full_blas_setup_seconds":0.036905905999446986,"full_blas_median_batch_seconds":0.0023476280002796557,"full_blas_raw_batch_seconds":[0.0023355590001301607,0.0023476280002796557,0.002609223000035854,0.002307057000507484,0.0023112830003810814,0.002474670000083279,0.002436953000142239],"full_total_setup_seconds":0.08099399599814205,"native_compiler_seconds":0.0765581129999191,"actual_compiler_wait_seconds":1.2010004866169766e-06,"native_source_sha256":"08a0d2cd86bcd39426653102a466fac1c9a11e73afaafed7805a1d07f91fb171","compiler_version":"cc (Ubuntu 13.3.0-6ubuntu2~24.04) 13.3.0","python":"3.12.14","numpy":"2.3.5","scipy":"1.17.0","platform":"Linux x86_64","measurement":"warmed alternating trials; one BLAS thread; domain checks and initial encoding included; complete output materialization","cost_scope":"in-process sampled-source conversion, proposal search, independent replay, compiler and preparation; interpreter/dependency imports, file I/O, upstream MAT acquisition/sampling excluded","guarantee":"accepted reduced native outputs including feedthrough versus the replayed engineering reference for every admitted stored input in boxes; finite horizon","engineering_reference":"exact stored discrete coefficients","continuous_sampling_bounded":null,"baseline":"SciPy square-root balanced truncation, accepted by same combined box/native error test; full dense NumPy BLAS reference","projection":"requested total costs extrapolate measured batch medians; they are not a sustained run","provenance":{"upstream":"https://github.com/SLICOT/Benchmark-ModelReduction","commit":"98c1747030c0b1bf48d9353b2dcc9c4583867ca1","mat_sha256":"c08771fcf4c86cbd22183a80394414460a875f39935a8d532771e42111abf59f","sampled_model_sha256":"09f536ba79a4b27ffd7742709aada48c06d6cb48cf5fb716032e9ad3d6e24bf4","scope":"retained sampled normalized-output model; experimental boxes, not measured customer trajectories"},"thread_limit":1}</script><script>const r=JSON.parse(document.getElementById("evidence").textContent);const input=document.getElementById("batch-count");function update(){const n=Number(input.value);if(!Number.isInteger(n)||n<1)return;document.querySelectorAll(".projection").forEach(el=>{const m=r.methods[el.dataset.method];const f=r.full_total_setup_seconds+n*r.full_blas_median_batch_seconds;const c=m.total_setup_seconds+n*m.median_batch_seconds;el.textContent="Projected cost: full "+f.toFixed(2)+" s; reduced "+c.toFixed(2)+" s ("+(f/c).toFixed(2)+"×).";});}input.addEventListener("input",update);update();</script><p><strong>What is proved:</strong> accepted reduced native outputs including feedthrough versus the replayed engineering reference for every admitted stored input in boxes; finite horizon</p><p><strong>What is measured:</strong> warmed alternating trials; one BLAS thread; domain checks and initial encoding included; complete output materialization</p><p><strong>Cost scope:</strong> in-process sampled-source conversion, proposal search, independent replay, compiler and preparation; interpreter/dependency imports, file I/O, upstream MAT acquisition/sampling excluded</p><p><small>Balanced truncation is a transparent SciPy implementation, not a timing of the SLICOT library. Projected totals extrapolate batch medians. Timings depend on the machine. Random traces are diagnostics; bounds cover the entire declared box. No physical measurement validation or universal performance claim.</small></p><details><summary>Full measured evidence</summary><pre>{
+  &quot;schema&quot;: &quot;dynacomp.pilot-results/1&quot;,
+  &quot;name&quot;: &quot;SLICOT pde&quot;,
+  &quot;source_sha256&quot;: &quot;09f536ba79a4b27ffd7742709aada48c06d6cb48cf5fb716032e9ad3d6e24bf4&quot;,
+  &quot;workload_sha256&quot;: &quot;fcaadd3cbdcaf91643f4614806dbe05e25f15b915ee7b1d0a9bdc37de48ddead&quot;,
+  &quot;states&quot;: 84,
+  &quot;steps&quot;: 20,
+  &quot;queries&quot;: 256,
+  &quot;trials&quot;: 7,
+  &quot;seed&quot;: 20261010,
+  &quot;tolerance&quot;: &quot;1/100&quot;,
+  &quot;methods&quot;: {
+    &quot;observable&quot;: {
+      &quot;accepted&quot;: true,
+      &quot;search_seconds&quot;: 0.3005677729997842,
+      &quot;history&quot;: [
+        {
+          &quot;rank&quot;: 1,
+          &quot;model_status&quot;: &quot;refuted&quot;,
+          &quot;model_lower&quot;: &quot;4270858203649621413/18446744073709551616&quot;,
+          &quot;model_upper&quot;: &quot;4270858203649622719/18446744073709551616&quot;,
+          &quot;combined_upper&quot;: null,
+          &quot;status&quot;: &quot;refuted&quot;
+        },
+        {
+          &quot;rank&quot;: 2,
+          &quot;model_status&quot;: &quot;refuted&quot;,
+          &quot;model_lower&quot;: &quot;128431021995119855/4611686018427387904&quot;,
+          &quot;model_upper&quot;: &quot;2006734718673755/72057594037927936&quot;,
+          &quot;combined_upper&quot;: null,
+          &quot;status&quot;: &quot;refuted&quot;
+        },
+        {
+          &quot;rank&quot;: 3,
+          &quot;model_status&quot;: &quot;refuted&quot;,
+          &quot;model_lower&quot;: &quot;33470664926266085/2305843009213693952&quot;,
+          &quot;model_upper&quot;: &quot;133882659705064739/9223372036854775808&quot;,
+          &quot;combined_upper&quot;: null,
+          &quot;status&quot;: &quot;refuted&quot;
+        },
+        {
+          &quot;rank&quot;: 4,
+          &quot;model_status&quot;: &quot;tolerance_met&quot;,
+          &quot;model_lower&quot;: &quot;19956172867594909/9223372036854775808&quot;,
+          &quot;model_upper&quot;: &quot;9978086433798047/4611686018427387904&quot;,
+          &quot;combined_upper&quot;: &quot;171422219640430108359381457/79228162514264337593543950336&quot;,
+          &quot;status&quot;: &quot;tolerance_met&quot;,
+          &quot;engineering_upper&quot;: &quot;171422219640430108359381457/79228162514264337593543950336&quot;
+        }
+      ],
+      &quot;failure&quot;: null,
+      &quot;rank&quot;: 4,
+      &quot;combined_upper&quot;: &quot;171422219640430108359381457/79228162514264337593543950336&quot;,
+      &quot;model_upper&quot;: &quot;9978086433798047/4611686018427387904&quot;,
+      &quot;execution_upper&quot;: &quot;779988142101715/39614081257132168796771975168&quot;,
+      &quot;engineering&quot;: {
+        &quot;schema&quot;: &quot;dynacomp.engineering-output/1&quot;,
+        &quot;feedthrough_words&quot;: [
+          [
+            0
+          ]
+        ],
+        &quot;additional_output_upper&quot;: [
+          [
+            &quot;0&quot;
+          ],
+          [
+            &quot;0&quot;
+          ],
+          [
+            &quot;0&quot;
+          ],
+          [
+            &quot;0&quot;
+          ],
+          [
+            &quot;0&quot;
+          ],
+          [
+            &quot;0&quot;
+          ],
+          [
+            &quot;0&quot;
+          ],
+          [
+            &quot;0&quot;
+          ],
+          [
+            &quot;0&quot;
+          ],
+          [
+            &quot;0&quot;
+          ],
+          [
+            &quot;0&quot;
+          ],
+          [
+            &quot;0&quot;
+          ],
+          [
+            &quot;0&quot;
+          ],
+          [
+            &quot;0&quot;
+          ],
+          [
+            &quot;0&quot;
+          ],
+          [
+            &quot;0&quot;
+          ],
+          [
+            &quot;0&quot;
+          ],
+          [
+            &quot;0&quot;
+          ],
+          [
+            &quot;0&quot;
+          ],
+          [
+            &quot;0&quot;
+          ],
+          [
+            &quot;0&quot;
+          ]
+        ],
+        &quot;import_output_upper&quot;: [
+          [
+            &quot;0&quot;
+          ],
+          [
+            &quot;0&quot;
+          ],
+          [
+            &quot;0&quot;
+          ],
+          [
+            &quot;0&quot;
+          ],
+          [
+            &quot;0&quot;
+          ],
+          [
+            &quot;0&quot;
+          ],
+          [
+            &quot;0&quot;
+          ],
+          [
+            &quot;0&quot;
+          ],
+          [
+            &quot;0&quot;
+          ],
+          [
+            &quot;0&quot;
+          ],
+          [
+            &quot;0&quot;
+          ],
+          [
+            &quot;0&quot;
+          ],
+          [
+            &quot;0&quot;
+          ],
+          [
+            &quot;0&quot;
+          ],
+          [
+            &quot;0&quot;
+          ],
+          [
+            &quot;0&quot;
+          ],
+          [
+            &quot;0&quot;
+          ],
+          [
+            &quot;0&quot;
+          ],
+          [
+            &quot;0&quot;
+          ],
+          [
+            &quot;0&quot;
+          ],
+          [
+            &quot;0&quot;
+          ]
+        ],
+        &quot;engineering_import_bounded&quot;: true,
+        &quot;continuous_sampling_bounded&quot;: null,
+        &quot;reference&quot;: &quot;exact stored discrete coefficients&quot;,
+        &quot;semantics&quot;: &quot;right-continuous-terminal-hold&quot;
+      },
+      &quot;engineering_upper&quot;: &quot;171422219640430108359381457/79228162514264337593543950336&quot;,
+      &quot;packet&quot;: &quot;observable.json.gz&quot;,
+      &quot;packet_sha256&quot;: &quot;97176dbc751bcf050e335968f2ba932e0f2491e78fff19d79a67bd5951633823&quot;,
+      &quot;state_output_combined_upper&quot;: &quot;171422219640430108359381457/79228162514264337593543950336&quot;,
+      &quot;native_preparation_and_replay_seconds&quot;: 0.13962179899863258,
+      &quot;standalone_replay_adjustment_seconds&quot;: 0.0,
+      &quot;cost_policy&quot;: &quot;conservative standalone estimate; balanced charged an extra empty-cache replay to cover the shared source pass&quot;,
+      &quot;total_setup_seconds&quot;: 0.560835774997031,
+      &quot;median_batch_seconds&quot;: 0.00044193800022185314,
+      &quot;raw_batch_seconds&quot;: [
+        0.0004322929999034386,
+        0.0004659650003304705,
+        0.00044193800022185314,
+        0.000540126000487362,
+        0.00043835200085595716,
+        0.00047048200030985754,
+        0.00042405999920447357
+      ],
+      &quot;max_observed_difference_from_full_blas&quot;: 0.00216365259775433,
+      &quot;observed_difference_exceeds_bound&quot;: false,
+      &quot;diagnostic_scope&quot;: &quot;full BLAS reference has uncertified rounding; sampled difference is diagnostic only&quot;,
+      &quot;break_even_batches&quot;: 251.7942472198178,
+      &quot;requested_batches&quot;: 1000,
+      &quot;full_total_seconds&quot;: 2.4286219962777977,
+      &quot;reduced_total_seconds&quot;: 1.0027737752188841,
+      &quot;total_speedup&quot;: 2.421904178485004,
+      &quot;warm_speedup&quot;: 5.312120702680342
+    },
+    &quot;balanced&quot;: {
+      &quot;accepted&quot;: true,
+      &quot;search_seconds&quot;: 0.29008005399919057,
+      &quot;history&quot;: [
+        {
+          &quot;rank&quot;: 1,
+          &quot;model_status&quot;: &quot;refuted&quot;,
+          &quot;model_lower&quot;: &quot;1837263818986156245/9223372036854775808&quot;,
+          &quot;model_upper&quot;: &quot;1837263818986156329/9223372036854775808&quot;,
+          &quot;combined_upper&quot;: null,
+          &quot;status&quot;: &quot;refuted&quot;
+        },
+        {
+          &quot;rank&quot;: 2,
+          &quot;model_status&quot;: &quot;refuted&quot;,
+          &quot;model_lower&quot;: &quot;303246630449769531/9223372036854775808&quot;,
+          &quot;model_upper&quot;: &quot;303246630449769615/9223372036854775808&quot;,
+          &quot;combined_upper&quot;: null,
+          &quot;status&quot;: &quot;refuted&quot;
+        },
+        {
+          &quot;rank&quot;: 3,
+          &quot;model_status&quot;: &quot;refuted&quot;,
+          &quot;model_lower&quot;: &quot;457173311615319691/18446744073709551616&quot;,
+          &quot;model_upper&quot;: &quot;457173311615319859/18446744073709551616&quot;,
+          &quot;combined_upper&quot;: null,
+          &quot;status&quot;: &quot;refuted&quot;
+        },
+        {
+          &quot;rank&quot;: 4,
+          &quot;model_status&quot;: &quot;tolerance_met&quot;,
+          &quot;model_lower&quot;: &quot;56430945876715331/18446744073709551616&quot;,
+          &quot;model_upper&quot;: &quot;56430945876716313/18446744073709551616&quot;,
+          &quot;combined_upper&quot;: &quot;121184533512372373852726869/39614081257132168796771975168&quot;,
+          &quot;status&quot;: &quot;tolerance_met&quot;,
+          &quot;engineering_upper&quot;: &quot;121184533512372373852726869/39614081257132168796771975168&quot;
+        }
+      ],
+      &quot;failure&quot;: null,
+      &quot;rank&quot;: 4,
+      &quot;combined_upper&quot;: &quot;121184533512372373852726869/39614081257132168796771975168&quot;,
+      &quot;model_upper&quot;: &quot;56430945876716313/18446744073709551616&quot;,
+      &quot;execution_upper&quot;: &quot;998574997721319/39614081257132168796771975168&quot;,
+      &quot;engineering&quot;: {
+        &quot;schema&quot;: &quot;dynacomp.engineering-output/1&quot;,
+        &quot;feedthrough_words&quot;: [
+          [
+            0
+          ]
+        ],
+        &quot;additional_output_upper&quot;: [
+          [
+            &quot;0&quot;
+          ],
+          [
+            &quot;0&quot;
+          ],
+          [
+            &quot;0&quot;
+          ],
+          [
+            &quot;0&quot;
+          ],
+          [
+            &quot;0&quot;
+          ],
+          [
+            &quot;0&quot;
+          ],
+          [
+            &quot;0&quot;
+          ],
+          [
+            &quot;0&quot;
+          ],
+          [
+            &quot;0&quot;
+          ],
+          [
+            &quot;0&quot;
+          ],
+          [
+            &quot;0&quot;
+          ],
+          [
+            &quot;0&quot;
+          ],
+          [
+            &quot;0&quot;
+          ],
+          [
+            &quot;0&quot;
+          ],
+          [
+            &quot;0&quot;
+          ],
+          [
+            &quot;0&quot;
+          ],
+          [
+            &quot;0&quot;
+          ],
+          [
+            &quot;0&quot;
+          ],
+          [
+            &quot;0&quot;
+          ],
+          [
+            &quot;0&quot;
+          ],
+          [
+            &quot;0&quot;
+          ]
+        ],
+        &quot;import_output_upper&quot;: [
+          [
+            &quot;0&quot;
+          ],
+          [
+            &quot;0&quot;
+          ],
+          [
+            &quot;0&quot;
+          ],
+          [
+            &quot;0&quot;
+          ],
+          [
+            &quot;0&quot;
+          ],
+          [
+            &quot;0&quot;
+          ],
+          [
+            &quot;0&quot;
+          ],
+          [
+            &quot;0&quot;
+          ],
+          [
+            &quot;0&quot;
+          ],
+          [
+            &quot;0&quot;
+          ],
+          [
+            &quot;0&quot;
+          ],
+          [
+            &quot;0&quot;
+          ],
+          [
+            &quot;0&quot;
+          ],
+          [
+            &quot;0&quot;
+          ],
+          [
+            &quot;0&quot;
+          ],
+          [
+            &quot;0&quot;
+          ],
+          [
+            &quot;0&quot;
+          ],
+          [
+            &quot;0&quot;
+          ],
+          [
+            &quot;0&quot;
+          ],
+          [
+            &quot;0&quot;
+          ],
+          [
+            &quot;0&quot;
+          ]
+        ],
+        &quot;engineering_import_bounded&quot;: true,
+        &quot;continuous_sampling_bounded&quot;: null,
+        &quot;reference&quot;: &quot;exact stored discrete coefficients&quot;,
+        &quot;semantics&quot;: &quot;right-continuous-terminal-hold&quot;
+      },
+      &quot;engineering_upper&quot;: &quot;121184533512372373852726869/39614081257132168796771975168&quot;,
+      &quot;packet&quot;: &quot;balanced.json.gz&quot;,
+      &quot;packet_sha256&quot;: &quot;f49c382f601b4c5e4859c903bc95feb3db7c0bd7e1fdce8e2b95f88b459c10a4&quot;,
+      &quot;state_output_combined_upper&quot;: &quot;121184533512372373852726869/39614081257132168796771975168&quot;,
+      &quot;native_preparation_and_replay_seconds&quot;: 0.11875059600060922,
+      &quot;standalone_replay_adjustment_seconds&quot;: 0.09374722900065535,
+      &quot;cost_policy&quot;: &quot;conservative standalone estimate; balanced charged an extra empty-cache replay to cover the shared source pass&quot;,
+      &quot;total_setup_seconds&quot;: 0.6232240819990693,
+      &quot;median_batch_seconds&quot;: 0.0004287169995222939,
+      &quot;raw_batch_seconds&quot;: [
+        0.0004614369991031708,
+        0.0004038299994135741,
+        0.0004440810007508844,
+        0.0004044310007884633,
+        0.0004287169995222939,
+        0.0004033489985886263,
+        0.0005430500004877103
+      ],
+      &quot;max_observed_difference_from_full_blas&quot;: 0.003059127705747358,
+      &quot;observed_difference_exceeds_bound&quot;: false,
+      &quot;diagnostic_scope&quot;: &quot;full BLAS reference has uncertified rounding; sampled difference is diagnostic only&quot;,
+      &quot;break_even_batches&quot;: 282.57177419219454,
+      &quot;requested_batches&quot;: 1000,
+      &quot;full_total_seconds&quot;: 2.4286219962777977,
+      &quot;reduced_total_seconds&quot;: 1.0519410815213632,
+      &quot;total_speedup&quot;: 2.3087053438063454,
+      &quot;warm_speedup&quot;: 5.475938679584773
+    }
+  },
+  &quot;rejected_methods&quot;: {},
+  &quot;full_blas_setup_seconds&quot;: 0.036905905999446986,
+  &quot;full_blas_median_batch_seconds&quot;: 0.0023476280002796557,
+  &quot;full_blas_raw_batch_seconds&quot;: [
+    0.0023355590001301607,
+    0.0023476280002796557,
+    0.002609223000035854,
+    0.002307057000507484,
+    0.0023112830003810814,
+    0.002474670000083279,
+    0.002436953000142239
+  ],
+  &quot;full_total_setup_seconds&quot;: 0.08099399599814205,
+  &quot;native_compiler_seconds&quot;: 0.0765581129999191,
+  &quot;actual_compiler_wait_seconds&quot;: 1.2010004866169766e-06,
+  &quot;native_source_sha256&quot;: &quot;08a0d2cd86bcd39426653102a466fac1c9a11e73afaafed7805a1d07f91fb171&quot;,
+  &quot;compiler_version&quot;: &quot;cc (Ubuntu 13.3.0-6ubuntu2~24.04) 13.3.0&quot;,
+  &quot;python&quot;: &quot;3.12.14&quot;,
+  &quot;numpy&quot;: &quot;2.3.5&quot;,
+  &quot;scipy&quot;: &quot;1.17.0&quot;,
+  &quot;platform&quot;: &quot;Linux x86_64&quot;,
+  &quot;measurement&quot;: &quot;warmed alternating trials; one BLAS thread; domain checks and initial encoding included; complete output materialization&quot;,
+  &quot;cost_scope&quot;: &quot;in-process sampled-source conversion, proposal search, independent replay, compiler and preparation; interpreter/dependency imports, file I/O, upstream MAT acquisition/sampling excluded&quot;,
+  &quot;guarantee&quot;: &quot;accepted reduced native outputs including feedthrough versus the replayed engineering reference for every admitted stored input in boxes; finite horizon&quot;,
+  &quot;engineering_reference&quot;: &quot;exact stored discrete coefficients&quot;,
+  &quot;continuous_sampling_bounded&quot;: null,
+  &quot;baseline&quot;: &quot;SciPy square-root balanced truncation, accepted by same combined box/native error test; full dense NumPy BLAS reference&quot;,
+  &quot;projection&quot;: &quot;requested total costs extrapolate measured batch medians; they are not a sustained run&quot;,
+  &quot;provenance&quot;: {
+    &quot;upstream&quot;: &quot;https://github.com/SLICOT/Benchmark-ModelReduction&quot;,
+    &quot;commit&quot;: &quot;98c1747030c0b1bf48d9353b2dcc9c4583867ca1&quot;,
+    &quot;mat_sha256&quot;: &quot;c08771fcf4c86cbd22183a80394414460a875f39935a8d532771e42111abf59f&quot;,
+    &quot;sampled_model_sha256&quot;: &quot;09f536ba79a4b27ffd7742709aada48c06d6cb48cf5fb716032e9ad3d6e24bf4&quot;,
+    &quot;scope&quot;: &quot;retained sampled normalized-output model; experimental boxes, not measured customer trajectories&quot;
+  },
+  &quot;thread_limit&quot;: 1
+}</pre></details></html>

@@ -42,4 +42,4 @@ from .machine import (certify_execution, replay_execution, compose_execution,
 from .native import (certify_sequential, replay_sequential, compose_sequential,
                      replay_sequential_composition, PreparedSequential)
 
-__version__ = "0.11.0"
+__version__ = "0.12.0"

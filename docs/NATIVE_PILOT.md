@@ -1,3 +1,5 @@
+> Version 0.12.0 extends this historical v0.11 workflow with descriptor elimination, direct feedthrough and replayed sampling bounds. See [engineering ingestion](ENGINEERING_INGESTION.md). The v0.11 measurements below remain preserved.
+
 # From mathematical reduction to a measured executable workload
 
 **DynaComp 0.11.0, 10 October 2026.** This extension supplies a reusable external-workload interface, a conventional compiled binary64 executor with an explicit error contract, and measurements against full dense BLAS and square-root balanced truncation. It changes the practical question from whether a small model can be constructed to whether an accepted executable model is useful after paying for its construction. The answer is positive on two retained external sources and negative on a third. All three outcomes are part of the release.

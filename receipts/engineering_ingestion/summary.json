@@ -1,0 +1,3213 @@
+{
+  "schema": "dynacomp.engineering-benchmark/1",
+  "python": "3.12.14",
+  "upstream": "https://github.com/SLICOT/Benchmark-ModelReduction",
+  "commit": "98c1747030c0b1bf48d9353b2dcc9c4583867ca1",
+  "cases": {
+    "heat-disc": {
+      "mat_sha256": "00fbaa8143d55bd8e663dfc607b94a9b8fa66e7430b10e9644ac611b7ff59b7a",
+      "workload_sha256": "b8f8f920b3e0ea2404b2f0b27564b952c6ce7d79c3255775cfdc5a44e2ac1ef8",
+      "import_including_certification_seconds": 2.5347746280003776,
+      "independent_replay_seconds": 1.132133357999919,
+      "uncertified_reference_solve_seconds": 0.001096407000659383,
+      "diagnostic_max_coefficient_difference": 0.0,
+      "independent_banded_vs_dense_difference": 0.0,
+      "descriptor": {
+        "status": "bounded",
+        "A_error_inf": "1948377175734631/19807040628566084398385987584",
+        "B_error_inf": "145715399231515/79228162514264337593543950336",
+        "method": "strict row diagonal dominance and exact rational solve residuals",
+        "mass_dominance_margin": "1"
+      },
+      "methods": {
+        "observable": {
+          "accepted": true,
+          "search_seconds": 2.8481342569994013,
+          "history": [
+            {
+              "rank": 1,
+              "model_status": "refuted",
+              "model_lower": "46073950600168463519/18446744073709551616",
+              "model_upper": "46073950600168466023/18446744073709551616",
+              "combined_upper": null,
+              "status": "refuted"
+            },
+            {
+              "rank": 2,
+              "model_status": "refuted",
+              "model_lower": "32651530676701651001/18446744073709551616",
+              "model_upper": "32651530676720541841/18446744073709551616",
+              "combined_upper": null,
+              "status": "refuted"
+            },
+            {
+              "rank": 3,
+              "model_status": "refuted",
+              "model_lower": "2510084321335516025/2305843009213693952",
+              "model_upper": "2510084321335516189/2305843009213693952",
+              "combined_upper": null,
+              "status": "refuted"
+            },
+            {
+              "rank": 4,
+              "model_status": "refuted",
+              "model_lower": "14104833379185704707/18446744073709551616",
+              "model_upper": "14104833379185705331/18446744073709551616",
+              "combined_upper": null,
+              "status": "refuted"
+            },
+            {
+              "rank": 5,
+              "model_status": "refuted",
+              "model_lower": "10191653412059986941/18446744073709551616",
+              "model_upper": "10191653434755318625/18446744073709551616",
+              "combined_upper": null,
+              "status": "refuted"
+            },
+            {
+              "rank": 6,
+              "model_status": "refuted",
+              "model_lower": "1142760402428978655/4611686018427387904",
+              "model_upper": "1142760402429213619/4611686018427387904",
+              "combined_upper": null,
+              "status": "refuted"
+            },
+            {
+              "rank": 7,
+              "model_status": "refuted",
+              "model_lower": "621451334036777747/9223372036854775808",
+              "model_upper": "621451334036804971/9223372036854775808",
+              "combined_upper": null,
+              "status": "refuted"
+            },
+            {
+              "rank": 8,
+              "model_status": "refuted",
+              "model_lower": "141773471036039841/9223372036854775808",
+              "model_upper": "70886735518022489/4611686018427387904",
+              "combined_upper": null,
+              "status": "refuted"
+            },
+            {
+              "rank": 9,
+              "model_status": "tolerance_met",
+              "model_lower": "30217024975891287/9223372036854775808",
+              "model_upper": "15108512586148137/4611686018427387904",
+              "combined_upper": "259562288992403043693771331/79228162514264337593543950336",
+              "status": "tolerance_met",
+              "engineering_upper": "137986561357936811317095739/39614081257132168796771975168"
+            }
+          ],
+          "failure": null,
+          "rank": 9,
+          "combined_upper": "259562288992403043693771331/79228162514264337593543950336",
+          "model_upper": "15108512586148137/4611686018427387904",
+          "execution_upper": "92596170662579390691/39614081257132168796771975168",
+          "engineering": {
+            "schema": "dynacomp.engineering-output/1",
+            "feedthrough_words": [
+              [
+                0
+              ]
+            ],
+            "additional_output_upper": [
+              [
+                "0"
+              ],
+              [
+                "7939224102170039/79228162514264337593543950336"
+              ],
+              [
+                "22675915230024043/39614081257132168796771975168"
+              ],
+              [
+                "97146726664673595/39614081257132168796771975168"
+              ],
+              [
+                "369940154770052309/39614081257132168796771975168"
+              ],
+              [
+                "660346634296715073/19807040628566084398385987584"
+              ],
+              [
+                "565784885902482365/4951760157141521099596496896"
+              ],
+              [
+                "7540754442110152657/19807040628566084398385987584"
+              ],
+              [
+                "49225766425289830331/39614081257132168796771975168"
+              ],
+              [
+                "316322526563687894679/79228162514264337593543950336"
+              ],
+              [
+                "1003788657709031170939/79228162514264337593543950336"
+              ],
+              [
+                "3153474464123150099189/79228162514264337593543950336"
+              ],
+              [
+                "9824987035363033850461/79228162514264337593543950336"
+              ],
+              [
+                "15199105034124460420907/39614081257132168796771975168"
+              ],
+              [
+                "46747293558732114996009/39614081257132168796771975168"
+              ],
+              [
+                "286090440714392037832381/79228162514264337593543950336"
+              ],
+              [
+                "27235518765767879486873/2475880078570760549798248448"
+              ],
+              [
+                "2644649060037398301219445/79228162514264337593543950336"
+              ],
+              [
+                "1999332649838457539921867/19807040628566084398385987584"
+              ],
+              [
+                "24109017152756524439121507/79228162514264337593543950336"
+              ],
+              [
+                "4529906433591903450543243/4951760157141521099596496896"
+              ]
+            ],
+            "import_output_upper": [
+              [
+                "0"
+              ],
+              [
+                "7939224102170039/79228162514264337593543950336"
+              ],
+              [
+                "22675915230024043/39614081257132168796771975168"
+              ],
+              [
+                "97146726664673595/39614081257132168796771975168"
+              ],
+              [
+                "369940154770052309/39614081257132168796771975168"
+              ],
+              [
+                "660346634296715073/19807040628566084398385987584"
+              ],
+              [
+                "565784885902482365/4951760157141521099596496896"
+              ],
+              [
+                "7540754442110152657/19807040628566084398385987584"
+              ],
+              [
+                "49225766425289830331/39614081257132168796771975168"
+              ],
+              [
+                "316322526563687894679/79228162514264337593543950336"
+              ],
+              [
+                "1003788657709031170939/79228162514264337593543950336"
+              ],
+              [
+                "3153474464123150099189/79228162514264337593543950336"
+              ],
+              [
+                "9824987035363033850461/79228162514264337593543950336"
+              ],
+              [
+                "15199105034124460420907/39614081257132168796771975168"
+              ],
+              [
+                "46747293558732114996009/39614081257132168796771975168"
+              ],
+              [
+                "286090440714392037832381/79228162514264337593543950336"
+              ],
+              [
+                "27235518765767879486873/2475880078570760549798248448"
+              ],
+              [
+                "2644649060037398301219445/79228162514264337593543950336"
+              ],
+              [
+                "1999332649838457539921867/19807040628566084398385987584"
+              ],
+              [
+                "24109017152756524439121507/79228162514264337593543950336"
+              ],
+              [
+                "4529906433591903450543243/4951760157141521099596496896"
+              ]
+            ],
+            "engineering_import_bounded": true,
+            "continuous_sampling_bounded": null,
+            "reference": "original discrete descriptor",
+            "semantics": "right-continuous-terminal-hold"
+          },
+          "engineering_upper": "137986561357936811317095739/39614081257132168796771975168",
+          "packet": "observable.json.gz",
+          "packet_sha256": "cd8ce1a650055558c793d3d3d7e42f49241c1dacbbc6d3c8cbeffa1ee3481794"
+        },
+        "balanced": {
+          "accepted": false,
+          "search_seconds": 1.2612549770001351,
+          "history": [
+            {
+              "rank": 1,
+              "model_status": "refuted",
+              "model_lower": "2842317332323001553/1152921504606846976",
+              "model_upper": "2842317332323001583/1152921504606846976",
+              "combined_upper": null,
+              "status": "refuted"
+            },
+            {
+              "rank": 2,
+              "model_status": "refuted",
+              "model_lower": "44662163952426165943/18446744073709551616",
+              "model_upper": "44662163952426166435/18446744073709551616",
+              "combined_upper": null,
+              "status": "refuted"
+            },
+            {
+              "rank": 3,
+              "model_status": "refuted",
+              "model_lower": "4981977055934364869/2305843009213693952",
+              "model_upper": "311373565995897815/144115188075855872",
+              "combined_upper": null,
+              "status": "refuted"
+            },
+            {
+              "rank": 4,
+              "model_status": "refuted",
+              "model_lower": "768867451402453689/288230376151711744",
+              "model_upper": "6150939611219630003/2305843009213693952",
+              "combined_upper": null,
+              "status": "refuted"
+            },
+            {
+              "rank": 5,
+              "model_status": "refuted",
+              "model_lower": "17584790053305424747/9223372036854775808",
+              "model_upper": "2198098756663181437/1152921504606846976",
+              "combined_upper": null,
+              "status": "refuted"
+            },
+            {
+              "rank": 6,
+              "model_status": "refuted",
+              "model_lower": "16950000394542963013/9223372036854775808",
+              "model_upper": "4237500098638111433/2305843009213693952",
+              "combined_upper": null,
+              "status": "refuted"
+            },
+            {
+              "rank": 7,
+              "model_status": "refuted",
+              "model_lower": "28856604493812494407/18446744073709551616",
+              "model_upper": "28856604516508502799/18446744073709551616",
+              "combined_upper": null,
+              "status": "refuted"
+            },
+            {
+              "rank": 8,
+              "model_status": "refuted",
+              "model_lower": "19024055143905327349/18446744073709551616",
+              "model_upper": "19024055206572011669/18446744073709551616",
+              "combined_upper": null,
+              "status": "refuted"
+            },
+            {
+              "rank": 9,
+              "model_status": "refuted",
+              "model_lower": "12697984445711776645/18446744073709551616",
+              "model_upper": "12697984508380152453/18446744073709551616",
+              "combined_upper": null,
+              "status": "refuted"
+            },
+            {
+              "rank": 10,
+              "model_status": "refuted",
+              "model_lower": "20857124698605009/36028797018963968",
+              "model_upper": "5339423922843153467/9223372036854775808",
+              "combined_upper": null,
+              "status": "refuted"
+            },
+            {
+              "rank": 11,
+              "model_status": "refuted",
+              "model_lower": "13813127959840204319/18446744073709551616",
+              "model_upper": "13813127959841927539/18446744073709551616",
+              "combined_upper": null,
+              "status": "refuted"
+            },
+            {
+              "rank": 12,
+              "model_status": "refuted",
+              "model_lower": "351758932434476141/2305843009213693952",
+              "model_upper": "1407035729740044713/9223372036854775808",
+              "combined_upper": null,
+              "status": "refuted"
+            },
+            {
+              "rank": 13,
+              "model_status": "refuted",
+              "model_lower": "2257545016365932577/9223372036854775808",
+              "model_upper": "564386254092151335/2305843009213693952",
+              "combined_upper": null,
+              "status": "refuted"
+            },
+            {
+              "rank": 14,
+              "model_status": "refuted",
+              "model_lower": "653706740323330199/9223372036854775808",
+              "model_upper": "326853370163398261/4611686018427387904",
+              "combined_upper": null,
+              "status": "refuted"
+            },
+            {
+              "rank": 15,
+              "model_status": "refuted",
+              "model_lower": "349459363582780565/4611686018427387904",
+              "model_upper": "87364840896144777/1152921504606846976",
+              "combined_upper": null,
+              "status": "refuted"
+            },
+            {
+              "rank": 16,
+              "model_status": "refuted",
+              "model_lower": "576883367853740525/18446744073709551616",
+              "model_upper": "576883367861687947/18446744073709551616",
+              "combined_upper": null,
+              "status": "refuted"
+            }
+          ],
+          "failure": null
+        }
+      },
+      "evaluation": {
+        "schema": "dynacomp.pilot-results/1",
+        "name": "heat-disc",
+        "source_sha256": "de048cd8a4dad37dbe767eeade27c68a5cc3e8877a197370f2c6265f974721c1",
+        "workload_sha256": "b8f8f920b3e0ea2404b2f0b27564b952c6ce7d79c3255775cfdc5a44e2ac1ef8",
+        "states": 200,
+        "steps": 20,
+        "queries": 256,
+        "trials": 7,
+        "seed": 20261010,
+        "tolerance": "1/100",
+        "methods": {
+          "observable": {
+            "accepted": true,
+            "search_seconds": 2.8481342569994013,
+            "history": [
+              {
+                "rank": 1,
+                "model_status": "refuted",
+                "model_lower": "46073950600168463519/18446744073709551616",
+                "model_upper": "46073950600168466023/18446744073709551616",
+                "combined_upper": null,
+                "status": "refuted"
+              },
+              {
+                "rank": 2,
+                "model_status": "refuted",
+                "model_lower": "32651530676701651001/18446744073709551616",
+                "model_upper": "32651530676720541841/18446744073709551616",
+                "combined_upper": null,
+                "status": "refuted"
+              },
+              {
+                "rank": 3,
+                "model_status": "refuted",
+                "model_lower": "2510084321335516025/2305843009213693952",
+                "model_upper": "2510084321335516189/2305843009213693952",
+                "combined_upper": null,
+                "status": "refuted"
+              },
+              {
+                "rank": 4,
+                "model_status": "refuted",
+                "model_lower": "14104833379185704707/18446744073709551616",
+                "model_upper": "14104833379185705331/18446744073709551616",
+                "combined_upper": null,
+                "status": "refuted"
+              },
+              {
+                "rank": 5,
+                "model_status": "refuted",
+                "model_lower": "10191653412059986941/18446744073709551616",
+                "model_upper": "10191653434755318625/18446744073709551616",
+                "combined_upper": null,
+                "status": "refuted"
+              },
+              {
+                "rank": 6,
+                "model_status": "refuted",
+                "model_lower": "1142760402428978655/4611686018427387904",
+                "model_upper": "1142760402429213619/4611686018427387904",
+                "combined_upper": null,
+                "status": "refuted"
+              },
+              {
+                "rank": 7,
+                "model_status": "refuted",
+                "model_lower": "621451334036777747/9223372036854775808",
+                "model_upper": "621451334036804971/9223372036854775808",
+                "combined_upper": null,
+                "status": "refuted"
+              },
+              {
+                "rank": 8,
+                "model_status": "refuted",
+                "model_lower": "141773471036039841/9223372036854775808",
+                "model_upper": "70886735518022489/4611686018427387904",
+                "combined_upper": null,
+                "status": "refuted"
+              },
+              {
+                "rank": 9,
+                "model_status": "tolerance_met",
+                "model_lower": "30217024975891287/9223372036854775808",
+                "model_upper": "15108512586148137/4611686018427387904",
+                "combined_upper": "259562288992403043693771331/79228162514264337593543950336",
+                "status": "tolerance_met",
+                "engineering_upper": "137986561357936811317095739/39614081257132168796771975168"
+              }
+            ],
+            "failure": null,
+            "rank": 9,
+            "combined_upper": "137986561357936811317095739/39614081257132168796771975168",
+            "model_upper": "15108512586148137/4611686018427387904",
+            "execution_upper": "92596170662579390691/39614081257132168796771975168",
+            "engineering": {
+              "schema": "dynacomp.engineering-output/1",
+              "feedthrough_words": [
+                [
+                  0
+                ]
+              ],
+              "additional_output_upper": [
+                [
+                  "0"
+                ],
+                [
+                  "7939224102170039/79228162514264337593543950336"
+                ],
+                [
+                  "22675915230024043/39614081257132168796771975168"
+                ],
+                [
+                  "97146726664673595/39614081257132168796771975168"
+                ],
+                [
+                  "369940154770052309/39614081257132168796771975168"
+                ],
+                [
+                  "660346634296715073/19807040628566084398385987584"
+                ],
+                [
+                  "565784885902482365/4951760157141521099596496896"
+                ],
+                [
+                  "7540754442110152657/19807040628566084398385987584"
+                ],
+                [
+                  "49225766425289830331/39614081257132168796771975168"
+                ],
+                [
+                  "316322526563687894679/79228162514264337593543950336"
+                ],
+                [
+                  "1003788657709031170939/79228162514264337593543950336"
+                ],
+                [
+                  "3153474464123150099189/79228162514264337593543950336"
+                ],
+                [
+                  "9824987035363033850461/79228162514264337593543950336"
+                ],
+                [
+                  "15199105034124460420907/39614081257132168796771975168"
+                ],
+                [
+                  "46747293558732114996009/39614081257132168796771975168"
+                ],
+                [
+                  "286090440714392037832381/79228162514264337593543950336"
+                ],
+                [
+                  "27235518765767879486873/2475880078570760549798248448"
+                ],
+                [
+                  "2644649060037398301219445/79228162514264337593543950336"
+                ],
+                [
+                  "1999332649838457539921867/19807040628566084398385987584"
+                ],
+                [
+                  "24109017152756524439121507/79228162514264337593543950336"
+                ],
+                [
+                  "4529906433591903450543243/4951760157141521099596496896"
+                ]
+              ],
+              "import_output_upper": [
+                [
+                  "0"
+                ],
+                [
+                  "7939224102170039/79228162514264337593543950336"
+                ],
+                [
+                  "22675915230024043/39614081257132168796771975168"
+                ],
+                [
+                  "97146726664673595/39614081257132168796771975168"
+                ],
+                [
+                  "369940154770052309/39614081257132168796771975168"
+                ],
+                [
+                  "660346634296715073/19807040628566084398385987584"
+                ],
+                [
+                  "565784885902482365/4951760157141521099596496896"
+                ],
+                [
+                  "7540754442110152657/19807040628566084398385987584"
+                ],
+                [
+                  "49225766425289830331/39614081257132168796771975168"
+                ],
+                [
+                  "316322526563687894679/79228162514264337593543950336"
+                ],
+                [
+                  "1003788657709031170939/79228162514264337593543950336"
+                ],
+                [
+                  "3153474464123150099189/79228162514264337593543950336"
+                ],
+                [
+                  "9824987035363033850461/79228162514264337593543950336"
+                ],
+                [
+                  "15199105034124460420907/39614081257132168796771975168"
+                ],
+                [
+                  "46747293558732114996009/39614081257132168796771975168"
+                ],
+                [
+                  "286090440714392037832381/79228162514264337593543950336"
+                ],
+                [
+                  "27235518765767879486873/2475880078570760549798248448"
+                ],
+                [
+                  "2644649060037398301219445/79228162514264337593543950336"
+                ],
+                [
+                  "1999332649838457539921867/19807040628566084398385987584"
+                ],
+                [
+                  "24109017152756524439121507/79228162514264337593543950336"
+                ],
+                [
+                  "4529906433591903450543243/4951760157141521099596496896"
+                ]
+              ],
+              "engineering_import_bounded": true,
+              "continuous_sampling_bounded": null,
+              "reference": "original discrete descriptor",
+              "semantics": "right-continuous-terminal-hold"
+            },
+            "engineering_upper": "137986561357936811317095739/39614081257132168796771975168",
+            "packet": "observable.json.gz",
+            "packet_sha256": "cd8ce1a650055558c793d3d3d7e42f49241c1dacbbc6d3c8cbeffa1ee3481794",
+            "state_output_combined_upper": "259562288992403043693771331/79228162514264337593543950336",
+            "native_preparation_and_replay_seconds": 0.7186124720010412,
+            "standalone_replay_adjustment_seconds": 0.0,
+            "cost_policy": "conservative standalone estimate; balanced charged an extra empty-cache replay to cover the shared source pass",
+            "total_setup_seconds": 6.191727815999911,
+            "median_batch_seconds": 0.002229780000561732,
+            "raw_batch_seconds": [
+              0.0022228590005397564,
+              0.0025624819991207914,
+              0.0024282699996547308,
+              0.0024893320005503483,
+              0.002229608999186894,
+              0.0022159089985507308,
+              0.002229780000561732
+            ],
+            "max_observed_difference_from_full_blas": 0.0032761364231346235,
+            "observed_difference_exceeds_bound": false,
+            "diagnostic_scope": "full BLAS reference has uncertified rounding; sampled difference is diagnostic only",
+            "break_even_batches": 438.04134192635547,
+            "requested_batches": 1000,
+            "full_total_seconds": 12.806871901355407,
+            "reduced_total_seconds": 8.421507816561643,
+            "total_speedup": 1.5207338377302881,
+            "warm_speedup": 4.49976813713793
+          }
+        },
+        "rejected_methods": {
+          "balanced": {
+            "accepted": false,
+            "search_seconds": 1.2612549770001351,
+            "history": [
+              {
+                "rank": 1,
+                "model_status": "refuted",
+                "model_lower": "2842317332323001553/1152921504606846976",
+                "model_upper": "2842317332323001583/1152921504606846976",
+                "combined_upper": null,
+                "status": "refuted"
+              },
+              {
+                "rank": 2,
+                "model_status": "refuted",
+                "model_lower": "44662163952426165943/18446744073709551616",
+                "model_upper": "44662163952426166435/18446744073709551616",
+                "combined_upper": null,
+                "status": "refuted"
+              },
+              {
+                "rank": 3,
+                "model_status": "refuted",
+                "model_lower": "4981977055934364869/2305843009213693952",
+                "model_upper": "311373565995897815/144115188075855872",
+                "combined_upper": null,
+                "status": "refuted"
+              },
+              {
+                "rank": 4,
+                "model_status": "refuted",
+                "model_lower": "768867451402453689/288230376151711744",
+                "model_upper": "6150939611219630003/2305843009213693952",
+                "combined_upper": null,
+                "status": "refuted"
+              },
+              {
+                "rank": 5,
+                "model_status": "refuted",
+                "model_lower": "17584790053305424747/9223372036854775808",
+                "model_upper": "2198098756663181437/1152921504606846976",
+                "combined_upper": null,
+                "status": "refuted"
+              },
+              {
+                "rank": 6,
+                "model_status": "refuted",
+                "model_lower": "16950000394542963013/9223372036854775808",
+                "model_upper": "4237500098638111433/2305843009213693952",
+                "combined_upper": null,
+                "status": "refuted"
+              },
+              {
+                "rank": 7,
+                "model_status": "refuted",
+                "model_lower": "28856604493812494407/18446744073709551616",
+                "model_upper": "28856604516508502799/18446744073709551616",
+                "combined_upper": null,
+                "status": "refuted"
+              },
+              {
+                "rank": 8,
+                "model_status": "refuted",
+                "model_lower": "19024055143905327349/18446744073709551616",
+                "model_upper": "19024055206572011669/18446744073709551616",
+                "combined_upper": null,
+                "status": "refuted"
+              },
+              {
+                "rank": 9,
+                "model_status": "refuted",
+                "model_lower": "12697984445711776645/18446744073709551616",
+                "model_upper": "12697984508380152453/18446744073709551616",
+                "combined_upper": null,
+                "status": "refuted"
+              },
+              {
+                "rank": 10,
+                "model_status": "refuted",
+                "model_lower": "20857124698605009/36028797018963968",
+                "model_upper": "5339423922843153467/9223372036854775808",
+                "combined_upper": null,
+                "status": "refuted"
+              },
+              {
+                "rank": 11,
+                "model_status": "refuted",
+                "model_lower": "13813127959840204319/18446744073709551616",
+                "model_upper": "13813127959841927539/18446744073709551616",
+                "combined_upper": null,
+                "status": "refuted"
+              },
+              {
+                "rank": 12,
+                "model_status": "refuted",
+                "model_lower": "351758932434476141/2305843009213693952",
+                "model_upper": "1407035729740044713/9223372036854775808",
+                "combined_upper": null,
+                "status": "refuted"
+              },
+              {
+                "rank": 13,
+                "model_status": "refuted",
+                "model_lower": "2257545016365932577/9223372036854775808",
+                "model_upper": "564386254092151335/2305843009213693952",
+                "combined_upper": null,
+                "status": "refuted"
+              },
+              {
+                "rank": 14,
+                "model_status": "refuted",
+                "model_lower": "653706740323330199/9223372036854775808",
+                "model_upper": "326853370163398261/4611686018427387904",
+                "combined_upper": null,
+                "status": "refuted"
+              },
+              {
+                "rank": 15,
+                "model_status": "refuted",
+                "model_lower": "349459363582780565/4611686018427387904",
+                "model_upper": "87364840896144777/1152921504606846976",
+                "combined_upper": null,
+                "status": "refuted"
+              },
+              {
+                "rank": 16,
+                "model_status": "refuted",
+                "model_lower": "576883367853740525/18446744073709551616",
+                "model_upper": "576883367861687947/18446744073709551616",
+                "combined_upper": null,
+                "status": "refuted"
+              }
+            ],
+            "failure": null
+          }
+        },
+        "full_blas_setup_seconds": 0.22495592800078157,
+        "full_blas_median_batch_seconds": 0.010033492999355076,
+        "full_blas_raw_batch_seconds": [
+          0.009913643001709715,
+          0.010420859000078053,
+          0.01020705600058136,
+          0.009884177999992971,
+          0.009842544999628444,
+          0.010033492999355076,
+          0.010309270001016557
+        ],
+        "full_total_setup_seconds": 2.7733789020003314,
+        "native_compiler_seconds": 0.0765581129999191,
+        "actual_compiler_wait_seconds": 0.07847899599983066,
+        "native_source_sha256": "08a0d2cd86bcd39426653102a466fac1c9a11e73afaafed7805a1d07f91fb171",
+        "compiler_version": "cc (Ubuntu 13.3.0-6ubuntu2~24.04) 13.3.0",
+        "python": "3.12.14",
+        "numpy": "2.3.5",
+        "scipy": "1.17.0",
+        "platform": "Linux x86_64",
+        "measurement": "warmed alternating trials; one BLAS thread; domain checks and initial encoding included; complete output materialization",
+        "cost_scope": "in-process sampled-source conversion, proposal search, independent replay, compiler and preparation; interpreter/dependency imports, file I/O, upstream MAT acquisition/sampling excluded",
+        "guarantee": "accepted reduced native outputs including feedthrough versus the replayed engineering reference for every admitted stored input in boxes; finite horizon",
+        "engineering_reference": "original discrete descriptor",
+        "continuous_sampling_bounded": null,
+        "baseline": "SciPy square-root balanced truncation, accepted by same combined box/native error test; full dense NumPy BLAS reference",
+        "projection": "requested total costs extrapolate measured batch medians; they are not a sustained run",
+        "provenance": {
+          "mat_sha256": "00fbaa8143d55bd8e663dfc607b94a9b8fa66e7430b10e9644ac611b7ff59b7a",
+          "sampling_interval": null,
+          "output_divisor": "1",
+          "scope": "exact stored coefficients; bounded ZOH sampling when replay reports bounded; sampling/physical errors otherwise unbounded; physical calibration always unbounded"
+        }
+      },
+      "scope": "public discrete descriptor; physical output units; experimental [-1,1] boxes and twenty transitions"
+    },
+    "feedthrough-stress": {
+      "scope": "synthetic dynamics and feedthrough using the public heat-disc principal mass block; not an intact public physical model",
+      "import_including_certification_seconds": 0.02747145800094586,
+      "sampling": {
+        "status": "bounded",
+        "terms": 10,
+        "tail_inf": "1/79228162514264337593543950336",
+        "A_error_inf": "2615183487367/79228162514264337593543950336",
+        "B_error_inf": "12908948239/79228162514264337593543950336",
+        "method": "exact rational Taylor polynomial and geometric tail; includes stored coefficient discrepancy"
+      },
+      "evaluation": {
+        "schema": "dynacomp.pilot-results/1",
+        "name": "feedthrough-stress",
+        "source_sha256": "511396381317c01f7760f31e418636ef647072b84a748cad52bfc9f87a3ff361",
+        "workload_sha256": "6ddde1d51f6300dd7d1db195755116d526f91a6338aecc07a5642365aa03c285",
+        "states": 4,
+        "steps": 20,
+        "queries": 256,
+        "trials": 7,
+        "seed": 20261010,
+        "tolerance": "1/100",
+        "methods": {
+          "observable": {
+            "accepted": true,
+            "search_seconds": 0.03570428999955766,
+            "history": [
+              {
+                "rank": 1,
+                "model_status": "refuted",
+                "model_lower": "132653914740514657/2305843009213693952",
+                "model_upper": "530615658962059329/9223372036854775808",
+                "combined_upper": null,
+                "status": "refuted"
+              },
+              {
+                "rank": 2,
+                "model_status": "tolerance_met",
+                "model_lower": "773847117915235/9223372036854775808",
+                "model_upper": "773847117916133/9223372036854775808",
+                "combined_upper": "3323648063875505472929639/39614081257132168796771975168",
+                "status": "tolerance_met",
+                "engineering_upper": "830912015974170865449337/9903520314283042199192993792"
+              }
+            ],
+            "failure": null,
+            "rank": 2,
+            "combined_upper": "830912015974170865449337/9903520314283042199192993792",
+            "model_upper": "773847117916133/9223372036854775808",
+            "execution_upper": "1198322741908503/79228162514264337593543950336",
+            "engineering": {
+              "schema": "dynacomp.engineering-output/1",
+              "feedthrough_words": [
+                [
+                  4598175219545276416
+                ]
+              ],
+              "additional_output_upper": [
+                [
+                  "7696581394433/39614081257132168796771975168"
+                ],
+                [
+                  "18044498099885/79228162514264337593543950336"
+                ],
+                [
+                  "20705768982501/79228162514264337593543950336"
+                ],
+                [
+                  "5844248764227/19807040628566084398385987584"
+                ],
+                [
+                  "13029097987553/39614081257132168796771975168"
+                ],
+                [
+                  "28749391420945/79228162514264337593543950336"
+                ],
+                [
+                  "7862650277545/19807040628566084398385987584"
+                ],
+                [
+                  "2135115299407/4951760157141521099596496896"
+                ],
+                [
+                  "18441571120823/39614081257132168796771975168"
+                ],
+                [
+                  "39614513275331/79228162514264337593543950336"
+                ],
+                [
+                  "21177988867709/39614081257132168796771975168"
+                ],
+                [
+                  "11276888874475/19807040628566084398385987584"
+                ],
+                [
+                  "47869266470969/79228162514264337593543950336"
+                ],
+                [
+                  "50641130595061/79228162514264337593543950336"
+                ],
+                [
+                  "13355791960727/19807040628566084398385987584"
+                ],
+                [
+                  "878365597181/1237940039285380274899124224"
+                ],
+                [
+                  "29508920881279/39614081257132168796771975168"
+                ],
+                [
+                  "61830518541743/79228162514264337593543950336"
+                ],
+                [
+                  "32326724329771/39614081257132168796771975168"
+                ],
+                [
+                  "33743326125451/39614081257132168796771975168"
+                ],
+                [
+                  "35165075086205/39614081257132168796771975168"
+                ]
+              ],
+              "import_output_upper": [
+                [
+                  "0"
+                ],
+                [
+                  "1314046217803/39614081257132168796771975168"
+                ],
+                [
+                  "1316527222597/19807040628566084398385987584"
+                ],
+                [
+                  "7914068889593/79228162514264337593543950336"
+                ],
+                [
+                  "10571991990457/79228162514264337593543950336"
+                ],
+                [
+                  "13239897782253/79228162514264337593543950336"
+                ],
+                [
+                  "3979451471585/19807040628566084398385987584"
+                ],
+                [
+                  "1162858497263/4951760157141521099596496896"
+                ],
+                [
+                  "10651853838765/39614081257132168796771975168"
+                ],
+                [
+                  "24011740768209/79228162514264337593543950336"
+                ],
+                [
+                  "3341231872303/9903520314283042199192993792"
+                ],
+                [
+                  "29458070090681/79228162514264337593543950336"
+                ],
+                [
+                  "32196405919861/79228162514264337593543950336"
+                ],
+                [
+                  "34944882313269/79228162514264337593543950336"
+                ],
+                [
+                  "37703519150681/79228162514264337593543950336"
+                ],
+                [
+                  "20236168172197/39614081257132168796771975168"
+                ],
+                [
+                  "21625676919637/39614081257132168796771975168"
+                ],
+                [
+                  "23020295806403/39614081257132168796771975168"
+                ],
+                [
+                  "48840069675141/79228162514264337593543950336"
+                ],
+                [
+                  "25824904034573/39614081257132168796771975168"
+                ],
+                [
+                  "27234913435227/39614081257132168796771975168"
+                ]
+              ],
+              "engineering_import_bounded": true,
+              "continuous_sampling_bounded": true,
+              "reference": "continuous ZOH samples",
+              "semantics": "right-continuous-terminal-hold"
+            },
+            "engineering_upper": "830912015974170865449337/9903520314283042199192993792",
+            "packet": "observable.json.gz",
+            "packet_sha256": "b0ee286a60909196e7c74fcb784c4f368ebf6ba17539adabdb2bdf6ffc950a0f",
+            "state_output_combined_upper": "3323648063875505472929639/39614081257132168796771975168",
+            "native_preparation_and_replay_seconds": 0.007833539000785095,
+            "standalone_replay_adjustment_seconds": 0.0,
+            "cost_policy": "conservative standalone estimate; balanced charged an extra empty-cache replay to cover the shared source pass",
+            "total_setup_seconds": 0.14725870199981728,
+            "median_batch_seconds": 0.00010670099982235115,
+            "raw_batch_seconds": [
+              0.00019094900017080363,
+              0.00010670099982235115,
+              0.00011785800052166451,
+              0.00015853000149945728,
+              0.0001062500014086254,
+              0.00010209500032942742,
+              0.00010271599967381917
+            ],
+            "max_observed_difference_from_full_blas": 8.390067264207879e-05,
+            "observed_difference_exceeds_bound": false,
+            "diagnostic_scope": "full BLAS reference has uncertified rounding; sampled difference is diagnostic only",
+            "break_even_batches": 1253.2579704021948,
+            "requested_batches": 1000,
+            "full_total_seconds": 0.22982067146767804,
+            "reduced_total_seconds": 0.2539597018221684,
+            "total_speedup": 0.9049493672370376,
+            "warm_speedup": 1.8932812326461386
+          },
+          "balanced": {
+            "accepted": true,
+            "search_seconds": 0.04142071800015401,
+            "history": [
+              {
+                "rank": 1,
+                "model_status": "refuted",
+                "model_lower": "22799096322329612523/18446744073709551616",
+                "model_upper": "22799096322329612531/18446744073709551616",
+                "combined_upper": null,
+                "status": "refuted"
+              },
+              {
+                "rank": 2,
+                "model_status": "refuted",
+                "model_lower": "1132857655477102313/2305843009213693952",
+                "model_upper": "566428827738551157/1152921504606846976",
+                "combined_upper": null,
+                "status": "refuted"
+              },
+              {
+                "rank": 3,
+                "model_status": "refuted",
+                "model_lower": "45782266557292329/576460752303423488",
+                "model_upper": "183129066229169317/2305843009213693952",
+                "combined_upper": null,
+                "status": "refuted"
+              },
+              {
+                "rank": 4,
+                "model_status": "tolerance_met",
+                "model_lower": "339473/4611686018427387904",
+                "model_upper": "686927/9223372036854775808",
+                "combined_upper": "7037646133183603/39614081257132168796771975168",
+                "status": "tolerance_met",
+                "engineering_upper": "14145622414314853/79228162514264337593543950336"
+              }
+            ],
+            "failure": null,
+            "rank": 4,
+            "combined_upper": "14145622414314853/79228162514264337593543950336",
+            "model_upper": "686927/9223372036854775808",
+            "execution_upper": "4087317133444211/39614081257132168796771975168",
+            "engineering": {
+              "schema": "dynacomp.engineering-output/1",
+              "feedthrough_words": [
+                [
+                  4598175219545276416
+                ]
+              ],
+              "additional_output_upper": [
+                [
+                  "7696581394433/39614081257132168796771975168"
+                ],
+                [
+                  "9022178086211/39614081257132168796771975168"
+                ],
+                [
+                  "5176375108983/19807040628566084398385987584"
+                ],
+                [
+                  "23376615135873/79228162514264337593543950336"
+                ],
+                [
+                  "26057719860753/79228162514264337593543950336"
+                ],
+                [
+                  "28748834231147/79228162514264337593543950336"
+                ],
+                [
+                  "15724988949879/39614081257132168796771975168"
+                ],
+                [
+                  "34161170551453/79228162514264337593543950336"
+                ],
+                [
+                  "4610303987915/9903520314283042199192993792"
+                ],
+                [
+                  "39613781704713/79228162514264337593543950336"
+                ],
+                [
+                  "21177619868649/39614081257132168796771975168"
+                ],
+                [
+                  "45106825815105/79228162514264337593543950336"
+                ],
+                [
+                  "23934279892289/39614081257132168796771975168"
+                ],
+                [
+                  "50640461524617/79228162514264337593543950336"
+                ],
+                [
+                  "26711275473317/39614081257132168796771975168"
+                ],
+                [
+                  "56214847994597/79228162514264337593543950336"
+                ],
+                [
+                  "7377171580635/9903520314283042199192993792"
+                ],
+                [
+                  "3864384056707/4951760157141521099596496896"
+                ],
+                [
+                  "32326592411613/39614081257132168796771975168"
+                ],
+                [
+                  "16871628116877/19807040628566084398385987584"
+                ],
+                [
+                  "70330147947647/79228162514264337593543950336"
+                ]
+              ],
+              "import_output_upper": [
+                [
+                  "0"
+                ],
+                [
+                  "1314046217803/39614081257132168796771975168"
+                ],
+                [
+                  "1316527222597/19807040628566084398385987584"
+                ],
+                [
+                  "7914068889593/79228162514264337593543950336"
+                ],
+                [
+                  "10571991990457/79228162514264337593543950336"
+                ],
+                [
+                  "13239897782253/79228162514264337593543950336"
+                ],
+                [
+                  "3979451471585/19807040628566084398385987584"
+                ],
+                [
+                  "1162858497263/4951760157141521099596496896"
+                ],
+                [
+                  "10651853838765/39614081257132168796771975168"
+                ],
+                [
+                  "24011740768209/79228162514264337593543950336"
+                ],
+                [
+                  "3341231872303/9903520314283042199192993792"
+                ],
+                [
+                  "29458070090681/79228162514264337593543950336"
+                ],
+                [
+                  "32196405919861/79228162514264337593543950336"
+                ],
+                [
+                  "34944882313269/79228162514264337593543950336"
+                ],
+                [
+                  "37703519150681/79228162514264337593543950336"
+                ],
+                [
+                  "20236168172197/39614081257132168796771975168"
+                ],
+                [
+                  "21625676919637/39614081257132168796771975168"
+                ],
+                [
+                  "23020295806403/39614081257132168796771975168"
+                ],
+                [
+                  "48840069675141/79228162514264337593543950336"
+                ],
+                [
+                  "25824904034573/39614081257132168796771975168"
+                ],
+                [
+                  "27234913435227/39614081257132168796771975168"
+                ]
+              ],
+              "engineering_import_bounded": true,
+              "continuous_sampling_bounded": true,
+              "reference": "continuous ZOH samples",
+              "semantics": "right-continuous-terminal-hold"
+            },
+            "engineering_upper": "14145622414314853/79228162514264337593543950336",
+            "packet": "balanced.json.gz",
+            "packet_sha256": "998e88c57e5feba5d323036154a21782e3e60bac5ad7111f6bd42f582436a0f2",
+            "state_output_combined_upper": "7037646133183603/39614081257132168796771975168",
+            "native_preparation_and_replay_seconds": 0.012211515999297262,
+            "standalone_replay_adjustment_seconds": 0.0037424460006150184,
+            "cost_policy": "conservative standalone estimate; balanced charged an extra empty-cache replay to cover the shared source pass",
+            "total_setup_seconds": 0.16109555299954081,
+            "median_batch_seconds": 0.00019414300004427787,
+            "raw_batch_seconds": [
+              0.000199361000341014,
+              0.00019414300004427787,
+              0.0001907679998112144,
+              0.00032422999902337324,
+              0.0001893860007839976,
+              0.00020739300089189783,
+              0.00019003700072062202
+            ],
+            "max_observed_difference_from_full_blas": 7.682743330406083e-14,
+            "observed_difference_exceeds_bound": false,
+            "diagnostic_scope": "full BLAS reference has uncertified rounding; sampled difference is diagnostic only",
+            "break_even_batches": 16932.148732414935,
+            "requested_batches": 1000,
+            "full_total_seconds": 0.22982067146767804,
+            "reduced_total_seconds": 0.3552385530438187,
+            "total_speedup": 0.6469474371474812,
+            "warm_speedup": 1.0405474337069232
+          }
+        },
+        "rejected_methods": {},
+        "full_blas_setup_seconds": 0.0006429109998862259,
+        "full_blas_median_batch_seconds": 0.0002020150004682364,
+        "full_blas_raw_batch_seconds": [
+          0.00025341299988212995,
+          0.00029683899992960505,
+          0.0002020150004682364,
+          0.00020956699881935492,
+          0.00019623600019258447,
+          0.00019821900059469044,
+          0.00019541500114428345
+        ],
+        "full_total_setup_seconds": 0.027805670999441645,
+        "native_compiler_seconds": 0.0765581129999191,
+        "actual_compiler_wait_seconds": 1.4319994079414755e-06,
+        "native_source_sha256": "08a0d2cd86bcd39426653102a466fac1c9a11e73afaafed7805a1d07f91fb171",
+        "compiler_version": "cc (Ubuntu 13.3.0-6ubuntu2~24.04) 13.3.0",
+        "python": "3.12.14",
+        "numpy": "2.3.5",
+        "scipy": "1.17.0",
+        "platform": "Linux x86_64",
+        "measurement": "warmed alternating trials; one BLAS thread; domain checks and initial encoding included; complete output materialization",
+        "cost_scope": "in-process sampled-source conversion, proposal search, independent replay, compiler and preparation; interpreter/dependency imports, file I/O, upstream MAT acquisition/sampling excluded",
+        "guarantee": "accepted reduced native outputs including feedthrough versus the replayed engineering reference for every admitted stored input in boxes; finite horizon",
+        "engineering_reference": "continuous ZOH samples",
+        "continuous_sampling_bounded": true,
+        "baseline": "SciPy square-root balanced truncation, accepted by same combined box/native error test; full dense NumPy BLAS reference",
+        "projection": "requested total costs extrapolate measured batch medians; they are not a sustained run",
+        "provenance": {
+          "mat_sha256": "b10ab7640f3752848dc240faa1071ea8eb03ed59c7b1366b3674ca2c7f697ce6",
+          "sampling_interval": "1/10",
+          "output_divisor": "1",
+          "scope": "exact stored coefficients; bounded ZOH sampling when replay reports bounded; sampling/physical errors otherwise unbounded; physical calibration always unbounded"
+        }
+      },
+      "methods": {
+        "observable": {
+          "accepted": true,
+          "search_seconds": 0.03570428999955766,
+          "history": [
+            {
+              "rank": 1,
+              "model_status": "refuted",
+              "model_lower": "132653914740514657/2305843009213693952",
+              "model_upper": "530615658962059329/9223372036854775808",
+              "combined_upper": null,
+              "status": "refuted"
+            },
+            {
+              "rank": 2,
+              "model_status": "tolerance_met",
+              "model_lower": "773847117915235/9223372036854775808",
+              "model_upper": "773847117916133/9223372036854775808",
+              "combined_upper": "3323648063875505472929639/39614081257132168796771975168",
+              "status": "tolerance_met",
+              "engineering_upper": "830912015974170865449337/9903520314283042199192993792"
+            }
+          ],
+          "failure": null,
+          "rank": 2,
+          "combined_upper": "3323648063875505472929639/39614081257132168796771975168",
+          "model_upper": "773847117916133/9223372036854775808",
+          "execution_upper": "1198322741908503/79228162514264337593543950336",
+          "engineering": {
+            "schema": "dynacomp.engineering-output/1",
+            "feedthrough_words": [
+              [
+                4598175219545276416
+              ]
+            ],
+            "additional_output_upper": [
+              [
+                "7696581394433/39614081257132168796771975168"
+              ],
+              [
+                "18044498099885/79228162514264337593543950336"
+              ],
+              [
+                "20705768982501/79228162514264337593543950336"
+              ],
+              [
+                "5844248764227/19807040628566084398385987584"
+              ],
+              [
+                "13029097987553/39614081257132168796771975168"
+              ],
+              [
+                "28749391420945/79228162514264337593543950336"
+              ],
+              [
+                "7862650277545/19807040628566084398385987584"
+              ],
+              [
+                "2135115299407/4951760157141521099596496896"
+              ],
+              [
+                "18441571120823/39614081257132168796771975168"
+              ],
+              [
+                "39614513275331/79228162514264337593543950336"
+              ],
+              [
+                "21177988867709/39614081257132168796771975168"
+              ],
+              [
+                "11276888874475/19807040628566084398385987584"
+              ],
+              [
+                "47869266470969/79228162514264337593543950336"
+              ],
+              [
+                "50641130595061/79228162514264337593543950336"
+              ],
+              [
+                "13355791960727/19807040628566084398385987584"
+              ],
+              [
+                "878365597181/1237940039285380274899124224"
+              ],
+              [
+                "29508920881279/39614081257132168796771975168"
+              ],
+              [
+                "61830518541743/79228162514264337593543950336"
+              ],
+              [
+                "32326724329771/39614081257132168796771975168"
+              ],
+              [
+                "33743326125451/39614081257132168796771975168"
+              ],
+              [
+                "35165075086205/39614081257132168796771975168"
+              ]
+            ],
+            "import_output_upper": [
+              [
+                "0"
+              ],
+              [
+                "1314046217803/39614081257132168796771975168"
+              ],
+              [
+                "1316527222597/19807040628566084398385987584"
+              ],
+              [
+                "7914068889593/79228162514264337593543950336"
+              ],
+              [
+                "10571991990457/79228162514264337593543950336"
+              ],
+              [
+                "13239897782253/79228162514264337593543950336"
+              ],
+              [
+                "3979451471585/19807040628566084398385987584"
+              ],
+              [
+                "1162858497263/4951760157141521099596496896"
+              ],
+              [
+                "10651853838765/39614081257132168796771975168"
+              ],
+              [
+                "24011740768209/79228162514264337593543950336"
+              ],
+              [
+                "3341231872303/9903520314283042199192993792"
+              ],
+              [
+                "29458070090681/79228162514264337593543950336"
+              ],
+              [
+                "32196405919861/79228162514264337593543950336"
+              ],
+              [
+                "34944882313269/79228162514264337593543950336"
+              ],
+              [
+                "37703519150681/79228162514264337593543950336"
+              ],
+              [
+                "20236168172197/39614081257132168796771975168"
+              ],
+              [
+                "21625676919637/39614081257132168796771975168"
+              ],
+              [
+                "23020295806403/39614081257132168796771975168"
+              ],
+              [
+                "48840069675141/79228162514264337593543950336"
+              ],
+              [
+                "25824904034573/39614081257132168796771975168"
+              ],
+              [
+                "27234913435227/39614081257132168796771975168"
+              ]
+            ],
+            "engineering_import_bounded": true,
+            "continuous_sampling_bounded": true,
+            "reference": "continuous ZOH samples",
+            "semantics": "right-continuous-terminal-hold"
+          },
+          "engineering_upper": "830912015974170865449337/9903520314283042199192993792",
+          "packet": "observable.json.gz",
+          "packet_sha256": "b0ee286a60909196e7c74fcb784c4f368ebf6ba17539adabdb2bdf6ffc950a0f"
+        },
+        "balanced": {
+          "accepted": true,
+          "search_seconds": 0.04142071800015401,
+          "history": [
+            {
+              "rank": 1,
+              "model_status": "refuted",
+              "model_lower": "22799096322329612523/18446744073709551616",
+              "model_upper": "22799096322329612531/18446744073709551616",
+              "combined_upper": null,
+              "status": "refuted"
+            },
+            {
+              "rank": 2,
+              "model_status": "refuted",
+              "model_lower": "1132857655477102313/2305843009213693952",
+              "model_upper": "566428827738551157/1152921504606846976",
+              "combined_upper": null,
+              "status": "refuted"
+            },
+            {
+              "rank": 3,
+              "model_status": "refuted",
+              "model_lower": "45782266557292329/576460752303423488",
+              "model_upper": "183129066229169317/2305843009213693952",
+              "combined_upper": null,
+              "status": "refuted"
+            },
+            {
+              "rank": 4,
+              "model_status": "tolerance_met",
+              "model_lower": "339473/4611686018427387904",
+              "model_upper": "686927/9223372036854775808",
+              "combined_upper": "7037646133183603/39614081257132168796771975168",
+              "status": "tolerance_met",
+              "engineering_upper": "14145622414314853/79228162514264337593543950336"
+            }
+          ],
+          "failure": null,
+          "rank": 4,
+          "combined_upper": "7037646133183603/39614081257132168796771975168",
+          "model_upper": "686927/9223372036854775808",
+          "execution_upper": "4087317133444211/39614081257132168796771975168",
+          "engineering": {
+            "schema": "dynacomp.engineering-output/1",
+            "feedthrough_words": [
+              [
+                4598175219545276416
+              ]
+            ],
+            "additional_output_upper": [
+              [
+                "7696581394433/39614081257132168796771975168"
+              ],
+              [
+                "9022178086211/39614081257132168796771975168"
+              ],
+              [
+                "5176375108983/19807040628566084398385987584"
+              ],
+              [
+                "23376615135873/79228162514264337593543950336"
+              ],
+              [
+                "26057719860753/79228162514264337593543950336"
+              ],
+              [
+                "28748834231147/79228162514264337593543950336"
+              ],
+              [
+                "15724988949879/39614081257132168796771975168"
+              ],
+              [
+                "34161170551453/79228162514264337593543950336"
+              ],
+              [
+                "4610303987915/9903520314283042199192993792"
+              ],
+              [
+                "39613781704713/79228162514264337593543950336"
+              ],
+              [
+                "21177619868649/39614081257132168796771975168"
+              ],
+              [
+                "45106825815105/79228162514264337593543950336"
+              ],
+              [
+                "23934279892289/39614081257132168796771975168"
+              ],
+              [
+                "50640461524617/79228162514264337593543950336"
+              ],
+              [
+                "26711275473317/39614081257132168796771975168"
+              ],
+              [
+                "56214847994597/79228162514264337593543950336"
+              ],
+              [
+                "7377171580635/9903520314283042199192993792"
+              ],
+              [
+                "3864384056707/4951760157141521099596496896"
+              ],
+              [
+                "32326592411613/39614081257132168796771975168"
+              ],
+              [
+                "16871628116877/19807040628566084398385987584"
+              ],
+              [
+                "70330147947647/79228162514264337593543950336"
+              ]
+            ],
+            "import_output_upper": [
+              [
+                "0"
+              ],
+              [
+                "1314046217803/39614081257132168796771975168"
+              ],
+              [
+                "1316527222597/19807040628566084398385987584"
+              ],
+              [
+                "7914068889593/79228162514264337593543950336"
+              ],
+              [
+                "10571991990457/79228162514264337593543950336"
+              ],
+              [
+                "13239897782253/79228162514264337593543950336"
+              ],
+              [
+                "3979451471585/19807040628566084398385987584"
+              ],
+              [
+                "1162858497263/4951760157141521099596496896"
+              ],
+              [
+                "10651853838765/39614081257132168796771975168"
+              ],
+              [
+                "24011740768209/79228162514264337593543950336"
+              ],
+              [
+                "3341231872303/9903520314283042199192993792"
+              ],
+              [
+                "29458070090681/79228162514264337593543950336"
+              ],
+              [
+                "32196405919861/79228162514264337593543950336"
+              ],
+              [
+                "34944882313269/79228162514264337593543950336"
+              ],
+              [
+                "37703519150681/79228162514264337593543950336"
+              ],
+              [
+                "20236168172197/39614081257132168796771975168"
+              ],
+              [
+                "21625676919637/39614081257132168796771975168"
+              ],
+              [
+                "23020295806403/39614081257132168796771975168"
+              ],
+              [
+                "48840069675141/79228162514264337593543950336"
+              ],
+              [
+                "25824904034573/39614081257132168796771975168"
+              ],
+              [
+                "27234913435227/39614081257132168796771975168"
+              ]
+            ],
+            "engineering_import_bounded": true,
+            "continuous_sampling_bounded": true,
+            "reference": "continuous ZOH samples",
+            "semantics": "right-continuous-terminal-hold"
+          },
+          "engineering_upper": "14145622414314853/79228162514264337593543950336",
+          "packet": "balanced.json.gz",
+          "packet_sha256": "998e88c57e5feba5d323036154a21782e3e60bac5ad7111f6bd42f582436a0f2"
+        }
+      }
+    },
+    "peec": {
+      "refused": true,
+      "reason": "Unsupported descriptor: above 32 states require diagonal E or strict row diagonal dominance; singular systems are not approximated",
+      "seconds": 1.3762923310005135,
+      "mat_sha256": "89daffedf5e21abe15d9731fbd7741cd5504cebc84d806237d460bfb1ab7db6b"
+    }
+  },
+  "regressions": {
+    "heat-cont": {
+      "workload_sha256": "c6318bf6c17b91a8d4feca07ba707e2d46c9d7867f0ad4bea39cc8d47427fc0c",
+      "original_results_sha256": "0f9defa327a5b189f432db9846f508adcacd74966fe6d1afe62861a5f22bb9f0",
+      "acceptance": {
+        "observable": {
+          "unchanged_mathematical_acceptance": true,
+          "rank": 7,
+          "combined_upper": "276856249177588206928033915/39614081257132168796771975168"
+        },
+        "balanced": {
+          "unchanged_mathematical_acceptance": true,
+          "rank": 9,
+          "combined_upper": "47500412042869142673978677/79228162514264337593543950336"
+        }
+      },
+      "original_warm_speedups": {
+        "observable": 5.892494449459342,
+        "balanced": 4.708119832211548
+      },
+      "new_evaluation": {
+        "schema": "dynacomp.pilot-results/1",
+        "name": "SLICOT heat-cont",
+        "source_sha256": "481b05e7dea1c05cf7c24e1775818bd87f890d111a0d60d21c5158f61d186048",
+        "workload_sha256": "c6318bf6c17b91a8d4feca07ba707e2d46c9d7867f0ad4bea39cc8d47427fc0c",
+        "states": 200,
+        "steps": 20,
+        "queries": 256,
+        "trials": 7,
+        "seed": 20261010,
+        "tolerance": "1/100",
+        "methods": {
+          "observable": {
+            "accepted": true,
+            "search_seconds": 1.4296654079989821,
+            "history": [
+              {
+                "rank": 1,
+                "model_status": "refuted",
+                "model_lower": "1152897772871962265/1152921504606846976",
+                "model_upper": "9223182182975698883/9223372036854775808",
+                "combined_upper": null,
+                "status": "refuted"
+              },
+              {
+                "rank": 2,
+                "model_status": "refuted",
+                "model_lower": "16144369422115315101/18446744073709551616",
+                "model_upper": "16144369422115324021/18446744073709551616",
+                "combined_upper": null,
+                "status": "refuted"
+              },
+              {
+                "rank": 3,
+                "model_status": "refuted",
+                "model_lower": "3193678551963716865/4611686018427387904",
+                "model_upper": "6387357103927434195/9223372036854775808",
+                "combined_upper": null,
+                "status": "refuted"
+              },
+              {
+                "rank": 4,
+                "model_status": "refuted",
+                "model_lower": "2965918496801182133/18446744073709551616",
+                "model_upper": "2965918496801188295/18446744073709551616",
+                "combined_upper": null,
+                "status": "refuted"
+              },
+              {
+                "rank": 5,
+                "model_status": "refuted",
+                "model_lower": "434607397285991995/9223372036854775808",
+                "model_upper": "848842572824205/18014398509481984",
+                "combined_upper": null,
+                "status": "refuted"
+              },
+              {
+                "rank": 6,
+                "model_status": "refuted",
+                "model_lower": "411055352928863059/18446744073709551616",
+                "model_upper": "411055352928868161/18446744073709551616",
+                "combined_upper": null,
+                "status": "refuted"
+              },
+              {
+                "rank": 7,
+                "model_status": "tolerance_met",
+                "model_lower": "128921237378595839/18446744073709551616",
+                "model_upper": "128921237378609977/18446744073709551616",
+                "combined_upper": "276856249177588206928033915/39614081257132168796771975168",
+                "status": "tolerance_met",
+                "engineering_upper": "276856249177588206928033915/39614081257132168796771975168"
+              }
+            ],
+            "failure": null,
+            "rank": 7,
+            "combined_upper": "276856249177588206928033915/39614081257132168796771975168",
+            "model_upper": "128921237378609977/18446744073709551616",
+            "execution_upper": "38137706905145577/39614081257132168796771975168",
+            "engineering": {
+              "schema": "dynacomp.engineering-output/1",
+              "feedthrough_words": [
+                [
+                  0
+                ]
+              ],
+              "additional_output_upper": [
+                [
+                  "0"
+                ],
+                [
+                  "0"
+                ],
+                [
+                  "0"
+                ],
+                [
+                  "0"
+                ],
+                [
+                  "0"
+                ],
+                [
+                  "0"
+                ],
+                [
+                  "0"
+                ],
+                [
+                  "0"
+                ],
+                [
+                  "0"
+                ],
+                [
+                  "0"
+                ],
+                [
+                  "0"
+                ],
+                [
+                  "0"
+                ],
+                [
+                  "0"
+                ],
+                [
+                  "0"
+                ],
+                [
+                  "0"
+                ],
+                [
+                  "0"
+                ],
+                [
+                  "0"
+                ],
+                [
+                  "0"
+                ],
+                [
+                  "0"
+                ],
+                [
+                  "0"
+                ],
+                [
+                  "0"
+                ]
+              ],
+              "import_output_upper": [
+                [
+                  "0"
+                ],
+                [
+                  "0"
+                ],
+                [
+                  "0"
+                ],
+                [
+                  "0"
+                ],
+                [
+                  "0"
+                ],
+                [
+                  "0"
+                ],
+                [
+                  "0"
+                ],
+                [
+                  "0"
+                ],
+                [
+                  "0"
+                ],
+                [
+                  "0"
+                ],
+                [
+                  "0"
+                ],
+                [
+                  "0"
+                ],
+                [
+                  "0"
+                ],
+                [
+                  "0"
+                ],
+                [
+                  "0"
+                ],
+                [
+                  "0"
+                ],
+                [
+                  "0"
+                ],
+                [
+                  "0"
+                ],
+                [
+                  "0"
+                ],
+                [
+                  "0"
+                ],
+                [
+                  "0"
+                ]
+              ],
+              "engineering_import_bounded": true,
+              "continuous_sampling_bounded": null,
+              "reference": "exact stored discrete coefficients",
+              "semantics": "right-continuous-terminal-hold"
+            },
+            "engineering_upper": "276856249177588206928033915/39614081257132168796771975168",
+            "packet": "observable.json.gz",
+            "packet_sha256": "e028ac381c8ce75324cec5c8ccce27d485328512cc744518b27089cc3def8fba",
+            "state_output_combined_upper": "276856249177588206928033915/39614081257132168796771975168",
+            "native_preparation_and_replay_seconds": 0.8408218439981283,
+            "standalone_replay_adjustment_seconds": 0.0,
+            "cost_policy": "conservative standalone estimate; balanced charged an extra empty-cache replay to cover the shared source pass",
+            "total_setup_seconds": 2.5955965079974703,
+            "median_batch_seconds": 0.0016199479996430455,
+            "raw_batch_seconds": [
+              0.0016199479996430455,
+              0.0015886910005065147,
+              0.0019501170008879853,
+              0.0017345920005027438,
+              0.0016103339985420462,
+              0.0015711939995526336,
+              0.00199445399994147
+            ],
+            "max_observed_difference_from_full_blas": 0.006988834282270706,
+            "observed_difference_exceeds_bound": false,
+            "diagnostic_scope": "full BLAS reference has uncertified rounding; sampled difference is diagnostic only",
+            "break_even_batches": 201.75356546942126,
+            "requested_batches": 1000,
+            "full_total_seconds": 11.662688830516345,
+            "reduced_total_seconds": 4.215544507640516,
+            "total_speedup": 2.766591316822337,
+            "warm_speedup": 6.759061404396006
+          },
+          "balanced": {
+            "accepted": true,
+            "search_seconds": 1.357639416000893,
+            "history": [
+              {
+                "rank": 1,
+                "model_status": "refuted",
+                "model_lower": "32236863703173053565/18446744073709551616",
+                "model_upper": "32236863703173053965/18446744073709551616",
+                "combined_upper": null,
+                "status": "refuted"
+              },
+              {
+                "rank": 2,
+                "model_status": "refuted",
+                "model_lower": "8926736318946462959/4611686018427387904",
+                "model_upper": "8926736318946463059/4611686018427387904",
+                "combined_upper": null,
+                "status": "refuted"
+              },
+              {
+                "rank": 3,
+                "model_status": "refuted",
+                "model_lower": "9987860482489466203/9223372036854775808",
+                "model_upper": "9987860482489466403/9223372036854775808",
+                "combined_upper": null,
+                "status": "refuted"
+              },
+              {
+                "rank": 4,
+                "model_status": "refuted",
+                "model_lower": "9625130046798734955/9223372036854775808",
+                "model_upper": "9625130046798735155/9223372036854775808",
+                "combined_upper": null,
+                "status": "refuted"
+              },
+              {
+                "rank": 5,
+                "model_status": "refuted",
+                "model_lower": "12365472972872512435/18446744073709551616",
+                "model_upper": "12365472972872514129/18446744073709551616",
+                "combined_upper": null,
+                "status": "refuted"
+              },
+              {
+                "rank": 6,
+                "model_status": "refuted",
+                "model_lower": "4111994893550376227/18446744073709551616",
+                "model_upper": "4111994893550379101/18446744073709551616",
+                "combined_upper": null,
+                "status": "refuted"
+              },
+              {
+                "rank": 7,
+                "model_status": "refuted",
+                "model_lower": "237161457008620403/18446744073709551616",
+                "model_upper": "237161457008631901/18446744073709551616",
+                "combined_upper": null,
+                "status": "refuted"
+              },
+              {
+                "rank": 8,
+                "model_status": "refuted",
+                "model_lower": "442819529360158719/18446744073709551616",
+                "model_upper": "442819529360176293/18446744073709551616",
+                "combined_upper": null,
+                "status": "refuted"
+              },
+              {
+                "rank": 9,
+                "model_status": "tolerance_met",
+                "model_lower": "11059551502692133/18446744073709551616",
+                "model_upper": "11059551502714375/18446744073709551616",
+                "combined_upper": "47500412042869142673978677/79228162514264337593543950336",
+                "status": "tolerance_met",
+                "engineering_upper": "47500412042869142673978677/79228162514264337593543950336"
+              }
+            ],
+            "failure": null,
+            "rank": 9,
+            "combined_upper": "47500412042869142673978677/79228162514264337593543950336",
+            "model_upper": "11059551502714375/18446744073709551616",
+            "execution_upper": "306023977532582109/79228162514264337593543950336",
+            "engineering": {
+              "schema": "dynacomp.engineering-output/1",
+              "feedthrough_words": [
+                [
+                  0
+                ]
+              ],
+              "additional_output_upper": [
+                [
+                  "0"
+                ],
+                [
+                  "0"
+                ],
+                [
+                  "0"
+                ],
+                [
+                  "0"
+                ],
+                [
+                  "0"
+                ],
+                [
+                  "0"
+                ],
+                [
+                  "0"
+                ],
+                [
+                  "0"
+                ],
+                [
+                  "0"
+                ],
+                [
+                  "0"
+                ],
+                [
+                  "0"
+                ],
+                [
+                  "0"
+                ],
+                [
+                  "0"
+                ],
+                [
+                  "0"
+                ],
+                [
+                  "0"
+                ],
+                [
+                  "0"
+                ],
+                [
+                  "0"
+                ],
+                [
+                  "0"
+                ],
+                [
+                  "0"
+                ],
+                [
+                  "0"
+                ],
+                [
+                  "0"
+                ]
+              ],
+              "import_output_upper": [
+                [
+                  "0"
+                ],
+                [
+                  "0"
+                ],
+                [
+                  "0"
+                ],
+                [
+                  "0"
+                ],
+                [
+                  "0"
+                ],
+                [
+                  "0"
+                ],
+                [
+                  "0"
+                ],
+                [
+                  "0"
+                ],
+                [
+                  "0"
+                ],
+                [
+                  "0"
+                ],
+                [
+                  "0"
+                ],
+                [
+                  "0"
+                ],
+                [
+                  "0"
+                ],
+                [
+                  "0"
+                ],
+                [
+                  "0"
+                ],
+                [
+                  "0"
+                ],
+                [
+                  "0"
+                ],
+                [
+                  "0"
+                ],
+                [
+                  "0"
+                ],
+                [
+                  "0"
+                ],
+                [
+                  "0"
+                ]
+              ],
+              "engineering_import_bounded": true,
+              "continuous_sampling_bounded": null,
+              "reference": "exact stored discrete coefficients",
+              "semantics": "right-continuous-terminal-hold"
+            },
+            "engineering_upper": "47500412042869142673978677/79228162514264337593543950336",
+            "packet": "balanced.json.gz",
+            "packet_sha256": "5eace61c2d3f814aa928d728eed14246d6973386683dc4651fef2d69023087c4",
+            "state_output_combined_upper": "47500412042869142673978677/79228162514264337593543950336",
+            "native_preparation_and_replay_seconds": 0.6961355120001826,
+            "standalone_replay_adjustment_seconds": 0.6125283450001007,
+            "cost_policy": "conservative standalone estimate; balanced charged an extra empty-cache replay to cover the shared source pass",
+            "total_setup_seconds": 2.9914125290015363,
+            "median_batch_seconds": 0.0025523780004732544,
+            "raw_batch_seconds": [
+              0.0024813399995764485,
+              0.00270312500106229,
+              0.002797978000671719,
+              0.002293276000273181,
+              0.0025523780004732544,
+              0.0025668400012364145,
+              0.0023867470008553937
+            ],
+            "max_observed_difference_from_full_blas": 0.0005995394882976068,
+            "observed_difference_exceeds_bound": false,
+            "diagnostic_scope": "full BLAS reference has uncertified rounding; sampled difference is diagnostic only",
+            "break_even_batches": 271.29513689115345,
+            "requested_batches": 1000,
+            "full_total_seconds": 11.662688830516345,
+            "reduced_total_seconds": 5.543790529474791,
+            "total_speedup": 2.103739087634909,
+            "warm_speedup": 4.289853618659004
+          }
+        },
+        "rejected_methods": {},
+        "full_blas_setup_seconds": 0.46480968600008055,
+        "full_blas_median_batch_seconds": 0.010949328001515823,
+        "full_blas_raw_batch_seconds": [
+          0.01089842100009264,
+          0.010873132001506747,
+          0.010949328001515823,
+          0.01285838299918396,
+          0.010254396998789161,
+          0.011021626000001561,
+          0.01156078199892363
+        ],
+        "full_total_setup_seconds": 0.7133608290005213,
+        "native_compiler_seconds": 0.0765581129999191,
+        "actual_compiler_wait_seconds": 1.1219999578315765e-06,
+        "native_source_sha256": "08a0d2cd86bcd39426653102a466fac1c9a11e73afaafed7805a1d07f91fb171",
+        "compiler_version": "cc (Ubuntu 13.3.0-6ubuntu2~24.04) 13.3.0",
+        "python": "3.12.14",
+        "numpy": "2.3.5",
+        "scipy": "1.17.0",
+        "platform": "Linux x86_64",
+        "measurement": "warmed alternating trials; one BLAS thread; domain checks and initial encoding included; complete output materialization",
+        "cost_scope": "in-process sampled-source conversion, proposal search, independent replay, compiler and preparation; interpreter/dependency imports, file I/O, upstream MAT acquisition/sampling excluded",
+        "guarantee": "accepted reduced native outputs including feedthrough versus the replayed engineering reference for every admitted stored input in boxes; finite horizon",
+        "engineering_reference": "exact stored discrete coefficients",
+        "continuous_sampling_bounded": null,
+        "baseline": "SciPy square-root balanced truncation, accepted by same combined box/native error test; full dense NumPy BLAS reference",
+        "projection": "requested total costs extrapolate measured batch medians; they are not a sustained run",
+        "provenance": {
+          "upstream": "https://github.com/SLICOT/Benchmark-ModelReduction",
+          "commit": "98c1747030c0b1bf48d9353b2dcc9c4583867ca1",
+          "mat_sha256": "351988885ff2768a42896b4901e6d82ca3f42bd36e4df9c686fa12a9c12c533b",
+          "sampled_model_sha256": "481b05e7dea1c05cf7c24e1775818bd87f890d111a0d60d21c5158f61d186048",
+          "scope": "retained sampled normalized-output model; experimental boxes, not measured customer trajectories"
+        }
+      }
+    },
+    "pde": {
+      "workload_sha256": "fcaadd3cbdcaf91643f4614806dbe05e25f15b915ee7b1d0a9bdc37de48ddead",
+      "original_results_sha256": "2b040a69d8d72d1ccb86c4926d6bb622e04c143ffe8d2c45078a7c85e1ebc48e",
+      "acceptance": {
+        "observable": {
+          "unchanged_mathematical_acceptance": true,
+          "rank": 4,
+          "combined_upper": "171422219640430108359381457/79228162514264337593543950336"
+        },
+        "balanced": {
+          "unchanged_mathematical_acceptance": true,
+          "rank": 4,
+          "combined_upper": "121184533512372373852726869/39614081257132168796771975168"
+        }
+      },
+      "original_warm_speedups": {
+        "observable": 5.98985230176841,
+        "balanced": 6.05809999940041
+      },
+      "new_evaluation": {
+        "schema": "dynacomp.pilot-results/1",
+        "name": "SLICOT pde",
+        "source_sha256": "09f536ba79a4b27ffd7742709aada48c06d6cb48cf5fb716032e9ad3d6e24bf4",
+        "workload_sha256": "fcaadd3cbdcaf91643f4614806dbe05e25f15b915ee7b1d0a9bdc37de48ddead",
+        "states": 84,
+        "steps": 20,
+        "queries": 256,
+        "trials": 7,
+        "seed": 20261010,
+        "tolerance": "1/100",
+        "methods": {
+          "observable": {
+            "accepted": true,
+            "search_seconds": 0.3005677729997842,
+            "history": [
+              {
+                "rank": 1,
+                "model_status": "refuted",
+                "model_lower": "4270858203649621413/18446744073709551616",
+                "model_upper": "4270858203649622719/18446744073709551616",
+                "combined_upper": null,
+                "status": "refuted"
+              },
+              {
+                "rank": 2,
+                "model_status": "refuted",
+                "model_lower": "128431021995119855/4611686018427387904",
+                "model_upper": "2006734718673755/72057594037927936",
+                "combined_upper": null,
+                "status": "refuted"
+              },
+              {
+                "rank": 3,
+                "model_status": "refuted",
+                "model_lower": "33470664926266085/2305843009213693952",
+                "model_upper": "133882659705064739/9223372036854775808",
+                "combined_upper": null,
+                "status": "refuted"
+              },
+              {
+                "rank": 4,
+                "model_status": "tolerance_met",
+                "model_lower": "19956172867594909/9223372036854775808",
+                "model_upper": "9978086433798047/4611686018427387904",
+                "combined_upper": "171422219640430108359381457/79228162514264337593543950336",
+                "status": "tolerance_met",
+                "engineering_upper": "171422219640430108359381457/79228162514264337593543950336"
+              }
+            ],
+            "failure": null,
+            "rank": 4,
+            "combined_upper": "171422219640430108359381457/79228162514264337593543950336",
+            "model_upper": "9978086433798047/4611686018427387904",
+            "execution_upper": "779988142101715/39614081257132168796771975168",
+            "engineering": {
+              "schema": "dynacomp.engineering-output/1",
+              "feedthrough_words": [
+                [
+                  0
+                ]
+              ],
+              "additional_output_upper": [
+                [
+                  "0"
+                ],
+                [
+                  "0"
+                ],
+                [
+                  "0"
+                ],
+                [
+                  "0"
+                ],
+                [
+                  "0"
+                ],
+                [
+                  "0"
+                ],
+                [
+                  "0"
+                ],
+                [
+                  "0"
+                ],
+                [
+                  "0"
+                ],
+                [
+                  "0"
+                ],
+                [
+                  "0"
+                ],
+                [
+                  "0"
+                ],
+                [
+                  "0"
+                ],
+                [
+                  "0"
+                ],
+                [
+                  "0"
+                ],
+                [
+                  "0"
+                ],
+                [
+                  "0"
+                ],
+                [
+                  "0"
+                ],
+                [
+                  "0"
+                ],
+                [
+                  "0"
+                ],
+                [
+                  "0"
+                ]
+              ],
+              "import_output_upper": [
+                [
+                  "0"
+                ],
+                [
+                  "0"
+                ],
+                [
+                  "0"
+                ],
+                [
+                  "0"
+                ],
+                [
+                  "0"
+                ],
+                [
+                  "0"
+                ],
+                [
+                  "0"
+                ],
+                [
+                  "0"
+                ],
+                [
+                  "0"
+                ],
+                [
+                  "0"
+                ],
+                [
+                  "0"
+                ],
+                [
+                  "0"
+                ],
+                [
+                  "0"
+                ],
+                [
+                  "0"
+                ],
+                [
+                  "0"
+                ],
+                [
+                  "0"
+                ],
+                [
+                  "0"
+                ],
+                [
+                  "0"
+                ],
+                [
+                  "0"
+                ],
+                [
+                  "0"
+                ],
+                [
+                  "0"
+                ]
+              ],
+              "engineering_import_bounded": true,
+              "continuous_sampling_bounded": null,
+              "reference": "exact stored discrete coefficients",
+              "semantics": "right-continuous-terminal-hold"
+            },
+            "engineering_upper": "171422219640430108359381457/79228162514264337593543950336",
+            "packet": "observable.json.gz",
+            "packet_sha256": "97176dbc751bcf050e335968f2ba932e0f2491e78fff19d79a67bd5951633823",
+            "state_output_combined_upper": "171422219640430108359381457/79228162514264337593543950336",
+            "native_preparation_and_replay_seconds": 0.13962179899863258,
+            "standalone_replay_adjustment_seconds": 0.0,
+            "cost_policy": "conservative standalone estimate; balanced charged an extra empty-cache replay to cover the shared source pass",
+            "total_setup_seconds": 0.560835774997031,
+            "median_batch_seconds": 0.00044193800022185314,
+            "raw_batch_seconds": [
+              0.0004322929999034386,
+              0.0004659650003304705,
+              0.00044193800022185314,
+              0.000540126000487362,
+              0.00043835200085595716,
+              0.00047048200030985754,
+              0.00042405999920447357
+            ],
+            "max_observed_difference_from_full_blas": 0.00216365259775433,
+            "observed_difference_exceeds_bound": false,
+            "diagnostic_scope": "full BLAS reference has uncertified rounding; sampled difference is diagnostic only",
+            "break_even_batches": 251.7942472198178,
+            "requested_batches": 1000,
+            "full_total_seconds": 2.4286219962777977,
+            "reduced_total_seconds": 1.0027737752188841,
+            "total_speedup": 2.421904178485004,
+            "warm_speedup": 5.312120702680342
+          },
+          "balanced": {
+            "accepted": true,
+            "search_seconds": 0.29008005399919057,
+            "history": [
+              {
+                "rank": 1,
+                "model_status": "refuted",
+                "model_lower": "1837263818986156245/9223372036854775808",
+                "model_upper": "1837263818986156329/9223372036854775808",
+                "combined_upper": null,
+                "status": "refuted"
+              },
+              {
+                "rank": 2,
+                "model_status": "refuted",
+                "model_lower": "303246630449769531/9223372036854775808",
+                "model_upper": "303246630449769615/9223372036854775808",
+                "combined_upper": null,
+                "status": "refuted"
+              },
+              {
+                "rank": 3,
+                "model_status": "refuted",
+                "model_lower": "457173311615319691/18446744073709551616",
+                "model_upper": "457173311615319859/18446744073709551616",
+                "combined_upper": null,
+                "status": "refuted"
+              },
+              {
+                "rank": 4,
+                "model_status": "tolerance_met",
+                "model_lower": "56430945876715331/18446744073709551616",
+                "model_upper": "56430945876716313/18446744073709551616",
+                "combined_upper": "121184533512372373852726869/39614081257132168796771975168",
+                "status": "tolerance_met",
+                "engineering_upper": "121184533512372373852726869/39614081257132168796771975168"
+              }
+            ],
+            "failure": null,
+            "rank": 4,
+            "combined_upper": "121184533512372373852726869/39614081257132168796771975168",
+            "model_upper": "56430945876716313/18446744073709551616",
+            "execution_upper": "998574997721319/39614081257132168796771975168",
+            "engineering": {
+              "schema": "dynacomp.engineering-output/1",
+              "feedthrough_words": [
+                [
+                  0
+                ]
+              ],
+              "additional_output_upper": [
+                [
+                  "0"
+                ],
+                [
+                  "0"
+                ],
+                [
+                  "0"
+                ],
+                [
+                  "0"
+                ],
+                [
+                  "0"
+                ],
+                [
+                  "0"
+                ],
+                [
+                  "0"
+                ],
+                [
+                  "0"
+                ],
+                [
+                  "0"
+                ],
+                [
+                  "0"
+                ],
+                [
+                  "0"
+                ],
+                [
+                  "0"
+                ],
+                [
+                  "0"
+                ],
+                [
+                  "0"
+                ],
+                [
+                  "0"
+                ],
+                [
+                  "0"
+                ],
+                [
+                  "0"
+                ],
+                [
+                  "0"
+                ],
+                [
+                  "0"
+                ],
+                [
+                  "0"
+                ],
+                [
+                  "0"
+                ]
+              ],
+              "import_output_upper": [
+                [
+                  "0"
+                ],
+                [
+                  "0"
+                ],
+                [
+                  "0"
+                ],
+                [
+                  "0"
+                ],
+                [
+                  "0"
+                ],
+                [
+                  "0"
+                ],
+                [
+                  "0"
+                ],
+                [
+                  "0"
+                ],
+                [
+                  "0"
+                ],
+                [
+                  "0"
+                ],
+                [
+                  "0"
+                ],
+                [
+                  "0"
+                ],
+                [
+                  "0"
+                ],
+                [
+                  "0"
+                ],
+                [
+                  "0"
+                ],
+                [
+                  "0"
+                ],
+                [
+                  "0"
+                ],
+                [
+                  "0"
+                ],
+                [
+                  "0"
+                ],
+                [
+                  "0"
+                ],
+                [
+                  "0"
+                ]
+              ],
+              "engineering_import_bounded": true,
+              "continuous_sampling_bounded": null,
+              "reference": "exact stored discrete coefficients",
+              "semantics": "right-continuous-terminal-hold"
+            },
+            "engineering_upper": "121184533512372373852726869/39614081257132168796771975168",
+            "packet": "balanced.json.gz",
+            "packet_sha256": "f49c382f601b4c5e4859c903bc95feb3db7c0bd7e1fdce8e2b95f88b459c10a4",
+            "state_output_combined_upper": "121184533512372373852726869/39614081257132168796771975168",
+            "native_preparation_and_replay_seconds": 0.11875059600060922,
+            "standalone_replay_adjustment_seconds": 0.09374722900065535,
+            "cost_policy": "conservative standalone estimate; balanced charged an extra empty-cache replay to cover the shared source pass",
+            "total_setup_seconds": 0.6232240819990693,
+            "median_batch_seconds": 0.0004287169995222939,
+            "raw_batch_seconds": [
+              0.0004614369991031708,
+              0.0004038299994135741,
+              0.0004440810007508844,
+              0.0004044310007884633,
+              0.0004287169995222939,
+              0.0004033489985886263,
+              0.0005430500004877103
+            ],
+            "max_observed_difference_from_full_blas": 0.003059127705747358,
+            "observed_difference_exceeds_bound": false,
+            "diagnostic_scope": "full BLAS reference has uncertified rounding; sampled difference is diagnostic only",
+            "break_even_batches": 282.57177419219454,
+            "requested_batches": 1000,
+            "full_total_seconds": 2.4286219962777977,
+            "reduced_total_seconds": 1.0519410815213632,
+            "total_speedup": 2.3087053438063454,
+            "warm_speedup": 5.475938679584773
+          }
+        },
+        "rejected_methods": {},
+        "full_blas_setup_seconds": 0.036905905999446986,
+        "full_blas_median_batch_seconds": 0.0023476280002796557,
+        "full_blas_raw_batch_seconds": [
+          0.0023355590001301607,
+          0.0023476280002796557,
+          0.002609223000035854,
+          0.002307057000507484,
+          0.0023112830003810814,
+          0.002474670000083279,
+          0.002436953000142239
+        ],
+        "full_total_setup_seconds": 0.08099399599814205,
+        "native_compiler_seconds": 0.0765581129999191,
+        "actual_compiler_wait_seconds": 1.2010004866169766e-06,
+        "native_source_sha256": "08a0d2cd86bcd39426653102a466fac1c9a11e73afaafed7805a1d07f91fb171",
+        "compiler_version": "cc (Ubuntu 13.3.0-6ubuntu2~24.04) 13.3.0",
+        "python": "3.12.14",
+        "numpy": "2.3.5",
+        "scipy": "1.17.0",
+        "platform": "Linux x86_64",
+        "measurement": "warmed alternating trials; one BLAS thread; domain checks and initial encoding included; complete output materialization",
+        "cost_scope": "in-process sampled-source conversion, proposal search, independent replay, compiler and preparation; interpreter/dependency imports, file I/O, upstream MAT acquisition/sampling excluded",
+        "guarantee": "accepted reduced native outputs including feedthrough versus the replayed engineering reference for every admitted stored input in boxes; finite horizon",
+        "engineering_reference": "exact stored discrete coefficients",
+        "continuous_sampling_bounded": null,
+        "baseline": "SciPy square-root balanced truncation, accepted by same combined box/native error test; full dense NumPy BLAS reference",
+        "projection": "requested total costs extrapolate measured batch medians; they are not a sustained run",
+        "provenance": {
+          "upstream": "https://github.com/SLICOT/Benchmark-ModelReduction",
+          "commit": "98c1747030c0b1bf48d9353b2dcc9c4583867ca1",
+          "mat_sha256": "c08771fcf4c86cbd22183a80394414460a875f39935a8d532771e42111abf59f",
+          "sampled_model_sha256": "09f536ba79a4b27ffd7742709aada48c06d6cb48cf5fb716032e9ad3d6e24bf4",
+          "scope": "retained sampled normalized-output model; experimental boxes, not measured customer trajectories"
+        }
+      }
+    },
+    "build": {
+      "workload_sha256": "880c2c8dbefd01417905beec7c27f09a963d6365eef0037f1de8ae707fdf21bb",
+      "original_results_sha256": "f03d3e9c10e97144c9562b63f348f5005b8a2bbd8f310756b817919a39eac2ea",
+      "acceptance": {
+        "observable": {
+          "unchanged_mathematical_acceptance": true,
+          "rank": 13,
+          "combined_upper": "8927094088634318083549475/9903520314283042199192993792"
+        },
+        "balanced": {
+          "unchanged_mathematical_acceptance": true,
+          "rank": null,
+          "combined_upper": null
+        }
+      },
+      "original_warm_speedups": {
+        "observable": 0.4495767238029045
+      },
+      "new_evaluation": {
+        "schema": "dynacomp.pilot-results/1",
+        "name": "SLICOT build",
+        "source_sha256": "9b8a16481220d8188ac7ea86fb340d8a2bf571c8d95813c013154f3525112006",
+        "workload_sha256": "880c2c8dbefd01417905beec7c27f09a963d6365eef0037f1de8ae707fdf21bb",
+        "states": 48,
+        "steps": 20,
+        "queries": 256,
+        "trials": 7,
+        "seed": 20261010,
+        "tolerance": "1/100",
+        "methods": {
+          "observable": {
+            "accepted": true,
+            "search_seconds": 0.45091118500022276,
+            "history": [
+              {
+                "rank": 1,
+                "model_status": "refuted",
+                "model_lower": "490608421232589949837/9223372036854775808",
+                "model_upper": "61326052654130038153/1152921504606846976",
+                "combined_upper": null,
+                "status": "refuted"
+              },
+              {
+                "rank": 2,
+                "model_status": "refuted",
+                "model_lower": "975560333611784955299/18446744073709551616",
+                "model_upper": "975560333612685672543/18446744073709551616",
+                "combined_upper": null,
+                "status": "refuted"
+              },
+              {
+                "rank": 3,
+                "model_status": "refuted",
+                "model_lower": "718408029218690773787/9223372036854775808",
+                "model_upper": "179602007304728116935/2305843009213693952",
+                "combined_upper": null,
+                "status": "refuted"
+              },
+              {
+                "rank": 4,
+                "model_status": "refuted",
+                "model_lower": "1249297583737258639509/18446744073709551616",
+                "model_upper": "1249297583737702193587/18446744073709551616",
+                "combined_upper": null,
+                "status": "refuted"
+              },
+              {
+                "rank": 5,
+                "model_status": "refuted",
+                "model_lower": "559614090841391891221/9223372036854775808",
+                "model_upper": "559614090843253275069/9223372036854775808",
+                "combined_upper": null,
+                "status": "refuted"
+              },
+              {
+                "rank": 6,
+                "model_status": "refuted",
+                "model_lower": "229680576306529738483/4611686018427387904",
+                "model_upper": "14355036019216309559/288230376151711744",
+                "combined_upper": null,
+                "status": "refuted"
+              },
+              {
+                "rank": 7,
+                "model_status": "refuted",
+                "model_lower": "688717862329596526955/18446744073709551616",
+                "model_upper": "688717862329609760031/18446744073709551616",
+                "combined_upper": null,
+                "status": "refuted"
+              },
+              {
+                "rank": 8,
+                "model_status": "refuted",
+                "model_lower": "214404826046927193281/9223372036854775808",
+                "model_upper": "214404826062640924605/9223372036854775808",
+                "combined_upper": null,
+                "status": "refuted"
+              },
+              {
+                "rank": 9,
+                "model_status": "refuted",
+                "model_lower": "35014452595868682703/9223372036854775808",
+                "model_upper": "35014452595924892233/9223372036854775808",
+                "combined_upper": null,
+                "status": "refuted"
+              },
+              {
+                "rank": 10,
+                "model_status": "refuted",
+                "model_lower": "783616471963063793/1152921504606846976",
+                "model_upper": "6268931783833945993/9223372036854775808",
+                "combined_upper": null,
+                "status": "refuted"
+              },
+              {
+                "rank": 11,
+                "model_status": "refuted",
+                "model_lower": "2103821834609243385/9223372036854775808",
+                "model_upper": "2103821834613251955/9223372036854775808",
+                "combined_upper": null,
+                "status": "refuted"
+              },
+              {
+                "rank": 12,
+                "model_status": "refuted",
+                "model_lower": "296349144190389511/18446744073709551616",
+                "model_upper": "296349144191258981/18446744073709551616",
+                "combined_upper": null,
+                "status": "refuted"
+              },
+              {
+                "rank": 13,
+                "model_status": "tolerance_met",
+                "model_lower": "16627132300127045/18446744073709551616",
+                "model_upper": "16627141272331973/18446744073709551616",
+                "combined_upper": "8927094088634318083549475/9903520314283042199192993792",
+                "status": "tolerance_met",
+                "engineering_upper": "8927094088634318083549475/9903520314283042199192993792"
+              }
+            ],
+            "failure": null,
+            "rank": 13,
+            "combined_upper": "8927094088634318083549475/9903520314283042199192993792",
+            "model_upper": "16627141272331973/18446744073709551616",
+            "execution_upper": "14858955161700908361413/79228162514264337593543950336",
+            "engineering": {
+              "schema": "dynacomp.engineering-output/1",
+              "feedthrough_words": [
+                [
+                  0
+                ]
+              ],
+              "additional_output_upper": [
+                [
+                  "0"
+                ],
+                [
+                  "0"
+                ],
+                [
+                  "0"
+                ],
+                [
+                  "0"
+                ],
+                [
+                  "0"
+                ],
+                [
+                  "0"
+                ],
+                [
+                  "0"
+                ],
+                [
+                  "0"
+                ],
+                [
+                  "0"
+                ],
+                [
+                  "0"
+                ],
+                [
+                  "0"
+                ],
+                [
+                  "0"
+                ],
+                [
+                  "0"
+                ],
+                [
+                  "0"
+                ],
+                [
+                  "0"
+                ],
+                [
+                  "0"
+                ],
+                [
+                  "0"
+                ],
+                [
+                  "0"
+                ],
+                [
+                  "0"
+                ],
+                [
+                  "0"
+                ],
+                [
+                  "0"
+                ]
+              ],
+              "import_output_upper": [
+                [
+                  "0"
+                ],
+                [
+                  "0"
+                ],
+                [
+                  "0"
+                ],
+                [
+                  "0"
+                ],
+                [
+                  "0"
+                ],
+                [
+                  "0"
+                ],
+                [
+                  "0"
+                ],
+                [
+                  "0"
+                ],
+                [
+                  "0"
+                ],
+                [
+                  "0"
+                ],
+                [
+                  "0"
+                ],
+                [
+                  "0"
+                ],
+                [
+                  "0"
+                ],
+                [
+                  "0"
+                ],
+                [
+                  "0"
+                ],
+                [
+                  "0"
+                ],
+                [
+                  "0"
+                ],
+                [
+                  "0"
+                ],
+                [
+                  "0"
+                ],
+                [
+                  "0"
+                ],
+                [
+                  "0"
+                ]
+              ],
+              "engineering_import_bounded": true,
+              "continuous_sampling_bounded": null,
+              "reference": "exact stored discrete coefficients",
+              "semantics": "right-continuous-terminal-hold"
+            },
+            "engineering_upper": "8927094088634318083549475/9903520314283042199192993792",
+            "packet": "observable.json.gz",
+            "packet_sha256": "a1475ac3243ef44f2a974f60ef74b12e47837d03e708d0f56be2831e2147ce19",
+            "state_output_combined_upper": "8927094088634318083549475/9903520314283042199192993792",
+            "native_preparation_and_replay_seconds": 0.13027789699845016,
+            "standalone_replay_adjustment_seconds": 0.0,
+            "cost_policy": "conservative standalone estimate; balanced charged an extra empty-cache replay to cover the shared source pass",
+            "total_setup_seconds": 0.6697521779988165,
+            "median_batch_seconds": 0.002133644999048556,
+            "raw_batch_seconds": [
+              0.002553129001171328,
+              0.0019982200010417728,
+              0.0020820259996980894,
+              0.002255108000099426,
+              0.00210469000012381,
+              0.002133644999048556,
+              0.0021872060005989624
+            ],
+            "max_observed_difference_from_full_blas": 0.000901358891292503,
+            "observed_difference_exceeds_bound": false,
+            "diagnostic_scope": "full BLAS reference has uncertified rounding; sampled difference is diagnostic only",
+            "break_even_batches": null,
+            "requested_batches": 1000,
+            "full_total_seconds": 1.1876798840185074,
+            "reduced_total_seconds": 2.8033971770473727,
+            "total_speedup": 0.4236573731837063,
+            "warm_speedup": 0.5432820359216181
+          }
+        },
+        "rejected_methods": {
+          "balanced": {
+            "accepted": false,
+            "search_seconds": 0.2789102330007154,
+            "history": [
+              {
+                "rank": 1,
+                "model_status": "refuted",
+                "model_lower": "967580816105272704643/18446744073709551616",
+                "model_upper": "967580816106173460983/18446744073709551616",
+                "combined_upper": null,
+                "status": "refuted"
+              },
+              {
+                "rank": 2,
+                "model_status": "refuted",
+                "model_lower": "482870237413065969683/9223372036854775808",
+                "model_upper": "60358779676639967781/1152921504606846976",
+                "combined_upper": null,
+                "status": "refuted"
+              },
+              {
+                "rank": 3,
+                "model_status": "refuted",
+                "model_lower": "1027898920053783656131/18446744073709551616",
+                "model_upper": "1027898920054227108305/18446744073709551616",
+                "combined_upper": null,
+                "status": "refuted"
+              },
+              {
+                "rank": 4,
+                "model_status": "refuted",
+                "model_lower": "990835432119582560605/18446744073709551616",
+                "model_upper": "990835432134970147751/18446744073709551616",
+                "combined_upper": null,
+                "status": "refuted"
+              },
+              {
+                "rank": 5,
+                "model_status": "refuted",
+                "model_lower": "251688000094767748543/4611686018427387904",
+                "model_upper": "125844000049307357409/2305843009213693952",
+                "combined_upper": null,
+                "status": "refuted"
+              },
+              {
+                "rank": 6,
+                "model_status": "refuted",
+                "model_lower": "919629896399829262633/18446744073709551616",
+                "model_upper": "919629896431129327961/18446744073709551616",
+                "combined_upper": null,
+                "status": "refuted"
+              },
+              {
+                "rank": 7,
+                "model_status": "refuted",
+                "model_lower": "914918407811893355905/18446744073709551616",
+                "model_upper": "914918407843193730305/18446744073709551616",
+                "combined_upper": null,
+                "status": "refuted"
+              },
+              {
+                "rank": 8,
+                "model_status": "refuted",
+                "model_lower": "458775942688478906943/9223372036854775808",
+                "model_upper": "458775942704129624557/9223372036854775808",
+                "combined_upper": null,
+                "status": "refuted"
+              },
+              {
+                "rank": 9,
+                "model_status": "refuted",
+                "model_lower": "459531611445175263555/9223372036854775808",
+                "model_upper": "229765805730413076967/4611686018427387904",
+                "combined_upper": null,
+                "status": "refuted"
+              },
+              {
+                "rank": 10,
+                "model_status": "refuted",
+                "model_lower": "460187592740491571559/9223372036854775808",
+                "model_upper": "230093796378071679501/4611686018427387904",
+                "combined_upper": null,
+                "status": "refuted"
+              },
+              {
+                "rank": 11,
+                "model_status": "refuted",
+                "model_lower": "457330103659598467181/9223372036854775808",
+                "model_upper": "457330103675250461913/9223372036854775808",
+                "combined_upper": null,
+                "status": "refuted"
+              },
+              {
+                "rank": 12,
+                "model_status": "refuted",
+                "model_lower": "100782215999159703303/2305843009213693952",
+                "model_upper": "403128863996639123653/9223372036854775808",
+                "combined_upper": null,
+                "status": "refuted"
+              },
+              {
+                "rank": 13,
+                "model_status": "refuted",
+                "model_lower": "769040030356936329575/18446744073709551616",
+                "model_upper": "769040030356936972633/18446744073709551616",
+                "combined_upper": null,
+                "status": "refuted"
+              },
+              {
+                "rank": 14,
+                "model_status": "refuted",
+                "model_lower": "388991442968818355255/9223372036854775808",
+                "model_upper": "388991442968818697079/9223372036854775808",
+                "combined_upper": null,
+                "status": "refuted"
+              },
+              {
+                "rank": 15,
+                "model_status": "refuted",
+                "model_lower": "747200625729695179793/18446744073709551616",
+                "model_upper": "747200625729695896549/18446744073709551616",
+                "combined_upper": null,
+                "status": "refuted"
+              },
+              {
+                "rank": 16,
+                "model_status": "refuted",
+                "model_lower": "374303495639749970931/9223372036854775808",
+                "model_upper": "374303495639750407531/9223372036854775808",
+                "combined_upper": null,
+                "status": "refuted"
+              }
+            ],
+            "failure": null
+          }
+        },
+        "full_blas_setup_seconds": 0.01650390200120455,
+        "full_blas_median_batch_seconds": 0.0011591709990170784,
+        "full_blas_raw_batch_seconds": [
+          0.001509601999714505,
+          0.0012378000010357937,
+          0.0011591709990170784,
+          0.0012704999990091892,
+          0.0009320789995399537,
+          0.0010940140000457177,
+          0.0009576269985700492
+        ],
+        "full_total_setup_seconds": 0.028508885001429007,
+        "native_compiler_seconds": 0.0765581129999191,
+        "actual_compiler_wait_seconds": 9.809991752263159e-07,
+        "native_source_sha256": "08a0d2cd86bcd39426653102a466fac1c9a11e73afaafed7805a1d07f91fb171",
+        "compiler_version": "cc (Ubuntu 13.3.0-6ubuntu2~24.04) 13.3.0",
+        "python": "3.12.14",
+        "numpy": "2.3.5",
+        "scipy": "1.17.0",
+        "platform": "Linux x86_64",
+        "measurement": "warmed alternating trials; one BLAS thread; domain checks and initial encoding included; complete output materialization",
+        "cost_scope": "in-process sampled-source conversion, proposal search, independent replay, compiler and preparation; interpreter/dependency imports, file I/O, upstream MAT acquisition/sampling excluded",
+        "guarantee": "accepted reduced native outputs including feedthrough versus the replayed engineering reference for every admitted stored input in boxes; finite horizon",
+        "engineering_reference": "exact stored discrete coefficients",
+        "continuous_sampling_bounded": null,
+        "baseline": "SciPy square-root balanced truncation, accepted by same combined box/native error test; full dense NumPy BLAS reference",
+        "projection": "requested total costs extrapolate measured batch medians; they are not a sustained run",
+        "provenance": {
+          "upstream": "https://github.com/SLICOT/Benchmark-ModelReduction",
+          "commit": "98c1747030c0b1bf48d9353b2dcc9c4583867ca1",
+          "mat_sha256": "9513bfdf12fb9382a4491755464702bf0e75567d9e4090f9f67f27ebf92ecac7",
+          "sampled_model_sha256": "9b8a16481220d8188ac7ea86fb340d8a2bf571c8d95813c013154f3525112006",
+          "scope": "retained sampled normalized-output model; experimental boxes, not measured customer trajectories"
+        }
+      }
+    }
+  }
+}

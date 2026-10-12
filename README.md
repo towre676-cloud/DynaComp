@@ -1,5 +1,9 @@
 # DynaComp
 
+## 0.12.0: descriptor and feedthrough engineering compilation
+
+Import supported nonsingular descriptor masses without changing state coordinates, execute direct feedthrough at the declared output sample, and replay transformation error alongside reduction and native rounding error. Small continuous models carry exact Taylor-based ZOH enclosures; unsupported sampling remains explicitly uncertified and can be refused with `--require-bounded`. A public 200-state SLICOT discrete descriptor now enters the certified pipeline. Original heat, convection and building acceptance baselines are preserved. See [the engineering mathematics, limits and reproduction](docs/ENGINEERING_INGESTION.md) and [the complete new receipts](receipts/engineering_ingestion/summary.json).
+
 ## 0.11.0: run an external workload with certified native arithmetic
 
 Compile your sampled model, compare observable reduction and square-root balanced truncation under one error ceiling, and run your own saved-plan scenario batches. The new C executor carries a conventional product/addition rounding bound, including loading, underflow and finite-horizon propagation. `dynacomp-pilot evaluate applications/customer_pilot/two_state.json --output pilot` produces a reusable plan and an interactive cost report. Install `.[numerical]` and a GCC-compatible C compiler for execution; mathematical replay remains stdlib-only.

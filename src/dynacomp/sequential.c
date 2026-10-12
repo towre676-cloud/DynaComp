@@ -53,3 +53,18 @@ int run(size_t n,size_t r,size_t m,size_t p,size_t steps,size_t q,
     }
     free(state);free(next);return 0;
 }
+/* Same separately rounded dot followed by one separately rounded output add.
+   Called only after run has checked the environment and input domain. */
+int feedthrough(size_t m,size_t p,size_t steps,size_t q,
+                const double *f,const double *u,double *out) {
+    if(!steps || fegetround()!=FE_TONEAREST) return 1;
+    for(size_t t=0;t<=steps;t++) {
+        size_t held=t<steps?t:steps-1;
+        for(size_t i=0;i<p;i++) for(size_t j=0;j<q;j++) {
+            volatile double value=dot(f+i*m,u+held*m*q,m,q,j);
+            volatile double sum=out[(t*p+i)*q+j]+value;
+            out[(t*p+i)*q+j]=sum;
+        }
+    }
+    return 0;
+}

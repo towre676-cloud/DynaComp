@@ -41,7 +41,11 @@ def workload(spec):
     from .rational import matrix
     if spec.get('schema') != 'dynacomp.workload/1':
         raise ValueError('Expected dynacomp.workload/1')
+    from .engineering import replay_import
+    replay_import(spec)
     source = spec['model']
+    if 'D' in source or 'E' in source:
+        raise ValueError('Use import-mat for descriptor E and top-level feedthrough for engineering D')
     if 'A' in source:
         a = matrix(source['A']); n = len(a)
         if len(a[0]) != n:
@@ -58,6 +62,8 @@ def workload(spec):
         raise ValueError('Rank range must lie in [1,n]')
     if len(domain[2]) > 4096:
         raise ValueError('Horizon must not exceed 4096')
+    from .engineering import output_contract
+    output_contract(spec,model,domain)
     return model,domain,tol,lower,upper
 
 
@@ -138,7 +144,16 @@ def compile_workload(spec,output):
                                     'model_upper':finite['certificate']['worst_upper'],
                                     'combined_upper':composed['combined_upper'] if composed else None,
                                     'status':composed['status'] if composed else finite['status']})
-                    if composed and composed['status']=='tolerance_met':
+                    if composed:
+                        from .engineering import output_contract
+                        engineering = output_contract(spec,model,domain,composed)
+                        engineering_upper = max(q(a)+q(b) for row,extra in zip(composed['combined_output_upper'],engineering['additional_output_upper']) for a,b in zip(row,extra))
+                        engineering_status = 'tolerance_met' if engineering_upper <= tol and composed['status']=='tolerance_met' else 'not_certified'
+                        # Do not alter the replayable native packet; the plan binds
+                        # the separate engineering contract to this exact workload.
+                        history[-1]['engineering_upper'] = str(engineering_upper)
+                        history[-1]['status'] = engineering_status
+                    if composed and composed['status']=='tolerance_met' and engineering_status=='tolerance_met':
                         packet = composed
                         break
                 failure = None
@@ -154,6 +169,7 @@ def compile_workload(spec,output):
                 result.update({'rank':len(packet['execution']['G']), 'combined_upper':packet['combined_upper'],
                                'model_upper':packet['source']['certificate']['worst_upper'],
                                'execution_upper':packet['execution']['worst_execution_upper'],
+                               'engineering':engineering,'engineering_upper':str(engineering_upper),
                                'packet':path.name,'packet_sha256':hashlib.sha256(path.read_bytes()).hexdigest()})
             report['methods'][name] = result
     report['shared_source_passes'] = cache.source_passes
@@ -195,7 +211,7 @@ def evaluate_plan(folder,queries=256,trials=7,batches=1000,seed=20261010):
     """Time saved plans, full dense BLAS, and equal-protocol reduced methods."""
     import numpy as np
     import scipy
-    from threadpoolctl import threadpool_limits, threadpool_info
+    from threadpoolctl import threadpool_limits
     from .validated_numeric import PreparedValidated
     folder = Path(folder)
     plan = read_json(folder/'plan.json')
@@ -253,19 +269,29 @@ def evaluate_plan(folder,queries=256,trials=7,batches=1000,seed=20261010):
         for name,packet in packets.items():
             started = time.perf_counter(); runners[name] = PreparedSequential(packet)
             setups[name] = time.perf_counter()-started
+        from .engineering import output_contract, EngineeringRunner
+        contracts={name:output_contract(spec,model,domain,packet) for name,packet in packets.items()}
+        for name,contract in contracts.items():
+            started=time.perf_counter()
+            if accepted[name].get('engineering',contract)!=contract: raise ValueError('Engineering contract does not replay')
+            upper=max(q(a)+q(b) for row,extra in zip(packets[name]['combined_output_upper'],contract['additional_output_upper']) for a,b in zip(row,extra))
+            if upper>tol or q(accepted[name].get('engineering_upper',upper))!=upper: raise ValueError('Engineering target does not replay')
+            runners[name]=EngineeringRunner(runners[name],contract)
+            setups[name]+=time.perf_counter()-started
+        runners['full_blas']=EngineeringRunner(runners['full_blas'],next(iter(contracts.values())),False)
         outputs = {name:runner.simulate(initial,inputs) for name,runner in runners.items()}
         raw = {name:[] for name in runners}; keys = list(runners)
         for trial in range(trials):
             for name in (keys if trial%2==0 else list(reversed(keys))):
                 started = time.perf_counter(); outputs[name] = runners[name].simulate(initial,inputs)
                 raw[name].append(time.perf_counter()-started)
-        pools = threadpool_info()
+
     full = median(raw['full_blas']); methods = {}
     for name,packet in packets.items():
         sample_error = float(abs(outputs[name]-outputs['full_blas']).max())
         # BLAS full output is a numerical diagnostic, NOT a proof oracle.
         # No tolerance pass/fail decision is made from sampled differences.
-        reduced = median(raw[name]); combined = float(q(packet['combined_upper']))
+        reduced = median(raw[name]); combined = float(q(accepted[name].get('engineering_upper',packet['combined_upper'])))
         standalone_search = plan['methods'][name]['search_seconds']
         # Recompute a standalone acceptance with an empty source cache, which
         # charges each method for its own source pass, without redoing its
@@ -276,7 +302,10 @@ def evaluate_plan(folder,queries=256,trials=7,batches=1000,seed=20261010):
         standalone_replay = time.perf_counter()-started
         shared_adjustment = standalone_replay if name=='balanced' else 0.0
         setup = plan['source_import_seconds']+standalone_search+shared_adjustment+setups[name]+compiler_seconds
-        methods[name] = {**plan['methods'][name], 'native_preparation_and_replay_seconds':setups[name],
+        methods[name] = {**plan['methods'][name],
+                         'state_output_combined_upper':packet['combined_upper'],
+                         'combined_upper':str(q(accepted[name].get('engineering_upper',packet['combined_upper']))),
+                         'native_preparation_and_replay_seconds':setups[name],
                          'standalone_replay_adjustment_seconds':shared_adjustment,
                          'cost_policy':'conservative standalone estimate; balanced charged an extra empty-cache replay to cover the shared source pass',
                          'total_setup_seconds':setup,'median_batch_seconds':reduced,'raw_batch_seconds':raw[name],
@@ -295,10 +324,12 @@ def evaluate_plan(folder,queries=256,trials=7,batches=1000,seed=20261010):
               'native_compiler_seconds':compiler_seconds,'actual_compiler_wait_seconds':compiler_wait,
               'native_source_sha256':lib.source_sha256,'compiler_version':lib.compiler_version,
               'python':platform.python_version(),'numpy':np.__version__,'scipy':scipy.__version__,
-              'platform':platform.platform(),'threadpools':pools,
+              'platform':platform.system()+' '+platform.machine(),'thread_limit':1,
               'measurement':'warmed alternating trials; one BLAS thread; domain checks and initial encoding included; complete output materialization',
               'cost_scope':'in-process sampled-source conversion, proposal search, independent replay, compiler and preparation; interpreter/dependency imports, file I/O, upstream MAT acquisition/sampling excluded',
-              'guarantee':'accepted reduced native outputs versus exact rational sampled source for every admitted stored input in boxes; finite horizon',
+              'guarantee':'accepted reduced native outputs including feedthrough versus the replayed engineering reference for every admitted stored input in boxes; finite horizon',
+              'engineering_reference':next(iter(contracts.values()))['reference'],
+              'continuous_sampling_bounded':next(iter(contracts.values()))['continuous_sampling_bounded'],
               'baseline':'SciPy square-root balanced truncation, accepted by same combined box/native error test; full dense NumPy BLAS reference',
               'projection':'requested total costs extrapolate measured batch medians; they are not a sustained run',
               'provenance':spec.get('provenance',{})}
@@ -346,52 +377,68 @@ def render_report(report):
             '<details><summary>Full measured evidence</summary><pre>'+data+'</pre></details></html>')
 
 
-def import_mat(path,dt=None,normalize_output=False):
-    """Import identity-mass, zero-feedthrough continuous or discrete MAT data.
+def import_mat(path,dt=None,normalize_output=False,require_bounded=False):
+    """Import real nonsingular descriptors; preserve coordinates and ZOH outputs.
 
-    With dt supplied, sample using an augmented matrix exponential. Guarantees
-    start at its stored sampled dyadics, not the original continuous model.
+    Exact rational elimination; bounded sampling when enclosure limits permit.
+    Outside those limits the stored-source scope is explicitly uncertified.
     """
     import numpy as np
     from scipy.io import loadmat
     from scipy.linalg import expm
     from scipy.sparse import issparse
-    path = Path(path); data = loadmat(path)
-    dense = lambda value:value.toarray() if issparse(value) else np.asarray(value)
-    a,b = dense(data['A']),dense(data['B']); n = len(a)
-    c = dense(data.get('C',b.T)); mass = dense(data.get('E',np.eye(n)))
-    if a.shape != (n,n) or b.ndim!=2 or b.shape[0]!=n or c.ndim!=2 or c.shape[1]!=n:
+    from .rational import matrix,encoded
+    from .engineering import descriptor_transform,enclosure,replay_import
+    path=Path(path); data=loadmat(path)
+    def dense(value):
+        value=value.toarray() if issparse(value) else np.asarray(value)
+        if value.ndim!=2 or not np.isrealobj(value) or not np.isfinite(value).all():
+            raise ValueError('Finite real two-dimensional MAT matrices required')
+        return value
+    if 'A' not in data or 'B' not in data or 'C' not in data:
+        raise ValueError('Explicit A, B, C required to preserve output meaning')
+    a,b,c=map(dense,(data[k] for k in ('A','B','C')));n=len(a)
+    if not n or a.shape!=(n,n) or b.shape[0]!=n or not b.shape[1] or c.shape[1]!=n or not len(c):
         raise ValueError('MAT matrices have inconsistent dimensions')
-    if mass.shape != (n,n) or not np.array_equal(mass,np.eye(n)):
-        raise ValueError('Nonidentity descriptor mass E is unsupported')
-    if 'D' in data and np.any(dense(data['D'])):
-        raise ValueError('Nonzero feedthrough D is unsupported')
-    if any(not np.isrealobj(v) or not np.isfinite(v).all() for v in (a,b,c)):
-        raise ValueError('Finite real MAT matrices required')
-    scale = 1.0
-    if normalize_output:
-        scale = float(abs(c).sum(axis=1).max())
-        if scale <= 0:
-            raise ValueError('Cannot normalize zero output')
-        c = c/scale
+    e=dense(data.get('E',np.eye(n)));f=dense(data.get('D',np.zeros((len(c),b.shape[1]))))
+    if e.shape!=(n,n) or f.shape!=(len(c),b.shape[1]): raise ValueError('Descriptor or feedthrough dimensions differ')
+    def exact(value):
+        return matrix([[str(Fraction(v.item())) for v in row] for row in value])
+    a,b,c,e,f=map(exact,(a,b,c,e,f))
+    sa,sb,descriptor=descriptor_transform(a,b,e)
+    divisor=max(sum(abs(v) for v in row) for row in c) if normalize_output else q(1)
+    if divisor<=0: raise ValueError('Cannot normalize zero output')
+    interval=None
     if dt is not None:
-        interval = q(dt)
-        if interval <= 0 or not np.isfinite(float(interval)):
-            raise ValueError('Positive finite sampling interval required')
-        augmented = np.zeros((n+b.shape[1],n+b.shape[1]))
-        augmented[:n,:n],augmented[:n,n:] = a*float(interval),b*float(interval)
-        sampled = expm(augmented); a,b = sampled[:n,:n],sampled[:n,n:]
-    if any(not np.isfinite(v).all() for v in (a,b,c)):
-        raise ValueError('Sampling produced nonfinite coefficients')
-    return {'schema':'dynacomp.workload/1','name':path.stem,
-            'model':{'A':_bind(a),'B':_bind(b),'C':_bind(c)},
-            'initial_center':[0]*n,'initial_radius':[1]*n,
-            'input_radii':[[1]*b.shape[1] for _ in range(20)],'tolerance':'1/100',
-            'min_rank':1,'max_rank':min(16,n),
-            'provenance':{'mat_sha256':hashlib.sha256(path.read_bytes()).hexdigest(),
-                          'sampling_interval':str(dt) if dt is not None else None,
-                          'output_divisor':str(Fraction(scale)),
-                          'scope':'exact stored sampled binary64 coefficients; sampling/physical errors unbounded'}}
+        interval=q(dt)
+        if interval<=0 or not np.isfinite(float(interval)): raise ValueError('Positive finite sampling interval required')
+        augmented=np.zeros((n+len(b[0]),n+len(b[0])))
+        augmented[:n,:n]=np.asarray(sa,dtype=float)*float(interval)
+        augmented[:n,n:]=np.asarray(sb,dtype=float)*float(interval)
+        if not np.isfinite(augmented).all(): raise ValueError('Sampling input overflows')
+        sampled=expm(augmented)
+        if not np.isfinite(sampled).all(): raise ValueError('Sampling produced nonfinite coefficients')
+        stored_a,stored_b=exact(sampled[:n,:n]),exact(sampled[:n,n:])
+        transformation=enclosure(sa,sb,interval,stored_a,stored_b)
+        if descriptor['status']!='exact':
+            transformation={'status':'uncertified','reason':'continuous sampling after residual-bounded descriptor elimination is not yet enclosed'}
+    else:
+        stored_a,stored_b=sa,sb
+        transformation=descriptor
+    if require_bounded and transformation['status']=='uncertified': raise ValueError(transformation['reason'])
+    binding={'schema':'dynacomp.engineering-import/1',**{k:encoded(v) for k,v in zip(('A','B','C','E','F'),(a,b,c,e,f))},
+             'descriptor':descriptor,'standard_A':encoded(sa),'standard_B':encoded(sb),
+             'output_divisor':str(divisor),'sampling_interval':str(interval) if interval is not None else None,'transformation':transformation}
+    spec={'schema':'dynacomp.workload/1','name':path.stem,
+          'model':{'A':encoded(stored_a),'B':encoded(stored_b),'C':encoded(tuple(tuple(v/divisor for v in row) for row in c))},
+          'feedthrough':encoded(tuple(tuple(v/divisor for v in row) for row in f)),
+          'output_input_semantics':'right-continuous-terminal-hold','import_certificate':binding,
+          'initial_center':[0]*n,'initial_radius':[1]*n,'input_radii':[[1]*len(b[0]) for _ in range(20)],
+          'tolerance':'1/100','min_rank':1,'max_rank':min(16,n),
+          'provenance':{'mat_sha256':hashlib.sha256(path.read_bytes()).hexdigest(),'sampling_interval':binding['sampling_interval'],
+                        'output_divisor':str(divisor),'scope':'exact stored coefficients; bounded ZOH sampling when replay reports bounded; sampling/physical errors otherwise unbounded; physical calibration always unbounded'}}
+    replay_import(spec)
+    return spec
 
 
 def simulate_plan(folder,method,initial,inputs):
@@ -411,7 +458,12 @@ def simulate_plan(folder,method,initial,inputs):
         tuple(tuple(map(q,row)) for row in source['input_radii'])!=radii or
         tuple(tuple(map(q,row)) for row in source['input_centers'])!=means):
         raise ValueError('Saved packet differs from workload contract')
-    return PreparedSequential(packet).simulate(initial,inputs)
+    from .engineering import output_contract, EngineeringRunner
+    contract=output_contract(plan['workload'],model,domain,packet)
+    upper=max(q(a)+q(b) for row,extra in zip(packet['combined_output_upper'],contract['additional_output_upper']) for a,b in zip(row,extra))
+    if result.get('engineering',contract)!=contract or q(result.get('engineering_upper',upper))!=upper or upper>tol:
+        raise ValueError('Engineering contract or tolerance does not replay')
+    return EngineeringRunner(PreparedSequential(packet),contract).simulate(initial,inputs)
 
 
 def main(argv=None):
@@ -426,14 +478,14 @@ def main(argv=None):
     p.add_argument('--trials',type=int,default=7);p.add_argument('--batches',type=int,default=1000)
     p = sub.add_parser('simulate');p.add_argument('folder');p.add_argument('--method',choices=['observable','balanced'],default='observable')
     p.add_argument('--initial',required=True);p.add_argument('--inputs',required=True);p.add_argument('--output',required=True)
-    p = sub.add_parser('import-mat');p.add_argument('mat');p.add_argument('--dt');p.add_argument('--normalize-output',action='store_true');p.add_argument('--output',required=True)
+    p = sub.add_parser('import-mat');p.add_argument('mat');p.add_argument('--dt');p.add_argument('--normalize-output',action='store_true');p.add_argument('--require-bounded',action='store_true');p.add_argument('--output',required=True)
     args = parser.parse_args(argv)
     if args.command=='simulate':
         import numpy as np
         result=simulate_plan(args.folder,args.method,np.load(args.initial,allow_pickle=False),np.load(args.inputs,allow_pickle=False))
         np.save(args.output,result);print(args.output);return
     if args.command=='import-mat':
-        spec = import_mat(args.mat,args.dt,args.normalize_output)
+        spec = import_mat(args.mat,args.dt,args.normalize_output,args.require_bounded)
         Path(args.output).write_text(json.dumps(spec,indent=2)+'\n');print(args.output);return
     if args.command in ('compile','evaluate'):
         plan = compile_workload(read_json(args.spec),args.output)

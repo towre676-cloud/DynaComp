@@ -1,0 +1,459 @@
+{
+  "schema": "dynacomp.pilot-results/1",
+  "name": "feedthrough-stress",
+  "source_sha256": "511396381317c01f7760f31e418636ef647072b84a748cad52bfc9f87a3ff361",
+  "workload_sha256": "6ddde1d51f6300dd7d1db195755116d526f91a6338aecc07a5642365aa03c285",
+  "states": 4,
+  "steps": 20,
+  "queries": 256,
+  "trials": 7,
+  "seed": 20261010,
+  "tolerance": "1/100",
+  "methods": {
+    "observable": {
+      "accepted": true,
+      "search_seconds": 0.03570428999955766,
+      "history": [
+        {
+          "rank": 1,
+          "model_status": "refuted",
+          "model_lower": "132653914740514657/2305843009213693952",
+          "model_upper": "530615658962059329/9223372036854775808",
+          "combined_upper": null,
+          "status": "refuted"
+        },
+        {
+          "rank": 2,
+          "model_status": "tolerance_met",
+          "model_lower": "773847117915235/9223372036854775808",
+          "model_upper": "773847117916133/9223372036854775808",
+          "combined_upper": "3323648063875505472929639/39614081257132168796771975168",
+          "status": "tolerance_met",
+          "engineering_upper": "830912015974170865449337/9903520314283042199192993792"
+        }
+      ],
+      "failure": null,
+      "rank": 2,
+      "combined_upper": "830912015974170865449337/9903520314283042199192993792",
+      "model_upper": "773847117916133/9223372036854775808",
+      "execution_upper": "1198322741908503/79228162514264337593543950336",
+      "engineering": {
+        "schema": "dynacomp.engineering-output/1",
+        "feedthrough_words": [
+          [
+            4598175219545276416
+          ]
+        ],
+        "additional_output_upper": [
+          [
+            "7696581394433/39614081257132168796771975168"
+          ],
+          [
+            "18044498099885/79228162514264337593543950336"
+          ],
+          [
+            "20705768982501/79228162514264337593543950336"
+          ],
+          [
+            "5844248764227/19807040628566084398385987584"
+          ],
+          [
+            "13029097987553/39614081257132168796771975168"
+          ],
+          [
+            "28749391420945/79228162514264337593543950336"
+          ],
+          [
+            "7862650277545/19807040628566084398385987584"
+          ],
+          [
+            "2135115299407/4951760157141521099596496896"
+          ],
+          [
+            "18441571120823/39614081257132168796771975168"
+          ],
+          [
+            "39614513275331/79228162514264337593543950336"
+          ],
+          [
+            "21177988867709/39614081257132168796771975168"
+          ],
+          [
+            "11276888874475/19807040628566084398385987584"
+          ],
+          [
+            "47869266470969/79228162514264337593543950336"
+          ],
+          [
+            "50641130595061/79228162514264337593543950336"
+          ],
+          [
+            "13355791960727/19807040628566084398385987584"
+          ],
+          [
+            "878365597181/1237940039285380274899124224"
+          ],
+          [
+            "29508920881279/39614081257132168796771975168"
+          ],
+          [
+            "61830518541743/79228162514264337593543950336"
+          ],
+          [
+            "32326724329771/39614081257132168796771975168"
+          ],
+          [
+            "33743326125451/39614081257132168796771975168"
+          ],
+          [
+            "35165075086205/39614081257132168796771975168"
+          ]
+        ],
+        "import_output_upper": [
+          [
+            "0"
+          ],
+          [
+            "1314046217803/39614081257132168796771975168"
+          ],
+          [
+            "1316527222597/19807040628566084398385987584"
+          ],
+          [
+            "7914068889593/79228162514264337593543950336"
+          ],
+          [
+            "10571991990457/79228162514264337593543950336"
+          ],
+          [
+            "13239897782253/79228162514264337593543950336"
+          ],
+          [
+            "3979451471585/19807040628566084398385987584"
+          ],
+          [
+            "1162858497263/4951760157141521099596496896"
+          ],
+          [
+            "10651853838765/39614081257132168796771975168"
+          ],
+          [
+            "24011740768209/79228162514264337593543950336"
+          ],
+          [
+            "3341231872303/9903520314283042199192993792"
+          ],
+          [
+            "29458070090681/79228162514264337593543950336"
+          ],
+          [
+            "32196405919861/79228162514264337593543950336"
+          ],
+          [
+            "34944882313269/79228162514264337593543950336"
+          ],
+          [
+            "37703519150681/79228162514264337593543950336"
+          ],
+          [
+            "20236168172197/39614081257132168796771975168"
+          ],
+          [
+            "21625676919637/39614081257132168796771975168"
+          ],
+          [
+            "23020295806403/39614081257132168796771975168"
+          ],
+          [
+            "48840069675141/79228162514264337593543950336"
+          ],
+          [
+            "25824904034573/39614081257132168796771975168"
+          ],
+          [
+            "27234913435227/39614081257132168796771975168"
+          ]
+        ],
+        "engineering_import_bounded": true,
+        "continuous_sampling_bounded": true,
+        "reference": "continuous ZOH samples",
+        "semantics": "right-continuous-terminal-hold"
+      },
+      "engineering_upper": "830912015974170865449337/9903520314283042199192993792",
+      "packet": "observable.json.gz",
+      "packet_sha256": "b0ee286a60909196e7c74fcb784c4f368ebf6ba17539adabdb2bdf6ffc950a0f",
+      "state_output_combined_upper": "3323648063875505472929639/39614081257132168796771975168",
+      "native_preparation_and_replay_seconds": 0.007833539000785095,
+      "standalone_replay_adjustment_seconds": 0.0,
+      "cost_policy": "conservative standalone estimate; balanced charged an extra empty-cache replay to cover the shared source pass",
+      "total_setup_seconds": 0.14725870199981728,
+      "median_batch_seconds": 0.00010670099982235115,
+      "raw_batch_seconds": [
+        0.00019094900017080363,
+        0.00010670099982235115,
+        0.00011785800052166451,
+        0.00015853000149945728,
+        0.0001062500014086254,
+        0.00010209500032942742,
+        0.00010271599967381917
+      ],
+      "max_observed_difference_from_full_blas": 8.390067264207879e-05,
+      "observed_difference_exceeds_bound": false,
+      "diagnostic_scope": "full BLAS reference has uncertified rounding; sampled difference is diagnostic only",
+      "break_even_batches": 1253.2579704021948,
+      "requested_batches": 1000,
+      "full_total_seconds": 0.22982067146767804,
+      "reduced_total_seconds": 0.2539597018221684,
+      "total_speedup": 0.9049493672370376,
+      "warm_speedup": 1.8932812326461386
+    },
+    "balanced": {
+      "accepted": true,
+      "search_seconds": 0.04142071800015401,
+      "history": [
+        {
+          "rank": 1,
+          "model_status": "refuted",
+          "model_lower": "22799096322329612523/18446744073709551616",
+          "model_upper": "22799096322329612531/18446744073709551616",
+          "combined_upper": null,
+          "status": "refuted"
+        },
+        {
+          "rank": 2,
+          "model_status": "refuted",
+          "model_lower": "1132857655477102313/2305843009213693952",
+          "model_upper": "566428827738551157/1152921504606846976",
+          "combined_upper": null,
+          "status": "refuted"
+        },
+        {
+          "rank": 3,
+          "model_status": "refuted",
+          "model_lower": "45782266557292329/576460752303423488",
+          "model_upper": "183129066229169317/2305843009213693952",
+          "combined_upper": null,
+          "status": "refuted"
+        },
+        {
+          "rank": 4,
+          "model_status": "tolerance_met",
+          "model_lower": "339473/4611686018427387904",
+          "model_upper": "686927/9223372036854775808",
+          "combined_upper": "7037646133183603/39614081257132168796771975168",
+          "status": "tolerance_met",
+          "engineering_upper": "14145622414314853/79228162514264337593543950336"
+        }
+      ],
+      "failure": null,
+      "rank": 4,
+      "combined_upper": "14145622414314853/79228162514264337593543950336",
+      "model_upper": "686927/9223372036854775808",
+      "execution_upper": "4087317133444211/39614081257132168796771975168",
+      "engineering": {
+        "schema": "dynacomp.engineering-output/1",
+        "feedthrough_words": [
+          [
+            4598175219545276416
+          ]
+        ],
+        "additional_output_upper": [
+          [
+            "7696581394433/39614081257132168796771975168"
+          ],
+          [
+            "9022178086211/39614081257132168796771975168"
+          ],
+          [
+            "5176375108983/19807040628566084398385987584"
+          ],
+          [
+            "23376615135873/79228162514264337593543950336"
+          ],
+          [
+            "26057719860753/79228162514264337593543950336"
+          ],
+          [
+            "28748834231147/79228162514264337593543950336"
+          ],
+          [
+            "15724988949879/39614081257132168796771975168"
+          ],
+          [
+            "34161170551453/79228162514264337593543950336"
+          ],
+          [
+            "4610303987915/9903520314283042199192993792"
+          ],
+          [
+            "39613781704713/79228162514264337593543950336"
+          ],
+          [
+            "21177619868649/39614081257132168796771975168"
+          ],
+          [
+            "45106825815105/79228162514264337593543950336"
+          ],
+          [
+            "23934279892289/39614081257132168796771975168"
+          ],
+          [
+            "50640461524617/79228162514264337593543950336"
+          ],
+          [
+            "26711275473317/39614081257132168796771975168"
+          ],
+          [
+            "56214847994597/79228162514264337593543950336"
+          ],
+          [
+            "7377171580635/9903520314283042199192993792"
+          ],
+          [
+            "3864384056707/4951760157141521099596496896"
+          ],
+          [
+            "32326592411613/39614081257132168796771975168"
+          ],
+          [
+            "16871628116877/19807040628566084398385987584"
+          ],
+          [
+            "70330147947647/79228162514264337593543950336"
+          ]
+        ],
+        "import_output_upper": [
+          [
+            "0"
+          ],
+          [
+            "1314046217803/39614081257132168796771975168"
+          ],
+          [
+            "1316527222597/19807040628566084398385987584"
+          ],
+          [
+            "7914068889593/79228162514264337593543950336"
+          ],
+          [
+            "10571991990457/79228162514264337593543950336"
+          ],
+          [
+            "13239897782253/79228162514264337593543950336"
+          ],
+          [
+            "3979451471585/19807040628566084398385987584"
+          ],
+          [
+            "1162858497263/4951760157141521099596496896"
+          ],
+          [
+            "10651853838765/39614081257132168796771975168"
+          ],
+          [
+            "24011740768209/79228162514264337593543950336"
+          ],
+          [
+            "3341231872303/9903520314283042199192993792"
+          ],
+          [
+            "29458070090681/79228162514264337593543950336"
+          ],
+          [
+            "32196405919861/79228162514264337593543950336"
+          ],
+          [
+            "34944882313269/79228162514264337593543950336"
+          ],
+          [
+            "37703519150681/79228162514264337593543950336"
+          ],
+          [
+            "20236168172197/39614081257132168796771975168"
+          ],
+          [
+            "21625676919637/39614081257132168796771975168"
+          ],
+          [
+            "23020295806403/39614081257132168796771975168"
+          ],
+          [
+            "48840069675141/79228162514264337593543950336"
+          ],
+          [
+            "25824904034573/39614081257132168796771975168"
+          ],
+          [
+            "27234913435227/39614081257132168796771975168"
+          ]
+        ],
+        "engineering_import_bounded": true,
+        "continuous_sampling_bounded": true,
+        "reference": "continuous ZOH samples",
+        "semantics": "right-continuous-terminal-hold"
+      },
+      "engineering_upper": "14145622414314853/79228162514264337593543950336",
+      "packet": "balanced.json.gz",
+      "packet_sha256": "998e88c57e5feba5d323036154a21782e3e60bac5ad7111f6bd42f582436a0f2",
+      "state_output_combined_upper": "7037646133183603/39614081257132168796771975168",
+      "native_preparation_and_replay_seconds": 0.012211515999297262,
+      "standalone_replay_adjustment_seconds": 0.0037424460006150184,
+      "cost_policy": "conservative standalone estimate; balanced charged an extra empty-cache replay to cover the shared source pass",
+      "total_setup_seconds": 0.16109555299954081,
+      "median_batch_seconds": 0.00019414300004427787,
+      "raw_batch_seconds": [
+        0.000199361000341014,
+        0.00019414300004427787,
+        0.0001907679998112144,
+        0.00032422999902337324,
+        0.0001893860007839976,
+        0.00020739300089189783,
+        0.00019003700072062202
+      ],
+      "max_observed_difference_from_full_blas": 7.682743330406083e-14,
+      "observed_difference_exceeds_bound": false,
+      "diagnostic_scope": "full BLAS reference has uncertified rounding; sampled difference is diagnostic only",
+      "break_even_batches": 16932.148732414935,
+      "requested_batches": 1000,
+      "full_total_seconds": 0.22982067146767804,
+      "reduced_total_seconds": 0.3552385530438187,
+      "total_speedup": 0.6469474371474812,
+      "warm_speedup": 1.0405474337069232
+    }
+  },
+  "rejected_methods": {},
+  "full_blas_setup_seconds": 0.0006429109998862259,
+  "full_blas_median_batch_seconds": 0.0002020150004682364,
+  "full_blas_raw_batch_seconds": [
+    0.00025341299988212995,
+    0.00029683899992960505,
+    0.0002020150004682364,
+    0.00020956699881935492,
+    0.00019623600019258447,
+    0.00019821900059469044,
+    0.00019541500114428345
+  ],
+  "full_total_setup_seconds": 0.027805670999441645,
+  "native_compiler_seconds": 0.0765581129999191,
+  "actual_compiler_wait_seconds": 1.4319994079414755e-06,
+  "native_source_sha256": "08a0d2cd86bcd39426653102a466fac1c9a11e73afaafed7805a1d07f91fb171",
+  "compiler_version": "cc (Ubuntu 13.3.0-6ubuntu2~24.04) 13.3.0",
+  "python": "3.12.14",
+  "numpy": "2.3.5",
+  "scipy": "1.17.0",
+  "platform": "Linux x86_64",
+  "measurement": "warmed alternating trials; one BLAS thread; domain checks and initial encoding included; complete output materialization",
+  "cost_scope": "in-process sampled-source conversion, proposal search, independent replay, compiler and preparation; interpreter/dependency imports, file I/O, upstream MAT acquisition/sampling excluded",
+  "guarantee": "accepted reduced native outputs including feedthrough versus the replayed engineering reference for every admitted stored input in boxes; finite horizon",
+  "engineering_reference": "continuous ZOH samples",
+  "continuous_sampling_bounded": true,
+  "baseline": "SciPy square-root balanced truncation, accepted by same combined box/native error test; full dense NumPy BLAS reference",
+  "projection": "requested total costs extrapolate measured batch medians; they are not a sustained run",
+  "provenance": {
+    "mat_sha256": "b10ab7640f3752848dc240faa1071ea8eb03ed59c7b1366b3674ca2c7f697ce6",
+    "sampling_interval": "1/10",
+    "output_divisor": "1",
+    "scope": "exact stored coefficients; bounded ZOH sampling when replay reports bounded; sampling/physical errors otherwise unbounded; physical calibration always unbounded"
+  },
+  "thread_limit": 1
+}

@@ -1,0 +1,47 @@
+{
+  "schema": "dynacomp.engineering-release/1",
+  "base_commit": "ce8a0e57fc0d845870b30271d589a652f969c59f",
+  "version": "0.12.0",
+  "verification": {
+    "full_tests": 229,
+    "full_status": "passed",
+    "focused_tests": 12,
+    "focused_status": "passed"
+  },
+  "source_sha256": {
+    "src/dynacomp/engineering.py": "f7b81c6b0453a74e7503ec59f5fd74990fcb76fac3a4acfb763577debc7944a6",
+    "src/dynacomp/pilot.py": "54b750b3aca00ccbb919eeed97b0902797ca602836e9c70a99a7dbac0f55749f",
+    "src/dynacomp/native.py": "e4b0d602084749bc46debb934f44e818429884fe15b172a11e6d601bbbcfc4ae",
+    "src/dynacomp/sequential.c": "08a0d2cd86bcd39426653102a466fac1c9a11e73afaafed7805a1d07f91fb171",
+    "benchmarks/engineering_ingestion.py": "c71a75e920afc2931b487ef3a6d9c85df40232c38699baee3dc31c72a64926fd",
+    "src/dynacomp/__init__.py": "75fb8ea122bd802e746fc844d085c4179a4ec8483907c9d53afe7e3dc322d407"
+  },
+  "artifacts_sha256": {
+    "receipts/engineering_ingestion/feedthrough-stress/balanced.json.gz": "998e88c57e5feba5d323036154a21782e3e60bac5ad7111f6bd42f582436a0f2",
+    "receipts/engineering_ingestion/feedthrough-stress/observable.json.gz": "b0ee286a60909196e7c74fcb784c4f368ebf6ba17539adabdb2bdf6ffc950a0f",
+    "receipts/engineering_ingestion/feedthrough-stress/plan.json.gz": "c1eec3f805386ba5c47a601f854f775c8b75d74b2d37726f8a902973b48b111a",
+    "receipts/engineering_ingestion/feedthrough-stress/report.html": "2e4aa27980da7a54b4c577b42815e8124fbf0299ae6853e87316285f87a674e8",
+    "receipts/engineering_ingestion/feedthrough-stress/results.json": "b7b266653414e6205685bc551bffcd713030ec58e15edb376de980f79a0282bf",
+    "receipts/engineering_ingestion/feedthrough-stress/workload.json.gz": "6357ce1017722f8b3d0e8d798efed372cc988109809c1bbbc310780fc3c1aade",
+    "receipts/engineering_ingestion/heat-disc/observable.json.gz": "cd8ce1a650055558c793d3d3d7e42f49241c1dacbbc6d3c8cbeffa1ee3481794",
+    "receipts/engineering_ingestion/heat-disc/plan.json.gz": "27d5351e15f62aab6e7f7039b2e99fb48ec198844c51541f3a96c554bbd610c1",
+    "receipts/engineering_ingestion/heat-disc/report.html": "aaf177bfbb35b21499f44b799e3eeb673240df7317b37a6bd6130ca43646e98e",
+    "receipts/engineering_ingestion/heat-disc/results.json": "1f17fba358484fe1effb095bb0cc24aaef8b2205519cdb459a5fa6d148a648e4",
+    "receipts/engineering_ingestion/heat-disc/workload.json.gz": "5e0cb9387e98e1574f4d484ef814f10053c9e4d13ab8db58461d716f483fb594",
+    "receipts/engineering_ingestion/regression/build/observable.json.gz": "a1475ac3243ef44f2a974f60ef74b12e47837d03e708d0f56be2831e2147ce19",
+    "receipts/engineering_ingestion/regression/build/plan.json.gz": "7535bd696a4042856b5053724a0a8a52526ad26586f0e77c2274cf86d4e756bd",
+    "receipts/engineering_ingestion/regression/build/report.html": "42e215c527ebfe0ad6aacd1b5f97fd2479313ebc0fbe59eda95ba29aec3bc5c2",
+    "receipts/engineering_ingestion/regression/build/results.json": "6f7d5edae4482a14f58c755dc983abbb78080f97d7c5dd9a1bd9d235da8800ea",
+    "receipts/engineering_ingestion/regression/heat-cont/balanced.json.gz": "5eace61c2d3f814aa928d728eed14246d6973386683dc4651fef2d69023087c4",
+    "receipts/engineering_ingestion/regression/heat-cont/observable.json.gz": "e028ac381c8ce75324cec5c8ccce27d485328512cc744518b27089cc3def8fba",
+    "receipts/engineering_ingestion/regression/heat-cont/plan.json.gz": "4e6739954e1cfa4c24d1c6abd9087f9977f49e4163e86265e9b7d941ebffcb24",
+    "receipts/engineering_ingestion/regression/heat-cont/report.html": "b2e8930904da275d6131a9d2be2032a9360bf2840da2a8f773d25612cd782472",
+    "receipts/engineering_ingestion/regression/heat-cont/results.json": "1972b0a7f2d8f807aabc63f55506e192ce7644a83d6425113c8f58102a13d4bd",
+    "receipts/engineering_ingestion/regression/pde/balanced.json.gz": "f49c382f601b4c5e4859c903bc95feb3db7c0bd7e1fdce8e2b95f88b459c10a4",
+    "receipts/engineering_ingestion/regression/pde/observable.json.gz": "97176dbc751bcf050e335968f2ba932e0f2491e78fff19d79a67bd5951633823",
+    "receipts/engineering_ingestion/regression/pde/plan.json.gz": "059584696087679f6c6eb6a7b23fefc17aa20a00a85b7b10b6bb8d370ebc8fa0",
+    "receipts/engineering_ingestion/regression/pde/report.html": "df02d3cb516ef367db0aab6af176a4f08f6102701960064057e7e09b76f7dbba",
+    "receipts/engineering_ingestion/regression/pde/results.json": "84061082027c9409fcb2a352822d0a5337e7eb87875657a312e9afd26cc17a81",
+    "receipts/engineering_ingestion/summary.json": "9dfd8ca30e44cf473679674ae0212b494f85cc80aab1dc06b9046fe55603ab0b"
+  }
+}

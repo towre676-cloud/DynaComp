@@ -1,0 +1,471 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width"><title>DynaComp workload results</title><style>body{font:18px system-ui;background:#101923;color:#e5eef6;max-width:1100px;margin:40px auto;padding:24px}h1{font-size:42px}main{display:flex;flex-wrap:wrap;gap:20px}article{background:#1a2b3c;border:1px solid #39546c;border-radius:16px;padding:24px;flex:1;min-width:260px}.big{font-size:36px;color:#6fe4b4}pre{font-size:13px;overflow:auto}small{color:#afc1d1}</style><h1>SLICOT build</h1><p>48 source states · 20 steps · 256 scenarios per batch · target 1/100</p><main><article><h2>observable</h2><p class="big">13 states</p><p>Uniform combined error ≤ 0.000901406</p><p>Warm speedup versus full BLAS: 0.54×</p><p>Total setup: 0.670 s</p><p>Break-even: no measured break-even</p><p>Projected total speedup at 1000 batches: 0.42×</p><p class="projection" data-method="observable"></p></article><article><h2>balanced</h2><p class="big">Target unmet</p><p>No candidate passed within the supplied rank range.</p><p>Candidate results are retained in plan.json.</p></article></main><label>Explore total cost at <input id="batch-count" type="number" min="1" value="1000"> batches</label><script id="evidence" type="application/json">{"schema":"dynacomp.pilot-results/1","name":"SLICOT build","source_sha256":"9b8a16481220d8188ac7ea86fb340d8a2bf571c8d95813c013154f3525112006","workload_sha256":"880c2c8dbefd01417905beec7c27f09a963d6365eef0037f1de8ae707fdf21bb","states":48,"steps":20,"queries":256,"trials":7,"seed":20261010,"tolerance":"1/100","methods":{"observable":{"accepted":true,"search_seconds":0.45091118500022276,"history":[{"rank":1,"model_status":"refuted","model_lower":"490608421232589949837/9223372036854775808","model_upper":"61326052654130038153/1152921504606846976","combined_upper":null,"status":"refuted"},{"rank":2,"model_status":"refuted","model_lower":"975560333611784955299/18446744073709551616","model_upper":"975560333612685672543/18446744073709551616","combined_upper":null,"status":"refuted"},{"rank":3,"model_status":"refuted","model_lower":"718408029218690773787/9223372036854775808","model_upper":"179602007304728116935/2305843009213693952","combined_upper":null,"status":"refuted"},{"rank":4,"model_status":"refuted","model_lower":"1249297583737258639509/18446744073709551616","model_upper":"1249297583737702193587/18446744073709551616","combined_upper":null,"status":"refuted"},{"rank":5,"model_status":"refuted","model_lower":"559614090841391891221/9223372036854775808","model_upper":"559614090843253275069/9223372036854775808","combined_upper":null,"status":"refuted"},{"rank":6,"model_status":"refuted","model_lower":"229680576306529738483/4611686018427387904","model_upper":"14355036019216309559/288230376151711744","combined_upper":null,"status":"refuted"},{"rank":7,"model_status":"refuted","model_lower":"688717862329596526955/18446744073709551616","model_upper":"688717862329609760031/18446744073709551616","combined_upper":null,"status":"refuted"},{"rank":8,"model_status":"refuted","model_lower":"214404826046927193281/9223372036854775808","model_upper":"214404826062640924605/9223372036854775808","combined_upper":null,"status":"refuted"},{"rank":9,"model_status":"refuted","model_lower":"35014452595868682703/9223372036854775808","model_upper":"35014452595924892233/9223372036854775808","combined_upper":null,"status":"refuted"},{"rank":10,"model_status":"refuted","model_lower":"783616471963063793/1152921504606846976","model_upper":"6268931783833945993/9223372036854775808","combined_upper":null,"status":"refuted"},{"rank":11,"model_status":"refuted","model_lower":"2103821834609243385/9223372036854775808","model_upper":"2103821834613251955/9223372036854775808","combined_upper":null,"status":"refuted"},{"rank":12,"model_status":"refuted","model_lower":"296349144190389511/18446744073709551616","model_upper":"296349144191258981/18446744073709551616","combined_upper":null,"status":"refuted"},{"rank":13,"model_status":"tolerance_met","model_lower":"16627132300127045/18446744073709551616","model_upper":"16627141272331973/18446744073709551616","combined_upper":"8927094088634318083549475/9903520314283042199192993792","status":"tolerance_met","engineering_upper":"8927094088634318083549475/9903520314283042199192993792"}],"failure":null,"rank":13,"combined_upper":"8927094088634318083549475/9903520314283042199192993792","model_upper":"16627141272331973/18446744073709551616","execution_upper":"14858955161700908361413/79228162514264337593543950336","engineering":{"schema":"dynacomp.engineering-output/1","feedthrough_words":[[0]],"additional_output_upper":[["0"],["0"],["0"],["0"],["0"],["0"],["0"],["0"],["0"],["0"],["0"],["0"],["0"],["0"],["0"],["0"],["0"],["0"],["0"],["0"],["0"]],"import_output_upper":[["0"],["0"],["0"],["0"],["0"],["0"],["0"],["0"],["0"],["0"],["0"],["0"],["0"],["0"],["0"],["0"],["0"],["0"],["0"],["0"],["0"]],"engineering_import_bounded":true,"continuous_sampling_bounded":null,"reference":"exact stored discrete coefficients","semantics":"right-continuous-terminal-hold"},"engineering_upper":"8927094088634318083549475/9903520314283042199192993792","packet":"observable.json.gz","packet_sha256":"a1475ac3243ef44f2a974f60ef74b12e47837d03e708d0f56be2831e2147ce19","state_output_combined_upper":"8927094088634318083549475/9903520314283042199192993792","native_preparation_and_replay_seconds":0.13027789699845016,"standalone_replay_adjustment_seconds":0.0,"cost_policy":"conservative standalone estimate; balanced charged an extra empty-cache replay to cover the shared source pass","total_setup_seconds":0.6697521779988165,"median_batch_seconds":0.002133644999048556,"raw_batch_seconds":[0.002553129001171328,0.0019982200010417728,0.0020820259996980894,0.002255108000099426,0.00210469000012381,0.002133644999048556,0.0021872060005989624],"max_observed_difference_from_full_blas":0.000901358891292503,"observed_difference_exceeds_bound":false,"diagnostic_scope":"full BLAS reference has uncertified rounding; sampled difference is diagnostic only","break_even_batches":null,"requested_batches":1000,"full_total_seconds":1.1876798840185074,"reduced_total_seconds":2.8033971770473727,"total_speedup":0.4236573731837063,"warm_speedup":0.5432820359216181}},"rejected_methods":{"balanced":{"accepted":false,"search_seconds":0.2789102330007154,"history":[{"rank":1,"model_status":"refuted","model_lower":"967580816105272704643/18446744073709551616","model_upper":"967580816106173460983/18446744073709551616","combined_upper":null,"status":"refuted"},{"rank":2,"model_status":"refuted","model_lower":"482870237413065969683/9223372036854775808","model_upper":"60358779676639967781/1152921504606846976","combined_upper":null,"status":"refuted"},{"rank":3,"model_status":"refuted","model_lower":"1027898920053783656131/18446744073709551616","model_upper":"1027898920054227108305/18446744073709551616","combined_upper":null,"status":"refuted"},{"rank":4,"model_status":"refuted","model_lower":"990835432119582560605/18446744073709551616","model_upper":"990835432134970147751/18446744073709551616","combined_upper":null,"status":"refuted"},{"rank":5,"model_status":"refuted","model_lower":"251688000094767748543/4611686018427387904","model_upper":"125844000049307357409/2305843009213693952","combined_upper":null,"status":"refuted"},{"rank":6,"model_status":"refuted","model_lower":"919629896399829262633/18446744073709551616","model_upper":"919629896431129327961/18446744073709551616","combined_upper":null,"status":"refuted"},{"rank":7,"model_status":"refuted","model_lower":"914918407811893355905/18446744073709551616","model_upper":"914918407843193730305/18446744073709551616","combined_upper":null,"status":"refuted"},{"rank":8,"model_status":"refuted","model_lower":"458775942688478906943/9223372036854775808","model_upper":"458775942704129624557/9223372036854775808","combined_upper":null,"status":"refuted"},{"rank":9,"model_status":"refuted","model_lower":"459531611445175263555/9223372036854775808","model_upper":"229765805730413076967/4611686018427387904","combined_upper":null,"status":"refuted"},{"rank":10,"model_status":"refuted","model_lower":"460187592740491571559/9223372036854775808","model_upper":"230093796378071679501/4611686018427387904","combined_upper":null,"status":"refuted"},{"rank":11,"model_status":"refuted","model_lower":"457330103659598467181/9223372036854775808","model_upper":"457330103675250461913/9223372036854775808","combined_upper":null,"status":"refuted"},{"rank":12,"model_status":"refuted","model_lower":"100782215999159703303/2305843009213693952","model_upper":"403128863996639123653/9223372036854775808","combined_upper":null,"status":"refuted"},{"rank":13,"model_status":"refuted","model_lower":"769040030356936329575/18446744073709551616","model_upper":"769040030356936972633/18446744073709551616","combined_upper":null,"status":"refuted"},{"rank":14,"model_status":"refuted","model_lower":"388991442968818355255/9223372036854775808","model_upper":"388991442968818697079/9223372036854775808","combined_upper":null,"status":"refuted"},{"rank":15,"model_status":"refuted","model_lower":"747200625729695179793/18446744073709551616","model_upper":"747200625729695896549/18446744073709551616","combined_upper":null,"status":"refuted"},{"rank":16,"model_status":"refuted","model_lower":"374303495639749970931/9223372036854775808","model_upper":"374303495639750407531/9223372036854775808","combined_upper":null,"status":"refuted"}],"failure":null}},"full_blas_setup_seconds":0.01650390200120455,"full_blas_median_batch_seconds":0.0011591709990170784,"full_blas_raw_batch_seconds":[0.001509601999714505,0.0012378000010357937,0.0011591709990170784,0.0012704999990091892,0.0009320789995399537,0.0010940140000457177,0.0009576269985700492],"full_total_setup_seconds":0.028508885001429007,"native_compiler_seconds":0.0765581129999191,"actual_compiler_wait_seconds":9.809991752263159e-07,"native_source_sha256":"08a0d2cd86bcd39426653102a466fac1c9a11e73afaafed7805a1d07f91fb171","compiler_version":"cc (Ubuntu 13.3.0-6ubuntu2~24.04) 13.3.0","python":"3.12.14","numpy":"2.3.5","scipy":"1.17.0","platform":"Linux x86_64","measurement":"warmed alternating trials; one BLAS thread; domain checks and initial encoding included; complete output materialization","cost_scope":"in-process sampled-source conversion, proposal search, independent replay, compiler and preparation; interpreter/dependency imports, file I/O, upstream MAT acquisition/sampling excluded","guarantee":"accepted reduced native outputs including feedthrough versus the replayed engineering reference for every admitted stored input in boxes; finite horizon","engineering_reference":"exact stored discrete coefficients","continuous_sampling_bounded":null,"baseline":"SciPy square-root balanced truncation, accepted by same combined box/native error test; full dense NumPy BLAS reference","projection":"requested total costs extrapolate measured batch medians; they are not a sustained run","provenance":{"upstream":"https://github.com/SLICOT/Benchmark-ModelReduction","commit":"98c1747030c0b1bf48d9353b2dcc9c4583867ca1","mat_sha256":"9513bfdf12fb9382a4491755464702bf0e75567d9e4090f9f67f27ebf92ecac7","sampled_model_sha256":"9b8a16481220d8188ac7ea86fb340d8a2bf571c8d95813c013154f3525112006","scope":"retained sampled normalized-output model; experimental boxes, not measured customer trajectories"},"thread_limit":1}</script><script>const r=JSON.parse(document.getElementById("evidence").textContent);const input=document.getElementById("batch-count");function update(){const n=Number(input.value);if(!Number.isInteger(n)||n<1)return;document.querySelectorAll(".projection").forEach(el=>{const m=r.methods[el.dataset.method];const f=r.full_total_setup_seconds+n*r.full_blas_median_batch_seconds;const c=m.total_setup_seconds+n*m.median_batch_seconds;el.textContent="Projected cost: full "+f.toFixed(2)+" s; reduced "+c.toFixed(2)+" s ("+(f/c).toFixed(2)+"×).";});}input.addEventListener("input",update);update();</script><p><strong>What is proved:</strong> accepted reduced native outputs including feedthrough versus the replayed engineering reference for every admitted stored input in boxes; finite horizon</p><p><strong>What is measured:</strong> warmed alternating trials; one BLAS thread; domain checks and initial encoding included; complete output materialization</p><p><strong>Cost scope:</strong> in-process sampled-source conversion, proposal search, independent replay, compiler and preparation; interpreter/dependency imports, file I/O, upstream MAT acquisition/sampling excluded</p><p><small>Balanced truncation is a transparent SciPy implementation, not a timing of the SLICOT library. Projected totals extrapolate batch medians. Timings depend on the machine. Random traces are diagnostics; bounds cover the entire declared box. No physical measurement validation or universal performance claim.</small></p><details><summary>Full measured evidence</summary><pre>{
+  &quot;schema&quot;: &quot;dynacomp.pilot-results/1&quot;,
+  &quot;name&quot;: &quot;SLICOT build&quot;,
+  &quot;source_sha256&quot;: &quot;9b8a16481220d8188ac7ea86fb340d8a2bf571c8d95813c013154f3525112006&quot;,
+  &quot;workload_sha256&quot;: &quot;880c2c8dbefd01417905beec7c27f09a963d6365eef0037f1de8ae707fdf21bb&quot;,
+  &quot;states&quot;: 48,
+  &quot;steps&quot;: 20,
+  &quot;queries&quot;: 256,
+  &quot;trials&quot;: 7,
+  &quot;seed&quot;: 20261010,
+  &quot;tolerance&quot;: &quot;1/100&quot;,
+  &quot;methods&quot;: {
+    &quot;observable&quot;: {
+      &quot;accepted&quot;: true,
+      &quot;search_seconds&quot;: 0.45091118500022276,
+      &quot;history&quot;: [
+        {
+          &quot;rank&quot;: 1,
+          &quot;model_status&quot;: &quot;refuted&quot;,
+          &quot;model_lower&quot;: &quot;490608421232589949837/9223372036854775808&quot;,
+          &quot;model_upper&quot;: &quot;61326052654130038153/1152921504606846976&quot;,
+          &quot;combined_upper&quot;: null,
+          &quot;status&quot;: &quot;refuted&quot;
+        },
+        {
+          &quot;rank&quot;: 2,
+          &quot;model_status&quot;: &quot;refuted&quot;,
+          &quot;model_lower&quot;: &quot;975560333611784955299/18446744073709551616&quot;,
+          &quot;model_upper&quot;: &quot;975560333612685672543/18446744073709551616&quot;,
+          &quot;combined_upper&quot;: null,
+          &quot;status&quot;: &quot;refuted&quot;
+        },
+        {
+          &quot;rank&quot;: 3,
+          &quot;model_status&quot;: &quot;refuted&quot;,
+          &quot;model_lower&quot;: &quot;718408029218690773787/9223372036854775808&quot;,
+          &quot;model_upper&quot;: &quot;179602007304728116935/2305843009213693952&quot;,
+          &quot;combined_upper&quot;: null,
+          &quot;status&quot;: &quot;refuted&quot;
+        },
+        {
+          &quot;rank&quot;: 4,
+          &quot;model_status&quot;: &quot;refuted&quot;,
+          &quot;model_lower&quot;: &quot;1249297583737258639509/18446744073709551616&quot;,
+          &quot;model_upper&quot;: &quot;1249297583737702193587/18446744073709551616&quot;,
+          &quot;combined_upper&quot;: null,
+          &quot;status&quot;: &quot;refuted&quot;
+        },
+        {
+          &quot;rank&quot;: 5,
+          &quot;model_status&quot;: &quot;refuted&quot;,
+          &quot;model_lower&quot;: &quot;559614090841391891221/9223372036854775808&quot;,
+          &quot;model_upper&quot;: &quot;559614090843253275069/9223372036854775808&quot;,
+          &quot;combined_upper&quot;: null,
+          &quot;status&quot;: &quot;refuted&quot;
+        },
+        {
+          &quot;rank&quot;: 6,
+          &quot;model_status&quot;: &quot;refuted&quot;,
+          &quot;model_lower&quot;: &quot;229680576306529738483/4611686018427387904&quot;,
+          &quot;model_upper&quot;: &quot;14355036019216309559/288230376151711744&quot;,
+          &quot;combined_upper&quot;: null,
+          &quot;status&quot;: &quot;refuted&quot;
+        },
+        {
+          &quot;rank&quot;: 7,
+          &quot;model_status&quot;: &quot;refuted&quot;,
+          &quot;model_lower&quot;: &quot;688717862329596526955/18446744073709551616&quot;,
+          &quot;model_upper&quot;: &quot;688717862329609760031/18446744073709551616&quot;,
+          &quot;combined_upper&quot;: null,
+          &quot;status&quot;: &quot;refuted&quot;
+        },
+        {
+          &quot;rank&quot;: 8,
+          &quot;model_status&quot;: &quot;refuted&quot;,
+          &quot;model_lower&quot;: &quot;214404826046927193281/9223372036854775808&quot;,
+          &quot;model_upper&quot;: &quot;214404826062640924605/9223372036854775808&quot;,
+          &quot;combined_upper&quot;: null,
+          &quot;status&quot;: &quot;refuted&quot;
+        },
+        {
+          &quot;rank&quot;: 9,
+          &quot;model_status&quot;: &quot;refuted&quot;,
+          &quot;model_lower&quot;: &quot;35014452595868682703/9223372036854775808&quot;,
+          &quot;model_upper&quot;: &quot;35014452595924892233/9223372036854775808&quot;,
+          &quot;combined_upper&quot;: null,
+          &quot;status&quot;: &quot;refuted&quot;
+        },
+        {
+          &quot;rank&quot;: 10,
+          &quot;model_status&quot;: &quot;refuted&quot;,
+          &quot;model_lower&quot;: &quot;783616471963063793/1152921504606846976&quot;,
+          &quot;model_upper&quot;: &quot;6268931783833945993/9223372036854775808&quot;,
+          &quot;combined_upper&quot;: null,
+          &quot;status&quot;: &quot;refuted&quot;
+        },
+        {
+          &quot;rank&quot;: 11,
+          &quot;model_status&quot;: &quot;refuted&quot;,
+          &quot;model_lower&quot;: &quot;2103821834609243385/9223372036854775808&quot;,
+          &quot;model_upper&quot;: &quot;2103821834613251955/9223372036854775808&quot;,
+          &quot;combined_upper&quot;: null,
+          &quot;status&quot;: &quot;refuted&quot;
+        },
+        {
+          &quot;rank&quot;: 12,
+          &quot;model_status&quot;: &quot;refuted&quot;,
+          &quot;model_lower&quot;: &quot;296349144190389511/18446744073709551616&quot;,
+          &quot;model_upper&quot;: &quot;296349144191258981/18446744073709551616&quot;,
+          &quot;combined_upper&quot;: null,
+          &quot;status&quot;: &quot;refuted&quot;
+        },
+        {
+          &quot;rank&quot;: 13,
+          &quot;model_status&quot;: &quot;tolerance_met&quot;,
+          &quot;model_lower&quot;: &quot;16627132300127045/18446744073709551616&quot;,
+          &quot;model_upper&quot;: &quot;16627141272331973/18446744073709551616&quot;,
+          &quot;combined_upper&quot;: &quot;8927094088634318083549475/9903520314283042199192993792&quot;,
+          &quot;status&quot;: &quot;tolerance_met&quot;,
+          &quot;engineering_upper&quot;: &quot;8927094088634318083549475/9903520314283042199192993792&quot;
+        }
+      ],
+      &quot;failure&quot;: null,
+      &quot;rank&quot;: 13,
+      &quot;combined_upper&quot;: &quot;8927094088634318083549475/9903520314283042199192993792&quot;,
+      &quot;model_upper&quot;: &quot;16627141272331973/18446744073709551616&quot;,
+      &quot;execution_upper&quot;: &quot;14858955161700908361413/79228162514264337593543950336&quot;,
+      &quot;engineering&quot;: {
+        &quot;schema&quot;: &quot;dynacomp.engineering-output/1&quot;,
+        &quot;feedthrough_words&quot;: [
+          [
+            0
+          ]
+        ],
+        &quot;additional_output_upper&quot;: [
+          [
+            &quot;0&quot;
+          ],
+          [
+            &quot;0&quot;
+          ],
+          [
+            &quot;0&quot;
+          ],
+          [
+            &quot;0&quot;
+          ],
+          [
+            &quot;0&quot;
+          ],
+          [
+            &quot;0&quot;
+          ],
+          [
+            &quot;0&quot;
+          ],
+          [
+            &quot;0&quot;
+          ],
+          [
+            &quot;0&quot;
+          ],
+          [
+            &quot;0&quot;
+          ],
+          [
+            &quot;0&quot;
+          ],
+          [
+            &quot;0&quot;
+          ],
+          [
+            &quot;0&quot;
+          ],
+          [
+            &quot;0&quot;
+          ],
+          [
+            &quot;0&quot;
+          ],
+          [
+            &quot;0&quot;
+          ],
+          [
+            &quot;0&quot;
+          ],
+          [
+            &quot;0&quot;
+          ],
+          [
+            &quot;0&quot;
+          ],
+          [
+            &quot;0&quot;
+          ],
+          [
+            &quot;0&quot;
+          ]
+        ],
+        &quot;import_output_upper&quot;: [
+          [
+            &quot;0&quot;
+          ],
+          [
+            &quot;0&quot;
+          ],
+          [
+            &quot;0&quot;
+          ],
+          [
+            &quot;0&quot;
+          ],
+          [
+            &quot;0&quot;
+          ],
+          [
+            &quot;0&quot;
+          ],
+          [
+            &quot;0&quot;
+          ],
+          [
+            &quot;0&quot;
+          ],
+          [
+            &quot;0&quot;
+          ],
+          [
+            &quot;0&quot;
+          ],
+          [
+            &quot;0&quot;
+          ],
+          [
+            &quot;0&quot;
+          ],
+          [
+            &quot;0&quot;
+          ],
+          [
+            &quot;0&quot;
+          ],
+          [
+            &quot;0&quot;
+          ],
+          [
+            &quot;0&quot;
+          ],
+          [
+            &quot;0&quot;
+          ],
+          [
+            &quot;0&quot;
+          ],
+          [
+            &quot;0&quot;
+          ],
+          [
+            &quot;0&quot;
+          ],
+          [
+            &quot;0&quot;
+          ]
+        ],
+        &quot;engineering_import_bounded&quot;: true,
+        &quot;continuous_sampling_bounded&quot;: null,
+        &quot;reference&quot;: &quot;exact stored discrete coefficients&quot;,
+        &quot;semantics&quot;: &quot;right-continuous-terminal-hold&quot;
+      },
+      &quot;engineering_upper&quot;: &quot;8927094088634318083549475/9903520314283042199192993792&quot;,
+      &quot;packet&quot;: &quot;observable.json.gz&quot;,
+      &quot;packet_sha256&quot;: &quot;a1475ac3243ef44f2a974f60ef74b12e47837d03e708d0f56be2831e2147ce19&quot;,
+      &quot;state_output_combined_upper&quot;: &quot;8927094088634318083549475/9903520314283042199192993792&quot;,
+      &quot;native_preparation_and_replay_seconds&quot;: 0.13027789699845016,
+      &quot;standalone_replay_adjustment_seconds&quot;: 0.0,
+      &quot;cost_policy&quot;: &quot;conservative standalone estimate; balanced charged an extra empty-cache replay to cover the shared source pass&quot;,
+      &quot;total_setup_seconds&quot;: 0.6697521779988165,
+      &quot;median_batch_seconds&quot;: 0.002133644999048556,
+      &quot;raw_batch_seconds&quot;: [
+        0.002553129001171328,
+        0.0019982200010417728,
+        0.0020820259996980894,
+        0.002255108000099426,
+        0.00210469000012381,
+        0.002133644999048556,
+        0.0021872060005989624
+      ],
+      &quot;max_observed_difference_from_full_blas&quot;: 0.000901358891292503,
+      &quot;observed_difference_exceeds_bound&quot;: false,
+      &quot;diagnostic_scope&quot;: &quot;full BLAS reference has uncertified rounding; sampled difference is diagnostic only&quot;,
+      &quot;break_even_batches&quot;: null,
+      &quot;requested_batches&quot;: 1000,
+      &quot;full_total_seconds&quot;: 1.1876798840185074,
+      &quot;reduced_total_seconds&quot;: 2.8033971770473727,
+      &quot;total_speedup&quot;: 0.4236573731837063,
+      &quot;warm_speedup&quot;: 0.5432820359216181
+    }
+  },
+  &quot;rejected_methods&quot;: {
+    &quot;balanced&quot;: {
+      &quot;accepted&quot;: false,
+      &quot;search_seconds&quot;: 0.2789102330007154,
+      &quot;history&quot;: [
+        {
+          &quot;rank&quot;: 1,
+          &quot;model_status&quot;: &quot;refuted&quot;,
+          &quot;model_lower&quot;: &quot;967580816105272704643/18446744073709551616&quot;,
+          &quot;model_upper&quot;: &quot;967580816106173460983/18446744073709551616&quot;,
+          &quot;combined_upper&quot;: null,
+          &quot;status&quot;: &quot;refuted&quot;
+        },
+        {
+          &quot;rank&quot;: 2,
+          &quot;model_status&quot;: &quot;refuted&quot;,
+          &quot;model_lower&quot;: &quot;482870237413065969683/9223372036854775808&quot;,
+          &quot;model_upper&quot;: &quot;60358779676639967781/1152921504606846976&quot;,
+          &quot;combined_upper&quot;: null,
+          &quot;status&quot;: &quot;refuted&quot;
+        },
+        {
+          &quot;rank&quot;: 3,
+          &quot;model_status&quot;: &quot;refuted&quot;,
+          &quot;model_lower&quot;: &quot;1027898920053783656131/18446744073709551616&quot;,
+          &quot;model_upper&quot;: &quot;1027898920054227108305/18446744073709551616&quot;,
+          &quot;combined_upper&quot;: null,
+          &quot;status&quot;: &quot;refuted&quot;
+        },
+        {
+          &quot;rank&quot;: 4,
+          &quot;model_status&quot;: &quot;refuted&quot;,
+          &quot;model_lower&quot;: &quot;990835432119582560605/18446744073709551616&quot;,
+          &quot;model_upper&quot;: &quot;990835432134970147751/18446744073709551616&quot;,
+          &quot;combined_upper&quot;: null,
+          &quot;status&quot;: &quot;refuted&quot;
+        },
+        {
+          &quot;rank&quot;: 5,
+          &quot;model_status&quot;: &quot;refuted&quot;,
+          &quot;model_lower&quot;: &quot;251688000094767748543/4611686018427387904&quot;,
+          &quot;model_upper&quot;: &quot;125844000049307357409/2305843009213693952&quot;,
+          &quot;combined_upper&quot;: null,
+          &quot;status&quot;: &quot;refuted&quot;
+        },
+        {
+          &quot;rank&quot;: 6,
+          &quot;model_status&quot;: &quot;refuted&quot;,
+          &quot;model_lower&quot;: &quot;919629896399829262633/18446744073709551616&quot;,
+          &quot;model_upper&quot;: &quot;919629896431129327961/18446744073709551616&quot;,
+          &quot;combined_upper&quot;: null,
+          &quot;status&quot;: &quot;refuted&quot;
+        },
+        {
+          &quot;rank&quot;: 7,
+          &quot;model_status&quot;: &quot;refuted&quot;,
+          &quot;model_lower&quot;: &quot;914918407811893355905/18446744073709551616&quot;,
+          &quot;model_upper&quot;: &quot;914918407843193730305/18446744073709551616&quot;,
+          &quot;combined_upper&quot;: null,
+          &quot;status&quot;: &quot;refuted&quot;
+        },
+        {
+          &quot;rank&quot;: 8,
+          &quot;model_status&quot;: &quot;refuted&quot;,
+          &quot;model_lower&quot;: &quot;458775942688478906943/9223372036854775808&quot;,
+          &quot;model_upper&quot;: &quot;458775942704129624557/9223372036854775808&quot;,
+          &quot;combined_upper&quot;: null,
+          &quot;status&quot;: &quot;refuted&quot;
+        },
+        {
+          &quot;rank&quot;: 9,
+          &quot;model_status&quot;: &quot;refuted&quot;,
+          &quot;model_lower&quot;: &quot;459531611445175263555/9223372036854775808&quot;,
+          &quot;model_upper&quot;: &quot;229765805730413076967/4611686018427387904&quot;,
+          &quot;combined_upper&quot;: null,
+          &quot;status&quot;: &quot;refuted&quot;
+        },
+        {
+          &quot;rank&quot;: 10,
+          &quot;model_status&quot;: &quot;refuted&quot;,
+          &quot;model_lower&quot;: &quot;460187592740491571559/9223372036854775808&quot;,
+          &quot;model_upper&quot;: &quot;230093796378071679501/4611686018427387904&quot;,
+          &quot;combined_upper&quot;: null,
+          &quot;status&quot;: &quot;refuted&quot;
+        },
+        {
+          &quot;rank&quot;: 11,
+          &quot;model_status&quot;: &quot;refuted&quot;,
+          &quot;model_lower&quot;: &quot;457330103659598467181/9223372036854775808&quot;,
+          &quot;model_upper&quot;: &quot;457330103675250461913/9223372036854775808&quot;,
+          &quot;combined_upper&quot;: null,
+          &quot;status&quot;: &quot;refuted&quot;
+        },
+        {
+          &quot;rank&quot;: 12,
+          &quot;model_status&quot;: &quot;refuted&quot;,
+          &quot;model_lower&quot;: &quot;100782215999159703303/2305843009213693952&quot;,
+          &quot;model_upper&quot;: &quot;403128863996639123653/9223372036854775808&quot;,
+          &quot;combined_upper&quot;: null,
+          &quot;status&quot;: &quot;refuted&quot;
+        },
+        {
+          &quot;rank&quot;: 13,
+          &quot;model_status&quot;: &quot;refuted&quot;,
+          &quot;model_lower&quot;: &quot;769040030356936329575/18446744073709551616&quot;,
+          &quot;model_upper&quot;: &quot;769040030356936972633/18446744073709551616&quot;,
+          &quot;combined_upper&quot;: null,
+          &quot;status&quot;: &quot;refuted&quot;
+        },
+        {
+          &quot;rank&quot;: 14,
+          &quot;model_status&quot;: &quot;refuted&quot;,
+          &quot;model_lower&quot;: &quot;388991442968818355255/9223372036854775808&quot;,
+          &quot;model_upper&quot;: &quot;388991442968818697079/9223372036854775808&quot;,
+          &quot;combined_upper&quot;: null,
+          &quot;status&quot;: &quot;refuted&quot;
+        },
+        {
+          &quot;rank&quot;: 15,
+          &quot;model_status&quot;: &quot;refuted&quot;,
+          &quot;model_lower&quot;: &quot;747200625729695179793/18446744073709551616&quot;,
+          &quot;model_upper&quot;: &quot;747200625729695896549/18446744073709551616&quot;,
+          &quot;combined_upper&quot;: null,
+          &quot;status&quot;: &quot;refuted&quot;
+        },
+        {
+          &quot;rank&quot;: 16,
+          &quot;model_status&quot;: &quot;refuted&quot;,
+          &quot;model_lower&quot;: &quot;374303495639749970931/9223372036854775808&quot;,
+          &quot;model_upper&quot;: &quot;374303495639750407531/9223372036854775808&quot;,
+          &quot;combined_upper&quot;: null,
+          &quot;status&quot;: &quot;refuted&quot;
+        }
+      ],
+      &quot;failure&quot;: null
+    }
+  },
+  &quot;full_blas_setup_seconds&quot;: 0.01650390200120455,
+  &quot;full_blas_median_batch_seconds&quot;: 0.0011591709990170784,
+  &quot;full_blas_raw_batch_seconds&quot;: [
+    0.001509601999714505,
+    0.0012378000010357937,
+    0.0011591709990170784,
+    0.0012704999990091892,
+    0.0009320789995399537,
+    0.0010940140000457177,
+    0.0009576269985700492
+  ],
+  &quot;full_total_setup_seconds&quot;: 0.028508885001429007,
+  &quot;native_compiler_seconds&quot;: 0.0765581129999191,
+  &quot;actual_compiler_wait_seconds&quot;: 9.809991752263159e-07,
+  &quot;native_source_sha256&quot;: &quot;08a0d2cd86bcd39426653102a466fac1c9a11e73afaafed7805a1d07f91fb171&quot;,
+  &quot;compiler_version&quot;: &quot;cc (Ubuntu 13.3.0-6ubuntu2~24.04) 13.3.0&quot;,
+  &quot;python&quot;: &quot;3.12.14&quot;,
+  &quot;numpy&quot;: &quot;2.3.5&quot;,
+  &quot;scipy&quot;: &quot;1.17.0&quot;,
+  &quot;platform&quot;: &quot;Linux x86_64&quot;,
+  &quot;measurement&quot;: &quot;warmed alternating trials; one BLAS thread; domain checks and initial encoding included; complete output materialization&quot;,
+  &quot;cost_scope&quot;: &quot;in-process sampled-source conversion, proposal search, independent replay, compiler and preparation; interpreter/dependency imports, file I/O, upstream MAT acquisition/sampling excluded&quot;,
+  &quot;guarantee&quot;: &quot;accepted reduced native outputs including feedthrough versus the replayed engineering reference for every admitted stored input in boxes; finite horizon&quot;,
+  &quot;engineering_reference&quot;: &quot;exact stored discrete coefficients&quot;,
+  &quot;continuous_sampling_bounded&quot;: null,
+  &quot;baseline&quot;: &quot;SciPy square-root balanced truncation, accepted by same combined box/native error test; full dense NumPy BLAS reference&quot;,
+  &quot;projection&quot;: &quot;requested total costs extrapolate measured batch medians; they are not a sustained run&quot;,
+  &quot;provenance&quot;: {
+    &quot;upstream&quot;: &quot;https://github.com/SLICOT/Benchmark-ModelReduction&quot;,
+    &quot;commit&quot;: &quot;98c1747030c0b1bf48d9353b2dcc9c4583867ca1&quot;,
+    &quot;mat_sha256&quot;: &quot;9513bfdf12fb9382a4491755464702bf0e75567d9e4090f9f67f27ebf92ecac7&quot;,
+    &quot;sampled_model_sha256&quot;: &quot;9b8a16481220d8188ac7ea86fb340d8a2bf571c8d95813c013154f3525112006&quot;,
+    &quot;scope&quot;: &quot;retained sampled normalized-output model; experimental boxes, not measured customer trajectories&quot;
+  },
+  &quot;thread_limit&quot;: 1
+}</pre></details></html>
