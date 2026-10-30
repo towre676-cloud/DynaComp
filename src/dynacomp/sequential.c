@@ -19,6 +19,9 @@ static double dot(const double *a, const double *x, size_t k, size_t q, size_t j
     }
     return sum;
 }
+#ifdef _WIN32
+__declspec(dllexport)
+#endif
 int run(size_t n,size_t r,size_t m,size_t p,size_t steps,size_t q,
         const double *e,const double *g,const double *h,const double *d,
         const double *x,const double *u,double *out) {

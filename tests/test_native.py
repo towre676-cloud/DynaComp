@@ -1,19 +1,24 @@
 import copy
+import ctypes
+from contextlib import contextmanager
+import sys
 from fractions import Fraction as Q
 import random
+import os
 import shutil
 import unittest
 
 from dynacomp.binary64 import bits,from_bits,exact,round_bits
 from dynacomp.native import (certify_sequential,replay_sequential,compose_sequential,
-                             replay_sequential_composition,PreparedSequential,sequential_budget)
+                             replay_sequential_composition,PreparedSequential,sequential_budget,
+                             _compiler, _compile_command)
 from dynacomp.rational import q
 from dynacomp.uniform import SparseLinearModel
 from dynacomp.validated import validated_box
 
 try:
     import numpy as np
-    AVAILABLE = bool(shutil.which('cc') or shutil.which('gcc') or shutil.which('clang'))
+    AVAILABLE = bool(os.environ.get('DYNACOMP_CC') or shutil.which('cc') or shutil.which('gcc') or shutil.which('clang') or shutil.which('x86_64-w64-mingw32-gcc'))
 except ImportError:
     AVAILABLE = False
 
@@ -24,6 +29,46 @@ def reference_dot(coefficients,words):
         product=round_bits(exact(a)*exact(b))
         total=round_bits(exact(total)+exact(product))
     return total
+
+
+@contextmanager
+def environment_control():
+    """Compile fenv constants on the target, without assuming Linux values."""
+    import subprocess
+    import tempfile
+    from pathlib import Path
+    with tempfile.TemporaryDirectory() as folder:
+        source=Path(folder)/'control.c'
+        target=Path(folder)/('control.dll' if sys.platform=='win32' else 'control.so')
+        source.write_text("""
+#include <fenv.h>
+#if defined(__x86_64__) || defined(_M_X64)
+#include <xmmintrin.h>
+#else
+static unsigned _mm_getcsr(void) { return 0; }
+static void _mm_setcsr(unsigned v) { (void)v; }
+#endif
+#ifdef _WIN32
+#define EXPORT __declspec(dllexport)
+#else
+#define EXPORT
+#endif
+EXPORT int get_round(void) { return fegetround(); }
+EXPORT int set_round(int v) { return fesetround(v); }
+EXPORT int set_downward(void) { return fesetround(FE_DOWNWARD); }
+EXPORT unsigned get_control(void) { return _mm_getcsr(); }
+EXPORT void set_control(unsigned v) { _mm_setcsr(v); }
+""")
+        subprocess.run(_compile_command(_compiler(),source,target),check=True,capture_output=True)
+        control=ctypes.CDLL(str(target))
+        control.get_control.restype=ctypes.c_uint
+        control.set_control.argtypes=[ctypes.c_uint]
+        control.set_round.argtypes=[ctypes.c_int]
+        try:yield control
+        finally:
+            if sys.platform=='win32':
+                from _ctypes import FreeLibrary
+                FreeLibrary(control._handle)
 
 
 @unittest.skipUnless(AVAILABLE,'NumPy and a C compiler required')
@@ -79,17 +124,13 @@ class NativeTests(unittest.TestCase):
     def test_environment_refuses_changed_rounding(self):
         packet=certify_sequential([[1]],[[0]],[[0]],[[1]],[0],[1],[],'1/100')
         runner=PreparedSequential(packet)
-        try: get=runner._lib.fegetround;set_round=runner._lib.fesetround
-        except AttributeError:self.skipTest('No fenv exported')
-        old=get()
-        # FE_DOWNWARD on this Linux test host; do not assume a constant on
-        # other operating systems. Restore before any further Python work.
-        import sys
-        if not sys.platform.startswith('linux'):self.skipTest('Linux fenv constant')
-        try:
-            if set_round(0x400):self.skipTest('Rounding mode unsupported')
-            with self.assertRaises(RuntimeError):runner.simulate([0.25],np.empty((0,1,1)))
-        finally:set_round(old)
+        with environment_control() as control:
+            old=control.get_round()
+            try:
+                self.assertEqual(control.set_downward(),0)
+                with self.assertRaises(RuntimeError):runner.simulate([0.25],np.empty((0,1,1)))
+            finally:control.set_round(old)
+        self.assertEqual(runner.simulate([0.25],np.empty((0,1,1)))[0,0,0],0.25)
 
     def test_replay_and_composition_tampering(self):
         model=SparseLinearModel.from_spec({'n':1,'entries':[[0,0,'1/2']],'B':[[1]],'C':[[1]]})
@@ -103,19 +144,10 @@ class NativeTests(unittest.TestCase):
         with self.assertRaises(ValueError):replay_sequential(bad)
 
     def test_flush_and_denormals_modes_are_refused(self):
-        import ctypes
         import platform
-        import subprocess
-        import tempfile
-        from pathlib import Path
         if platform.machine().lower() not in ('x86_64','amd64'):
             self.skipTest('x86 control-register test')
-        with tempfile.TemporaryDirectory() as folder:
-            source=Path(folder)/'control.c';target=Path(folder)/'control.so'
-            source.write_text('#include <xmmintrin.h>\nunsigned get_control(void){return _mm_getcsr();}\nvoid set_control(unsigned v){_mm_setcsr(v);}')
-            subprocess.run([shutil.which('cc') or shutil.which('gcc') or shutil.which('clang'),'-shared','-fPIC',str(source),'-o',str(target)],check=True,capture_output=True)
-            control=ctypes.CDLL(str(target));control.get_control.restype=ctypes.c_uint
-            control.set_control.argtypes=[ctypes.c_uint]
+        with environment_control() as control:
             packet=certify_sequential([[1]],[[0]],[[0]],[[1]],[0],[1],[],'1/100')
             runner=PreparedSequential(packet);old=control.get_control()
             for mask in (0x40,0x8000,0x8040):
@@ -123,6 +155,27 @@ class NativeTests(unittest.TestCase):
                     control.set_control(old|mask)
                     with self.assertRaises(RuntimeError):runner.simulate([0.25],np.empty((0,1,1)))
                 finally:control.set_control(old)
+
+    def test_halfway_products_additions_and_subnormal_generation(self):
+        # Exact integer rounding is independent of the C compiler and host fenv.
+        # Half-ulp sums, half-minsubnormal ties, and the normal boundary.
+        tiny=Q(1,2**1074)
+        cases=[([1,1],[1,Q(1,2**53)]),
+               ([1,1],[1+Q(1,2**52),Q(1,2**53)]),
+               ([Q(1,2)],[tiny]), ([Q(3,2)],[tiny]),
+               ([Q(1,2)],[Q(1,2**1022)]),
+               ([1+Q(1,2**52)],[1+Q(1,2**52)])]
+        for coefficients, values in cases:
+            packet=certify_sequential([coefficients],[[0]],[[0]],[[1]],
+                                      values,[0]*len(values),[],'1/100')
+            runner=PreparedSequential(packet)
+            expected=reference_dot(packet['loaded_words']['E'][0],
+                                   [round_bits(v) for v in values])
+            result=runner.simulate([float(v) for v in values],np.empty((0,1,1)))
+            self.assertEqual(bits(float(result[0,0,0])),expected)
+            ideal=sum(a*b for a,b in zip(coefficients,values))
+            self.assertLessEqual(abs(exact(expected)-ideal),q(packet['output_error_upper'][0][0]))
+            self.assertTrue(np.array_equal(result,runner.simulate([float(v) for v in values],np.empty((0,1,1)))))
 
     def test_overflow_fails_closed(self):
         with self.assertRaises(ValueError):

@@ -73,3 +73,60 @@ Setup accounting includes in-process source conversion, proposal search, certifi
 The interface and evidence are sufficient to run a concrete customer evaluation. They are not evidence of a paying customer, safety certification, universally superior reduction, or an industrial throughput win. The next empirical step is a customer's real source matrices, operating ranges, expected number of repeated batches and a baseline chosen with that customer. The product should refuse or recommend the full engine when setup cannot amortize or the smaller executor is slower. The retained building failure is an example of precisely that situation.
 
 Continuous intersample guarantees, all-time conventional rounding invariants, correlated-domain native composition, descriptor models and an optimized conventional batch kernel remain open. Future optimized kernels must retain their operation contract or obtain a new rounding analysis. The important advance of this release is narrower and concrete: a supplied sampled workload can now travel through reduction, independently checkable model error, actual conventional execution error, guarded saved-plan execution and a transparent cost comparison.
+
+## Windows native portability
+
+The Windows path targets **x86-64 CPython and MinGW-w64 GCC (UCRT64)**.
+MSVC, 32-bit Windows, ARM64 and MSYS/Cygwin compilers are not supported by this
+path. Install the numerical extras with the Windows Python interpreter:
+
+```powershell
+python -m pip install -e ".[numerical]"
+$env:DYNACOMP_CC = 'C:\msys64\ucrt64\bin\gcc.exe'
+$env:PATH = 'C:\msys64\ucrt64\bin;' + $env:PATH
+python -m unittest discover -s tests -p test_native.py -v
+dynacomp-pilot evaluate applications/customer_pilot/two_state.json --output pilot-windows --queries 8 --trials 3
+python tools/check_native_portability.py pilot-windows
+```
+
+The same compiler path can be set in Git Bash with
+`export DYNACOMP_CC='C:/msys64/ucrt64/bin/gcc.exe'`. Use Windows Python, not an
+MSYS Python. `DYNACOMP_CC` is one executable path, not a command with flags.
+Absent this override, Windows discovery tries `x86_64-w64-mingw32-gcc` and
+`gcc`, and verifies an x86-64 MinGW target. Linux retains cc/gcc/clang discovery
+and its existing shared-library flags.
+
+Windows builds a DLL, explicitly exports the cdecl `run` entry point, and loads
+it with `ctypes.CDLL` by absolute path. SSE2 evaluation and static libgcc avoid
+x87 excess precision and an extra libgcc runtime DLL dependency. Keep the UCRT64
+bin directory on PATH for compiler tools. At process exit, the library is
+unloaded before temporary build files are deleted. Builds and native execution
+remain explicit; certificate construction/replay still needs no compiler.
+
+Both platforms use C11, separate volatile products and sums, no fast math,
+no FP contraction, and rounding-aware compilation. The preprocessor checks and
+per-batch RN-even/subnormal guards remain enabled. The runtime refuses an
+unsupported floating-point environment; it does not change the caller's mode.
+No certificate schemas or error formulas change.
+
+CI adds Windows Server 2022 x64 / CPython 3.11 / MSYS2 UCRT64 GCC and Ubuntu
+24.04 / CPython 3.11, alongside the established Linux matrix. It requires
+successful native compilation before running tests, so missing compiler support
+cannot silently turn native coverage into skips. Target-compiled fenv constants
+replace Linux-specific rounding constants in tests. Tests cover halfway ties,
+subnormal generation/transport, FTZ/DAZ rejection, overflow refusal, and random
+traces against independent integer/rational rounding.
+
+Each runner evaluates the supplied two-state customer example and retains its
+plan, packets, timings and a `portability.json` report. Fixed endpoint/interior
+stored-input scenarios are independently evolved using exact rational **full
+source** equations. Every native output must satisfy its time-matched combined
+model/execution bound. Repeated executions on each runner must agree. A dependent
+job compares the two platforms against the sum of their certified bounds;
+platform-dependent reduction coefficients may differ. Hardware timings are never
+required to match. These sampled checks supplement the existing all-box
+certificates rather than replacing them.
+
+A configured CI environment is not evidence of a passing environment. Consult
+the PR's actual Actions jobs and retained compiler/build metadata before claiming
+Windows validation; Windows 11 on a customer laptop requires its own run.
