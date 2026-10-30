@@ -22,3 +22,59 @@ jobs:
       - run: python examples/infinite_spectral.py
       - run: python examples/machine_generating.py
       - run: dynacomp-pilot evaluate applications/customer_pilot/two_state.json --output /tmp/pilot --queries 8 --trials 3
+
+  native-portability:
+    name: native ${{ matrix.os }} Python 3.11
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-24.04, windows-2022]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          architecture: x64
+      - name: Install MinGW-w64 GCC (UCRT64)
+        id: msys2
+        if: runner.os == 'Windows'
+        uses: msys2/setup-msys2@v2
+        with:
+          msystem: UCRT64
+          update: true
+          install: mingw-w64-ucrt-x86_64-gcc
+      - name: Select native Windows compiler
+        if: runner.os == 'Windows'
+        shell: pwsh
+        env:
+          MSYS2_ROOT: ${{ steps.msys2.outputs.msys2-location }}
+        run: |
+          $compilerDir = Join-Path $env:MSYS2_ROOT 'ucrt64\bin'
+          $compilerDir >> $env:GITHUB_PATH
+          "DYNACOMP_CC=$compilerDir\gcc.exe" >> $env:GITHUB_ENV
+      - run: python -m pip install -e ".[numerical]"
+      - name: Require native compilation (no skipped compiler coverage)
+        run: python -c "from dynacomp.native import _library; print(_library().compiler_version)"
+      - run: python -m unittest discover -s tests -v
+      - run: dynacomp-pilot evaluate applications/customer_pilot/two_state.json --output pilot-portability --queries 8 --trials 3
+      - run: python tools/check_native_portability.py pilot-portability
+      - uses: actions/upload-artifact@v4
+        with:
+          name: native-${{ matrix.os }}-py311
+          path: pilot-portability/
+
+  compare-native-platforms:
+    runs-on: ubuntu-24.04
+    needs: native-portability
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install -e ".[numerical]"
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: native-*-py311
+          path: portability-results
+      - run: python tools/check_native_portability.py --compare portability-results/native-ubuntu-24.04-py311/portability.json portability-results/native-windows-2022-py311/portability.json

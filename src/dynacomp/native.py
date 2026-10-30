@@ -4,7 +4,11 @@ Separate multiplication and addition, sequential left-to-right accumulation,
 no FMA/reassociation, RN-even and gradual underflow are the execution contract.
 Compilation is explicit on first preparation; no compiled binaries are shipped.
 """
+import atexit
 import copy
+import os
+import platform
+import sys
 import ctypes
 from fractions import Fraction as Q
 import hashlib
@@ -80,18 +84,56 @@ def replay_sequential_composition(packet):
     return True
 
 
+def _compiler():
+    """Select a compiler executable, never a shell command or user flags."""
+    names = ([os.environ['DYNACOMP_CC']] if os.environ.get('DYNACOMP_CC') else
+             (['x86_64-w64-mingw32-gcc', 'gcc'] if sys.platform == 'win32'
+              else ['cc', 'gcc', 'clang']))
+    for name in names:
+        compiler = shutil.which(name)
+        if not compiler:
+            continue
+        if sys.platform == 'win32':
+            if platform.machine().lower() not in ('amd64', 'x86_64') or ctypes.sizeof(ctypes.c_void_p) != 8:
+                raise RuntimeError('Native Windows execution requires x86-64 Python')
+            target = subprocess.run([compiler, '-dumpmachine'], check=True,
+                                    capture_output=True, text=True).stdout.strip().lower()
+            if not (target.startswith('x86_64-') and 'mingw' in target):
+                continue
+        return compiler
+    raise RuntimeError('Install a C compiler (Windows: x86-64 MinGW-w64 GCC); '
+                       'DYNACOMP_CC may name its executable')
+
+
+def _compile_command(compiler, source, target):
+    flags = ['-std=c11', '-O2', '-shared', '-fno-fast-math',
+             '-ffp-contract=off', '-frounding-math']
+    if sys.platform != 'win32':
+        flags += ['-fPIC']
+    else:
+        # SSE2 directly evaluates binary64; never use x87 excess precision.
+        flags += ['-msse2', '-mfpmath=sse', '-static-libgcc']
+    return [compiler, *flags, str(source), '-lm', '-o', str(target)]
+
+
+def _cleanup_library(lib, folder):
+    # Windows prevents deletion of loaded DLLs. Run before TemporaryDirectory's
+    # finalizer, at process exit only (live PreparedSequential objects share it).
+    if sys.platform == 'win32':
+        from _ctypes import FreeLibrary
+        FreeLibrary(lib._handle)
+    folder.cleanup()
+
+
 def _library():
     global _LIBRARY, _TEMP
     if _LIBRARY is not None:
         return _LIBRARY
-    compiler = shutil.which('cc') or shutil.which('gcc') or shutil.which('clang')
-    if not compiler:
-        raise RuntimeError('Install a GCC-compatible C compiler to prepare native execution')
+    compiler = _compiler()
     source = Path(__file__).with_name('sequential.c')
-    _TEMP = tempfile.TemporaryDirectory(prefix='dynacomp-sequential-')
-    target = Path(_TEMP.name)/'runtime.so'
-    command = [compiler,'-std=c11','-O2','-shared','-fPIC','-fno-fast-math',
-               '-ffp-contract=off','-frounding-math',str(source),'-lm','-o',str(target)]
+    folder = tempfile.TemporaryDirectory(prefix='dynacomp-sequential-')
+    target = Path(folder.name)/('runtime.dll' if sys.platform == 'win32' else 'runtime.so')
+    command = _compile_command(compiler, source, target)
     started = time.perf_counter()
     subprocess.run(command,check=True,capture_output=True,text=True)
     build_seconds = time.perf_counter()-started
@@ -103,6 +145,8 @@ def _library():
     lib.source_sha256 = hashlib.sha256(source.read_bytes()).hexdigest()
     lib.build_seconds = build_seconds
     lib.compiler_version = subprocess.run([compiler,'--version'],check=True,capture_output=True,text=True).stdout.splitlines()[0]
+    atexit.register(_cleanup_library, lib, folder)
+    _TEMP = folder
     _LIBRARY = lib
     return lib
 
@@ -145,7 +189,9 @@ class PreparedSequential:
     @property
     def build_info(self):
         return {'source_sha256':self._lib.source_sha256,'compiler_command':self._lib.compiler_command,
-                'compiler_version':self._lib.compiler_version,'contract':CONTRACT}
+                'compiler_version':self._lib.compiler_version,'contract':CONTRACT,
+                'platform':sys.platform,'machine':platform.machine(),
+                'python':platform.python_version()}
 
     def simulate(self,initial,inputs):
         import numpy as np

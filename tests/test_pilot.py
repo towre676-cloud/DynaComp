@@ -2,6 +2,7 @@ import copy
 import gzip
 import json
 from pathlib import Path
+import os
 import shutil
 import tempfile
 import unittest
@@ -10,7 +11,7 @@ try:
     import scipy
     import numpy as np
     import threadpoolctl
-    AVAILABLE=bool(shutil.which('cc') or shutil.which('gcc') or shutil.which('clang'))
+    AVAILABLE=bool(os.environ.get('DYNACOMP_CC') or shutil.which('cc') or shutil.which('gcc') or shutil.which('clang') or shutil.which('x86_64-w64-mingw32-gcc'))
 except ImportError:AVAILABLE=False
 
 SPEC={'schema':'dynacomp.workload/1','name':'<sample>','model':{'A':[['1/2',0],[0,'1/4']],'B':[[1],[1]],'C':[[1,'1/1000']]},

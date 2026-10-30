@@ -28,7 +28,7 @@ def read_json(path):
     if path.suffix == '.gz':
         with gzip.open(path,'rt') as stream:
             return json.load(stream)
-    return json.loads(path.read_text())
+    return json.loads(path.read_text(encoding='utf-8'))
 
 
 def _bind(array):
@@ -158,7 +158,7 @@ def compile_workload(spec,output):
             report['methods'][name] = result
     report['shared_source_passes'] = cache.source_passes
     report['search_cost_policy'] = 'observable search pays first shared source pass; balanced reuses it; per-method standalone setup also reported at evaluation'
-    (output/'plan.json').write_text(json.dumps(report,indent=2)+'\n')
+    (output/'plan.json').write_text(json.dumps(report,indent=2)+'\n',encoding='utf-8')
     return report
 
 
@@ -302,8 +302,8 @@ def evaluate_plan(folder,queries=256,trials=7,batches=1000,seed=20261010):
               'baseline':'SciPy square-root balanced truncation, accepted by same combined box/native error test; full dense NumPy BLAS reference',
               'projection':'requested total costs extrapolate measured batch medians; they are not a sustained run',
               'provenance':spec.get('provenance',{})}
-    (folder/'results.json').write_text(json.dumps(report,indent=2)+'\n')
-    (folder/'report.html').write_text(render_report(report))
+    (folder/'results.json').write_text(json.dumps(report,indent=2)+'\n',encoding='utf-8')
+    (folder/'report.html').write_text(render_report(report),encoding='utf-8')
     return report
 
 
@@ -434,7 +434,7 @@ def main(argv=None):
         np.save(args.output,result);print(args.output);return
     if args.command=='import-mat':
         spec = import_mat(args.mat,args.dt,args.normalize_output)
-        Path(args.output).write_text(json.dumps(spec,indent=2)+'\n');print(args.output);return
+        Path(args.output).write_text(json.dumps(spec,indent=2)+'\n',encoding='utf-8');print(args.output);return
     if args.command in ('compile','evaluate'):
         plan = compile_workload(read_json(args.spec),args.output)
         if args.command=='compile':
